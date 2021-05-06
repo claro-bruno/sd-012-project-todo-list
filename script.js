@@ -52,3 +52,34 @@ function adicionaListaTarefas () {
     document.body.appendChild(lista);
 }
 adicionaListaTarefas();
+
+
+/* 5 - Adicione um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
+O que será verificado:
+
+Será verificada a existência de um elemento do tipo button com o id criar-tarefa
+
+No campo de input será digitado o texto de uma tarefa qualquer e, em seguida, clicar-se-á no botão de criar tarefa. Será verificado que, após o clique, o texto digitado aparece na lista e desaparece do input.
+
+A adição de elementos na lista será feita algumas vezes, e será checado se todos os itens criados permanecem na lista na medida em que novos são adicionados. */
+/* Credito: https://www.w3schools.com/js/js_input_examples.asp */
+
+function botaoCriarTarefa () {
+    let lista = document.getElementById('lista-tarefas');
+    let input = document.getElementById('texto-tarefa');
+    let botao = document.createElement('button');
+    document.body.insertBefore(botao, lista);
+    botao.id = 'criar-tarefa';
+    botao.innerHTML = 'Criar tarefa'
+    botao.addEventListener('click', function (event) {
+       if(input.value === '') { 
+           alert('Esta vazio!');
+       } else {
+           let item = document.createElement('li');
+           lista.appendChild(item);
+           item.innerHTML = input.value;
+           input.value = '';
+       }
+    })
+}
+botaoCriarTarefa();
