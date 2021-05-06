@@ -1,6 +1,9 @@
 let inputTarefa = document.querySelector('#texto-tarefa');
 let botaoTarefa = document.querySelector('#criar-tarefa');
 let listaTarefas = document.querySelector('#lista-tarefas');
+let botaoLimpaLista = document.querySelector('#apaga-tudo');
+
+limpaLista();
 
 botaoTarefa.addEventListener('click', function () {
   let novaTarefa = document.createElement('li');
@@ -10,6 +13,7 @@ botaoTarefa.addEventListener('click', function () {
   inputTarefa.value = '';
   concluiTarefa();
   pintaTarefa();
+  limpaLista();
 });
 
 function pintaTarefa() {
@@ -44,4 +48,11 @@ function concluiTarefa() {
       }
     });
   }
+}
+
+function limpaLista() {
+    let listaTarefas = document.querySelector('#lista-tarefas');
+    botaoLimpaLista.addEventListener('click', function () {
+        listaTarefas.removeChild(listaTarefas.lastElementChild);
+    })
 }
