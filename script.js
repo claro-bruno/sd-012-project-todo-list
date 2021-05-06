@@ -71,10 +71,21 @@ removeAllButton.addEventListener('click', () => {
 
 saveTasksButton.addEventListener('click', () => {
   const li = document.querySelectorAll('li');
-  let tasksArray = [];
+  let arrayOfTaskObjs = [];
   for (let index = 0; index < li.length; index += 1) {
-    tasksArray.push(li[index].innerHTML);
-    let index = li[index].classList;
+    let taskObj = {
+      'position':  index + 1,
+      'task':      li[index].innerHTML
+    };
+    if (li[index].classList.contains('selected')) {
+      taskObj.selected = true;
+    }
+    if (li[index].classList.contains('completed')) {
+      taskObj.completed = true;
+    }
+    arrayOfTaskObjs.push(taskObj)
+    console.log(taskObj);
   }
-  localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
+  console.log(arrayOfTaskObjs);
+  localStorage.setItem('arrayOfTaskObjs', JSON.stringify(arrayOfTaskObjs));
 });
