@@ -62,3 +62,18 @@ function clearCompleted() {
     })
 }
 clearCompleted();
+
+function saveTasks() {
+    let buttonSave = document.getElementById('salvar-tarefas');
+    buttonSave.addEventListener('click', () => {
+        let listContent = document.getElementById('lista-tarefas').innerHTML;
+        localStorage.setItem('lista', listContent);
+    })
+}
+saveTasks();
+
+function initialize() {
+    let list = document.getElementById('lista-tarefas');
+    list.innerHTML = localStorage.getItem('lista');
+}
+initialize();
