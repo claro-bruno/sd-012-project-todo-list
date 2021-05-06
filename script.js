@@ -41,14 +41,15 @@ function setGreyItem() {
   for (let index = 0; index < orderList.length; index += 1) {
     orderList[index].addEventListener('click', function () {
       setNoBackgroundColor(orderList);
-      console.log(orderList[index].style.backgroundColor);
-      orderList[index].style.backgroundColor = 'rgb(128, 128, 128)';
+      // orderList[index].style.backgroundColor = 'rgb(128, 128, 128)';
+      orderList[index].classList.add('selected');
     })
   }
 }
 
 function setNoBackgroundColor(orderList) {
   for (let index = 0; index < orderList.length; index += 1) {
-    orderList[index].style.backgroundColor = 'white';
+    orderList[index].classList.remove('selected');
   }
 }
+
