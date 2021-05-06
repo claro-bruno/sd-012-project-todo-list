@@ -2,12 +2,13 @@ const addTaskButton = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const taskInput = document.getElementById('texto-tarefa');
 
-let selectedTask;
-
 const selectTask = (event) => {
+  let selectedTask = document.querySelector('.selected');
   const task = event.target;
-  task.classList.add('selected');
-  if (selectedTask) {
+  if (task === selectedTask) {
+    task.classList.remove('selected');
+  } else {
+    task.classList.add('selected');
     selectedTask.classList.remove('selected');
   }
   selectedTask = task;
