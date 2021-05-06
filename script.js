@@ -12,24 +12,6 @@ const selecionarTarefa = () => {
   }
 };
 
-// const concluirTarefa = () => {
-//   const todasAsTarefas = document.querySelectorAll('.tarefa');
-
-//   for (let index = 0; index < todasAsTarefas.length; index += 1) {
-//     todasAsTarefas[index].addEventListener('dblclick', (evento) => {
-//       console.log(evento.target.classList.contains('completed'));
-//       if (evento.target.classList.contains('completed')) {
-//         evento.target.classList.remove('completed');
-//         console.log('remove');
-//       } else {
-//         evento.target.classList.add('completed');
-//         console.log('adiciona');
-//       }
-//       // todasAsTarefas[index].classList.toggle('completed');
-//     });
-//   }
-// };
-
 const criarTarefa = () => {
   const textoTarefa = document.querySelector('#texto-tarefa');
   const listaDeTarefas = document.querySelector('#lista-tarefas');
@@ -39,9 +21,12 @@ const criarTarefa = () => {
   novaTarefa.className = 'tarefa';
   listaDeTarefas.appendChild(novaTarefa);
 
+  // marcar elemento como concluido
+  novaTarefa.addEventListener('dblclick', (evento) => {
+    evento.target.classList.toggle('completed');
+  });
   textoTarefa.value = '';
   selecionarTarefa();
-  // concluirTarefa();
 };
 
 const apagarTodasAsTarefas = () => {
