@@ -8,25 +8,37 @@ newTaskButton.addEventListener('click', () => {
   inputTask.value = '';
   taskList.appendChild(li);
   selectLi();
+  taskFinished()
 });
 
 function selectLi() {
-  const li = document.querySelectorAll('li');
   const lastLi = taskList.lastElementChild;
-  //for (let index = 0; index < li.length; index += 1) {
-    lastLi.addEventListener('click', (event) => {
-      deselectOtherLis();
-      const targ = event.target;
-      targ.className = 'selected';
-      targ.style.backgroundColor = 'rgb(128, 128, 128)';
-    });
-  //}
+  lastLi.addEventListener('click', (event) => {
+    deselectOtherLis();
+    const targ = event.target;
+    targ.className = 'selected';
+    targ.style.backgroundColor = 'rgb(128, 128, 128)';
+  });
 };
 
 function deselectOtherLis() {
   const li = document.querySelectorAll('li');
-  for (let index = 0; index < li.length; index += 1) {
+  for (let index = 0; index < li.length; index += 1) { // refatorar para retirar o loop e retirar a seleção apenas do elemento com classe selected
     li[index].style.backgroundColor = 'white';
     li[index].classList.remove('selected');
   }
 }
+
+function taskFinished() {
+  const lastLi = taskList.lastElementChild;
+  lastLi.addEventListener('dblclick', (event) => {
+    const targ = event.target;
+    if (targ.style.textDecoration === 'line-through') {
+      targ.style.textDecoration = '';
+      targ.classList.remove('completed');
+    } else {
+      targ.style.textDecoration = 'line-through';
+      targ.classList.add('completed');
+    }
+  });
+};
