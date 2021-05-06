@@ -2,6 +2,7 @@ const addTaskButton = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const taskInput = document.getElementById('texto-tarefa');
 const removeAllButton = document.getElementById('apaga-tudo');
+const removeCompletedButton = document.getElementById('remover-finalizados');
 
 // Solução encontrada no respositório de Anajulia
 // Source: https://github.com/tryber/sd-011-project-todo-list/blob/anajulia-bs-todo-list-project/script.js
@@ -36,5 +37,13 @@ const removeAll = () => {
   taskList.innerHTML = '';
 };
 
+const removeCompleted = () => {
+  const completed = document.getElementsByClassName('completed');
+  while (completed.length > 0) {
+    completed[0].remove();
+  }
+};
+
+removeCompletedButton.addEventListener('click', removeCompleted);
 removeAllButton.addEventListener('click', removeAll);
 addTaskButton.addEventListener('click', addTask);
