@@ -13,13 +13,21 @@ function receiveInput() {
   document.querySelector('#texto-tarefa').value = '';
 }
 
-function setGreyItem() {
-  let orderList = document.querySelectorAll('.task-list');
-    for (let index = 0; index < orderList.length; index += 1) {
-    orderList[index].addEventListener('click', function(){
-      orderList[index].id = ' selected';
-    //   orderList[index].classList.add('selected');
-    })
+// function setGreyItem() {
+//   let orderList = document.querySelectorAll('.task-list');
+//     for (let index = 0; index < orderList.length; index += 1) {
+//     orderList[index].addEventListener('click', function(){
+//       orderList[index].id = ' selected';
+//     //   orderList[index].classList.add('selected');
+//     })
+//   }
+// }
+// setGreyItem();
+
+function setGreyItem(){
+  let orderList = document.querySelectorAll('.task-list')
+  for (let index = 0; index < orderList.length; index += 1){
+    orderList[index].style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }
 setGreyItem();
