@@ -5,3 +5,8 @@
 .completed {
   text-decoration: line-through solid black;
 }
+
+.buttons{
+ border-radius: 60%;
+ padding: 10px;
+}
