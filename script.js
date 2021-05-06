@@ -3,6 +3,7 @@ const listaDeTarefas = document.querySelector('#lista-tarefas');
 const botaoAddTarefa = document.querySelector('#criar-tarefa');
 const botaoApagaTudo = document.querySelector('#apaga-tudo');
 const botaoApagaFinalizadas = document.querySelector('#remover-finalizados');
+const botaoApagaSelecionado = document.querySelector('#remover-selecionado');
 
 function addTarefa() {
     if (tarefaNova.value.length > 0) {
@@ -58,3 +59,9 @@ function apagarFinalizados() {
 }
 
 botaoApagaFinalizadas.addEventListener('click', apagarFinalizados);
+
+function apagarSelecionado() {
+    listaDeTarefas.removeChild(document.querySelector('.selected'));
+}
+
+botaoApagaSelecionado.addEventListener('click', apagarSelecionado);
