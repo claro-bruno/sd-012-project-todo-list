@@ -23,7 +23,6 @@ let button = document.querySelector("#criar-tarefa");
 let list = document.querySelector("#lista-tarefas");
 let textTasks = document.querySelector("#texto-tarefa");
 
-
 button.addEventListener("click", function () {
   let makeLi = document.createElement("li");
   makeLi.className = "tasks";
@@ -33,18 +32,16 @@ button.addEventListener("click", function () {
 
 });
 
-let changes = document.getElementById("lista-tarefas");
+let ordenedList = document.querySelectorAll("#lista-tarefas");
 
-changes.addEventListener("click", function (event) {
+for (let index = 0; index < ordenedList.length; index += 1) {
+  ordenedList[index].addEventListener("click", function (event) {
 
-  if (event.target.className === "tasks") {
-    event.target.style.backgroundColor = document.querySelector(".tasks").style.backgroundColor = "rgb(128, 128, 128)";
-  }
-
-});
-
-
-
-
-
-
+    if (event.target.className === "tasks") {
+      if (document.querySelector("#changeColor") !== null) {
+        document.querySelector("#changeColor").removeAttribute("id");
+      }
+      event.target.id = "changeColor";
+    }
+  })
+};

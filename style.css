@@ -1,5 +1,6 @@
 body{
     text-align: center;
+    background-color: gold;
 }
 ol{
     text-align: center;
@@ -8,4 +9,13 @@ ol{
     max-width: 200px;
     text-align: center;
     margin: auto;
+}
+article{
+    background-color: darksalmon;
+   max-width: 40%;
+   margin: auto;
+   
+}
+#changeColor{
+    background-color:rgb(128, 128, 128) ;
 }
