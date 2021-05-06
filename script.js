@@ -3,7 +3,7 @@ let caminhoBtn = document.getElementById("criar-tarefa");
 let caminhoImput = document.getElementById("texto-tarefa");
 let caminhoLista = document.getElementById("lista-tarefas");
 let apagaBtn = document.getElementById("apaga-tudo");
-
+let apagaFinalizadosBtn = document.getElementById("remover-finalizados");
 // função que muda o backgroundColor de tarefa e seleciona
 function mudaFundoSeleciona(event){
     let velhoClick = document.querySelector(".selected");
@@ -51,7 +51,18 @@ function clicaBtn(){
 caminhoBtn.addEventListener("click", clicaBtn);
 
 //  adiciona eventlistener com função no botão apaga-tudo
-
 apagaBtn.addEventListener("click", function (){
     caminhoLista.innerHTML = "";
 });
+
+
+//  adiciona função apaga completed
+function apagaCompleted(){
+    let completedList = document.querySelectorAll(".completed");
+    for (let element of completedList){
+        caminhoLista.removeChild(element);
+    };
+};
+
+//  adiciona eventlistener no botão remove-finalizados
+apagaFinalizadosBtn.addEventListener("click", apagaCompleted);
