@@ -1,12 +1,5 @@
 
 // Adiciona tarefa digitada pelo usuário;
-function addTask() {
-  const task = document.getElementById('texto-tarefa');
-  const addButton = document.getElementById('criar-tarefa');
-  task.focus();
-  addButton.addEventListener('click', addTaskClick);
-}
-
 function addTaskClick() {
   const task = document.getElementById('texto-tarefa');
   const item = document.createElement('li');
@@ -18,6 +11,13 @@ function addTaskClick() {
   item.addEventListener('dblclick', riskItem);
   list.appendChild(item);
   task.focus();
+}
+
+function addTask() {
+  const task = document.getElementById('texto-tarefa');
+  const addButton = document.getElementById('criar-tarefa');
+  task.focus();
+  addButton.addEventListener('click', addTaskClick);
 }
 
 function selectOnlyOne(elemento) {
@@ -50,7 +50,21 @@ function clearListClick() {
   list.innerHTML = '';
 }
 
+function clearCheckList() {
+  const clearCheckedButton = document.getElementById('remover-finalizados');
+  clearCheckedButton.addEventListener('click', clearCheckListClick);
+}
+
+function clearCheckListClick() {
+  const list = document.getElementById('lista-tarefas');
+  const checkedElements = document.querySelectorAll('.completed');
+  for (const checkedElement of checkedElements) {
+    list.removeChild(checkedElement);
+  }
+}
+
 window.onload = function toDoList() {
   addTask();
   clearList();
+  clearCheckList();
 }
