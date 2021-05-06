@@ -105,14 +105,18 @@ function createTask() {
 
 function moveUp() {
   let taskSelected = document.querySelector('#selected');
-  let previousTask = taskSelected.previousElementSibling;
-  taskSelected.parentNode.insertBefore(previousTask, taskSelected.nextElementSibling);
+  if(taskSelected !== null && taskSelected !== taskSelected.parentNode.firstElementChild){
+    let previousTask = taskSelected.previousElementSibling;
+    taskSelected.parentNode.insertBefore(previousTask, taskSelected.nextElementSibling);
+  };
 }
 
 function moveDown() {
   let taskSelected = document.querySelector('#selected');
-  let nextTask = taskSelected.nextElementSibling;
-  taskSelected.parentNode.insertBefore(nextTask, nextTask.previousElementSibling);
+  if(taskSelected !== null && taskSelected !== taskSelected.parentNode.lastElementChild){
+    let nextTask = taskSelected.nextElementSibling;
+    taskSelected.parentNode.insertBefore(nextTask, nextTask.previousElementSibling);
+  };
 }
 
 function removeSelected() {
