@@ -13,4 +13,14 @@ function adicionar() {
   });
 }
 
+function corCinza() {
+  document.addEventListener("click", function(mudaCor) {
+    if (mudaCor.target.className === "item") {
+        mudaCor.target.style.backgroundColor = "gray";
+    }
+  });
+}
+
+
 adicionar();
+corCinza();
