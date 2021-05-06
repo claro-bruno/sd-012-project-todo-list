@@ -18,3 +18,7 @@ h1 {
     font-family: Roboto;
     border-radius: 5px;
 }
+
+.selecionado {
+    background-color: rgb(128, 128, 128);
+}
