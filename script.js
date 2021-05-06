@@ -2,6 +2,7 @@ window.onload = function () {
   const getAddTaskButton = document.querySelector('#criar-tarefa');
   const getToDoList = document.querySelector('#lista-tarefas');
   const getTaskInput = document.querySelector('#texto-tarefa');
+  const getClearButton = document.querySelector('#apaga-tudo');
 
   function addTask() {
     const task = document.createElement('li');
@@ -39,4 +40,12 @@ window.onload = function () {
     }
   }
   getToDoList.addEventListener('dblclick', completeTask);
+
+  function clearList() {
+    const tasks = document.querySelectorAll('li');
+    for (let index = 0; index < tasks.length; index += 1) {
+      tasks[index].remove();
+    }
+  }
+  getClearButton.addEventListener('click', clearList);
 };
