@@ -49,7 +49,22 @@ function apagaTudo() {
   });
 }
 
+function rmFinalizados() {
+  document.addEventListener("click", function(remover) {
+    if (remover.target.id === "remover-finalizados") {
+      let listaToda = document.getElementById("lista-tarefas");
+      let finalizados = document.getElementsByClassName("item");
+      for (let index = 0; index < finalizados.length; index += 1) {
+          if (finalizados[index].className === "item completed") {
+            listaToda.removeChild(finalizados[index]);
+          }
+      }
+    }
+  });
+}
+
 risco();
 adicionar();
 corCinza();
 apagaTudo();
+rmFinalizados();
