@@ -43,16 +43,12 @@ function oneAtTime(e) {
     }
 }
 
-function lineThrough() {
-    const tasks = document.querySelectorAll('.taskLi');
-    for(let index = 0; index < tasks.length; index += 1) {
-        tasks[index].addEventListener('dblclick', (e) => {
-            if(e.target.className === 'completed') {
-                e.target.className = 'taskLi';
-            } else {
-                e.target.className = 'completed';
-            }
-        })
+function lineThrough(e) {
+    const completedTasks = document.querySelectorAll('.completed');
+    if(completedTasks.length === 0) {
+        e.target.classList.toggle('completed');
+    } else {
+        e.target.classList.toggle('completed');
     }
 }
 
