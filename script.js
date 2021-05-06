@@ -1,8 +1,8 @@
 function addTask() {
     let input = document.getElementById('texto-tarefa');
-    let button = document.getElementById('criar-tarefa');
+    let buttonAdd = document.getElementById('criar-tarefa');
     let list = document.getElementById('lista-tarefas');
-    button.addEventListener('click', () => {
+    buttonAdd.addEventListener('click', () => {
         let taskLi = document.createElement('li');
         taskLi.innerHTML = input.value;
         taskLi.classList.add('item-lista');
@@ -41,3 +41,12 @@ function completedTask() {
     })
 }
 completedTask();
+
+function clearList() {
+    let list = document.getElementById('lista-tarefas');
+    let buttonClear = document.getElementById('apaga-tudo');
+    buttonClear.addEventListener('click', () => {
+        list.innerHTML = '';
+    })
+}
+clearList();
