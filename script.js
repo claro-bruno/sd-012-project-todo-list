@@ -4,6 +4,8 @@ window.onload = function () {
   clicarItemLista();
 
   completarTarefa();
+
+  apagarTudo();
 }
 
 function criarTarefa() {
@@ -43,7 +45,16 @@ function completarTarefa() {
     if (!event.target.className.includes('completed')) {
       event.target.classList.add('completed');
     } else {
-      event.target.classList.remove('completed');
+      event.target.removeAttribute('class');
+      //event.target.classList.remove('completed');
     }
+  })
+}
+
+function apagarTudo() {
+  const pegarLista = document.getElementById('lista-tarefas');
+  const pegarBotaoApagarTudo = document.getElementById('apaga-tudo');
+  pegarBotaoApagarTudo.addEventListener('click', function () {
+    pegarLista.innerHTML = '';
   })
 }

@@ -1,3 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  text-align: center;
+}
+
+header {
+  text-align: center;
+}
+
 .completed {
 	text-decoration: line-through;
+}
+
+#criar-tarefa {
+  display: inline-block;
+}
+
+#apaga-tudo {
+  display: inline-block;
 }
