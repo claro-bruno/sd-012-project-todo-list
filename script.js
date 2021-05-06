@@ -4,12 +4,14 @@ window.onload = () => {
         const getElement = document.getElementById(id);
         return getElement;
     }
+    
     function getTask() {
         const getInput = getById('texto-tarefa');
         const task = getInput.value;
         getInput.value = '';
         return task;
     }
+
     function addToList() {
         const getList = getById('lista-tarefas');
         const newTask = document.createElement('li');
@@ -17,9 +19,9 @@ window.onload = () => {
         newTask.className = "tasks";
         getList.appendChild(newTask);
         selectTask();
-        
-       
+        selectTaskCompleted();
     }
+
     const add = getById('criar-tarefa');
     const getInput = getById('texto-tarefa');
 
@@ -45,9 +47,20 @@ window.onload = () => {
         const selectTasksLi = document.getElementsByClassName('tasks');
         for (let tasksLi of selectTasksLi ){
             tasksLi.addEventListener('click', checkTask);
-            
-        }
-             
+        }     
+    }
+
+    //Riscar item
+
+    function checkTaskCompleted(e){  
+            e.target.classList.toggle('completed');
+    }
+
+    function selectTaskCompleted(){
+        const selectTasksLi = document.getElementsByClassName('tasks');
+        for (let tasksLi of selectTasksLi ){
+            tasksLi.addEventListener('dblclick', checkTaskCompleted);
+        }     
     }
     
    
