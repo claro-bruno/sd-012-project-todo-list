@@ -2,19 +2,22 @@
 // Adiciona tarefa digitada pelo usuário;
 function addTask() {
   const task = document.getElementById('texto-tarefa');
-  const list = document.getElementById('lista-tarefas');
   const addButton = document.getElementById('criar-tarefa');
   task.focus();
-  addButton.addEventListener('click', function () {
-    const item = document.createElement('li');
-    item.innerHTML = task.value;
-    item.className = 'unselected';
-    task.value = '';
-    item.addEventListener('click', selectOnlyOne);
-    item.addEventListener('dblclick', riskItem);
-    list.appendChild(item);
-    task.focus();
-  });
+  addButton.addEventListener('click', addTaskClick);
+}
+
+function addTaskClick() {
+  const task = document.getElementById('texto-tarefa');
+  const item = document.createElement('li');
+  const list = document.getElementById('lista-tarefas');
+  item.innerHTML = task.value;
+  item.className = 'unselected';
+  task.value = '';
+  item.addEventListener('click', selectOnlyOne);
+  item.addEventListener('dblclick', riskItem);
+  list.appendChild(item);
+  task.focus();
 }
 
 function selectOnlyOne(elemento) {
@@ -37,6 +40,17 @@ function riskItem(elemento) {
   }
 }
 
+function clearList() {
+  const clearButton = document.getElementById('apaga-tudo');
+  clearButton.addEventListener('click', clearListClick);
+}
+
+function clearListClick() {
+  const list = document.getElementById('lista-tarefas');
+  list.innerHTML = '';
+}
+
 window.onload = function toDoList() {
   addTask();
+  clearList();
 }

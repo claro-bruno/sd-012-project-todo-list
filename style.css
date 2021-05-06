@@ -1,12 +1,14 @@
-#lista-tarefas {
-  text-align: left;
-  list-style: none;
-}
-
 .selected {
   background-color: gray;
 }
 
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#lista-tarefas {
+  width: 200px;
+  height: 200px;
+  overflow: scroll;
+  margin: 10px;
 }
