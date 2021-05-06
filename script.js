@@ -16,6 +16,7 @@ function createInput(inputId) {
   const newInput = document.createElement('input');
   newInput.id = inputId;
   getCaixaInput.appendChild(newInput);
+  return newInput;
 }
 createInput('texto-tarefa');
 
@@ -29,3 +30,32 @@ function createOl(olId) {
 }
 createOl('lista-tarefas');
 
+//Função que cria um botão de id como parametro dentro da section de id botaoAddTarefa
+function createButton(buttonId) {
+  const getBotaoAddTarefa = document.getElementById('botaoAddTarefa');
+
+  const newButton = document.createElement('button');
+  newButton.id = buttonId;
+  newButton.innerHTML = 'Adicionar tarefa';
+  getBotaoAddTarefa.appendChild(newButton);
+}
+createButton('criar-tarefa');
+
+function addNewTask() {
+  let getInputField = document.getElementById('texto-tarefa');
+  let getButton = document.getElementById('criar-tarefa');
+  let getTaskList = document.getElementById('lista-tarefas');
+
+  getButton.addEventListener('click', function() {
+    if (getInputField.value.length > 0) {
+      let newLi = document.createElement('li');
+      newLi.innerHTML = getInputField.value;
+      
+      getTaskList.appendChild(newLi);
+      getInputField.value = '';
+    } else {
+      alert('Adicionar tarefa');
+    }
+  })
+}
+addNewTask();
