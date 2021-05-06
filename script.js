@@ -33,6 +33,16 @@ function eventSelectItem() {
   }
 }
 
+function eventCompleteTask() {
+  const listItens = document.querySelectorAll('.item-tarefa');
+
+  for (let index = 0; index < listItens.length; index += 1) {
+    listItens[index].addEventListener('dblclick', (event) => {
+      event.target.classList.toggle('completed');
+    });
+  }
+}
+
 function eventAddTask() {
   const addTaskButton = document.getElementById('criar-tarefa');
 
@@ -41,6 +51,7 @@ function eventAddTask() {
     createListItem(inputContent.value);
     inputContent.value = '';
     eventSelectItem();
+    eventCompleteTask();
   });
 }
 
