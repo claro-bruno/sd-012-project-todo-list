@@ -1,6 +1,9 @@
 const listaTarefas = document.querySelector('#lista-tarefas');
 const inputTarefas = document.querySelector('#texto-tarefa');
 
+const tarefas = document.getElementsByClassName('tarefa');
+const finalizadas = document.getElementsByClassName('finalizada');
+
 function clicker(eventObject) {
   const targetElement = eventObject.target;
   if (targetElement.classList.contains('tarefa')) {
@@ -16,30 +19,35 @@ function dblclicker(eventObject) {
   const targetElement = eventObject.target;
   if (targetElement.classList.contains('tarefa')) {
     targetElement.classList.add("finalizada");
-    numFinalizadas = finalizadas.length;
   }
 }
+
 
 function criaTarefa (){
   const li = document.createElement('li');
   li.innerHTML = inputTarefas.value;
   // inputTarefas.value = '';
   li.className = ('tarefa');
-  listaTarefas.prepend(li);
-  numTarefas = tarefas.length;
+  listaTarefas.appendChild(li);
 }
-
 function apagaTodas (){
-  document.querySelectorAll('.tarefa').forEach(e => e.remove()); // Fonte: https://stackoverflow.com/questions/10842471/how-to-remove-all-elements-of-a-certain-class-from-the-dom
+  for (let deletada of tarefas){
+    deletada.remove();
+  }
 }
-
 function apagaFinalizadas (){
-  document.querySelectorAll('.finalizada').forEach(e => e.remove()); // Fonte: https://stackoverflow.com/questions/10842471/how-to-remove-all-elements-of-a-certain-class-from-the-dom
+  for (let index = 0; index < finalizadas.length; index += 1){
+    let deletada = finalizadas[index];
+    deletada.remove();
+  }
+}
+function apagaSelecionada (){
+  let deletada = listaTarefas.querySelector('.selecionada');
+  deletada.remove();
 }
 
-function apagaSelecionada (){
-  document.querySelector('.selecionada').remove();
-}
+
+
 
 document.addEventListener('click', clicker);
 document.addEventListener('dblclick', dblclicker);
