@@ -8,17 +8,22 @@ buttonAdd.addEventListener('click', () => {
     let valueInput = document.querySelector('input').value;
     let itemList = document.createElement('li');
     itemList.innerHTML = valueInput;
+    itemList.className = 'task';
     listOfItems.appendChild(itemList);
     clearTextInput();
 })
 
-function selectedItem(event) {
-    let itemList = document.querySelectorAll('li');
-    for (let index = 0; index < itemList; index += 1) {
-        itemList[index].classList.remove('selected');
+function selectTask(event) {
+    const targetedEvent = event.target;
+    if (targetedEvent.classList.contains('task')) {
+      const currentTaskSelected = document.querySelector('.selected');
+      if (currentTaskSelected !== null) {
+        currentTaskSelected.classList.remove('selected');
+      }
+      targetedEvent.classList.add('selected');
     }
-    event.target.classList.add('selected');
-}
+  }
 
-let listItem = document.querySelector('#lista-tarefas');
-listItem.addEventListener('click', selectedItem);
+window.onload =  function() {
+    document.addEventListener('click', selectTask);
+}
