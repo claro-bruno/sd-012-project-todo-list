@@ -1,3 +1,44 @@
+function openSavedTasks() {
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
+    for (let key in tasks) {
+      let taskText = key;
+      let isCompleted = tasks[key];
+      let task = document.createElement('li');
+      if(isCompleted){
+          task.className = 'tarefa completed';
+      }else{
+          task.className = 'tarefa';
+      }
+      task.innerHTML = taskText;
+      let list = document.querySelector('#lista-tarefas');
+      list.appendChild(task);
+      deleteAllList();
+    }
+  }
+
+function saveTasks() {
+  let tasks = document.querySelectorAll('.tarefa');
+  console.log(tasks)
+  let tasksObj = {};
+  for (let taskIndex = 0; taskIndex < tasks.length; taskIndex += 1) {
+      let task = tasks[taskIndex];
+    let taskValue = task.innerHTML;
+    console.log(task.classList)
+    let isTaskCompleted = false;
+    for (let classIndex = 0; classIndex < task.classList.length; classIndex += 1) {
+      if (task.classList[classIndex] === 'completed') {
+        isTaskCompleted = true;
+      };
+    };
+    tasksObj[taskValue] = isTaskCompleted;
+  };
+  addToStorage(tasksObj);
+}
+
+function addToStorage(obj) {
+  localStorage.setItem('tasks', JSON.stringify(obj));
+}
+
 function unmarkTask() {
   let selectedTask = document.querySelector('#selected');
   selectedTask.id = '';
@@ -64,8 +105,14 @@ function createTask() {
 
 
 
+
 window.onload = () => {
+  openSavedTasks();
   createTask();
   changeTaskColor();
   completeTask();
+
+  const btnSaveTasks = document.querySelector('#salvar-tarefas');
+  console.log(btnSaveTasks)
+  btnSaveTasks.addEventListener('click', saveTasks);
 };
