@@ -1,21 +1,13 @@
-function addFields(){
-  // Number of inputs to create
-  var number = document.getElementById("member").value;
-  // Container <div> where dynamic content will be placed
-  var container = document.getElementById("container");
-  // Clear previous contents of the container
-  while (container.hasChildNodes()) {
-      container.removeChild(container.lastChild);
-  }
-  for (i=0;i<number;i++){
-      // Append a node with a random text
-      container.appendChild(document.createTextNode("Member " + (i+1)));
-      // Create an <input> element, set its type and name attributes
-      var input = document.createElement("input");
-      input.type = "text";
-      input.name = "member" + i;
-      container.appendChild(input);
-      // Append a line break 
-      container.appendChild(document.createElement("br"));
-  }
+const buttonAdd = document.getElementById('criar-tarefa')
+const textInput = document.getElementById('texto-tarefa')
+const list  = document.getElementById('lista-tarefas')
+
+function createList () {
+  buttonAdd.addEventListener('click', (event) => {
+    const addTextItem = document.createElement('li')
+    list.appendChild(addTextItem)
+    const inputValue = textInput.value 
+    addTextItem.innerHTML = inputValue
+  })
 }
+createList()
