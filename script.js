@@ -19,4 +19,24 @@ window.onload = function () {
     event.target.classList.add('selected');
   }
   getToDoList.addEventListener('click', selectTask);
+
+  function completeTask(event) {
+    const taskTarget = event.target;
+    const taskClass = taskTarget.classList;
+    let taskCompleted;
+    for (let index = 0; index < taskClass.length; index += 1) {
+      if (taskClass[index] === 'completed') {
+        taskCompleted = true;
+        break;
+      } else {
+        taskCompleted = false;
+      }
+    }
+    if (taskCompleted) {
+      taskTarget.classList.remove('completed');
+    } else {
+      taskTarget.classList.add('completed');
+    }
+  }
+  getToDoList.addEventListener('dblclick', completeTask);
 };
