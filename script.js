@@ -33,6 +33,13 @@ window.onload = function () {
     pintaTarefa(event);
   });
 
+  botaoLimpaLista.addEventListener('click', function() {
+    let tarefas = document.querySelectorAll('.tarefa');
+      for (let index = 0; index < tarefas.length; index += 1) {
+          listaTarefas.removeChild(tarefas[index]);
+      }
+  })
+
   function concluiTarefa(event) {
     if (event.target.className === 'completed') {
       event.target.className = 'tarefa';
