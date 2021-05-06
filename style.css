@@ -1,0 +1,7 @@
+.completed {
+    text-decoration: line-through;
+}
+
+li {
+    background-color: white;
+}

@@ -26,3 +26,15 @@ function alteraCor(event) {
 }
 
 listaDeTarefas.addEventListener('click', alteraCor);
+
+function riscaTarefa(event) {
+    if (event.target.classList.contains('completed') !== true) {
+        event.target.classList.add('completed');
+        event.target.style.textDecoration = 'line-through';
+    } else {
+        event.target.classList.remove('completed');
+        event.target.style.textDecoration = 'none';
+    }
+}
+
+listaDeTarefas.addEventListener('dblclick', riscaTarefa);
