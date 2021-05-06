@@ -1,3 +1,8 @@
+body {
+    /* background-color: rgba(0, 0, 0, 0.1); */
+    height: 100%;
+}
+
 header {
     background-color: rgb(73, 143, 223);
     padding: 30px 10px;
@@ -17,12 +22,34 @@ header {
     margin: 8px 0;
     box-sizing: border-box;
     border-radius: 30px;
+
+}
+#texto-tarefa:focus {
+    outline: 0;
 }
 
 #lista-tarefas {
-    /* background-color: rgba(0, 0, 0, 0.1); */
     width: 350px;
     padding: 5px 20px;
     font-size: 17px;
     border-radius: 10px;
+}
+
+#criar-tarefa {
+    height: 40px;
+    background-color: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#criar-tarefa:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#criar-tarefa:active {
+    transform: scale(0.98);
+}
+
+#criar-tarefa:focus {
+    outline: 0;
 }
