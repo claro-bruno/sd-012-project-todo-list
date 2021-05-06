@@ -50,6 +50,7 @@ function salvaTarefas() {
 function mover(sentido) {
   const tarefas = document.querySelectorAll('.tarefa');
   let selecionada = document.querySelector('.selecionada'); //https://stackoverflow.com/questions/5913927/get-child-node-index
+  if(selecionada == null) return;
   let elementoPai = selecionada.parentNode;
   let index = Array.prototype.indexOf.call(elementoPai.children, selecionada);
   if(sentido === 1 && tarefas[index - 1]) {
