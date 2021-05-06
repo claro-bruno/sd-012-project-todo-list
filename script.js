@@ -45,7 +45,7 @@ function newTask() {
 function oldTask(event) {
   let tasks = document.querySelectorAll('li');
   for (let index = 0; index < tasks.length; index += 1) {
-    tasks[index].className = 'task';
+    tasks[index].classList.add('task');
   }
   if (event.target.classList.contains('task')) {
     for (let index = 0; index < tasks.length; index += 1) {
@@ -55,3 +55,13 @@ function oldTask(event) {
 }
 
 document.addEventListener('click', oldTask);
+
+function completeTask(event) {
+  if (event.target.classList.contains('completed')){
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+document.addEventListener('dblclick', completeTask);
