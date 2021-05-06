@@ -1,8 +1,8 @@
 // Adiciona Tarefas
 const capturaInput = document.querySelector('#texto-tarefa');
+const capturaOl = document.querySelector('#lista-tarefas');
 
 const adicionaTarefa = () => {
-  const capturaOl = document.querySelector('#lista-tarefas');
   const criaLi = document.createElement('li');
   criaLi.innerText = capturaInput.value;
   criaLi.className = 'tarefa';
@@ -28,6 +28,22 @@ const completaTarefa = (event) => {
   }
 };
 
+// Apaga tudo
+const apagaTudo = () => {
+  capturaOl.innerHTML = '';
+}
+
+// Apaga tarefas completas
+const apagaTarefasCompletas = () => {
+  console.log('to aqui')
+  const capturaTarefasCompletas = document.querySelectorAll('.completed');
+  for (let index = 0; index < capturaTarefasCompletas.length; index += 1) {
+    if (capturaTarefasCompletas[index].classList.contains('completed')) {
+      capturaTarefasCompletas[index].remove();
+    }
+  }
+};
+
 // Adiciona Eventos
 document.addEventListener('click', (event) => {
   if (event.target.id === 'criar-tarefa') {
@@ -35,6 +51,12 @@ document.addEventListener('click', (event) => {
   }
   if (event.target.className === ('tarefa')) {
     selecionaTarefa(event);
+  }
+  if (event.target.id === 'apaga-tudo') {
+    apagaTudo();
+  }
+  if (event.target.id === 'remover-finalizados') {
+    apagaTarefasCompletas();
   }
 });
 
