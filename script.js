@@ -1,9 +1,5 @@
-//REQUISITO 5
 
-let criaBotao = document.createElement('button');
-document.body.appendChild(criaBotao);
-criaBotao.id='criar-tarefa';
-
+//armazenando elementos uteis em variaveis
 let listaTarefas = document.getElementById('lista-tarefas');
 let botaoCriarTarefa = document.getElementById('criar-tarefa');
 let elementoInput = document.getElementById('texto-tarefa');
@@ -14,7 +10,8 @@ botaoCriarTarefa.appendChild(divBotao);
 divBotao.id = 'texto-botao'
 divBotao.innerHTML = 'Adicionar'
 
-//função que cria event listener no botaoCriarTarefa
+//REQUISITO 5 e 6
+//função que cria event listener no botao, adiciona value na lista e limpa input
 
 function criaEventoBotao() {
     botaoCriarTarefa.addEventListener('click', function() {
