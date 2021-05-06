@@ -2,6 +2,7 @@ const input = document.getElementById('texto-tarefa');
 const addTaskBtn = document.getElementById('criar-tarefa');
 const olEl = document.getElementById('lista-tarefas');
 const deleteBtn = document.getElementById('apaga-tudo');
+const deleteCompleteBtn = document.getElementById('remover-finalizados');
 
 function addTask() {
     addTaskBtn.addEventListener('click', () => {
@@ -16,6 +17,7 @@ function addTask() {
             taskLi.addEventListener('click', oneAtTime);
             taskLi.addEventListener('dblclick', lineThrough)
             deleteBtn.addEventListener('click', deleteAll);
+            deleteCompleteBtn.addEventListener('click', deleteComplete);
             
             // Desafio 7
             for(let index = 0; index < tasks.length; index += 1) {
@@ -55,9 +57,16 @@ function lineThrough() {
 }
 
 function deleteAll() {
-    let li = document.querySelectorAll('li');
+    const li = document.querySelectorAll('li');
     for(let index = 0; index < li.length; index += 1) {
         olEl.removeChild(li[index]);
+    }
+}
+
+function deleteComplete() {
+    const completed = document.querySelectorAll('.completed');
+    for(let index = 0; index < completed.length; index += 1) {
+        olEl.removeChild(completed[index]);
     }
 }
 

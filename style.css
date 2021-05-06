@@ -43,21 +43,21 @@ header {
     text-decoration: line-through solid rgb(0, 0, 0);
 }
 
-#criar-tarefa, #apaga-tudo{
+#criar-tarefa, #apaga-tudo, #remover-finalizados{
     height: 40px;
     background-color: transparent;
     border-radius: 10px;
     cursor: pointer;
 }
 
-#criar-tarefa:hover, #apaga-tudo:hover {
+#criar-tarefa:hover, #apaga-tudo:hover, #remover-finalizados:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-#criar-tarefa:active, #apaga-tudo:active {
+#criar-tarefa:active, #apaga-tudo:active, #remover-finalizados:active {
     transform: scale(0.98);
 }
 
-#criar-tarefa:focus, #apaga-tudo:focus {
+#criar-tarefa:focus, #apaga-tudo:focus, #remover-finalizados:focus {
     outline: 0;
 }
