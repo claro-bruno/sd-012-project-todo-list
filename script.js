@@ -11,7 +11,6 @@ window.onload = function() {
         let task = document.createElement('li');
         task.innerHTML = inputText;
         list.appendChild(task);
-        inputBox.style.display = 'none';
         input.value = '';
     })
 }
