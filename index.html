@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Minha Lista de Tarefas</h1>
+    <header>Minha Lista de Tarefas</header>
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
     <input value="" type="text" id="texto-tarefa">
     <ol id="lista-tarefas"></ol>
@@ -24,13 +24,32 @@
         let getInput = document.getElementById('texto-tarefa');
 
         newListItem.innerHTML = getInput.value;
+        newListItem.id = 'list-item'
         getUL.appendChild(newListItem);
 
         getInput.value = '';
+
+        highlightText();
     })
 }
 
 buttonClick();
+
+function highlightText () {
+let getListItem = document.querySelectorAll('#list-item');
+let newBgColor = 'rgb(128,128,128)';
+
+for (let index = 0; index < getListItem.length; index += 1) {
+    getListItem[index].addEventListener('click', function(event) {
+
+        if (event.target.style.backgroundColor !== newBgColor) {
+            event.target.style.backgroundColor = newBgColor;
+        }
+    })
+}
+}
+
+
 
     </script>
 </body>
