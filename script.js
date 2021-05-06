@@ -1,6 +1,7 @@
 window.onload = function(){
     createTask();
     selectTask();
+    doubleSelectTask();
 }
 
 function createTask(){
@@ -20,7 +21,6 @@ function selectTask(){
     addEventListener('click', (event) => {
         if(event.target.className === 'task'){
             if(!document.querySelector('.selected')){
-                event.target.style.background = 'rgb(128, 128, 128)'
                 event.target.classList.toggle('selected')
             }
             else{
@@ -28,8 +28,20 @@ function selectTask(){
                 selected.className = 'task'
                 selected.style.background = ''
                 event.target.classList.toggle('selected')
-                event.target.style.background = 'rgb(128, 128, 128)'
             }
+        }
+    })
+}
+
+function doubleSelectTask(){
+    addEventListener('dblclick', (event) => {
+        if(event.target.classList.contains('completed')){
+            event.target.classList.remove('completed')
+            event.target.classList.remove('selected')
+        }
+        else if(event.target.classList.contains('task')){
+            event.target.classList.remove('selected')
+            event.target.classList.add('completed')
         }
     })
 }
