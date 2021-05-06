@@ -99,7 +99,7 @@ function moveItemsDown() {
     let buttonMoveDown = document.getElementById('mover-baixo');
     buttonMoveDown.addEventListener('click', () => {
       let selectedItem = document.querySelector('.selected');
-      if (selectedItem.nextElementSibling !== null) {
+      if (selectedItem.nextElementSibling !== null || selectedItem === null) {
           let itemDepois = document.createElement('li');
           itemDepois.innerHTML = selectedItem.nextElementSibling.innerHTML;
           itemDepois.classList = selectedItem.nextElementSibling.classList;
@@ -111,3 +111,14 @@ function moveItemsDown() {
     });
   }
   moveItemsDown();
+
+  function removeSelected() {
+      let buttonRemoveSelected = document.getElementById('remover-selecionado');
+      let list = document.getElementById('lista-tarefas');
+      buttonRemoveSelected.addEventListener('click', () => {
+        let selectedItem = document.querySelector('.selected');
+        console.log(selectedItem)
+        list.removeChild(selectedItem);
+      })
+}
+removeSelected();
