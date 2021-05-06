@@ -13,10 +13,14 @@ function addTask() {
 addTask();
 
 function changeItemBG() {
-  let listItems = document.getElementById('lista-tarefas');
+  let orderedList = document.getElementById('lista-tarefas');
+  let listItems = orderedList.children;
 
-  listItems.addEventListener('click', function (event) {
-    console.log(event.target);
+  orderedList.addEventListener('click', function (event) {
+
+    for (let index = 0; index < listItems.length; index += 1) {
+      listItems[index].style.backgroundColor = '';
+    };
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   })
 
