@@ -38,6 +38,6 @@ margin: 10px;
 background-color: rgb(128, 128, 128);
 }
 
-.finalizada {
+.completed {
   text-decoration: line-through;
 }

@@ -14,9 +14,10 @@ function clicker(eventObject) {
 
 function dblclicker(eventObject) {
   const targetElement = eventObject.target;
-  if (targetElement.classList.contains('tarefa')) {
-    targetElement.classList.add("finalizada");
-    numFinalizadas = finalizadas.length;
+  if (targetElement.classList.contains('completed')) {
+    targetElement.classList.remove('completed');
+  } else if (targetElement.classList.contains('tarefa')){
+    targetElement.classList.add('completed');
   }
 }
 
@@ -26,7 +27,6 @@ function criaTarefa (){
   // inputTarefas.value = '';
   li.className = ('tarefa');
   listaTarefas.prepend(li);
-  numTarefas = tarefas.length;
 }
 
 function apagaTodas (){
