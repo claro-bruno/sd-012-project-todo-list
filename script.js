@@ -10,16 +10,18 @@ window.onload = function () {
     '#remover-selecionado'
   );
   const getSaveTasksButton = document.querySelector('#salvar-tarefas');
+  const getmoveUpButton = document.querySelector('#mover-cima');
+  const getmoveDownButton = document.querySelector('#mover-baixo');
 
-  function addSavedTasks(){
-   for (let index = 0; index < (localStorage.length/2); index += 1) {
-    let task = document.createElement('li');
-    taskContent = 'Content'+index;
-    taskClass = 'Class'+index;
-    task.innerHTML = localStorage.getItem(taskContent);
-    task.className = localStorage.getItem(taskClass);
-    getToDoList.appendChild(task);
-  }
+  function addSavedTasks() {
+    for (let index = 0; index < localStorage.length / 2; index += 1) {
+      let task = document.createElement('li');
+      taskContent = 'Content' + index;
+      taskClass = 'Class' + index;
+      task.innerHTML = localStorage.getItem(taskContent);
+      task.className = localStorage.getItem(taskClass);
+      getToDoList.appendChild(task);
+    }
   }
   addSavedTasks();
 
@@ -84,17 +86,40 @@ window.onload = function () {
   }
   getRemoveSelectedButton.addEventListener('click', removeSelectedTask);
 
-  function saveTasks(){
-   localStorage.clear();
-   const tasks = document.querySelectorAll('li');
-   let taskContent;
-   let taskClass;
-   for (let index = 0; index < tasks.length; index += 1) {
-    taskContent = 'Content'+index;
-    taskClass = 'Class'+index;
-    localStorage.setItem(taskContent,tasks[index].innerHTML);
-    localStorage.setItem(taskClass,tasks[index].classList);
+  function saveTasks() {
+    localStorage.clear();
+    const tasks = document.querySelectorAll('li');
+    tasks.parent;
+    let taskContent;
+    let taskClass;
+    for (let index = 0; index < tasks.length; index += 1) {
+      taskContent = 'Content' + index;
+      taskClass = 'Class' + index;
+      localStorage.setItem(taskContent, tasks[index].innerHTML);
+      localStorage.setItem(taskClass, tasks[index].classList);
+    }
   }
+  getSaveTasksButton.addEventListener('click', saveTasks);
+
+  function moveUp() {
+    const taskSelected = document.querySelector('.selected');
+    const tasks = document.querySelectorAll('li');
+    for (let index = 0; index < tasks.length; index += 1) {
+      if (tasks[index] === taskSelected && index > 0) {
+        getToDoList.insertBefore(tasks[index], tasks[index - 1]);
+      }
+    }
   }
-  getSaveTasksButton.addEventListener('click',saveTasks);
+  getmoveUpButton.addEventListener('click', moveUp);
+
+  function moveDown() {
+    const taskSelected = document.querySelector('.selected');
+    const tasks = document.querySelectorAll('li');
+    for (let index = 0; index < tasks.length; index += 1) {
+      if (tasks[index] === taskSelected && index < tasks.length - 1) {
+        getToDoList.insertBefore(tasks[index + 1], tasks[index]);
+      }
+    }
+  }
+  getmoveDownButton.addEventListener('click', moveDown);
 };
