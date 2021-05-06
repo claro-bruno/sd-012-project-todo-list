@@ -4,6 +4,7 @@ const listaTarefas = document.querySelector('#lista-tarefas');
 const buttonApagaLista = document.querySelector('#apaga-tudo');
 const buttonApagaFinalizados = document.querySelector('#remover-finalizados');
 const buttonSalvaLista = document.querySelector('#salvar-tarefas');
+const buttonApagaSelecionado = document.querySelector('#remover-selecionado');
 
 function riscaItemDaLista(element) {
   element.addEventListener('dblclick', (event) => {
@@ -38,6 +39,7 @@ criandoNovaTarefa();
 function apagaFinalizados() {
   buttonApagaFinalizados.addEventListener('click', () => {
     const tarefasFinalizadas = document.querySelectorAll('.completed');
+    if (tarefasFinalizadas.length === 0) return alert('Nenhum item finalizado');
     for (let index = 0; index < tarefasFinalizadas.length; index += 1) {
       listaTarefas.removeChild(tarefasFinalizadas[index]);
     }
@@ -82,4 +84,12 @@ window.onload = () => {
    }
 };
 
+function apagandoSelecionado() {
+  buttonApagaSelecionado.addEventListener('click', () => {
+    const itemSelecionado = document.querySelector('.selected');
+    if (itemSelecionado === null) return alert('Nenhum item selecionado');
+    listaTarefas.removeChild(itemSelecionado);
+  })
+}
 
+apagandoSelecionado();
