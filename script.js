@@ -33,6 +33,8 @@ window.onload = function () {
     pintaTarefa(event);
   });
 
+  botaoLimpaLista.addEventListener('click', limpaLista());
+
   function concluiTarefa(event) {
     if (event.target.className === 'tarefa-concluida') {
       event.target.className = 'tarefa';
@@ -43,9 +45,7 @@ window.onload = function () {
 
   function limpaLista() {
     let listaTarefas = document.querySelector('#lista-tarefas');
-    botaoLimpaLista.addEventListener('click', function () {
-      listaTarefas.removeChild(listaTarefas.lastElementChild);
-    });
+    listaTarefas.removeChild(listaTarefas.lastElementChild);
   }
 
   function limpaConcluidos() {
