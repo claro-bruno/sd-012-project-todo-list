@@ -31,3 +31,24 @@ tasksList.id = 'lista-tarefas';
 
 tasksListContainer.appendChild(tasksList);
 content.appendChild(tasksListContainer);
+
+const addTaskBtn = document.createElement('button');
+addTaskBtn.id = 'criar-tarefa';
+addTaskBtn.innerHTML = 'adiconar';
+
+function liCreate(text) {
+  const li = document.createElement('li');
+  li.innerHTML = text;
+  return li;
+}
+
+function addTask() {
+  const task = taskText.value;
+  const li = liCreate(task);
+  tasksList.appendChild(li);
+  taskText.value = '';
+}
+
+addTaskBtn.addEventListener('click', addTask);
+
+insertTask.appendChild(addTaskBtn);
