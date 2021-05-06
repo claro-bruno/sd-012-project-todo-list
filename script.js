@@ -17,7 +17,6 @@ function corCinza() {
   document.addEventListener("click", function(mudaCor) {
     if (mudaCor.target.className === "item") {
         let todosItens = document.getElementsByClassName("item");
-        console.log(todosItens);
         for (let index = 0; index < todosItens.length; index += 1) {
           todosItens[index].style.backgroundColor = "";
         }
@@ -26,5 +25,21 @@ function corCinza() {
   });
 }
 
+function risco() {
+  document.addEventListener("dblclick", function(isRiscado) {
+    if (isRiscado.target.className === "item") {
+      if (isRiscado.target.className === "item") {
+        isRiscado.target.className = "item completed";
+        return;
+      }
+    }
+    if (isRiscado.target.className === "item completed") {
+        isRiscado.target.className = "item";
+        return;
+    }
+  });
+}
+
+risco();
 adicionar();
 corCinza();
