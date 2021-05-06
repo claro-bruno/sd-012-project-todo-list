@@ -40,6 +40,16 @@ function risco() {
   });
 }
 
+function apagaTudo() {
+  document.addEventListener("click", function(apagaLista) {
+    if (apagaLista.target.id === "apaga-tudo") {
+      let lista = document.getElementById("lista-tarefas");
+      lista.innerHTML = "";
+    }    
+  });
+}
+
 risco();
 adicionar();
 corCinza();
+apagaTudo();
