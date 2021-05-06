@@ -1,0 +1,58 @@
+body {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #012e67;
+    margin: 120px;
+}
+
+body span {
+    vertical-align: top;
+    font-style: italic;
+    font-size: 14px;
+    position: relative;
+    top: -20px;
+}
+
+input {
+    display: inline-block;
+    border-radius: 6px;
+    padding: 5px;
+    width: 360px;
+    border: #032e42 solid 2px;
+}
+
+button {
+    border-radius: 6px;
+    padding: 5px;
+    width: 50px;
+    height: 30px;
+    background-color: #032e42;
+    border: #032e42 solid 1px;
+    color: #fff;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+#add-button {
+    display: inline-block;
+    position: relative;
+    top: -50px;
+    left: 20px;
+    border-radius: 10px;
+    background-color: #032e42;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#add-button img {
+    width: 20px;
+}
+
+#input-box {
+    display: none;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    width: 430px;
+    position: relative;
+    top: -30px;
+}
