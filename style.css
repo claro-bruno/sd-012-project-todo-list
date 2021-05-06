@@ -16,6 +16,10 @@ button {
     margin-left: 30px;
 }
 
+.item-lista.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+
 #texto-botao {
     text-align:center;
     line-height: 0px;
