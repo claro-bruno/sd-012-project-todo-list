@@ -7,16 +7,23 @@ function addTask() {
   task.focus();
   addButton.addEventListener('click', function () {
     const item = document.createElement('li');
-    item.addEventListener('click', changeBgTaskClick);
+    item.addEventListener('click', selectOnlyOne);
     item.innerHTML = task.value;
-    item.className = 'item';
-    list.appendChild(item);
+    item.className = 'unselected';
     task.value = '';
+    list.appendChild(item);
+    task.focus();
   });
 }
 
-function changeBgTaskClick(element) {
-  element.target.style.backgroundColor = 'rgb(128, 128, 128)';
+function selectOnlyOne(elemento) {
+  const itemSelected = document.querySelector('.selected');
+  if (itemSelected === null) {
+    elemento.target.className = 'selected';
+  } else {
+    itemSelected.className = 'unselected';
+    elemento.target.className = 'selected';
+  }
 }
 
 window.onload = function toDoList() {

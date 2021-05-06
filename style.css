@@ -2,3 +2,7 @@
   text-align: left;
   list-style: none;
 }
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
