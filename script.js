@@ -7,12 +7,16 @@ function createTask() {
     taskBoard.className = "task";
     taskBoard.innerHTML = inputButton.value;
     taskList.appendChild(taskBoard);
-    inputButton.innerHTML = '';
 }   
+
+function clearInput () {
+    inputButton.innerText = '';
+}
 
 input.addEventListener('click', (event)=> {
     event.preventDefault();
     createTask();
+    clearInput();
 });
 
 // Em pesquisa foi localizada a função preventDefault(), evitando que o envio da tarefa resete o formulário, gravando seu conteúdo; acessado em (https://www.w3schools.com/jsref/event_preventdefault.asp)
