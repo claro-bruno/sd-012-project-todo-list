@@ -12,6 +12,7 @@ window.onload = function() {
             li.innerHTML = texto_tarefa.value;
             li.className = 'no-select'
             li.addEventListener('click', selectTarefa);
+            li.addEventListener('dblclick', completedTarefa);
             lista_tarefas.appendChild(li);
             texto_tarefa.value = '';
         }
@@ -20,10 +21,39 @@ window.onload = function() {
     function selectTarefa(event) {
         let lis = document.getElementsByTagName('li');
         for(let i = 0; i < lis.length; i++) {
-            if(lis[i].className = 'select') {
+            if(lis[i].className == 'select') {
                 lis[i].className = 'no-select'
             }
+            else if(lis[i].className == 'select completed') {
+                lis[i].className = 'no-select completed'
+            }
         }
-        event.target.className = 'select';
+        if(event.target.className == 'select completed') {
+            event.target.className = 'select completed';
+        }
+        else if(event.target.className == 'select') {
+            event.target.className = 'select';
+        }
+        else if(event.target.className == 'no-select') {
+            event.target.className = 'select';
+        }
+        else if(event.target.className == 'no-select completed'){
+            event.target.className = 'select completed';
+        }
+        else if(event.target.className == 'completed') {
+            event.target.className = 'select completed';
+        }
+    }
+
+    function completedTarefa(event) {
+        if(event.target.className == 'no-select completed') {
+            event.target.className = 'no-select';
+        }
+        else if(event.target.className == 'select completed') {
+            event.target.className = 'select';
+        }
+        else{
+            event.target.className = 'completed';
+        }
     }
 }

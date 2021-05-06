@@ -1,6 +1,9 @@
+.no-select {
+    background-color: white;
+}
 .select {
     background-color: rgb(128, 128, 128);
 }
-.no-select {
-    background-color: white;
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
 }
