@@ -1,8 +1,19 @@
 body {
     margin: 0;
-    background-color: whitesmoke;
+    background-color: greenyellow;
+}
+
+main {
+    margin: 50px;
+    padding: 5px 20px;
+    background-color: white;
+    border-radius: 10%;
 }
 
 header {
-    text-align: center;
+    text-align: left;
+}
+
+p {
+    color: gray;
 }
