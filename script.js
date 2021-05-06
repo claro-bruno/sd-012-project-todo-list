@@ -38,3 +38,17 @@ function inputTextoTarefa () {
     document.body.appendChild(input);
 }
 inputTextoTarefa();
+
+
+/* 4 - Adicione uma lista ordenada de tarefas com o id="lista-tarefas"
+O que será verificado:
+
+Será verificada a existência de um elemento ol com o id lista-tarefas.
+ */
+
+function adicionaListaTarefas () {
+    let lista = document.createElement('ol');
+    lista.id = 'lista-tarefas';
+    document.body.appendChild(lista);
+}
+adicionaListaTarefas();
