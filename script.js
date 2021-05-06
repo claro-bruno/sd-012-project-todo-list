@@ -28,13 +28,14 @@ function addTask(myTask,evt) {
     //let txtTask = document.querySelector('#texto_tarefa').value;
 
     if(myTask.length > 0) {
+        
         let li_task = document.createElement('li');
         li_task.innerHTML = myTask;
         li_task.className = 'task';
         li_task.addEventListener('click', changeBackgroundTask)
         li_task.addEventListener('dblclick', setCompletedTask)
         ol_task.appendChild(li_task);
-        document.querySelector('#texto_tarefa').value = '';
+        document.querySelector('#texto-tarefa').value = '';
     } 
 }
 
