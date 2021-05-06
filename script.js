@@ -2,13 +2,23 @@ const taskList = document.getElementById('lista-tarefas');
 const addBtn = document.getElementById('criar-tarefa');
 const taskInput = document.getElementById('texto-tarefa');
 const title = document.getElementById('title');
-const clearBtn = document.getElementById('apaga-tudo');
+const clearAllBtn = document.getElementById('apaga-tudo');
+const clearDoneBtn = document.getElementById('remover-finalizados');
 
 function clearSelection() {
   const list = document.querySelectorAll('li');
   for (let index = 0; index < list.length; index += 1) {
     if (list[index].classList.contains('selected')) {
       list[index].classList.remove('selected');
+    }
+  }
+}
+
+function clearCompleted() {
+  const list = document.querySelectorAll('li');
+  for (let index = 0; index < list.length; index += 1) {
+    if (list[index].classList.contains('completed')) {
+      taskList.removeChild(list[index]);
     }
   }
 }
@@ -51,6 +61,7 @@ function clearList() {
 
 window.onload = function loadPage() {
   addBtn.addEventListener('click', addTask);
-  clearBtn.addEventListener('click', clearList);
+  clearAllBtn.addEventListener('click', clearList);
+  clearDoneBtn.addEventListener('click', clearCompleted);
   title.addEventListener('click', select);
 };
