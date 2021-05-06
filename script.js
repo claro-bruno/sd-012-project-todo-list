@@ -6,6 +6,7 @@ function createTask() {
     let element = document.createElement("li");
     element.innerHTML = inputValue;
     element.addEventListener("click", highlightTask);
+    element.addEventListener("dblclick", completeTask);
     taskList.appendChild(element);
     document.querySelector("#texto-tarefa").value = "";
 };
@@ -24,3 +25,14 @@ function highlightTask (event){
 
     event.target.style.backgroundColor = "rgb(128, 128, 128)";
 };
+
+// Marcar tarefa como completa
+
+function completeTask (event) {
+    if (event.target.className === "completed") {
+        event.target.className = "";
+    } else if(event.target.className === "") {
+        event.target.className = "completed";
+    };
+};
+
