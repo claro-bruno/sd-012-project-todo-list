@@ -1,13 +1,14 @@
 #criar-tarefa{
-    background-color: grey;
+    background-color:white;
     border: none;
-    color: white;
-    padding: 15px 32px;
+    color: black;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 10px;
     border-radius: 30%;
+    border: 1px solid black;
 }
 header{
     font-size: larger;
