@@ -42,6 +42,8 @@ function liCreate(text) {
   return li;
 }
 
+let color = '';
+
 function switchColor(event) {
   const beforeSelected = document.querySelector('.selected');
   if (beforeSelected) {
@@ -65,5 +67,3 @@ function addTask() {
 
 addTaskBtn.addEventListener('click', addTask);
 insertTask.appendChild(addTaskBtn);
-
-let color = '';
