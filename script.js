@@ -48,6 +48,8 @@ function oldTask(event) {
     tasks[index].className = 'task';
   }
   if (event.target.classList.contains('task')) {
+    for (let index = 0; index < tasks.length; index += 1) {
+      tasks[index].style.backgroundColor = 'white';}
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }
