@@ -66,7 +66,23 @@ function eventClearList() {
   });
 }
 
+function eventClearCompleted() {
+  const clearCompletedButton = document.getElementById('remover-finalizados');
+
+  clearCompletedButton.addEventListener('click', () => {
+    const listItens = document.querySelectorAll('.completed');
+
+    for (let index = 0; index < listItens.length; index += 1) {
+      const parentElement = document.getElementById(taskList);
+      parentElement.removeChild(listItens[index]);
+    }
+  });
+}
+
 createButton('criar-tarefa', 'Adicionar', '#b1b2b5', 'input');
+createButton('remover-finalizados', 'Limpar Completos', '#F0E68C', 'setup');
 createButton('apaga-tudo', 'Limpar lista', '#E9967A', 'setup');
+
 eventAddTask();
 eventClearList();
+eventClearCompleted();
