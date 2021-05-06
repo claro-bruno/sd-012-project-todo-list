@@ -1,0 +1,28 @@
+header {
+    background-color: rgb(73, 143, 223);
+    padding: 30px 10px;
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+
+#funcionamento {
+    padding: 5px 10px;
+    font-size: 1.1rem;
+}
+
+#texto-tarefa {
+    width: 300px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 30px;
+}
+
+#lista-tarefas {
+    /* background-color: rgba(0, 0, 0, 0.1); */
+    width: 350px;
+    padding: 5px 20px;
+    font-size: 17px;
+    border-radius: 10px;
+}
