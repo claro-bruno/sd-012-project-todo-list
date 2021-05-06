@@ -1,0 +1,38 @@
+body {
+  background-color: rgb(125, 185, 125);
+}
+#funcionamento{
+
+}
+
+#texto-tarefa {
+
+}
+
+#criar-tarefa {
+
+}
+
+#lista-tarefas {
+  background-color: teal;
+  padding: 15px;
+  padding-left: 50px;
+  text-decoration: none;
+  border-radius: 15px;
+}
+
+.tarefa {
+background-color: white;
+padding: 10px;
+border-radius: 10px;
+
+}
+
+.selecionada {
+
+}
+
+.finalizada {
+
+
+}
