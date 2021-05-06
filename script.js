@@ -55,12 +55,22 @@ function switchColor(event) {
   event.target.classList.add('selected');
 }
 
+function switchClass(event) {
+  const arrayClass = [...event.target.classList];
+  if (arrayClass.includes('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
 function addTask() {
   const task = taskText.value;
   const li = liCreate(task);
   li.className = 'task';
   li.style.backgroundColor = 'orange';
   li.addEventListener('click', switchColor);
+  li.addEventListener('dblclick', switchClass);
   tasksList.appendChild(li);
   taskText.value = '';
 }
