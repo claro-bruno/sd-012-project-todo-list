@@ -26,7 +26,7 @@ function criaTarefa (){
   li.innerHTML = inputTarefas.value;
   inputTarefas.value = '';
   li.className = ('tarefa');
-  listaTarefas.prepend(li);
+  listaTarefas.appendChild(li);
 }
 
 function apagaTodas (){
