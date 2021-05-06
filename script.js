@@ -1,12 +1,20 @@
+function unmarkTask(){
+    let selectedTask = document.querySelector('#selected');
+    selectedTask.id = '';
+}
+
 function changeTaskColor(){
-    let tasks = document.querySelectorAll('.tarefa');
-    for(let indexTask = 0;indexTask < tasks.length; indexTask += 1){
-        let task = tasks[indexTask];
-        task.addEventListener('click', ()=>{
-            task.style.backgroundColor = 'rgb(128,128,128)';
-        });
-    };
-};
+    let taskList = document.querySelector('#lista-tarefas');
+    taskList.addEventListener('click', (e)=>{
+        if(e.target.className === 'tarefa'){
+            if(document.querySelector('#selected') !== null){
+                unmarkTask();
+                console.log('   hceugie')
+            }
+            e.target.id = 'selected';
+        };
+    });
+}
 
 function createTask() {
   let btn = document.querySelector('#criar-tarefa');
@@ -18,10 +26,11 @@ function createTask() {
     input.value = '';
     let list = document.querySelector('#lista-tarefas');
     list.appendChild(task);
-    changeTaskColor();
+    
   });
-};
+}
 
 window.onload = () => {
     createTask();
+    changeTaskColor();
 };
