@@ -9,4 +9,12 @@ function addTarefa() {
         listaDeTarefas.appendChild(tarefaAdicionada);
         tarefaNova.value = '';
     }
-} botaoAddTarefa.addEventListener('click', addTarefa);
+}
+
+botaoAddTarefa.addEventListener('click', addTarefa);
+
+function alteraCor(event) {
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
+}
+
+listaDeTarefas.addEventListener('dblclick', alteraCor);
