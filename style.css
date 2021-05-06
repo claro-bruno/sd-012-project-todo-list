@@ -1,0 +1,20 @@
+
+
+header {
+    font-family: sans-serif;
+}
+
+p {
+    font-family: sans-serif;
+}
+
+button {
+    display: inline-block;
+    width: 90px;
+    height: 30px;
+}
+
+#texto-botao {
+    text-align:center;
+    line-height: 0px;
+}
