@@ -99,7 +99,7 @@ function moveItemsDown() {
     let buttonMoveDown = document.getElementById('mover-baixo');
     buttonMoveDown.addEventListener('click', () => {
       let selectedItem = document.querySelector('.selected');
-      if (selectedItem.nextElementSibling !== null || selectedItem === null) {
+      if (selectedItem.nextElementSibling !== null || selectedItem !== null) {
           let itemDepois = document.createElement('li');
           itemDepois.innerHTML = selectedItem.nextElementSibling.innerHTML;
           itemDepois.classList = selectedItem.nextElementSibling.classList;
