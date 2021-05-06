@@ -51,30 +51,36 @@ function addNewTask() {
     if (getInputField.value.length > 0) {
       let newLi = document.createElement('li');
       newLi.innerHTML = getInputField.value;
-      newLi.classList.add('task');
-      newLi.style.backgroundColor = 'white';
       
       getTaskList.appendChild(newLi);
       getInputField.value = '';
     } else {
       alert('Adicionar tarefa');
     }
-    addColorTask();
+    selectTask();
   })
 }
 addNewTask();
 
-function addColorTask() {
-  let getTasks = document.getElementsByClassName('task');
+function selectTask() {
+  let getTasks = document.getElementsByTagName('li');
   for (let index = 0; index < getTasks.length; index += 1) {
-    getTasks[index].addEventListener('click', function(event) {
-      let eventTargetBackgroundColor = event.target.style.backgroundColor;
-      if (eventTargetBackgroundColor !== 'rgb(128, 128, 128') {
-        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-      }
-    })
+    getTasks[index].addEventListener('click', setSelectedClass);
   }
 }
+
+function setSelectedClass(event) {
+  let getTasks = document.getElementsByTagName('li');
+  for (let index = 0; index < getTasks.length; index += 1) {
+    if (getTasks[index].classList = 'selected') {
+      getTasks[index].classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  }
+}
+
+
+
 
 
 
