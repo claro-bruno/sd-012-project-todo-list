@@ -5,6 +5,8 @@
 const criaTarefaButton = document.getElementById('criar-tarefa');
 const oderList = document.getElementById('lista-tarefas');
 
+
+
 document.addEventListener('click', (event) => {
   if (event.target.id === 'criar-tarefa') {
     const inputText = document.getElementById('texto-tarefa')
@@ -21,6 +23,14 @@ document.addEventListener('click', (event) => {
       selected.style.backgroundColor = 'white'
     }
     event.target.classList.add ('selected');
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+  }
+})
+
+document.addEventListener('dblclick', (evento) => {
+  let alvo = evento.target
+  if (alvo.classList.contains('completed')) {
+    alvo.classList.remove('completed')
+  } else {
+    alvo.classList.add('completed');
   }
 })
