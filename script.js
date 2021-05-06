@@ -29,8 +29,23 @@ function clicar128() {
   orderedList.addEventListener('click', function(event) {
     let previous = document.querySelector('.selected');
     if (!previous) {
-    } else {previous.className = ''}
-    event.target.className = 'selected';
+    } else { previous.classList.remove('selected') }
+    event.target.classList.add('selected');
   })
 }
 clicar128();
+
+// double click para riscar
+function clicarRiscar() {
+  let orderedList = document.getElementById('lista-tarefas');
+  orderedList.addEventListener('dblclick', function(event) {
+    if (event.target.className == 'completed' || event.target.className == 'completed selected') {
+      event.target.classList.remove('completed');
+      console.log(event.target.className);
+    } else {
+      event.target.classList.add('completed');
+      console.log(event.target.classList);
+    }
+  });
+}
+clicarRiscar();
