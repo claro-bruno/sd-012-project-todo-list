@@ -7,4 +7,7 @@ addToListButton.addEventListener('click', () => {
   textAsItemList.innerHTML = typedTextInput.value;
   taskList.appendChild(textAsItemList);
 });
-npx
+
+addToListButton.addEventListener('click', () => {
+  typedTextInput.value = '';
+});
