@@ -35,7 +35,16 @@ function apagaTarefas() {
   }
 }
 
+function apagaCompletas() {
+  const tarefaCompleta = document.getElementsByClassName('completed');
+  while (tarefaCompleta.length > 0) {
+    tarefaCompleta[0].remove();
+  }
+}
+
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', adicionaTarefa);
 const buttonDel = document.getElementById('apaga-tudo');
 buttonDel.addEventListener('click', apagaTarefas);
+const buttonCompl = document.getElementById('remover-finalizados');
+buttonCompl.addEventListener('click', apagaCompletas);
