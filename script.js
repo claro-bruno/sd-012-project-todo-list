@@ -3,6 +3,17 @@ const button = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
 
 function createItem() {
+  function changeBgColor(event) {
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    event.target.classList.add('selected');
+  }
+  
+  function changeSelected() {
+    const selected = document.querySelector('.selected');
+    selected.style.backgroundColor = '';
+    selected.classList.remove('selected');
+  }
+  
   const newItem = document.createElement('li');
   newItem.addEventListener('click', changeSelected);
   newItem.addEventListener('click', changeBgColor);
@@ -12,14 +23,3 @@ function createItem() {
 }
 
 button.addEventListener('click', createItem);
-
-function changeBgColor(event) {
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  event.target.classList.add('selected');
-}
-
-function changeSelected() {
-  const selected = document.querySelector('.selected');
-  selected.style.backgroundColor = '';
-  selected.classList.remove('selected');
-}
