@@ -32,9 +32,14 @@ tasksList.id = 'lista-tarefas';
 tasksListContainer.appendChild(tasksList);
 content.appendChild(tasksListContainer);
 
-const addTaskBtn = document.createElement('button');
-addTaskBtn.id = 'criar-tarefa';
-addTaskBtn.innerHTML = 'adiconar';
+function createBtn(id, text) {
+  const btn = document.createElement('button');
+  btn.id = id;
+  btn.innerHTML = text;
+  return btn;
+}
+
+const addTaskBtn = createBtn('criar-tarefa', 'adiconar');
 
 function liCreate(text) {
   const li = document.createElement('li');
@@ -76,4 +81,20 @@ function addTask() {
 }
 
 addTaskBtn.addEventListener('click', addTask);
+
 insertTask.appendChild(addTaskBtn);
+
+const btnContainer = document.createElement('div');
+btnContainer.className = 'btn-container';
+
+content.appendChild(btnContainer);
+
+const btnClearAll = createBtn('apaga-tudo', 'apagar todas as tarefas');
+
+function cleanTaskList() {
+  tasksList.innerHTML = '';
+}
+
+btnClearAll.addEventListener('click', cleanTaskList);
+
+btnContainer.appendChild(btnClearAll);
