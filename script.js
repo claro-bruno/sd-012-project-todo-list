@@ -17,9 +17,7 @@ function setGreyItem() {
   let orderList = document.querySelectorAll('.task-list');
     for (let index = 0; index < orderList.length; index += 1) {
     orderList[index].addEventListener('click', function(){
-      let style = orderList[index].style.backgroundColor = 'rgb(128, 128, 128)';
-      orderList[index].classList.add('selected');
-      console.log('xablau');
+      orderList[index].classList.add('selected');      
     })
   }
 }
