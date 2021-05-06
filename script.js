@@ -7,6 +7,9 @@ function criandoNovaTarefa() {
     const novoItem = document.createElement('li');
     novoItem.classList.add('item-lista');
     novoItem.innerText = inputTarefas.value;
+    mudaCorDeFundo(novoItem);
+    riscaItemDaLista(novoItem);
+    apagaItensDaLista(novoItem);
     listaTarefas.appendChild(novoItem);
     inputTarefas.value = '';
   });
@@ -14,35 +17,30 @@ function criandoNovaTarefa() {
 
 criandoNovaTarefa();
 
-function gerandoListadeItens() {
-  buttonNovaTarefa.addEventListener('click', () => {
-    const itensDaLista = document.querySelectorAll('.item-lista');
-    console.log(itensDaLista);
-    mudaCorDeFundo(itensDaLista);
-    riscaItemDaLista(itensDaLista);
+function mudaCorDeFundo(elemento) {
+  elemento.addEventListener('click', (event) => { 
+    const itensDalista = document.querySelectorAll('.item-lista');
+    console.log(itensDalista);
+    for (let index = 0; index < itensDalista.lenght; index += 1) {
+      itensDalista[index].classList.remove('selected');
+      console.log(itensDalista[index]);
+    }
+    event.target.classList.toggle('selected');
   });
 }
 
-gerandoListadeItens();
+function riscaItemDaLista(element) {
+  element.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
+}
 
-function mudaCorDeFundo(elements) {
-  for (let index = 0; index < elements.length; index += 1) {
-    elements[index].addEventListener('click', (event) => { 
-      console.log(event.target);
-      for (let itemKey = 0; itemKey < elements.length; itemKey += 1) {
-        elements[itemKey].classList.remove('selected');
-      }
-      event.target.classList.add('selected');
+const buttonApagaLista= document.querySelector('#apaga-tudo');
+
+function apagaItensDaLista(element) {
+  buttonApagaLista.addEventListener('click', () => {
+      listaTarefas.removeChild(element);
     });
-  }
-}
-
-function riscaItemDaLista(elements) {
-  elements.forEach(element => {
-    element.addEventListener('dblclick', (event) => {
-      event.target.classList.toggle('completed');
-    })
-  });
 }
 
 
