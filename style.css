@@ -43,21 +43,21 @@ header {
     text-decoration: line-through solid rgb(0, 0, 0);
 }
 
-#criar-tarefa {
+#criar-tarefa, #apaga-tudo{
     height: 40px;
     background-color: transparent;
     border-radius: 10px;
     cursor: pointer;
 }
 
-#criar-tarefa:hover {
+#criar-tarefa:hover, #apaga-tudo:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-#criar-tarefa:active {
+#criar-tarefa:active, #apaga-tudo:active {
     transform: scale(0.98);
 }
 
-#criar-tarefa:focus {
+#criar-tarefa:focus, #apaga-tudo:focus {
     outline: 0;
 }
