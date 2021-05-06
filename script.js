@@ -8,8 +8,8 @@ function clearSelection() {
   for (let index = 0; index < list.length; index += 1) {
     if (list[index].classList.contains('selected')) {
       list[index].classList.remove('selected');
-    };
-  };
+    }
+  }
 }
 
 function select(event) {
@@ -22,8 +22,8 @@ function check(event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
   } else {
-   event.target.classList.add('completed');
-  };
+    event.target.classList.add('completed');
+  }
 }
 
 function upgradeList() {
@@ -31,7 +31,7 @@ function upgradeList() {
   for (let index = 0; index < list.length; index += 1) {
     list[index].addEventListener('click', select);
     list[index].addEventListener('dblclick', check);
-  };
+  }
 }
 
 function addTask() {
@@ -45,4 +45,4 @@ function addTask() {
 window.onload = function loadPage() {
   addBtn.addEventListener('click', addTask);
   title.addEventListener('click', select);
-}
+};
