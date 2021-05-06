@@ -7,4 +7,16 @@ newTaskButton.addEventListener('click', () => {
   li.innerHTML = inputTask.value;
   inputTask.value = '';
   taskList.appendChild(li);
+  colorLi();
 });
+
+function colorLi() {
+  const li = document.querySelectorAll('li');
+  for (let index = 0; index < li.length; index += 1) {
+    li[index].addEventListener('click', (event) => {
+      const targ = event.target;
+      console.log(targ);
+      targ.style.backgroundColor = 'rgb(128, 128, 128)';
+    });
+  }
+};
