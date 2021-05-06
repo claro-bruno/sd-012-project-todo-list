@@ -39,13 +39,33 @@ clicar128();
 function clicarRiscar() {
   let orderedList = document.getElementById('lista-tarefas');
   orderedList.addEventListener('dblclick', function(event) {
-    if (event.target.className == 'completed' || event.target.className == 'completed selected') {
+    if (event.target.classList.contains('completed')) {
       event.target.classList.remove('completed');
-      console.log(event.target.className);
     } else {
       event.target.classList.add('completed');
-      console.log(event.target.classList);
     }
   });
 }
 clicarRiscar();
+
+// faz botão apagar tudo
+function apagaTudo() {
+  let botao = document.getElementById('apaga-tudo');
+  let orderedList = document.getElementById('lista-tarefas');
+  botao.addEventListener('click', function() {
+    orderedList.innerHTML = '';
+  });
+}
+apagaTudo();
+
+// apaga tarefas completadas
+function removeCompleted() {
+  let botao = document.getElementById('remover-finalizados');
+  botao.addEventListener('click', function() {
+  let completed = document.querySelectorAll('.completed');
+    for (let i = 0; i < completed.length; i++) {
+      completed[i].remove();
+    }
+  });
+}
+removeCompleted();
