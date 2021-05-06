@@ -33,9 +33,33 @@
       border-radius: 10%;
   }
 
+  #criar-tarefa:hover {
+      background-color: aqua;
+      box-shadow: 4px 4px 4px black;
+  }
+
   #apaga-tudo {
       background-color: red;
       border-radius: 10%;
+      box-shadow: 3px 3px black;
+      margin: 5px;
+  }
+
+  #apaga-tudo:hover {
+      background-color: brown;
+      box-shadow: 1px 1px brown;
+  }
+
+  #remover-finalizados {
+      margin: 5px;
+      background-color: rgb(0, 195, 255);
+      border-radius: 10%;
+      box-shadow: 3px 3px black;
+  }
+
+  #remover-finalizados:hover {
+      background-color: palevioletred;
+      box-shadow: 1px 1px palevioletred;
   }
 
   li {

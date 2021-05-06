@@ -79,3 +79,17 @@ limpar.addEventListener('click', function () {
       pai.removeChild(rem[index])
     }
 });
+
+let btnCompl = document.createElement('button');
+btnCompl.innerHTML = 'Limpar Completos';
+btnCompl.id = 'remover-finalizados';
+main.appendChild(btnCompl);
+
+const limparFinalizados = document.querySelector('#remover-finalizados');
+limparFinalizados.addEventListener('click', function () {
+    let pai = document.querySelector('#lista-tarefas')
+    let rem = document.querySelectorAll('.completed');
+    for (let index = 0; index < rem.length; index += 1) {
+      pai.removeChild(rem[index])
+    }
+});
