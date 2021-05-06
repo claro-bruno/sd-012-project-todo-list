@@ -20,10 +20,8 @@ criandoNovaTarefa();
 function mudaCorDeFundo(elemento) {
   elemento.addEventListener('click', (event) => { 
     const itensDalista = document.querySelectorAll('.item-lista');
-    console.log(itensDalista);
-    for (let index = 0; index < itensDalista.lenght; index += 1) {
-      itensDalista[index].classList.remove('selected');
-      console.log(itensDalista[index]);
+    for (let index = 0; index < itensDalista.length; index += 1) {
+      if(event.target !== itensDalista[index]) itensDalista[index].classList.remove('selected');  
     }
     event.target.classList.toggle('selected');
   });
