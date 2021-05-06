@@ -24,7 +24,7 @@ function dblclicker(eventObject) {
 function criaTarefa (){
   const li = document.createElement('li');
   li.innerHTML = inputTarefas.value;
-  // inputTarefas.value = '';
+  inputTarefas.value = '';
   li.className = ('tarefa');
   listaTarefas.prepend(li);
 }
