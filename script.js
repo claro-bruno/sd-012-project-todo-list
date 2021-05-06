@@ -29,18 +29,18 @@ function createButton() {
 
 createButton();
 
-insertTask.addEventListener('click', newTask);
-
 let task;
 
 function newTask() {
   task = document.createElement('li');
-  if (textEntrance.value != '') {
+  if (textEntrance.value !== '') {
     task.innerText = textEntrance.value;
     taskList.appendChild(task);
     textEntrance.value = '';
   }
 }
+
+insertTask.addEventListener('click', newTask);
 
 function oldTask(event) {
   let tasks = document.querySelectorAll('li');
@@ -49,7 +49,8 @@ function oldTask(event) {
   }
   if (event.target.classList.contains('task')) {
     for (let index = 0; index < tasks.length; index += 1) {
-      tasks[index].style.backgroundColor = 'white';}
+      tasks[index].style.backgroundColor = 'white';
+    }
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }
@@ -77,11 +78,11 @@ function clearButton() {
 
 clearButton();
 
-refresh.addEventListener('click', clearAll);
-
 function clearAll() {
-  document.location.reload(true);
+    document.location.reload(true);
 }
+
+refresh.addEventListener('click', clearAll);
 
 let doneButton;
 
@@ -94,14 +95,12 @@ function filterButton() {
 
 filterButton();
 
-let removedTasks = [];
-
 function removeDone() {
-  if (document.querySelectorAll('.completed').length != 0) {
-    let doneTasks = document.querySelectorAll('.completed');
+  if (document.querySelectorAll('.completed').length !== 0) {
+    const doneTasks = document.querySelectorAll('.completed');
     for (let index = 0; index < doneTasks.length; index += 1) {
         taskList.removeChild(doneTasks[index]);
-    }
+      }
   }
 }
 
