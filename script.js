@@ -20,6 +20,17 @@ addButton.addEventListener("click", function () {
        });  
     })
 
+    function backgroundGreyItem() {
+        taskList.addEventListener('click', function(event) {
+          const selectedItem = document.querySelector('.grey');
+          if (selectedItem != undefined) {
+          selectedItem.classList.remove('grey');
+          }
+          event.target.classList.add('grey');
+        });
+      }
+      backgroundGreyItem();
+
 function removeTasks(){
     removeAllTasks.addEventListener('click', function(){
         taskList.innerHTML = '';
