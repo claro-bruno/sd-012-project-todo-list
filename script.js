@@ -16,7 +16,9 @@ window.onload = () => {
         newTask.innerHTML = getTask();
         newTask.className = "tasks";
         getList.appendChild(newTask);
-        paintLi();
+        selectTask();
+        
+       
     }
     const add = getById('criar-tarefa');
     const getInput = getById('texto-tarefa');
@@ -29,17 +31,24 @@ window.onload = () => {
         if((e.key ==='Enter') && (getInput.value.length > 0))  addToList();
     });
     
-    function paintLi(){
-        const getTasksArray = document.getElementsByClassName('tasks');
-        if(getTasksArray.length > 0){
-            for(let i = 0; i < getTasksArray.length; i += 1){
-                getTasksArray[i].addEventListener('click', (e) => {
-                        e.target.style.backgroundColor = 'rgb(128, 128, 128)';
-                })
-            }
+    function checkTask(e){
+        const getTaskSelected = document.querySelector('.selected');
+        if (getTaskSelected !== null) {
+            getTaskSelected.classList.remove('selected');
+            getTaskSelected.style.backgroundColor = 'white';
         }
+        e.target.classList.add('selected');
+        e.target.style.backgroundColor = 'rgb(128, 128, 128)';   
     }
-       
+
+    function selectTask(){
+        const selectTasksLi = document.getElementsByClassName('tasks');
+        for (let tasksLi of selectTasksLi ){
+            tasksLi.addEventListener('click', checkTask);
+            
+        }
+             
+    }
     
    
 
