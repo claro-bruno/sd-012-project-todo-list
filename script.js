@@ -18,6 +18,9 @@ function selectItem() {
   const itemList = document.querySelectorAll('.item-list');
   for (let item of itemList) {
     item.addEventListener('click', () => {
+      for (let item2 of itemList) {
+        item2.style.backgroundColor = null;
+      }
       item.style.backgroundColor = 'rgb(128, 128, 128)';
     })
   }
