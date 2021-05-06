@@ -10,9 +10,21 @@
 .caixaDeTexto {
     text-align: center;
     margin-top: 50px;
+    
 }
 
 #lista-tarefas {
     text-align: left;
     list-style: none;
+    background-color: rgb(175, 209, 142);
+    border: solid 1px black;
+    margin-right: 400px;
+    margin-left: 400px;
 }
+
+.completed {
+   text-decoration: line-through; 
+}
+
+
+  
