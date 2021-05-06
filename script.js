@@ -37,9 +37,21 @@ function removeTasks() {
   });
 }
 
+function removeFinalizedTasks() {
+  const removeBtn = document.getElementById('remover-finalizados');
+
+  removeBtn.addEventListener('click', () => {
+    const finalizedTask = document.querySelectorAll('.completed');
+    for (let index = 0; index < finalizedTask.length; index += 1) {
+      finalizedTask[index].remove('completed');
+    }
+  });
+}
+
 window.onload = () => {
   createTask();
   selectedTask();
   completeTask();
   removeTasks();
+  removeFinalizedTasks();
 };
