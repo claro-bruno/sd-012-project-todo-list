@@ -15,10 +15,8 @@ function criarTarefa() {
   });
   listItem.addEventListener('dblclick', () => {
     if (listItem.classList.contains('completed') === true) {
-      console.log(true);
      console.log(listItem.classList.remove('completed'));
     }else {
-      console.log(false);
       listItem.classList.add('completed');
     }
   });
