@@ -27,3 +27,16 @@
     display: inline-block;
     margin: 10px;
   }
+
+  li {
+    margin: 2px;
+    height: 20px;
+  }
+
+  .selected {
+    background-color: rgb(128, 128, 128);
+  }
+
+  .completed {
+    text-decoration: line-through;
+  }
