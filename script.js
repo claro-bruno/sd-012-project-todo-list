@@ -2,6 +2,7 @@
 let caminhoBtn = document.getElementById("criar-tarefa");
 let caminhoImput = document.getElementById("texto-tarefa");
 let caminhoLista = document.getElementById("lista-tarefas");
+let apagaBtn = document.getElementById("apaga-tudo");
 
 // função que muda o backgroundColor de tarefa e seleciona
 function mudaFundoSeleciona(event){
@@ -46,5 +47,11 @@ function clicaBtn(){
     limpaImput();
 };
 
-//  adiciona eventlistener no botão
+//  adiciona eventlistener no botão adiciona tarefa
 caminhoBtn.addEventListener("click", clicaBtn);
+
+//  adiciona eventlistener com função no botão apaga-tudo
+
+apagaBtn.addEventListener("click", function (){
+    caminhoLista.innerHTML = "";
+});
