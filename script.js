@@ -3,7 +3,7 @@ botao.innerHTML = 'Criar tarefa';
 
 //================================================================================
 
-//Exercício 5:
+//Exercício 5 e 6:
 
 let inputSelect = document.getElementById('texto-tarefa');
 let selectOl = document.getElementById('lista-tarefas');
@@ -12,19 +12,27 @@ let selectOl = document.getElementById('lista-tarefas');
 function capturar () {
     botao.addEventListener('click', function (event) {
         let criarLista = document.createElement('li');
+        criarLista.addEventListener('click', function() {
+            criarLista.style.backgroundColor = 'rgb(128, 128, 128)'
+        })
         let valorCapturado = inputSelect.value;
         criarLista.innerHTML = valorCapturado;
         selectOl.appendChild(criarLista);
 
 
-        function clearInput () {
+        function clearInput () { // Exercício 6
             if(inputSelect.value !== '') {
                 inputSelect.value = '';
-            }
-        }
-        clearInput ();   
-    })
+            };
+        };
+        clearInput ();
+    });
      
-}
+};
 
 capturar ();
+
+//================================================================================
+
+//Exercício 7
+
