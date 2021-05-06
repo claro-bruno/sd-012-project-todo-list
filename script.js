@@ -45,10 +45,36 @@ function liCreate(text) {
 function addTask() {
   const task = taskText.value;
   const li = liCreate(task);
+  li.className = 'task';
+  li.style.backgroundColor = 'orange';
+  li.addEventListener('click', switchColor);
   tasksList.appendChild(li);
   taskText.value = '';
 }
 
 addTaskBtn.addEventListener('click', addTask);
-
 insertTask.appendChild(addTaskBtn);
+
+let color = '';
+
+function switchColor(event) {
+  const beforeSelected = document.querySelector('.selected');
+  if (beforeSelected) {
+    beforeSelected.style.backgroundColor = color;
+    beforeSelected.classList.remove('selected');
+  }
+  color = event.target.style.backgroundColor;
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  event.target.classList.add('selected');
+}
+
+// function addEventInArray(typeEvent, callback, array) {
+//   for (let index = 0; index < array.length; index += 1) {
+//     array[index].addEventListener(typeEvent, callback);
+//   }
+// }
+
+// const arrayTasks = document.getElementsByClassName('task');
+// console.log(arrayTasks);
+
+// addEventInArray('click', switchColor);
