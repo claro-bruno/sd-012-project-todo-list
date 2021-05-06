@@ -7,6 +7,9 @@ const taskList = document.getElementById('lista-tarefas');
 //CRIA CONST PARA RESGATAR A TAG INPUT PELO ID:
 const taskText = document.getElementById('texto-tarefa');
 
+//CRIA CONST QUE RESGATA A TAG DO BOTAO DE LIMPAR A LISTA:
+const taskCleaner = document.getElementById('apaga-tudo');
+
 //5, 6 - CRIANDO A FUNÇÃO DE ADD A TASK E CRIAR UMA TAG li PARA ADICIONAR A ol: Usei o listener pra criar o click e atribui a função. Criei a const que cria uma tag li para ser adiciona a lista ordenada. Atribui o valor da task (que sera colocada na lista li) resgatado do input, usando taskText.value, ou seja, ele pega o valor que foi dado ao elemento com a id taskText. Coloquei a li (task) como filha da ol com id taskList. Por fim atrivui o valor de taskText a uma string vazia, pois é o estado inicial dela antes de ser preenchido meu input
 
 addTask.addEventListener('click', () => {
@@ -53,6 +56,16 @@ function taskComplete () {
 }
 
 taskComplete();
+
+//10 - CRIEI A FUNCTION QUE EXECUTA A LOGICA. COM A CONST QUE RESGATA O ELEMENTO COM A ID apaga-tudo CRIEI UM EVENT LISTENER DE CLICAR NO BOTAO, E DENTRO DELE CHAMEI A CONST TASKLIST.INNERHTML=''; PARA RETORNAR UMA STRING VAZIA QUANDO CLICAR NO BOTAO.
+
+function taskClear () {
+    taskCleaner.addEventListener('click', () => {
+        taskList.innerHTML = '';
+    })
+}
+
+taskClear();
 
 
     
