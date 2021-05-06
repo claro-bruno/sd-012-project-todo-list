@@ -28,7 +28,6 @@ changeItemBG();
 
 function taskCompleted() {
   let orderedList = document.getElementById('lista-tarefas');
-  let listItems = orderedList.children;
 
   orderedList.addEventListener('dblclick', function (event) {
     if (event.target.className === 'completed') {
@@ -49,3 +48,18 @@ function clearList() {
   })
 }
 clearList();
+
+function removeCompleted() {
+  let removeCompletedButton = document.getElementById('remover-finalizados');
+  let orderedList = document.getElementById('lista-tarefas');
+  let listItems = orderedList.children;
+
+  removeCompletedButton.addEventListener('click', function () {
+    for (let index = 0; index < listItems.length; index += 1) {
+      if (listItems[index].className === 'completed') {
+        listItems[index].remove();
+      }
+    }
+  })
+}
+removeCompleted();
