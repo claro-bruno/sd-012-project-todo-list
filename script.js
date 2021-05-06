@@ -5,13 +5,11 @@ function createLi(){
     const criarTarefa = document.getElementById('criar-tarefa');
 
     criarTarefa.addEventListener('click', () => {
-        let criarLista = document.createElement('li');
+        const criarLista = document.createElement('li');
         criarLista.className = 'task';
         criarLista.innerHTML = inputTexto.value;
         listaTarefa.appendChild(criarLista);
         inputTexto.value = '';
     })
-
-
 }
 createLi();
