@@ -1,7 +1,7 @@
+const list = document.getElementById('lista-tarefas');
 function createTask() {
   const input = document.getElementById('texto-tarefa');
   const button = document.getElementById('criar-tarefa');
-  const list = document.getElementById('lista-tarefas');
 
   button.addEventListener('click', () => {
     const createItem = document.createElement('li');
@@ -12,8 +12,7 @@ function createTask() {
   });
 }
 
-function selectedItem() {
-  const list = document.getElementById('lista-tarefas');
+function selectedTask() {
   list.addEventListener('click', (event) => {
     const selected = document.querySelector('.selected-item');
 
@@ -24,7 +23,19 @@ function selectedItem() {
   });
 }
 
+function completeTask() {
+  list.addEventListener('dblclick', (event) => {
+    const completed = document.querySelector('.completed');
+
+    if (completed != null) {
+      completed.classList.remove('completed');
+    }
+    event.target.classList.add('completed');
+  });
+}
+
 window.onload = () => {
   createTask();
-  selectedItem();
+  selectedTask();
+  completeTask();
 };

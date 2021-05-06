@@ -1,5 +1,5 @@
 body {
-  background-color: #222;
+  background-color: #333;
   color: white;
 }
 
@@ -37,4 +37,8 @@ button:hover {
 
 .selected-item {
   background-color: rgb(128, 128, 128)
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
