@@ -2,6 +2,8 @@ window.onload = function(){
     createTask();
     selectTask();
     doubleSelectTask();
+    clearAll();
+    clearFinished();
 }
 
 function createTask(){
@@ -9,11 +11,16 @@ function createTask(){
     let taskName = document.getElementById('texto-tarefa');
     let button = document.getElementById('criar-tarefa');
     button.addEventListener('click', () => {
-        let newTask = document.createElement('li');
-        newTask.innerText = taskName.value;
-        newTask.className = 'task';
-        list.appendChild(newTask);
-        taskName.value = '';
+        if(taskName.value === ''){
+            alert('Você deve inserir um nome para a tarefa')
+        }
+        else{
+            let newTask = document.createElement('li');
+            newTask.innerText = taskName.value;
+            newTask.className = 'task';
+            list.appendChild(newTask);
+            taskName.value = '';
+        }
     })
 }
 
@@ -42,6 +49,26 @@ function doubleSelectTask(){
         else if(event.target.classList.contains('task')){
             event.target.classList.remove('selected')
             event.target.classList.add('completed')
+        }
+    })
+}
+
+function clearAll(){
+    let button = document.getElementById('apaga-tudo')
+    let list = document.getElementById('lista-tarefas'); 
+    button.addEventListener('click', () => {
+        while(list.firstChild){
+            list.removeChild(list.lastChild)
+        }
+    })
+}
+
+function clearFinished(){
+    let button = document.getElementById('remover-finalizados')
+    button.addEventListener('click', () => {
+        let tasks = document.getElementsByClassName('completed'); 
+        for(let i = tasks.length - 1; i >= 0; i--){
+            tasks[i].remove()
         }
     })
 }
