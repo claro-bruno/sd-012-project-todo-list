@@ -1,5 +1,6 @@
 const listaTarefas = document.querySelector('#lista-tarefas');
 const inputTarefas = document.querySelector('#texto-tarefa');
+let backup;
 
 function clicker(eventObject) {
   const targetElement = eventObject.target;
@@ -41,5 +42,11 @@ function apagaSelecionada() {
   document.querySelector('.selecionada').remove();
 }
 
+function salvaTarefas() {
+  backup = listaTarefas.innerHTML;
+  localStorage.setItem('backup', backup);
+}
+
+listaTarefas.innerHTML = localStorage.getItem('backup');
 document.addEventListener('click', clicker);
 document.addEventListener('dblclick', dblclicker);
