@@ -1,12 +1,14 @@
 #titulo {
     display: block;
-    background-color: rgb(133, 175, 70);
+    background-color: rgb(200, 235, 148);
     text-align: center;
     margin-top: 0px;
 }
+
 #funcionamento {
     text-align: center;
 }
+
 .caixaDeTexto {
     text-align: center;
     margin-top: 50px;
@@ -15,4 +17,8 @@
 #lista-tarefas {
     text-align: left;
     list-style: none;
+    background-color: khaki;
+    margin-left: 400px;
+    margin-right: 400px;
+    border: solid 1px black;
 }
