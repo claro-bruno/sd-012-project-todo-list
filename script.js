@@ -1,2 +1,19 @@
-document.getElementsByTagName("h1")[0].innerHTML = "Minha Lista de Tarefas"
-document.getElementById("funcionamento").innerHTML = "Clique duas vezes em um item para marcá-lo como completo"
+window.onload = function () {
+    let buttonAdd = document.querySelector("#criar-tarefa");
+    let taskList = document.querySelector("#lista-tarefas");
+    let inputSection = document.querySelector("#texto-tarefa");
+    
+
+    addBtn();
+
+    function creatTask() {
+        let taskItem = document.createElement('li');
+        taskItem.innerHTML = inputSection.value;
+        inputSection.value = "";
+        taskList.appendChild(taskItem);
+    };
+
+    function addBtn() {
+        buttonAdd.addEventListener ("click", creatTask);
+    };
+};
