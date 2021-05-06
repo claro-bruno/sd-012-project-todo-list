@@ -15,7 +15,7 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: 20px 20px;
+  margin: 20px;
   box-shadow: 2px 2px 5px 2px black;
   padding: 10px;
   flex-grow: 1;
@@ -26,6 +26,12 @@ main {
   font-style: italic;
   opacity: 40%;
   padding: 0;
+}
+
+.task {
+  padding: 2px 10px 2px 5px;
+  width: 100%;
+  text-align: left;
 }
 
 .task:hover {
@@ -41,11 +47,6 @@ main {
   background-color: gray;
 }
 
-.task {
-  padding: 2px 10px 2px 5px;
-  width: 100%;
-  text-align: left;
-}
 
 #list-section {
   text-align: center;
