@@ -1,3 +1,5 @@
+const taskList = 'lista-tarefas';
+
 function createButton(id, text, bgColor, parent) {
   const parentElement = document.getElementById(parent);
   const button = document.createElement('button');
@@ -10,7 +12,7 @@ function createButton(id, text, bgColor, parent) {
 }
 
 function createListItem(text) {
-  const listParent = document.getElementById('lista-tarefas');
+  const listParent = document.getElementById(taskList);
   const listItem = document.createElement('li');
 
   listItem.innerHTML = text;
@@ -20,27 +22,23 @@ function createListItem(text) {
 }
 
 function eventSelectItem() {
-  const listItens = document.querySelectorAll('.item-tarefa');
+  const lastAddedItem = document.getElementById(taskList).lastChild;
 
-  for (let index = 0; index < listItens.length; index += 1) {
-    listItens[index].addEventListener('click', (event) => {
-      const listItemSelected = document.querySelector('.selected');
-      if (listItemSelected !== null) {
-        listItemSelected.classList.remove('selected');
-      }
-      event.target.classList.add('selected');
-    });
-  }
+  lastAddedItem.addEventListener('click', (event) => {
+    const listItemSelected = document.querySelector('.selected');
+    if (listItemSelected !== null) {
+      listItemSelected.classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
 }
 
 function eventCompleteTask() {
-  const listItens = document.querySelectorAll('.item-tarefa');
+  const lastAddedItem = document.getElementById(taskList).lastChild;
 
-  for (let index = 0; index < listItens.length; index += 1) {
-    listItens[index].addEventListener('dblclick', (event) => {
-      event.target.classList.toggle('completed');
-    });
-  }
+  lastAddedItem.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
 }
 
 function eventAddTask() {
@@ -55,5 +53,20 @@ function eventAddTask() {
   });
 }
 
+function eventClearList() {
+  const clearButton = document.getElementById('apaga-tudo');
+
+  clearButton.addEventListener('click', () => {
+    const listItens = document.querySelectorAll('.item-tarefa');
+
+    for (let index = 0; index < listItens.length; index += 1) {
+      const parentElement = document.getElementById(taskList);
+      parentElement.removeChild(listItens[index]);
+    }
+  });
+}
+
 createButton('criar-tarefa', 'Adicionar', '#b1b2b5', 'input');
+createButton('apaga-tudo', 'Limpar lista', '#E9967A', 'setup');
 eventAddTask();
+eventClearList();
