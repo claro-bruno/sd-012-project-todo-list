@@ -48,3 +48,28 @@ document.getElementById('remover-selecionado').addEventListener('click', functio
     }
 })
 
+
+
+
+document.getElementById('salvar-tarefas').addEventListener('click', function () {
+    taskItems = document.getElementsByTagName('li')
+    for (let item = 0; item < taskItems.length; item += 1) {
+        localStorage.setItem(taskItems[item].innerHTML, taskItems[item].className)
+    }
+})
+
+window.onload = function () {
+    if (localStorage.length > 0) {
+        for (let data = 0; data < localStorage.length; data +=1) {
+            task = document.createElement('li');
+            text = document.getElementById('texto-tarefa');
+            task.innerHTML = localStorage.key(data);
+            task.className = localStorage.getItem(task.innerHTML);
+            document.getElementById('lista-tarefas').appendChild(task);
+        }
+    }
+}
+
+
+// salvar classe e valor 
+// ao carregar, gerar li de acordo com web storage
