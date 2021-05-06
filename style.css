@@ -1,3 +1,11 @@
 body{
     text-align: center;
 }
+ol{
+    text-align: center;
+}
+.tasks{
+    max-width: 200px;
+    text-align: center;
+    margin: auto;
+}

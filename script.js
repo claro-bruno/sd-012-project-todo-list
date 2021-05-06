@@ -1,4 +1,3 @@
-
 let header = document.querySelector("#text");
 let title = document.createElement("h1");
 header.appendChild(title);
@@ -24,16 +23,28 @@ let button = document.querySelector("#criar-tarefa");
 let list = document.querySelector("#lista-tarefas");
 let textTasks = document.querySelector("#texto-tarefa");
 
-button.addEventListener("click" , function (){
+
+button.addEventListener("click", function () {
   let makeLi = document.createElement("li");
+  makeLi.className = "tasks";
   makeLi.textContent = textTasks.value;
   list.appendChild(makeLi);
   textTasks.value = "";
 
 });
 
+let changes = document.getElementById("lista-tarefas");
 
-    
-    
+changes.addEventListener("click", function (event) {
+
+  if (event.target.className === "tasks") {
+    event.target.style.backgroundColor = document.querySelector(".tasks").style.backgroundColor = "rgb(128, 128, 128)";
+  }
+
+});
+
+
+
+
 
 
