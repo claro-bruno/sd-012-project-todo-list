@@ -21,4 +21,9 @@ main {
 #funcionamento {
   font-style: italic;
   opacity: 40%;
+  padding: 0;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
 }
