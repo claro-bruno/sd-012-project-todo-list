@@ -40,3 +40,11 @@ document.getElementById('remover-finalizados').addEventListener('click', functio
         finished[task].remove();
     }
 })
+
+document.getElementById('remover-selecionado').addEventListener('click', function () {
+    let selected = document.getElementsByClassName('selected');
+    for (let task = 0; task < selected.length;) {
+        selected[task].remove();
+    }
+})
+
