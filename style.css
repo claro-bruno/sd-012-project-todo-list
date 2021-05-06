@@ -2,9 +2,19 @@ body {
   margin: 0 auto;
 }
 
-header {
+main {
   background-color: rgb(146 , 145 , 153);
   padding: 1px;
+}
+
+#container {
+  background-color: white;
+  margin-top: 50px;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding: 25px;
+  padding-top: 15px;
+  border-radius: 20px;
 }
 
 footer {
