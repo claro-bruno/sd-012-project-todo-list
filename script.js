@@ -1,5 +1,6 @@
 const btnTaskCreate = document.querySelector('#criar-tarefa');
 const btnRemoveAllTasks = document.querySelector('#apaga-tudo');
+const btnRemoveCompletedTasks = document.querySelector('#remover-finalizados');
 const textInput = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 
@@ -25,7 +26,6 @@ function selectTask(event) {
 function completeTask(event) {
   const targetedEvent = event.target;
   if (targetedEvent.classList.contains('tarefa')) {
-    console.log('Pra quem fica minha...');
     if (targetedEvent.classList.contains('completed')) {
       targetedEvent.classList.remove('completed');
     } else {
@@ -42,9 +42,18 @@ function removeAllTasks() {
   }
 }
 
+function removeTasksComplete() {
+  const completedTaskAmount = document.querySelectorAll('.completed').length;
+  for (let index = 0; index < completedTaskAmount; index += 1) {
+    const completedTask = document.querySelector('.completed');
+    taskList.removeChild(completedTask);
+  }
+}
+
 window.onload = function page() {
   btnTaskCreate.addEventListener('click', taskCreator);
   btnRemoveAllTasks.addEventListener('click', removeAllTasks);
+  btnRemoveCompletedTasks.addEventListener('click', removeTasksComplete);
   document.addEventListener('click', selectTask);
   document.addEventListener('dblclick', completeTask);
 };
