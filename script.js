@@ -19,6 +19,15 @@ insertTask.className = 'insert-task';
 
 const taskText = document.createElement('input');
 taskText.id = 'texto-tarefa';
-insertTask.appendChild(taskText);
 
+insertTask.appendChild(taskText);
 content.appendChild(insertTask);
+
+const tasksListContainer = document.createElement('div');
+tasksListContainer.className = 'tasks-list-container';
+
+const tasksList = document.createElement('ol');
+tasksList.id = 'lista-tarefas';
+
+tasksListContainer.appendChild(tasksList);
+content.appendChild(tasksListContainer);
