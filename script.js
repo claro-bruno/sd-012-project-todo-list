@@ -8,7 +8,7 @@ function clearSelection() {
   for (let index = 0; index < list.length; index += 1) {
     if (list[index].classList.contains('selected')) {
       list[index].classList.remove('selected');
-    }
+    };
   };
 }
 
@@ -17,10 +17,20 @@ function select(event) {
   event.target.classList.add('selected');
 }
 
+function check(event) {
+  clearSelection();
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+   event.target.classList.add('completed');
+  };
+}
+
 function upgradeList() {
   const list = document.querySelectorAll('li');
   for (let index = 0; index < list.length; index += 1) {
     list[index].addEventListener('click', select);
+    list[index].addEventListener('dblclick', check);
   };
 }
 
