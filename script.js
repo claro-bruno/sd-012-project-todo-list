@@ -3,9 +3,11 @@ window.onload = function () {
     let taskList = document.querySelector("#lista-tarefas");
     let inputSection = document.querySelector("#texto-tarefa");
     let buttonRm = document.querySelector("#apaga-tudo");
-    
+    let buttomRmComp = document.querySelector("#remover-finalizados");
+
     rmBtnCall();
     addBtn();
+    rmCompBtnCall();
 
     // Adiciona item na lista ordenada e Adiciona marcação ao clique
     function taskGenerator() {
@@ -42,5 +44,16 @@ window.onload = function () {
 
     function rmBtnCall () {
         buttonRm.addEventListener('click', rmBtn);
+    };
+
+    function rmCompBtn () {
+        let completed = document.querySelectorAll(".completed");
+        for(index = 0; index < completed.length; index += 1) {
+            completed[index].remove();
+        };
+    };
+
+    function rmCompBtnCall () {
+        buttomRmComp.addEventListener('click', rmCompBtn);
     };
 };
