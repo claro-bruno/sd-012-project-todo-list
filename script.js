@@ -20,6 +20,7 @@ window.onload = () => {
         getList.appendChild(newTask);
         selectTask();
         selectTaskCompleted();
+        cleanAllList();
     }
 
     const add = getById('criar-tarefa');
@@ -33,7 +34,7 @@ window.onload = () => {
         if((e.key ==='Enter') && (getInput.value.length > 0))  addToList();
     });
     
-    function checkTask(e){
+    function checkTask(e) {
         const getTaskSelected = document.querySelector('.selected');
         if (getTaskSelected !== null) {
             getTaskSelected.classList.remove('selected');
@@ -43,7 +44,7 @@ window.onload = () => {
         e.target.style.backgroundColor = 'rgb(128, 128, 128)';   
     }
 
-    function selectTask(){
+    function selectTask() {
         const selectTasksLi = document.getElementsByClassName('tasks');
         for (let tasksLi of selectTasksLi ){
             tasksLi.addEventListener('click', checkTask);
@@ -51,18 +52,31 @@ window.onload = () => {
     }
 
     //Riscar item
-
-    function checkTaskCompleted(e){  
+    function checkTaskCompleted(e) {  
             e.target.classList.toggle('completed');
     }
 
-    function selectTaskCompleted(){
+    function selectTaskCompleted() {
         const selectTasksLi = document.getElementsByClassName('tasks');
         for (let tasksLi of selectTasksLi ){
             tasksLi.addEventListener('dblclick', checkTaskCompleted);
         }     
     }
     
-   
+   function cleanList() {
+       const selectOl = document.getElementById('lista-tarefas');
+       const selectTasksLi = document.querySelectorAll('li');
+       console.log(selectTasksLi.length);
+       for (let i = 0; i < selectTasksLi.length; i += 1){
+           let element = selectTasksLi[i];
+           console.log(element);
+           selectOl.removeChild(element);
+       }
+   }
 
+   function cleanAllList() {
+    const cleanButton = document.getElementById('apaga-tudo');
+    cleanButton.addEventListener('click', cleanList);
+   }
+   
 }
