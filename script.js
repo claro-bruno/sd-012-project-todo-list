@@ -69,46 +69,54 @@ function apagarSelecionado() {
 botaoApagaSelecionado.addEventListener('click', apagarSelecionado);
 
 function moverParaCima () {
-    let selecionado = document.querySelector('.selected');
-    let anterior = selecionado.previousSibling;
-    let classesSelecionado = selecionado.className;
-    let classesDeCima = anterior.className;
-    let conteudoSelecionado = selecionado.innerHTML;
-    let conteudoDeCima = anterior.innerHTML;
-    let estiloTextoSelecionado = selecionado.style.textDecoration;
-    let estiloTextoDeCima = anterior.style.textDecoration;
-    selecionado.className = classesDeCima;
-    anterior.className = classesSelecionado;
-    selecionado.innerHTML = conteudoDeCima;
-    anterior.innerHTML = conteudoSelecionado;
-    selecionado.style.textDecoration = estiloTextoDeCima;
-    anterior.style.textDecoration = estiloTextoSelecionado;
-    if (anterior.classList.contains('selected') === true) {
-        anterior.style.backgroundColor = 'rgb(128, 128, 128)';
-        selecionado.style.backgroundColor = 'white';
+    if (document.querySelector('.selected') !== null) {
+        if (document.querySelector('.selected') !== listaDeTarefas.firstChild) {
+            let selecionado = document.querySelector('.selected');
+            let anterior = selecionado.previousSibling;
+            let classesSelecionado = selecionado.className;
+            let classesDeCima = anterior.className;
+            let conteudoSelecionado = selecionado.innerHTML;
+            let conteudoDeCima = anterior.innerHTML;
+            let estiloTextoSelecionado = selecionado.style.textDecoration;
+            let estiloTextoDeCima = anterior.style.textDecoration;
+            selecionado.className = classesDeCima;
+            anterior.className = classesSelecionado;
+            selecionado.innerHTML = conteudoDeCima;
+            anterior.innerHTML = conteudoSelecionado;
+            selecionado.style.textDecoration = estiloTextoDeCima;
+            anterior.style.textDecoration = estiloTextoSelecionado;
+            if (anterior.classList.contains('selected') === true) {
+                anterior.style.backgroundColor = 'rgb(128, 128, 128)';
+                selecionado.style.backgroundColor = 'white';
+            }
+        }
     }
 }
 
 botaoCima.addEventListener('click', moverParaCima);
 
 function moverParaBaixo () {
-    let selecionado = document.querySelector('.selected');
-    let proximo = selecionado.nextSibling;
-    let classesSelecionado = selecionado.className;
-    let classesDeBaixo = proximo.className;
-    let conteudoSelecionado = selecionado.innerHTML;
-    let conteudoDeBaixo = proximo.innerHTML;
-    let estiloTextoSelecionado = selecionado.style.textDecoration;
-    let estiloTextoDeBaixo = proximo.style.textDecoration;
-    selecionado.className = classesDeBaixo;
-    proximo.className = classesSelecionado;
-    selecionado.innerHTML = conteudoDeBaixo;
-    proximo.innerHTML = conteudoSelecionado;
-    selecionado.style.textDecoration = estiloTextoDeBaixo;
-    proximo.style.textDecoration = estiloTextoSelecionado;
-    if (proximo.classList.contains('selected') === true) {
-        proximo.style.backgroundColor = 'rgb(128, 128, 128)';
-        selecionado.style.backgroundColor = 'white';
+    if (document.querySelector('.selected') !== null) {
+        if (document.querySelector('.selected') !== listaDeTarefas.lastChild) {
+            let selecionado = document.querySelector('.selected');
+            let proximo = selecionado.nextSibling;
+            let classesSelecionado = selecionado.className;
+            let classesDeBaixo = proximo.className;
+            let conteudoSelecionado = selecionado.innerHTML;
+            let conteudoDeBaixo = proximo.innerHTML;
+            let estiloTextoSelecionado = selecionado.style.textDecoration;
+            let estiloTextoDeBaixo = proximo.style.textDecoration;
+            selecionado.className = classesDeBaixo;
+            proximo.className = classesSelecionado;
+            selecionado.innerHTML = conteudoDeBaixo;
+            proximo.innerHTML = conteudoSelecionado;
+            selecionado.style.textDecoration = estiloTextoDeBaixo;
+            proximo.style.textDecoration = estiloTextoSelecionado;
+            if (proximo.classList.contains('selected') === true) {
+                proximo.style.backgroundColor = 'rgb(128, 128, 128)';
+                selecionado.style.backgroundColor = 'white';
+            }
+        }
     }
 }
 
