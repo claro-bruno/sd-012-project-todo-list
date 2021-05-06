@@ -1,3 +1,7 @@
+ol {
+  display: inline-block;
+}
+
 .selected {
   background-color: gray;
 }

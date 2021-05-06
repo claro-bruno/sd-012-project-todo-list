@@ -28,5 +28,14 @@ function adicionaTarefa() {
   document.getElementById('form').reset();
 }
 
+function apagaTarefas() {
+  const lista = document.getElementById('lista-tarefas');
+  while (lista.firstChild) {
+    lista.firstChild.remove();
+  }
+}
+
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', adicionaTarefa);
+const buttonDel = document.getElementById('apaga-tudo');
+buttonDel.addEventListener('click', apagaTarefas);
