@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+}
+
+header {
+
+}
+
+#funcionamento {
+
+}
+
+/* imput de texto tarefa */
+#texto-tarefa {
+    height: 30px;
+}
+
+/* botão click */
+#criar-tarefa {
+    width: 70px;
+    height: 30px;
+}
+
+/* lista ordenada de tarefas */
+#lista-tarefas {
+
+}
