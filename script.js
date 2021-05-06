@@ -1,5 +1,6 @@
 const input = document.getElementById('texto-tarefa');
 const btnAdd = document.getElementById('criar-tarefa');
+const btnX = document.getElementById('apaga-tudo');
 // Captura o texto do input e adiciona à lista
 function catchInput() {
   btnAdd.addEventListener('click', () => {
@@ -11,7 +12,7 @@ function catchInput() {
     input.value = '';
     selectItem();
     markAsCompleted();
-    resetAll();
+
   });
 }
 catchInput();
@@ -30,26 +31,27 @@ function selectItem() {
 // Marca item como completed
 function markAsCompleted() {
   const itemList = document.querySelectorAll('.item-list');
-  for (let index = 0; index < itemList.length; index += 1) {
-    let item = itemList[index];
-    item.addEventListener('dblclick', () => {
-      if (item.className === 'item-list') {
-        item.className = 'item-list completed';
+  for (const item of itemList) {
+    item.addEventListener('dblclick', event => {
+      if (event.target.className === 'item-list') {
+        event.target.className = 'item-list completed';
       } else {
-        item.className = 'item-list';
+        event.target.className = 'item-list';
       }
+      // if (item.className === 'item-list') {
+      //   item.className = 'item-list completed';
+      // } else {
+      //   item.className = 'item-list';
+      // }
     });
   }
 }
 // Botao apaga tudo
+btnX.addEventListener('click', resetAll);
 function resetAll() {
   const taskList = document.querySelector('#lista-tarefas');
-  const btnX = document.getElementById('apaga-tudo');
   const itemList = document.querySelectorAll('.item-list');
-  btnX.addEventListener('click', () => {
-    for (let index = (itemList.length - 1); index >= 0; index -= 1) {
-      let item = itemList[index];
+    for (const item of itemList) {
       taskList.removeChild(item);
     }
-  });
 }
