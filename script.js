@@ -1,10 +1,23 @@
+const selecionarTarefa = () => {
+  const todasAsTarefas = document.querySelectorAll('.tarefa');
+  console.log(todasAsTarefas);
+
+  for (let index = 0; index < todasAsTarefas.length; index += 1) {
+    todasAsTarefas[index].addEventListener('click', () => {
+      todasAsTarefas[index].style.background = 'rgb(128, 128, 128)';
+    });
+  }
+};
+
 const criarTarefa = () => {
-    let textoTarefa = document.querySelector('#texto-tarefa');
-    const listaDeTarefas = document.querySelector('#lista-tarefas');
+  const textoTarefa = document.querySelector('#texto-tarefa');
+  const listaDeTarefas = document.querySelector('#lista-tarefas');
 
-    const novaTarefa = document.createElement('li');
-    novaTarefa.innerText = textoTarefa.value
-    listaDeTarefas.appendChild(novaTarefa);
+  const novaTarefa = document.createElement('li');
+  novaTarefa.innerText = textoTarefa.value;
+  novaTarefa.className = 'tarefa';
+  listaDeTarefas.appendChild(novaTarefa);
 
-    textoTarefa.value = ''
-}
+  textoTarefa.value = '';
+  selecionarTarefa();
+};
