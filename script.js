@@ -36,3 +36,15 @@ function completeTask (event) {
     };
 };
 
+// Apagar Lista
+
+function deleteAllList () {
+    let allListItens = document.querySelectorAll("#lista-tarefas li");
+
+    for (let index = 0; index < allListItens.length; index += 1) {
+        allListItens[index].remove();
+    };
+};
+
+document.querySelector("#apaga-tudo").addEventListener("click", deleteAllList);
+
