@@ -12,10 +12,19 @@ function addTask() {
 }
 addTask();
 
+function removeClassSelected() {
+    let elementSelected = document.querySelector('.selected');
+    console.log(elementSelected)
+    if (elementSelected !== null) {
+        elementSelected.classList.remove('selected');
+    }
+}
+
 function selectedItems() {
     let list = document.querySelector('#lista-tarefas');
     list.addEventListener('click', (event) => {
         let evento = event;
+        removeClassSelected();
         evento.target.classList.add('selected');
     })
 }
