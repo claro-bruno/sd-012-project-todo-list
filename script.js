@@ -24,10 +24,21 @@ function receiveInput() {
 // }
 // setGreyItem();
 
-function setGreyItem(){
-  let orderList = document.querySelectorAll('.task-list')
-  for (let index = 0; index < orderList.length; index += 1){
-    orderList[index].style.backgroundColor = 'rgb(128, 128, 128)';
+//ABAIXO RESOLVE O REQ 7
+// function setGreyItem(){
+//   let orderList = document.querySelectorAll('.task-list')
+//   for (let index = 0; index < orderList.length; index += 1){
+//     orderList[index].style.backgroundColor = 'rgb(128, 128, 128)';
+//   }
+// }
+// setGreyItem();
+
+function setGreyItem() {
+    let orderList = document.querySelectorAll('.task-list');
+    for (let index = 0; index < orderList.length; index += 1) {
+      orderList[index].addEventListener('click', function(){
+        orderList[index].style.backgroundColor = 'rgb(128, 128, 128)';
+      })
+    }
   }
-}
-setGreyItem();
+  setGreyItem();
