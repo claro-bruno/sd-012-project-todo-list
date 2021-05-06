@@ -3,14 +3,16 @@ let listaTarefa = document.getElementById("lista-tarefas");
 let button = document.getElementById("criar-tarefa");
 
 function alteraFundoLista(event){
-    let fundoLista = document.getElementById("selected")
 
-    if(fundoLista){
-        fundoLista.classList.remove("selected");
-        fundoLista.style.backgroundColor("")
-    };
+    let listaSelecionada = document.querySelector(".selected")
+    if (listaSelecionada){
+    listaSelecionada.classList.remove("selected");
+    listaSelecionada.style.backgroundColor = "";
+    }
+    
     event.target.classList.add("selected");
-    event.target.style.backgroundColor = "rgb(128, 128, 128)"
+    event.target.style.backgroundColor = "rgb(128, 128, 128)";
+    
 };
 function criarElementosLista(){
     let novaTarefa = document.createElement("li");
