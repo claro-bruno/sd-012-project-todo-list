@@ -9,3 +9,11 @@
     font-size: 16px;
     border-radius: 30%;
 }
+header{
+    font-size: larger;
+    font-weight: bold;
+}
+h2{
+    font-size: medium;
+    font-weight: 300px
+}
