@@ -16,11 +16,15 @@ function adicionar() {
 function corCinza() {
   document.addEventListener("click", function(mudaCor) {
     if (mudaCor.target.className === "item") {
+        let todosItens = document.getElementsByClassName("item");
+        console.log(todosItens);
+        for (let index = 0; index < todosItens.length; index += 1) {
+          todosItens[index].style.backgroundColor = "";
+        }
         mudaCor.target.style.backgroundColor = "gray";
     }
   });
 }
-
 
 adicionar();
 corCinza();
