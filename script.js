@@ -6,6 +6,8 @@ window.onload = function () {
   completarTarefa();
 
   apagarTudo();
+
+  apagarFinalizados();
 }
 
 function criarTarefa() {
@@ -56,5 +58,18 @@ function apagarTudo() {
   const pegarBotaoApagarTudo = document.getElementById('apaga-tudo');
   pegarBotaoApagarTudo.addEventListener('click', function () {
     pegarLista.innerHTML = '';
+  })
+}
+
+function apagarFinalizados() {
+  const botaoRfinalizados = document.getElementById('remover-finalizados');
+  const pegarLista = document.getElementById('lista-tarefas');
+  botaoRfinalizados.addEventListener('click', function () {
+    const allTask = document.querySelectorAll('#lista-tarefas li');
+    for (let i = 0; i < allTask.length; i += 1) {
+      if (allTask[i].className.includes('completed')) {
+        pegarLista.removeChild(allTask[i]);
+      }
+    }
   })
 }
