@@ -83,3 +83,28 @@ function botaoCriarTarefa () {
     })
 }
 botaoCriarTarefa();
+
+
+/* 6 - Ordene os itens da lista de tarefas por ordem de criação
+O que será verificado:
+
+Três itens serão criados na lista e será checado se eles estão ordenados por ordem de criação - ou seja, primeiro o primeiro item criado, depois o segundo, e assim por diante.
+ */
+/* function bubbleSort(array) {
+    for (let bubble = 0; bubble < array.length - 1; bubble += 1) {
+      for (let index = 0; index < array.length - bubble - 1; index += 1) {
+        if (array[index] > array[index + 1]) {
+          [array[index], array[index + 1]] = [array[index + 1], array[index]];
+        }
+      }
+    }
+    return array;
+}
+
+function ordenaLista () {
+    let lista = document.getElementsByTagName('li')
+    bubbleSort(lista)
+} */
+// ordenaLista();
+// sera que da pra mudar lista[i] com lista[i+1] etc?
+
