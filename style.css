@@ -13,9 +13,13 @@ main {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  width: 50%;
-  margin: auto;
+  margin: 20px 20px;
+  box-shadow: 2px 2px 5px 2px black;
+  padding: 10px;
+  flex-grow: 1;
+  border-radius: 10px;
 }
 
 #funcionamento {
@@ -24,28 +28,38 @@ main {
   padding: 0;
 }
 
-.selected {
-  background-color: gray;
-}
-
-.task {
-  padding: 2px 10px 2px 5px;
-  width: 150%;
-}
-
-#list-section {
-  align-self: flex-start;
-}
-
-#lista-tarefas {
-  text-align: left;
-}
-
 .task:hover {
   cursor: pointer;
   background-color: rgb(0 , 0 , 0 , 0.233);
 }
 
+.selected {
+  background-color: gray;
+}
+
+.selected:hover {
+  background-color: gray;
+}
+
+.task {
+  padding: 2px 10px 2px 5px;
+  width: 100%;
+  text-align: left;
+}
+
+#list-section {
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  height: 300px;
+}
+
+#texto-tarefa {
+  font-style: italic;
+}
+
+
 .completed {
   text-decoration: line-through;
 }
+

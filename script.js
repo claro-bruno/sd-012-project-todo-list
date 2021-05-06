@@ -3,16 +3,17 @@ const taskList = document.getElementById('lista-tarefas');
 const taskInput = document.getElementById('texto-tarefa');
 const removeAllButton = document.getElementById('apaga-tudo');
 const removeCompletedButton = document.getElementById('remover-finalizados');
+const removeSelectedButton = document.getElementById('remover-selecionado');
 
 // Solução encontrada no respositório de Anajulia
 // Source: https://github.com/tryber/sd-011-project-todo-list/blob/anajulia-bs-todo-list-project/script.js
 
-const removeSelected = (evt) => evt.classList.remove('selected');
+const removeSelectedClass = (evt) => evt.classList.remove('selected');
 const selectTask = () => {
   const tasks = document.querySelectorAll('li');
   tasks.forEach((task) => {
     task.addEventListener('click', () => {
-      tasks.forEach(removeSelected);
+      tasks.forEach(removeSelectedClass);
       task.classList.add('selected');
     });
   });
@@ -44,6 +45,12 @@ const removeCompleted = () => {
   }
 };
 
+const removeSelected = () => {
+  const selected = document.querySelector('.selected');
+  taskList.removeChild(selected);
+};
+
+removeSelectedButton.addEventListener('click', removeSelected);
 removeCompletedButton.addEventListener('click', removeCompleted);
 removeAllButton.addEventListener('click', removeAll);
 addTaskButton.addEventListener('click', addTask);
