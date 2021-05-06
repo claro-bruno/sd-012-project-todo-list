@@ -26,11 +26,11 @@ function clearCompleted() {
 
 function removeSelected() {
   const list = document.querySelectorAll('li');
-    for (let index = 0; index < list.length; index += 1) {
-      if (list[index].classList.contains('selected')) {
-        taskList.removeChild(list[index]);
-      }
+  for (let index = 0; index < list.length; index += 1) {
+    if (list[index].classList.contains('selected')) {
+      taskList.removeChild(list[index]);
     }
+  }
 }
 
 function select(event) {
