@@ -32,6 +32,10 @@ main {
   padding: 2px 10px;
 }
 
+.task:hover {
+  cursor: pointer;
+}
+
 .completed {
   text-decoration: line-through;
 }
