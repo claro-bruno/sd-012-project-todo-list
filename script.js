@@ -12,3 +12,8 @@ bodyPagina.appendChild(inputIdTextoTarefa);
 const olIdListaTarefa = document.createElement('ol');
 olIdListaTarefa.id = 'lista-tarefas';
 bodyPagina.appendChild(olIdListaTarefa);
+
+const botaoIdCriarTarefa = document.createElement('button');
+botaoIdCriarTarefa.id = 'criar-tarefa';
+botaoIdCriarTarefa.innerText = 'Criar Tarefa';
+bodyPagina.appendChild(botaoIdCriarTarefa);
