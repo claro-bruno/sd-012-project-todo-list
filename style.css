@@ -1,0 +1,11 @@
+#center{
+    text-align: center;
+    margin: auto;
+    width: 70%;
+    border: 1px solid black;
+    height: 200px;
+}
+
+header{
+    padding-top: 30px;
+}
