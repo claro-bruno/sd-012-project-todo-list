@@ -25,12 +25,7 @@ function selectedTask() {
 
 function completeTask() {
   list.addEventListener('dblclick', (event) => {
-    const completed = document.querySelector('.completed');
-
-    if (completed != null) {
-      completed.classList.remove('completed');
-    }
-    event.target.classList.add('completed');
+    event.target.classList.toggle('completed');
   });
 }
 
