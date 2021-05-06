@@ -19,7 +19,17 @@ function createTask(){
 function selectTask(){
     addEventListener('click', (event) => {
         if(event.target.className === 'task'){
-            event.target.style.background = 'rgb(128, 128, 128)';
+            if(!document.querySelector('.selected')){
+                event.target.style.background = 'rgb(128, 128, 128)'
+                event.target.classList.toggle('selected')
+            }
+            else{
+                let selected = document.querySelector('.selected')
+                selected.className = 'task'
+                selected.style.background = ''
+                event.target.classList.toggle('selected')
+                event.target.style.background = 'rgb(128, 128, 128)'
+            }
         }
     })
 }
