@@ -41,6 +41,7 @@ function createButton(buttonId) {
 }
 createButton('criar-tarefa');
 
+//Função que captura o que ta escrito no input e adiciona na lista ordenada;
 function addNewTask() {
   let getInputField = document.getElementById('texto-tarefa');
   let getButton = document.getElementById('criar-tarefa');
@@ -50,12 +51,30 @@ function addNewTask() {
     if (getInputField.value.length > 0) {
       let newLi = document.createElement('li');
       newLi.innerHTML = getInputField.value;
+      newLi.classList.add('task');
+      newLi.style.backgroundColor = 'white';
       
       getTaskList.appendChild(newLi);
       getInputField.value = '';
     } else {
       alert('Adicionar tarefa');
     }
+    addColorTask();
   })
 }
 addNewTask();
+
+function addColorTask() {
+  let getTasks = document.getElementsByClassName('task');
+  for (let index = 0; index < getTasks.length; index += 1) {
+    getTasks[index].addEventListener('click', function(event) {
+      let eventTargetBackgroundColor = event.target.style.backgroundColor;
+      if (eventTargetBackgroundColor !== 'rgb(128, 128, 128') {
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+      }
+    })
+  }
+}
+
+
+
