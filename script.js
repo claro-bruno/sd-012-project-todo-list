@@ -9,18 +9,27 @@ document.getElementById('criar-tarefa').addEventListener('click', function () {
 
 document.body.addEventListener('click', function (event) {
     if (event.target.className === 'taskItem') {
-        let allTasks = document.getElementsByClassName('selected');
-        for (let task = 0; task < allTasks.length; task += 1) {
-            allTasks[task].className = 'taskItem';
+        let selected = document.getElementsByClassName('selected');
+        for (let task = 0; task < selected.length; task += 1) {
+            selected[task].className = 'taskItem';
         }
         event.target.className = 'taskItem selected';
     }
 })
 
-document.body.addEventListener('dblclick', function (event) {
+document.getElementById('lista-tarefas').addEventListener('dblclick', function (event) {
     if (event.target.className === 'completed') {
         event.target.className = 'taskItem'
     } else {
         event.target.className = 'completed'
+    }
+})
+
+document.getElementById('apaga-tudo').addEventListener('click', function () {
+    let taskList = document.getElementById('lista-tarefas')
+    let allTasks = document.getElementsByTagName('li');
+    let quantity = allTasks.length
+    for (let task = 0; task < quantity; task += 1) {
+        taskList.removeChild(taskList.firstChild)
     }
 })
