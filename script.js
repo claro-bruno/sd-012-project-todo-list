@@ -1,6 +1,7 @@
 const btnTaskCreate = document.querySelector('#criar-tarefa');
 const btnRemoveAllTasks = document.querySelector('#apaga-tudo');
 const btnRemoveCompletedTasks = document.querySelector('#remover-finalizados');
+const btnRemoveSelectedTask = document.querySelector('#remover-selecionado');
 const textInput = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 
@@ -50,10 +51,18 @@ function removeTasksComplete() {
   }
 }
 
+function removeSelectedTask() {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask !== null) {
+    taskList.removeChild(selectedTask);
+  }
+}
+
 window.onload = function page() {
   btnTaskCreate.addEventListener('click', taskCreator);
   btnRemoveAllTasks.addEventListener('click', removeAllTasks);
   btnRemoveCompletedTasks.addEventListener('click', removeTasksComplete);
+  btnRemoveSelectedTask.addEventListener('click', removeSelectedTask);
   document.addEventListener('click', selectTask);
   document.addEventListener('dblclick', completeTask);
 };
