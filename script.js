@@ -20,9 +20,17 @@ function deselectOtherLis() {
   }
 };
 
-function createTask(taskString) {
+function createTask(taskObject) {
   const li = document.createElement('li');
-  li.innerHTML = taskString;
+  li.innerHTML = taskObject.task;
+  if (taskObject.selected) {
+    li.classList.add('selected');
+    li.style.backgroundColor = 'rgb(128, 128, 128)';
+  }
+  if (taskObject.completed) {
+    li.classList.add('completed');
+    li.style.textDecoration = 'line-through';
+  }
   li.addEventListener('click', (event) => {
     deselectOtherLis();
     const targ = event.target;
@@ -42,14 +50,19 @@ function createTask(taskString) {
 };
 
 function loadtasks() {
-  let tasksArray = JSON.parse(localStorage.getItem('tasksArray'));
-  for (let index = 0; index < tasksArray.length; index += 1) {
-    createTask(tasksArray[index]);
+  let arrayOfTaskObjs = JSON.parse(localStorage.getItem('arrayOfTaskObjs'));
+  for (let index = 0; index < arrayOfTaskObjs.length; index += 1) {
+    createTask(arrayOfTaskObjs[index]);
   }
 };
 
 newTaskButton.addEventListener('click', () => {
-  createTask(inputTask.value);
+  const li = document.querySelectorAll('li');
+  let taskObj = {
+    'position':  li.length + 1,
+    'task':      inputTask.value
+  };
+  createTask(taskObj);
   inputTask.value = '';
 });
 
