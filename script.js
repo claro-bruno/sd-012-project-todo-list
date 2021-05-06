@@ -6,12 +6,19 @@ window.onload = function () {
 
     addBtn();
 
-    // Adiciona item na lista ordenada
+    // Adiciona item na lista ordenada e Adiciona marcação ao clique
     function creatTask() {
         let taskItem = document.createElement('li');
-        taskItem.addEventListener("click", function() {
-            taskItem.style.backgroundColor = "rgb(128, 128, 128)";
-        })
+        taskItem.addEventListener("click", function(e) {
+            let selected = document.querySelector('.selected')
+            if(selected !== null) {
+                selected.classList.remove('selected');
+                e.target.classList.add('selected');
+            } else {
+                e.target.classList.add('selected');
+            }
+            
+        });
         taskItem.innerHTML = inputSection.value;
         inputSection.value = "";
         taskList.appendChild(taskItem);
