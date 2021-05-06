@@ -1,6 +1,7 @@
 const createBtn = document.getElementById('criar-tarefa');
 const InputTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
+const clearCompleted = document.getElementById('remover-finalizados');
 
 createBtn.addEventListener('click', createTask);
 
@@ -14,10 +15,29 @@ function createTask() {
 taskList.addEventListener('click', selectTask);
 
 function selectTask(event) {
-  let tasks = document.getElementsByTagName('LI')
+  let tasks = document.getElementsByTagName('li');
   for (index = 0; index < tasks.length; index +=1) {
     tasks[index].style.backgroundColor = 'rgb(255,255,255)';
-    console.log(tasks[index].style);
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
+taskList.addEventListener('dblclick', taskCompleted);
+
+function taskCompleted(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {event.target.classList.add('completed');}
+}
+
+clearCompleted.addEventListener('click', clearDone);
+
+function clearDone() {
+  let done = document.getElementsByTagName('li');
+  for (index = 0; index < done.length; index +=1) {
+    if (done[index].classList.contains('completed')) {
+      done[index].remove();
+      index -= 1;
+    }
+  }
 }
