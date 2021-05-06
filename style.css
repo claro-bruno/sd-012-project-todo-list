@@ -27,6 +27,14 @@ header h1 {
   color: rgb(146 , 145 , 153);
 }
 
+button {
+  border: none;
+  border-radius: 15px;
+  padding: 5px 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 footer {
   background-color: rgb(146 , 145 , 153);
   padding: 1px;
