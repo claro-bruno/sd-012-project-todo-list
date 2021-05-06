@@ -1,19 +1,28 @@
-body {
+  body {
     margin: 0;
     background-color: greenyellow;
-}
+  }
 
-main {
+  main {
     margin: 50px;
     padding: 5px 20px;
     background-color: white;
     border-radius: 10%;
-}
+  }
 
-header {
+  header {
     text-align: left;
-}
+  }
 
-p {
+  h1 {
+    margin: 10px;
+  }
+
+  p {
     color: gray;
-}
+    margin: 10px;
+  }
+
+  input {
+    margin: 10px;
+  }
