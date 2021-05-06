@@ -1,5 +1,7 @@
 let botao = document.querySelector('#criar-tarefa');
+let botaoLimpa = document.querySelector('#apaga-tudo');
 let li = document.querySelectorAll('ol');
+let lis = document.getElementsByTagName('li');
 
 function adicionarTarefa() {
   let caixaTexto = document.querySelector('#texto-tarefa');
@@ -33,3 +35,7 @@ for (let c = 0; c < li.length; c += 1) {
     }
   });
 }
+
+botaoLimpa.addEventListener('click', function () {
+  document.querySelector('#lista-tarefas').innerHTML = '';
+});
