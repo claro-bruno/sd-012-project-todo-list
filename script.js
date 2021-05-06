@@ -1,6 +1,7 @@
 const tarefaNova = document.querySelector('#texto-tarefa');
 const listaDeTarefas = document.querySelector('#lista-tarefas');
 const botaoAddTarefa = document.querySelector('#criar-tarefa');
+const botaoApagaTudo = document.querySelector('#apaga-tudo');
 
 function addTarefa() {
     if (tarefaNova.value.length > 0) {
@@ -38,3 +39,12 @@ function riscaTarefa(event) {
 }
 
 listaDeTarefas.addEventListener('dblclick', riscaTarefa);
+
+function apagarTudo() {
+    let tarefas = document.querySelectorAll('li');
+    for (let index = 0; index < tarefas.length; index +=1) {
+        listaDeTarefas.removeChild(tarefas[index]);
+    }
+}
+
+botaoApagaTudo.addEventListener('click', apagarTudo);
