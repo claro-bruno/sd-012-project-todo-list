@@ -1,9 +1,12 @@
 #criar-tarefa {
     width: 60px;
-    height: 30px;
+    height: 35px;
     font-size: small;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    background-color: black;
+    border-radius: 10%;
+    
 }

@@ -17,6 +17,4 @@ addTask.addEventListener('click', () => {
 })
 
 
-taskList.sort(); 
-
     
