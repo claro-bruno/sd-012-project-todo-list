@@ -1,0 +1,19 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+
+}
+
+main {
+  display:flex;
+  flex-flow: column wrap;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
