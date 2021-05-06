@@ -1,7 +1,6 @@
 const taskList = document.getElementById('lista-tarefas');
 const addBtn = document.getElementById('criar-tarefa');
 const taskInput = document.getElementById('texto-tarefa');
-const title = document.getElementById('title');
 const clearAllBtn = document.getElementById('apaga-tudo');
 const clearDoneBtn = document.getElementById('remover-finalizados');
 const saveBtn = document.getElementById('salvar-tarefas');
@@ -65,7 +64,7 @@ function save() {
   if (localStorage.getItem('list')) {
     localStorage.removeItem('list');
   }
-  localStorage.setItem("list", listItens);
+  localStorage.setItem('list', listItens);
 }
 
 window.onload = function loadPage() {
