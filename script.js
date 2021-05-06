@@ -47,7 +47,8 @@ clearAlltasks.addEventListener('click', clearTasks);
 
 function clearTasks() {
   let done = document.getElementsByTagName('li');
-  for (let index = (done.length - 1); index == 0; index -=1) {
+  for (let index = 0; index < done.length; index +=1) {
       done[index].remove();
+      index -= 1;
   }
 }
