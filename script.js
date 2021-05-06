@@ -1,13 +1,17 @@
 let input = document.querySelector('#texto-tarefa');
 let button = document.querySelector('#criar-tarefa');
-let divList = document.querySelector('.listHolder');
+let getOl = document.querySelector('#lista-tarefas');
 
-button.addEventListener('click', () => {
-    let ol = divList.querySelector('ol');
-    let li = document.createElement('li');
-    ol.appendChild(li);
-});
-    
+button.innerHTML = 'Submit';
 
 
+button.addEventListener('click', function (event) {
+    let createList = document.createElement('li');
+    getOl.appendChild(createList);
+  
+    createList.innerText = input.value
 
+    if (input.value != '') {
+        input.value = '';
+    }
+})
