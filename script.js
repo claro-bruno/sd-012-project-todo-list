@@ -6,7 +6,22 @@ window.onload = function () {
   const getClearComplectedTasksButton = document.querySelector(
     '#remover-finalizados'
   );
-  const getRemoveSelectedButton = document.querySelector('#remover-selecionado');
+  const getRemoveSelectedButton = document.querySelector(
+    '#remover-selecionado'
+  );
+  const getSaveTasksButton = document.querySelector('#salvar-tarefas');
+
+  function addSavedTasks(){
+   for (let index = 0; index < (localStorage.length/2); index += 1) {
+    let task = document.createElement('li');
+    taskContent = 'Content'+index;
+    taskClass = 'Class'+index;
+    task.innerHTML = localStorage.getItem(taskContent);
+    task.className = localStorage.getItem(taskClass);
+    getToDoList.appendChild(task);
+  }
+  }
+  addSavedTasks();
 
   function addTask() {
     const task = document.createElement('li');
@@ -54,18 +69,32 @@ window.onload = function () {
   getClearButton.addEventListener('click', clearList);
 
   function clearCompletedList() {
-    const tasks = document.querySelectorAll('.completed');
-    for (let index = 0; index < tasks.length; index += 1) {
-      tasks[index].remove();
+    const tasksCompletd = document.querySelectorAll('.completed');
+    for (let index = 0; index < tasksCompletd.length; index += 1) {
+      tasksCompletd[index].remove();
     }
   }
   getClearComplectedTasksButton.addEventListener('click', clearCompletedList);
 
-  function removeSelectedTask(){
-   const taskSelected = document.querySelector('.selected');
-   if(taskSelected !== null){
-   taskSelected.remove();
-   }
+  function removeSelectedTask() {
+    const taskSelected = document.querySelector('.selected');
+    if (taskSelected !== null) {
+      taskSelected.remove();
+    }
   }
-  getRemoveSelectedButton.addEventListener('click',removeSelectedTask)
+  getRemoveSelectedButton.addEventListener('click', removeSelectedTask);
+
+  function saveTasks(){
+   localStorage.clear();
+   const tasks = document.querySelectorAll('li');
+   let taskContent;
+   let taskClass;
+   for (let index = 0; index < tasks.length; index += 1) {
+    taskContent = 'Content'+index;
+    taskClass = 'Class'+index;
+    localStorage.setItem(taskContent,tasks[index].innerHTML);
+    localStorage.setItem(taskClass,tasks[index].classList);
+  }
+  }
+  getSaveTasksButton.addEventListener('click',saveTasks);
 };
