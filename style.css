@@ -1,0 +1,23 @@
+ #criar-tarefa {
+   background-color: red;
+   width:25px; 
+   height:13px;
+   margin:3px; 
+
+}
+
+ #apaga-tudo {
+   background-color: orange;
+   width:25px; 
+   height:13px;
+   margin:3px;
+
+}
+
+ #remover-finalizados {
+   background-color: orange;
+   width:25px; 
+   height:13px;
+   margin:3px;
+
+}
