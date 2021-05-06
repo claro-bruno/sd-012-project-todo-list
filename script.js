@@ -3,6 +3,7 @@ window.onload = function () {
   const getToDoList = document.querySelector('#lista-tarefas');
   const getTaskInput = document.querySelector('#texto-tarefa');
   const getClearButton = document.querySelector('#apaga-tudo');
+  const getClearComplectedTasksButton = document.querySelector('#remover-finalizados')
 
   function addTask() {
     const task = document.createElement('li');
@@ -48,4 +49,12 @@ window.onload = function () {
     }
   }
   getClearButton.addEventListener('click', clearList);
+
+  function clearCompletedList(){
+   const tasks = document.querySelectorAll('.completed');
+    for (let index = 0; index < tasks.length; index += 1) {
+      tasks[index].remove();
+    }
+  }
+  getClearComplectedTasksButton.addEventListener('click',clearCompletedList);
 };
