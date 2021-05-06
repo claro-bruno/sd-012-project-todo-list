@@ -51,33 +51,61 @@ function addNewTask() {
     if (getInputField.value.length > 0) {
       let newLi = document.createElement('li');
       newLi.innerHTML = getInputField.value;
-      
+      newLi.classList.add('task');
       getTaskList.appendChild(newLi);
       getInputField.value = '';
     } else {
       alert('Adicionar tarefa');
     }
-    selectTask();
+    addClickListener();
+    addDoubleClickListener();
   })
 }
 addNewTask();
 
-function selectTask() {
-  let getTasks = document.getElementsByTagName('li');
+//Função que corre por todos os lis da ol e seleciona a li clicada já chamando a funcao setSelectedClass
+function addClickListener() {
+  let getTasks = document.getElementsByClassName('task');
   for (let index = 0; index < getTasks.length; index += 1) {
     getTasks[index].addEventListener('click', setSelectedClass);
   }
 }
-
+//Função que corre corre por todas as lis da ol removendo as que possuem a classe selected e adicionando a classe selected na li clicada
 function setSelectedClass(event) {
-  let getTasks = document.getElementsByTagName('li');
+  let getTasks = document.getElementsByClassName('task');
   for (let index = 0; index < getTasks.length; index += 1) {
-    if (getTasks[index].classList = 'selected') {
-      getTasks[index].classList.remove('selected');
+    getTasks[index].classList.remove('selected');
     }
     event.target.classList.add('selected');
   }
+
+function addDoubleClickListener() {
+  let getTasks = document.getElementsByClassName('task');
+  for (let index = 0; index < getTasks.length; index += 1) {
+    getTasks[index].addEventListener('dblclick', completeTask);
+  }
 }
+function completeTask(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+};
+
+
+//Função que corre corre por todas as lis da ol removendo as que possuem a classe selected e adicionando a classe selected na li clicada
+// function setCompletedClass(event) {
+//   let getTasks = document.getElementsByTagName('li');
+//   for (let index = 0; index < getTasks.length; index += 1) {
+//     if (getTasks[index].classList = 'completed') {
+//       getTasks[index].classList.remove('completed');
+//     }
+//     event.target.classList.add(completed);
+//   }
+// }
+
+
 
 
 
