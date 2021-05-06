@@ -3,7 +3,6 @@ let botaoLimpa = document.querySelector('#apaga-tudo');
 let botaoLimpaCompletos = document.querySelector('#remover-finalizados');
 let li = document.querySelectorAll('ol');
 let lis = document.getElementsByTagName('li');
-let riscados = document.getElementsByClassName('completed');
 
 function adicionarTarefa() {
   let caixaTexto = document.querySelector('#texto-tarefa');
@@ -43,7 +42,8 @@ botaoLimpa.addEventListener('click', function () {
 });
 
 botaoLimpaCompletos.addEventListener('click', function () {
-  for (let index = 0; index < riscados.length; index += 1) {
-    document.getElementsByClassName('completed')[index].remove();
+  let riscados = document.getElementsByClassName('completed');
+  for (let i = riscados.length - 1; i >= 0; --i) {
+    riscados[i].remove();
   }
 });
