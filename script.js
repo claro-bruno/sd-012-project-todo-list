@@ -5,3 +5,11 @@ function createInput() {
 }
 
 createInput();
+
+function createOrdenedList() {
+  let taskList = document.createElement('ol');
+  taskList.id = 'lista-tarefas';
+  document.body.appendChild(taskList);
+}
+
+createOrdenedList();
