@@ -15,4 +15,8 @@ addTask.addEventListener('click', () => {
     taskList.appendChild(task);
     taskText.value = '';
 })
+
+
+taskList.sort(); 
+
     
