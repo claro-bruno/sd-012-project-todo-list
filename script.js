@@ -45,3 +45,17 @@ for (let index = 0; index < ordenedList.length; index += 1) {
     }
   })
 };
+
+
+let listOrdened = document.querySelectorAll("#lista-tarefas");
+
+for (let index = 0; index < listOrdened.length; index += 1) {
+  listOrdened[index].addEventListener("dblclick", function (event) {
+
+    if(event.target.className === "tasks"){
+        event.target.className = "completed"
+    } else {
+        event.target.className = "tasks";
+    }
+  })
+};

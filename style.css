@@ -1,21 +1,23 @@
-body{
-    text-align: center;
-    background-color: gold;
+body {
+  text-align: center;
+  background-color: gold;
 }
-ol{
-    text-align: center;
+ol {
+  text-align: center;
 }
-.tasks{
-    max-width: 200px;
-    text-align: center;
-    margin: auto;
+.tasks {
+  max-width: 200px;
+  text-align: center;
+  margin: auto;
 }
-article{
-    background-color: darksalmon;
-   max-width: 40%;
-   margin: auto;
-   
+article {
+  background-color: darksalmon;
+  max-width: 40%;
+  margin: auto;
 }
-#changeColor{
-    background-color:rgb(128, 128, 128) ;
+#changeColor {
+  background-color: rgb(128, 128, 128);
+}
+.completed {
+  text-decoration: line-through;
 }
