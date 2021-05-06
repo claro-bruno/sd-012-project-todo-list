@@ -42,19 +42,19 @@ function highlightTask (event){
     let listOfTasks = document.querySelectorAll("#lista-tarefas li");
     
     for(let index = 0; index < listOfTasks.length; index += 1){
-        listOfTasks[index].style.backgroundColor = "rgb(255, 255, 255)"
+        listOfTasks[index].classList.remove("selected");
     };
 
-    event.target.style.backgroundColor = "rgb(128, 128, 128)";
+    event.target.classList.add("selected");
 };
 
 // Marcar tarefa como completa
 
 function completeTask (event) {
-    if (event.target.className === "completed") {
-        event.target.className = "";
-    } else if(event.target.className === "") {
-        event.target.className = "completed";
+    if (event.target.classList.contains("completed")) {
+        event.target.classList.remove("completed")
+    } else {
+        event.target.classList.add("completed");
     };
 };
 
@@ -100,4 +100,13 @@ function saveTasks () {
 };
 
 document.querySelector("#salvar-tarefas").addEventListener("click", saveTasks);
+
+// Mover itens da Lista
+
+ // Para Cima
+function moveTaskUP (event) {
+    let allTasksInList = document.querySelectorAll("#lista-tarefas li");
+    let taskSelected = document
+
+}
 
