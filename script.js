@@ -6,6 +6,11 @@ document.addEventListener('click', (event) => {
     const getEventElement = event.target;
     selectTask(getEventElement);
   };
+  if (event.target.id === 'apaga-tudo') {
+    const getToDoList = document.getElementById('lista-tarefas');
+    getToDoList.innerHTML = '';
+  };
+
 
 });
 
@@ -15,7 +20,6 @@ document.addEventListener('dblclick', (event) => {
     completeTask(getEventElement)
   };
 });
-
 
 function addTasks() {
   const getTasksList = document.getElementById('lista-tarefas');
