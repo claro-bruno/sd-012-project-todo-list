@@ -22,12 +22,12 @@ addTask.addEventListener('click', () => {
 function taskSelect () {
     taskList.addEventListener('click', (event) => {
         const eventTarget = event.target;
-        const selectedTask = document.querySelector('.selected');
+        const selectedTask = document.querySelector('.gray');
         if (selectedTask) {
-            selectedTask.classList.remove('selected');
+            selectedTask.classList.remove('gray');
         }
         else {
-            eventTarget.classList.add('selected');
+            eventTarget.classList.add('gray');
         }
     })
 }
