@@ -16,3 +16,11 @@ document.body.addEventListener('click', function (event) {
         event.target.className = 'taskItem selected';
     }
 })
+
+document.body.addEventListener('dblclick', function (event) {
+    if (event.target.className === 'completed') {
+        event.target.className = 'taskItem'
+    } else {
+        event.target.className = 'completed'
+    }
+})
