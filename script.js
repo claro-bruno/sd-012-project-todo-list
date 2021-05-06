@@ -12,4 +12,13 @@ paragraph.id = 'funcionamento';
 paragraph.innerHTML =
   'Clique duas vezes em um item para marcá-lo como completo';
 
-content.appendChild(paragraph);
+header.appendChild(paragraph);
+
+const insertTask = document.createElement('div');
+insertTask.className = 'insert-task';
+
+const taskText = document.createElement('input');
+taskText.id = 'texto-tarefa';
+insertTask.appendChild(taskText);
+
+content.appendChild(insertTask);
