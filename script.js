@@ -2,12 +2,13 @@ window.onload = function () {
     let buttonAdd = document.querySelector("#criar-tarefa");
     let taskList = document.querySelector("#lista-tarefas");
     let inputSection = document.querySelector("#texto-tarefa");
+    let buttonRm = document.querySelector("#apaga-tudo");
     
-
+    rmBtnCall();
     addBtn();
 
     // Adiciona item na lista ordenada e Adiciona marcação ao clique
-    function creatTask() {
+    function taskGenerator() {
         let taskItem = document.createElement('li');
         taskItem.classList.add('tarefa');
         taskItem.addEventListener("click", function(e) {
@@ -21,12 +22,7 @@ window.onload = function () {
             
         });
         taskItem.addEventListener('dblclick', function(e) {
-            let completed = document.querySelector('.completed');
-            if(e.target.className === "tarefa" || e.target.className === "tarefa selected") {
-                e.target.classList.add("completed");
-            } else if (e.target.classname === 'tarefa completed' || e.target.classname === "tarefa selected completed" || "tarefa completed selected") {
-                e.target.classList.remove('completed')
-            };
+            e.target.classList.toggle('completed');
         });
         taskItem.innerHTML = inputSection.value;
         inputSection.value = "";
@@ -35,6 +31,16 @@ window.onload = function () {
     
     // Funcionamento do botão de Adicionar Tarefa
     function addBtn() {
-        buttonAdd.addEventListener ("click", creatTask);
+        buttonAdd.addEventListener ("click", taskGenerator);
+    };
+
+    function rmBtn() {
+        while(taskList.firstChild) {
+            taskList.removeChild(taskList.firstChild);
+        };
+    };
+
+    function rmBtnCall () {
+        buttonRm.addEventListener('click', rmBtn);
     };
 };
