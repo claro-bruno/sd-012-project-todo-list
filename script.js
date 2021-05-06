@@ -7,13 +7,17 @@ window.onload = function() {
     let remover_finalizados = document.getElementById('remover-finalizados');
     let salvar_tarefas = document.getElementById('salvar-tarefas');
     let remover_selecionado = document.getElementById('remover-selecionado');
+    let mover_cima = document.getElementById('mover-cima');
+    let mover_baixo = document.getElementById('mover-baixo');
     
     criar_tarefa.addEventListener('click', addTarefa);
     apaga_tudo.addEventListener('click', apagaTudo);
     remover_finalizados.addEventListener('click', apagaFinalizados);
     salvar_tarefas.addEventListener('click', salvarTarefas);
-    remover_selecionado.addEventListener('click', apagaSelecionado)
-
+    remover_selecionado.addEventListener('click', apagaSelecionado);
+    mover_cima.addEventListener('click', moverCima);
+    mover_baixo.addEventListener('click', moverBaixo);
+    
     for(let i = 0; i < localStorage.length/2; i++) {
         let item = localStorage.getItem('item ' + i);
         let classes = localStorage.getItem('classes ' + i);
@@ -103,12 +107,44 @@ window.onload = function() {
         }
     }
 
+    function moverCima() {
+        let lis = document.getElementsByTagName('li');
+        for(let i = 0; i < lis.length; i++) {
+            if (lis[i].className == 'select' || lis[i].className == 'select completed') {
+                if (i != 0) {
+                    let li_select = lis[i];
+                    let li_cima = lis[i - 1];
+                    lista_tarefas.removeChild(lis[i]);
+                    lista_tarefas.removeChild(lis[i - 1]);
+                    lista_tarefas.insertBefore(li_select, lista_tarefas.children[i - 1]);
+                    lista_tarefas.insertBefore(li_cima, lista_tarefas.children[i]);
+                }
+            }
+        }
+    }
+
+    function moverBaixo() {
+        let lis = document.getElementsByTagName('li');
+        for(let i = 0; i < lis.length; i++) {
+            if (lis[i].className == 'select' || lis[i].className == 'select completed') {
+                if (i != lis.length - 1) {
+                    let li_select = lis[i];
+                    let li_baixo = lis[i + 1];
+                    lista_tarefas.insertBefore(li_select, lista_tarefas.children[i + 2]);
+                    console.log(lista_tarefas.children[i + 2]);
+                    break;
+                }
+            }
+        }
+    }
+
     function apagaSelecionado() {
         let lis = document.getElementsByTagName('li');
         let length = lis.length;
         for(let i = 0; i < length; i++) {
             if (lis[i].className == 'select' || lis[i].className == 'select completed') {
                 lista_tarefas.removeChild(lis[i]);
+                break;
             }
         }
     }
