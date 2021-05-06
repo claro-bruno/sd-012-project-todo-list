@@ -6,6 +6,7 @@ const botaoApagaFinalizadas = document.querySelector('#remover-finalizados');
 const botaoApagaSelecionado = document.querySelector('#remover-selecionado');
 const botaoCima = document.querySelector('#mover-cima');
 const botaoBaixo = document.querySelector('#mover-baixo');
+const botaoSalvar = document.querySelector('#salvar-tarefas');
 
 function addTarefa() {
     if (tarefaNova.value.length > 0) {
@@ -121,3 +122,16 @@ function moverParaBaixo () {
 }
 
 botaoBaixo.addEventListener('click', moverParaBaixo);
+
+function salvarLista() {
+    localStorage.setItem('Lista', listaDeTarefas.innerHTML);
+}
+
+botaoSalvar.addEventListener('click', salvarLista);
+
+window.onload = function() {
+    let saved = localStorage.getItem('Lista');
+    if (saved !== null) {
+        listaDeTarefas.innerHTML = saved;
+    }
+}
