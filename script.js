@@ -4,9 +4,11 @@ window.onload = function() {
     let texto_tarefa = document.getElementById('texto-tarefa');
     let lista_tarefas = document.getElementById('lista-tarefas');
     let apaga_tudo = document.getElementById('apaga-tudo');
+    let remover_finalizados = document.getElementById('remover-finalizados');
     
     criar_tarefa.addEventListener('click', addTarefa);
     apaga_tudo.addEventListener('click', apagaTudo);
+    remover_finalizados.addEventListener('click', apagaFinalizados);
 
     function addTarefa() {
         if (texto_tarefa.value != '') {
@@ -64,6 +66,16 @@ window.onload = function() {
         let length = lis.length;
         for(let i = 0; i < length; i++) {
             lista_tarefas.removeChild(lista_tarefas.firstChild);
+        }
+    }
+
+    function apagaFinalizados() {
+        let lis = document.getElementsByTagName('li');
+        for(let i = 0; i < lis.length; i++) {
+            if (lis[i].className == 'no-select completed' || lis[i].className == 'select completed' || lis[i].className == 'completed') {
+                lista_tarefas.removeChild(lis[i]);
+                i--;
+            }
         }
     }
 }
