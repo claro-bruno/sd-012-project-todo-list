@@ -10,6 +10,8 @@ const taskText = document.getElementById('texto-tarefa');
 //CRIA CONST QUE RESGATA A TAG DO BOTAO DE LIMPAR A LISTA:
 const taskCleaner = document.getElementById('apaga-tudo');
 
+const clearDoneTasks = document.getElementById('remover-finalizados');
+
 //5, 6 - CRIANDO A FUNÇÃO DE ADD A TASK E CRIAR UMA TAG li PARA ADICIONAR A ol: Usei o listener pra criar o click e atribui a função. Criei a const que cria uma tag li para ser adiciona a lista ordenada. Atribui o valor da task (que sera colocada na lista li) resgatado do input, usando taskText.value, ou seja, ele pega o valor que foi dado ao elemento com a id taskText. Coloquei a li (task) como filha da ol com id taskList. Por fim atrivui o valor de taskText a uma string vazia, pois é o estado inicial dela antes de ser preenchido meu input
 
 addTask.addEventListener('click', () => {
@@ -67,5 +69,18 @@ function taskClear () {
 
 taskClear();
 
+//11 - PRIMEIRO CRIEI A CONST PRA RESGATAR O ELEMENTO COM A CLASSE completed QUE SAO AS TASKS RISCADAS (FINALIZADAS). DEPOIS CRIEI A FUNÇÃO, DENTRO DELA USEI A CONST QUE RESGATA O BOTAO QUE TEM O ID remover-finalizados CHAMANDO UM EVENT LISTENER COM UM BOTAO DE CLIK QUE CONTEM UM FOR. O FOR INICIA NA ULTIMA POSIÇÃO DOS ELEMENTOS FINALIZADOS (finished.length-1) VAI ATÉ O INDEX SER MAIOR OU IGUAL A 0 E DECREMENTA DE UM EM UM. EM SEGUIDA DENTRO DO FOR EU REMOVO OS ITENS QUE FORAM PERCORRIDOS NO FOR SE A CONDIÇÃO EXISTIR. CLARO, TUDO ISSO SE FOR CLICADO NO BOTAO "REMOVA FINALIZADOS".
 
+const finished = document.getElementsByClassName('completed');
+function taskDoneCleaner () {
+    clearDoneTasks.addEventListener('click', () => {
+        for (let index = finished.length -1; index >= 0; index -= 1) {
+            finished[index].remove();
+        }
+
+    })
+
+}
+
+taskDoneCleaner();
     
