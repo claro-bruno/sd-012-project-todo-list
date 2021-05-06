@@ -17,4 +17,8 @@
 #lista-tarefas {
     text-align: left;
     list-style: none;
+    background-color: khaki;
+    margin-left: 400px;
+    margin-right: 400px;
+    border: solid 1px black;
 }
