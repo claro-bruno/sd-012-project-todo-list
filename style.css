@@ -5,3 +5,7 @@
 #title , #funcionamento , #texto-tarefa {
   text-align: center;
 }
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
