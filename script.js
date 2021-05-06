@@ -48,3 +48,14 @@ function deleteAllList () {
 
 document.querySelector("#apaga-tudo").addEventListener("click", deleteAllList);
 
+// Apagar Tarefas Completas
+
+function deleteAllCompleteTasks (){
+    let allCompletedItens = document.querySelectorAll("#lista-tarefas li.completed");
+
+    for (let index = 0; index < allCompletedItens.length; index += 1) {
+        allCompletedItens[index].remove();
+    };
+};
+
+document.querySelector("#remover-finalizados").addEventListener("click", deleteAllCompleteTasks);
