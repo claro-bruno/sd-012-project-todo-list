@@ -4,15 +4,16 @@ const inputField = document.getElementById('texto-tarefa');
 const ordList = document.getElementById('lista-tarefas');
 let lista2 = document.createElement('li');
 
-
 btnCriaTarefa.addEventListener('click', function () {
   let lista = document.createElement('li');
   lista.innerHTML = inputField.value;
   ordList.appendChild(lista);
   inputField.value = '';
   changeColor();
+  console.log('lista do btn adicionar',lista);
   // lista.addEventListener('click', changeColor);
   lista.addEventListener('dblclick', taskEnd);
+  apagaTudo();
   // lista.addEventListener('dblclick', taskNotEnd);
 });
 
@@ -31,7 +32,7 @@ function changeColor() {
   }
 }
 
-function taskEnd(event) {
+function taskEnd(event) { // NÃO ESTÁ FUNCIONANDO
   if (event.target.className !== 'completed') {
     event.target.classList.add('completed');
   }
@@ -39,6 +40,21 @@ function taskEnd(event) {
     event.target.classList.remove('completed');
   }
 }
+
+const btnApaga = document.querySelector('#apaga-tudo');
+btnApaga.innerHTML = 'apagar';
+
+function apagaTudo() {
+  let lista = document.querySelectorAll('li');
+  for (let index = 0; index <= lista.length; index += 1) {
+    let listaFilhos = ordList.childNodes[index];
+    btnApaga.addEventListener('click', function () {
+      console.log(lista.length);
+      listaFilhos.remove();
+    })  
+  }
+}
+
 
 
 
