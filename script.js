@@ -5,6 +5,8 @@ const buttonApagaLista = document.querySelector('#apaga-tudo');
 const buttonApagaFinalizados = document.querySelector('#remover-finalizados');
 const buttonSalvaLista = document.querySelector('#salvar-tarefas');
 const buttonApagaSelecionado = document.querySelector('#remover-selecionado');
+const buttonMoverCima = document.querySelector('#mover-cima');
+const buttonMoverBaixo = document.querySelector('#mover-baixo');
 
 function riscaItemDaLista(element) {
   element.addEventListener('dblclick', (event) => {
@@ -66,7 +68,7 @@ function salvarTarefas() {
     const itensDalista = document.querySelectorAll('.item-lista');
     for (let index = 0; index < itensDalista.length; index += 1) {
       localStorage.setItem(`item${index}`, itensDalista[index].innerText);
-      sessionStorage.setItem(`class${index}`,itensDalista[index].className);
+      sessionStorage.setItem(`class${index}`, itensDalista[index].className);
     }
   });
 }
@@ -81,7 +83,7 @@ window.onload = () => {
     listaTarefas.appendChild(novoItem);
     mudaCorDeFundo(novoItem);
     riscaItemDaLista(novoItem);
-   }
+  }
 };
 
 function apagandoSelecionado() {
@@ -89,7 +91,45 @@ function apagandoSelecionado() {
     const itemSelecionado = document.querySelector('.selected');
     if (itemSelecionado === null) return alert('Nenhum item selecionado');
     listaTarefas.removeChild(itemSelecionado);
-  })
+  });
 }
 
 apagandoSelecionado();
+
+function moverItemParaCima() {
+  buttonMoverCima.addEventListener('click', () => {
+    let itemSelecionado = document.querySelector('.selected');
+    if (itemSelecionado === null) return alert('Nenhum item selecionado');
+    let itemAnterior = itemSelecionado.previousElementSibling;
+    if (itemAnterior === null) return alert('Item Selecionado e o primeiro da Lista');
+    let variavelDeTroca ='';
+    let variavelTrocaClasses ='';
+    variavelDeTroca = itemSelecionado.innerText;
+    variavelTrocaClasses = itemSelecionado.className;
+    itemSelecionado.innerText = itemAnterior.innerText;
+    itemSelecionado.className = itemAnterior.className;
+    itemAnterior.innerText = variavelDeTroca;
+    itemAnterior.className = variavelTrocaClasses;
+  });
+}
+
+moverItemParaCima();
+
+function moverItemParaBaixo() {
+  buttonMoverBaixo.addEventListener('click', () => {
+    let itemSelecionado = document.querySelector('.selected');
+    if (itemSelecionado === null) return alert('Nenhum item selecionado');
+    let itemSeguinte = itemSelecionado.nextElementSibling;
+    if (itemSeguinte === null) return alert('Item Selecionado e o ultimo da Lista');
+    let variavelDeTroca ='';
+    let variavelTrocaClasses ='';
+    variavelDeTroca = itemSelecionado.innerText;
+    variavelTrocaClasses = itemSelecionado.className;
+    itemSelecionado.innerText = itemSeguinte.innerText;
+    itemSelecionado.className = itemSeguinte.className;
+    itemSeguinte.innerText = variavelDeTroca;
+    itemSeguinte.className = variavelTrocaClasses;
+  });
+}
+
+moverItemParaBaixo();
