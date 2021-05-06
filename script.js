@@ -98,3 +98,19 @@ function cleanTaskList() {
 btnClearAll.addEventListener('click', cleanTaskList);
 
 btnContainer.appendChild(btnClearAll);
+
+const btnFinished = createBtn(
+  'remover-finalizados',
+  'apagar tarefas finalizadas'
+);
+
+function cleanFiniShedTasks() {
+  const completedList = document.querySelectorAll('.completed');
+  for (let index = 0; index < completedList.length; index += 1) {
+    completedList[index].remove();
+  }
+}
+
+btnFinished.addEventListener('click', cleanFiniShedTasks);
+
+btnContainer.appendChild(btnFinished);
