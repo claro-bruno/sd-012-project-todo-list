@@ -35,6 +35,10 @@ header {
     border-radius: 10px;
 }
 
+.selected {
+    background-color: rgb(128, 128, 128);
+}
+
 #criar-tarefa {
     height: 40px;
     background-color: transparent;
