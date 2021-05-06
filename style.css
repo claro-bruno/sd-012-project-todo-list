@@ -24,3 +24,14 @@
     background-color: red;
     border-radius: 10%;
 }
+
+#botoes {
+    width: 60px;
+    height: 35px;
+    font-size: small;
+    color: white;
+    display: inline-block;
+    margin-left: 60px;
+    background-color: black;
+    border-radius: 10%;
+}
