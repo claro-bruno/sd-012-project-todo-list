@@ -103,18 +103,22 @@ function createTask() {
   });
 }
 
-function moverCima() {
+function moveUp() {
   let taskSelected = document.querySelector('#selected');
   let previousTask = taskSelected.previousElementSibling;
   taskSelected.parentNode.insertBefore(previousTask, taskSelected.nextElementSibling);
 }
 
-function moverBaixo() {
+function moveDown() {
   let taskSelected = document.querySelector('#selected');
   let nextTask = taskSelected.nextElementSibling;
   taskSelected.parentNode.insertBefore(nextTask, nextTask.previousElementSibling);
 }
 
+function removeSelected() {
+    const selected = document.querySelector('#selected');
+    selected.remove();
+}
 
 window.onload = () => {
   openSavedTasks();
@@ -124,6 +128,7 @@ window.onload = () => {
 
   const btnSaveTasks = document.querySelector('#salvar-tarefas');
   btnSaveTasks.addEventListener('click', saveTasks);
-  document.querySelector('#mover-cima').addEventListener('click', moverCima);
-  document.querySelector('#mover-baixo').addEventListener('click', moverBaixo);
+  document.querySelector('#mover-cima').addEventListener('click', moveUp);
+  document.querySelector('#mover-baixo').addEventListener('click', moveDown);
+  document.querySelector('#remover-selecionado').addEventListener('click', removeSelected);
 };
