@@ -1,3 +1,25 @@
+//Puxar Tarefas Salvas no LocalStorage
+function reloadSavedTasks () {
+    let tasksInLocalStorage = JSON.parse(localStorage.getItem("tasksSaved"));
+    let classesInLocalStorage = JSON.parse(localStorage.getItem("classesSaved"));
+
+    for (let index = 0; index < tasksInLocalStorage.length; index += 1){
+        let taskList = document.querySelector("#lista-tarefas")
+        let element = document.createElement("li");
+        element.innerHTML = tasksInLocalStorage[index];
+        element.className = classesInLocalStorage[index];
+        element.addEventListener("click", highlightTask);
+        element.addEventListener("dblclick", completeTask);
+        taskList.appendChild(element);
+    };
+
+};
+
+if (localStorage.length > 0){
+    reloadSavedTasks();
+}
+
+
 //Colocar Tarefa Nova na Lista
 
 function createTask() {
@@ -59,3 +81,23 @@ function deleteAllCompleteTasks (){
 };
 
 document.querySelector("#remover-finalizados").addEventListener("click", deleteAllCompleteTasks);
+
+// Salvar Tarefas
+
+function saveTasks () {
+    let allTasks = document.querySelectorAll("#lista-tarefas li");
+    let arrayOfTasks = [];
+    let arrayOfClass = [];
+
+    for (let index = 0; index < allTasks.length; index += 1){
+        arrayOfTasks.push(allTasks[index].innerHTML);
+        arrayOfClass.push(allTasks[index].className);
+    };
+
+    localStorage.setItem("tasksSaved", JSON.stringify(arrayOfTasks));
+    localStorage.setItem("classesSaved", JSON.stringify(arrayOfClass));
+
+};
+
+document.querySelector("#salvar-tarefas").addEventListener("click", saveTasks);
+
