@@ -29,8 +29,17 @@ function completeTask() {
   });
 }
 
+function removeTasks() {
+  const removeBtn = document.getElementById('apaga-tudo');
+
+  removeBtn.addEventListener('click', () => {
+    list.remove('li');
+  });
+}
+
 window.onload = () => {
   createTask();
   selectedTask();
   completeTask();
+  removeTasks();
 };

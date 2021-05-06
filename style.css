@@ -31,6 +31,10 @@ button {
   background-color: rgb(175, 107, 238);
 }
 
+#apaga-tudo {
+  background-color: rgb(236, 81, 81);
+}
+
 button:hover {
   background-color: rgb(137, 73, 197);
 }
