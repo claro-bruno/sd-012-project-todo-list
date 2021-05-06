@@ -2,6 +2,7 @@ const createBtn = document.getElementById('criar-tarefa');
 const InputTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const clearCompleted = document.getElementById('remover-finalizados');
+const clearAlltasks = document.getElementById('apaga-tudo');
 
 createBtn.addEventListener('click', createTask);
 
@@ -16,7 +17,7 @@ taskList.addEventListener('click', selectTask);
 
 function selectTask(event) {
   let tasks = document.getElementsByTagName('li');
-  for (index = 0; index < tasks.length; index +=1) {
+  for (let index = 0; index < tasks.length; index +=1) {
     tasks[index].style.backgroundColor = 'rgb(255,255,255)';
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
@@ -34,10 +35,19 @@ clearCompleted.addEventListener('click', clearDone);
 
 function clearDone() {
   let done = document.getElementsByTagName('li');
-  for (index = 0; index < done.length; index +=1) {
+  for (let index = 0; index < done.length; index +=1) {
     if (done[index].classList.contains('completed')) {
       done[index].remove();
       index -= 1;
     }
+  }
+}
+
+clearAlltasks.addEventListener('click', clearTasks);
+
+function clearTasks() {
+  let done = document.getElementsByTagName('li');
+  for (let index = (done.length - 1); index == 0; index -=1) {
+      done[index].remove();
   }
 }
