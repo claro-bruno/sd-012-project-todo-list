@@ -1,11 +1,20 @@
-function select(e) {
+function select(event) {
   const ultimaTarefa = document.querySelector('.selected');
   if (ultimaTarefa != null) {
     ultimaTarefa.classList.remove('selected');
   }
 
-  const tarefaAtual = e.target;
+  const tarefaAtual = event.target;
   tarefaAtual.classList.add('selected');
+}
+
+function complete(event) {
+  const tarefaCompleta = event.target;
+  if (tarefaCompleta.classList.value.includes('completed')) {
+    tarefaCompleta.classList.remove('completed');
+  } else {
+    tarefaCompleta.classList.add('completed');
+  }
 }
 
 function adicionaTarefa() {
@@ -14,9 +23,9 @@ function adicionaTarefa() {
   const novaTarefa = document.createElement('li');
   novaTarefa.innerText = textoTarefa;
   novaTarefa.addEventListener('click', select);
+  novaTarefa.addEventListener('dblclick', complete);
   lista.appendChild(novaTarefa);
   document.getElementById('form').reset();
-  // capturaTarefas();
 }
 
 const button = document.getElementById('criar-tarefa');
