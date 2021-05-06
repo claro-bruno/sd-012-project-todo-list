@@ -27,11 +27,15 @@ const toggleCompleted = (evt) => {
 const addTask = () => {
   const newTask = document.createElement('li');
   newTask.innerText = taskInput.value;
-  newTask.classList.add('task');
-  taskList.appendChild(newTask);
-  taskInput.value = '';
-  newTask.addEventListener('dblclick', toggleCompleted);
-  selectTask();
+  if (newTask.innerText === '') {
+    alert('adicione uma tarefa');
+  } else {
+    newTask.classList.add('task');
+    taskList.appendChild(newTask);
+    taskInput.value = '';
+    newTask.addEventListener('dblclick', toggleCompleted);
+    selectTask();
+  }
 };
 
 const removeAll = () => {
