@@ -1,14 +1,27 @@
 window.onload = function() {
-    
+
     let criar_tarefa = document.getElementById('criar-tarefa');
     let texto_tarefa = document.getElementById('texto-tarefa');
     let lista_tarefas = document.getElementById('lista-tarefas');
     let apaga_tudo = document.getElementById('apaga-tudo');
     let remover_finalizados = document.getElementById('remover-finalizados');
+    let salvar_tarefas = document.getElementById('salvar-tarefas');
     
     criar_tarefa.addEventListener('click', addTarefa);
     apaga_tudo.addEventListener('click', apagaTudo);
     remover_finalizados.addEventListener('click', apagaFinalizados);
+    salvar_tarefas.addEventListener('click', salvarTarefas);
+
+    for(let i = 0; i < localStorage.length/2; i++) {
+        let item = localStorage.getItem('item ' + i);
+        let classes = localStorage.getItem('classes ' + i);
+        let li = document.createElement('li');
+        li.innerHTML = item;
+        li.className = classes;
+        li.addEventListener('click', selectTarefa);
+        li.addEventListener('dblclick', completedTarefa);
+        lista_tarefas.appendChild(li);
+    }
 
     function addTarefa() {
         if (texto_tarefa.value != '') {
@@ -76,6 +89,15 @@ window.onload = function() {
                 lista_tarefas.removeChild(lis[i]);
                 i--;
             }
+        }
+    }
+
+    function salvarTarefas() {
+        localStorage.clear();
+        let lis = document.getElementsByTagName('li');
+        for(let i = 0; i < lis.length; i++) {
+            localStorage.setItem('item ' + i, lis[i].innerHTML);
+            localStorage.setItem('classes ' + i, lis[i].className);
         }
     }
 }
