@@ -3,6 +3,9 @@ const text = document.querySelector('#texto-tarefa');
 const listMom = document.querySelector('#lista-tarefas');
 const limpar = document.querySelector('#apaga-tudo');
 const limparCompletos = document.querySelector('#remover-finalizados');
+const salvar = document.querySelector('#salvar-tarefas');
+const cima = document.querySelector('#mover-cima');
+const baixo = document.querySelector('#mover-baixo');
 
 function completeItem(allItems) {
   const last = allItems.length - 1;
@@ -65,3 +68,44 @@ function deleteCompleted() {
 }
 
 deleteCompleted();
+
+// function saveList() {
+//   salvar.addEventListener('click', () => {
+//     const itemStorage = [];
+//     let formatList = {};
+//     const allItems = document.querySelectorAll('li');
+//     for (let i = 0; i < allItems.length; i += 1) {
+//       formatList.title = allItems[i].innerHTML;
+//       formatList.completed = allItems[i].classList.contains('completed');
+//       itemStorage.push(formatList);
+//       formatList = {};
+//     }
+//     console.log(itemStorage);
+//     localStorage.setItem('lista', itemStorage);
+//   });
+// }
+
+// saveList();
+
+function moveUp() {
+  cima.addEventListener('click', () => {
+    const itemSelected = document.querySelector('.selected');
+    if (itemSelected.previousElementSibling) {
+      itemSelected.parentNode.insertBefore(itemSelected, itemSelected.previousElementSibling);
+    }
+  });
+}
+
+function moveDown() {
+  baixo.addEventListener('click', () => {
+    if (document.querySelector('.selected').nextElementSibling !== null) {
+      const itemSelected = document.querySelector('.selected').nextElementSibling;
+      if (itemSelected.previousElementSibling) {
+        itemSelected.parentNode.insertBefore(itemSelected, itemSelected.previousElementSibling);
+      }
+    }
+  });
+}
+
+moveUp();
+moveDown();
