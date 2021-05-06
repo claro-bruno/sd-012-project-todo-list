@@ -3,7 +3,10 @@ window.onload = function () {
   const getToDoList = document.querySelector('#lista-tarefas');
   const getTaskInput = document.querySelector('#texto-tarefa');
   const getClearButton = document.querySelector('#apaga-tudo');
-  const getClearComplectedTasksButton = document.querySelector('#remover-finalizados')
+  const getClearComplectedTasksButton = document.querySelector(
+    '#remover-finalizados'
+  );
+  const getRemoveSelectedButton = document.querySelector('#remover-selecionado');
 
   function addTask() {
     const task = document.createElement('li');
@@ -50,11 +53,19 @@ window.onload = function () {
   }
   getClearButton.addEventListener('click', clearList);
 
-  function clearCompletedList(){
-   const tasks = document.querySelectorAll('.completed');
+  function clearCompletedList() {
+    const tasks = document.querySelectorAll('.completed');
     for (let index = 0; index < tasks.length; index += 1) {
       tasks[index].remove();
     }
   }
-  getClearComplectedTasksButton.addEventListener('click',clearCompletedList);
+  getClearComplectedTasksButton.addEventListener('click', clearCompletedList);
+
+  function removeSelectedTask(){
+   const taskSelected = document.querySelector('.selected');
+   if(taskSelected !== null){
+   taskSelected.remove();
+   }
+  }
+  getRemoveSelectedButton.addEventListener('click',removeSelectedTask)
 };
