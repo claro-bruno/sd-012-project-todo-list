@@ -1,5 +1,6 @@
 body {
   margin: 0 auto;
+  font-family: sans-serif;
 }
 
 main {
@@ -15,6 +16,15 @@ main {
   padding: 25px;
   padding-top: 15px;
   border-radius: 20px;
+}
+
+header p {
+  font-style: italic;
+  color: rgb(186 , 186 , 186);
+}
+
+header h1 {
+  color: rgb(146 , 145 , 153);
 }
 
 footer {
