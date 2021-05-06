@@ -10,8 +10,11 @@ document.addEventListener('click', (event) => {
     const getToDoList = document.getElementById('lista-tarefas');
     getToDoList.innerHTML = '';
   };
-
-
+  if (event.target.id === 'remover-finalizados') {
+    const completedList = document.querySelectorAll('.completed');
+    console.log('Verificando lista completa de completed:', completedList);
+    clearCompletedTasks(completedList);
+  };
 });
 
 document.addEventListener('dblclick', (event) => {
@@ -54,4 +57,10 @@ function completeTask(completedTask) {
       completedTask.classList.add('completed');
     };
   }
+}
+
+function clearCompletedTasks(completedItems) {
+  for (let index = 0; index < completedItems.length; index += 1) {
+    completedItems[index].remove();
+  };
 }
