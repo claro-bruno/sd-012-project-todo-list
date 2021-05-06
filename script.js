@@ -1,6 +1,6 @@
-// - No campo de input será digitado o texto de uma tarefa qualquer e, em seguida, clicar-se-á no botão de criar tarefa. Será verificado que, após o clique, o texto digitado aparece na lista e desaparece do input.
+    // Será verificado que, ao se carregar a página, os itens da lista não tem o estilo CSS background-color: rgb(128, 128, 128)
 
-// - A adição de elementos na lista será feita algumas vezes, e será checado se todos os itens criados permanecem na lista na medida em que novos são adicionados
+    // Será verificado que, ao se clicar em um item da lista, ele passa a ter o estilo CSS background-color: rgb(128, 128, 128)
 
 function addLista(){
   let criarTarefa = document.querySelector('#criar-tarefa');
@@ -8,10 +8,24 @@ function addLista(){
   criarTarefa.addEventListener('click', function(){
     let textoTarefa = document.querySelector('#texto-tarefa').value;
     let itemLista = document.createElement('li');
-    itemLista.innerHTML = textoTarefa
+    itemLista.innerHTML = textoTarefa;
+    itemLista.className = 'item-lista'
+    itemLista.addEventListener('click',alteraCorDeFundo)
     listaDeTarefa.appendChild(itemLista)
     textoTarefa = document.querySelector('#texto-tarefa').value = '';
   });
-
 }
+
+function alteraCorDeFundo(){
+
+let itemLista = document.querySelectorAll('.item-lista')
+    for (let i =0;i<itemLista.length ; i+= 1){
+      if(itemLista[i].id == 'selected')  
+      itemLista[i].id = ''
+      else 
+      itemLista[i].id = 'selected'
+}
+}
+
 addLista();
+
