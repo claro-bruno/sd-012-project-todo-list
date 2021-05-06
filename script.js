@@ -8,8 +8,8 @@ botaoTarefa.addEventListener('click', function () {
   novaTarefa.className = 'tarefa';
   listaTarefas.appendChild(novaTarefa);
   inputTarefa.value = '';
-  pintaTarefa();
   concluiTarefa();
+  pintaTarefa();
 });
 
 function pintaTarefa() {
@@ -20,6 +20,8 @@ function pintaTarefa() {
       if (tarefaSelecionada.length > 0) {
         tarefaSelecionada[0].className = 'tarefa';
         event.target.className = 'tarefa-selecionada';
+      } else if ((event.target.className === 'tarefa-concluida')) {
+        event.target.className = 'tarefa-concluida';
       } else {
         event.target.className = 'tarefa-selecionada';
       }
@@ -32,9 +34,11 @@ function concluiTarefa() {
   for (let index = 0; index < tarefas.length; index += 1) {
     tarefas[index].addEventListener('dblclick', function (event) {
       let tarefaConcluida = document.querySelectorAll('.tarefa-concluida');
-      if (tarefaConcluida.length > 0) {
-        tarefaConcluida[0].className = 'tarefa';
+      if (tarefaConcluida.length > 0 && event.target.className != 'tarefa-concluida') {
+        tarefaConcluida[index].className = 'tarefa';
         event.target.className = 'tarefa-concluida';
+      } else if (event.target.className === 'tarefa-concluida') {
+        event.target.className = 'tarefa';
       } else {
         event.target.className = 'tarefa-concluida';
       }
