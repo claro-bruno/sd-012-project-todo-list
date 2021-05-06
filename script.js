@@ -55,10 +55,24 @@ function removeCompleted() {
   let numberOfElements = completedItems.length;
 
   removeCompletedButton.addEventListener('click', function () {
-    while (completedItems.length !== 0){
+    while (completedItems.length !== 0) {
       completedItems[0].remove();
     };
     // opcao de usar while lido no artigo: https://www.javascripttutorial.net/javascript-dom/javascript-removechild/
   });
 }
 removeCompleted();
+
+function removeSelected() {
+  let removeSelectedButton = document.getElementById('remover-selecionado');
+  let listItems = document.getElementById('lista-tarefas').children;
+
+  removeSelectedButton.addEventListener('click', function () {
+    for (let index = 0; index < listItems.length; index += 1) {
+      if (listItems[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+        listItems[index].remove();
+      }
+    }
+  });
+}
+removeSelected();
