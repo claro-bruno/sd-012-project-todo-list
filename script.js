@@ -11,7 +11,7 @@ function loadTasksList(arrTasks){
 loadTasksList(arrTasks);
 
 let btnAddTask = document.querySelector('#criar-tarefa');
-btnAddTask.addEventListener('click',  (evt) => addTask(document.querySelector('#texto_tarefa').value,evt));
+btnAddTask.addEventListener('click',  (evt) => addTask(document.querySelector('#texto-tarefa').value,evt));
 
 let btnCleanList = document.querySelector('#apaga-tudo');
 btnCleanList.addEventListener('click', cleanTask);
