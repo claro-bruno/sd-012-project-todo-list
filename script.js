@@ -63,14 +63,13 @@ function addNewTask() {
 }
 addNewTask();
 
-//Função que corre por todos os lis da ol e seleciona a li clicada já chamando a funcao setSelectedClass
 function addClickListener() {
   let getTasks = document.getElementsByClassName('task');
   for (let index = 0; index < getTasks.length; index += 1) {
     getTasks[index].addEventListener('click', setSelectedClass);
   }
 }
-//Função que corre corre por todas as lis da ol removendo as que possuem a classe selected e adicionando a classe selected na li clicada
+
 function setSelectedClass(event) {
   let getTasks = document.getElementsByClassName('task');
   for (let index = 0; index < getTasks.length; index += 1) {
@@ -85,6 +84,7 @@ function addDoubleClickListener() {
     getTasks[index].addEventListener('dblclick', completeTask);
   }
 }
+
 function completeTask(event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
@@ -93,20 +93,32 @@ function completeTask(event) {
   }
 };
 
+function createButtonII(buttonId) {
+  const getBotaoApagaTudo = document.getElementById('botaoApagaTudo');
 
-//Função que corre corre por todas as lis da ol removendo as que possuem a classe selected e adicionando a classe selected na li clicada
-// function setCompletedClass(event) {
-//   let getTasks = document.getElementsByTagName('li');
-//   for (let index = 0; index < getTasks.length; index += 1) {
-//     if (getTasks[index].classList = 'completed') {
-//       getTasks[index].classList.remove('completed');
-//     }
-//     event.target.classList.add(completed);
-//   }
-// }
+  const newButton = document.createElement('button');
+  newButton.id = buttonId;
+  newButton.innerHTML = 'Apagar tarefas';
+  getBotaoApagaTudo.appendChild(newButton);
+}
+createButtonII('apaga-tudo');
 
+function cleanAll() {
+  const getCleanButton = document.getElementById('apaga-tudo');
+  const getTasks = document.getElementsByClassName('task');
+  const getOl = document.getElementById('listaOrdenada');
 
-
+  getCleanButton.addEventListener('click', function() {
+    if (getTasks.length > 0) {
+      for (let index = 0; index < getTasks.length; index += 1) {
+        getOl.removeChild(getOl.lastChild);
+      }
+    } else {
+      alert('Nenhuma tarefa para ser removida');
+    }
+  })
+}
+cleanAll();
 
 
 
