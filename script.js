@@ -8,7 +8,7 @@ const taskList = document.getElementById('lista-tarefas');
 const removeFinishedTasksButton = document.getElementById('remover-finalizados');
 const removeAllButton = document.querySelector("#apaga-tudo");
 const saveTasksButton = document.querySelector('#salvar-tarefas');
-if (localStorage.getItem('tasksArray')) {
+if (localStorage.getItem('arrayOfTaskObjs')) {
   loadtasks();
 };
 
@@ -82,7 +82,7 @@ removeAllButton.addEventListener('click', () => {
   }
 });
 
-saveTasksButton.addEventListener('click', () => {
+function makeArrayOfTaskObjs() {
   const li = document.querySelectorAll('li');
   let arrayOfTaskObjs = [];
   for (let index = 0; index < li.length; index += 1) {
@@ -99,6 +99,14 @@ saveTasksButton.addEventListener('click', () => {
     arrayOfTaskObjs.push(taskObj)
     console.log(taskObj);
   }
+  return arrayOfTaskObjs;
+};
+
+let arrayOfTaskObjs = makeArrayOfTaskObjs();
+console.log(arrayOfTaskObjs);
+
+saveTasksButton.addEventListener('click', () => {
+  let arrayOfTaskObjs = makeArrayOfTaskObjs();
   console.log(arrayOfTaskObjs);
   localStorage.setItem('arrayOfTaskObjs', JSON.stringify(arrayOfTaskObjs));
 });
