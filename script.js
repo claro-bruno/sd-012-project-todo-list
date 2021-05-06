@@ -1,6 +1,7 @@
 const newTaskButton = document.getElementById('criar-tarefa');
 const inputTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
+const removeFinishedTasksButton = document.getElementById('remover-finalizados');
 
 newTaskButton.addEventListener('click', () => {
   const li = document.createElement('li');
@@ -42,3 +43,12 @@ function taskFinished() {
     }
   });
 };
+
+console.log(removeFinishedTasksButton);
+removeFinishedTasksButton.addEventListener('click', () => {
+  for (let index = 0; index < taskList.children.length; index += 1) {
+    if (taskList.children[index].classList.contains('completed')) {
+      taskList.removeChild(taskList.children[index]);
+    }
+  }
+});
