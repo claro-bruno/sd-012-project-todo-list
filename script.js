@@ -16,12 +16,18 @@ const selectTask = () => {
   });
 };
 
+const toggleCompleted = (evt) => {
+  const completed = evt.target;
+  completed.classList.toggle('completed');
+}
+
 const addTask = () => {
   const newTask = document.createElement('li');
   newTask.innerText = taskInput.value;
   newTask.classList.add('task');
   taskList.appendChild(newTask);
   taskInput.value = '';
+  newTask.addEventListener('dblclick', toggleCompleted);
   selectTask();
 };
 

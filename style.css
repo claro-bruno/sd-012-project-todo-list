@@ -31,3 +31,7 @@ main {
 .task {
   padding: 2px 10px;
 }
+
+.completed {
+  text-decoration: line-through;
+}
