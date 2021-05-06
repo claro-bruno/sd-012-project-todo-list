@@ -1,18 +1,16 @@
+window.onload = () => {
+
+};
+
 const newTaskButton = document.getElementById('criar-tarefa');
 const inputTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const removeFinishedTasksButton = document.getElementById('remover-finalizados');
 const removeAllButton = document.querySelector("#apaga-tudo");
 const saveTasksButton = document.querySelector('#salvar-tarefas');
-
-function loadtasks() {
-  let tasksArray = JSON.parse(localStorage.getItem('tasksArray'));
-  for (let index = 0; index < tasksArray.length; index += 1) {
-    createTask(tasksArray[index]);
-  }
+if (localStorage.getItem('tasksArray')) {
+  loadtasks();
 };
-
-loadtasks();
 
 function deselectOtherLis() {
   const li = document.querySelectorAll('li');
@@ -20,7 +18,7 @@ function deselectOtherLis() {
     li[index].style.backgroundColor = 'white';
     li[index].classList.remove('selected');
   }
-}
+};
 
 function createTask(taskString) {
   const li = document.createElement('li');
@@ -41,6 +39,13 @@ function createTask(taskString) {
     targ.classList.toggle('completed');
   });
   taskList.appendChild(li);
+};
+
+function loadtasks() {
+  let tasksArray = JSON.parse(localStorage.getItem('tasksArray'));
+  for (let index = 0; index < tasksArray.length; index += 1) {
+    createTask(tasksArray[index]);
+  }
 };
 
 newTaskButton.addEventListener('click', () => {
@@ -69,8 +74,7 @@ saveTasksButton.addEventListener('click', () => {
   let tasksArray = [];
   for (let index = 0; index < li.length; index += 1) {
     tasksArray.push(li[index].innerHTML);
+    let index = li[index].classList;
   }
   localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
 });
-
-
