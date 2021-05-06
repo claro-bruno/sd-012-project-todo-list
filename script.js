@@ -10,6 +10,7 @@ function createListItem() {
   let createItemList = document.createElement('li');
   let contentInput = document.querySelector('#texto-tarefa').value;
   createItemList.innerHTML = contentInput;
+  createItemList.style.background = 'white';
   document.querySelector('#lista-tarefas').appendChild(createItemList);
 }
 
@@ -19,14 +20,13 @@ function clearInput() {
 }
 
 function addBgcItemList(event) {
-  let itemList = document.querySelectorAll('li');
-  for (let items = 0; items <= itemList.length; items += 1) {
-    if (event.target === itemList[items]) {
-      event.target.style.backgroundColor = 'rgb(128,128,128)';
-    }
+  let itemList = document.getElementsByTagName('li');
+  for (let items = 0; items < itemList.length; items += 1) {
+    console.log(itemList[items].style.background);
+    itemList[items].style.backgroundColor = 'white';
   }
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
-
 let buttonSubmit = document.querySelector('#criar-tarefa');
 let ordenedList = document.querySelector('#lista-tarefas');
 buttonSubmit.addEventListener('click', createListItem);
