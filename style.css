@@ -5,3 +5,7 @@ body {
 .tarefa-selecionada {
     background-color: rgb(128, 128, 128);
 }
+
+.tarefa-concluida {
+    text-decoration: line-through;
+}
