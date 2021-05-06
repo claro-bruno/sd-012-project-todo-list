@@ -2,16 +2,18 @@ const addTaskButton = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const taskInput = document.getElementById('texto-tarefa');
 
-const selectTask = (event) => {
-  let selectedTask = document.querySelector('.selected');
-  const task = event.target;
-  if (task === selectedTask) {
-    task.classList.remove('selected');
-  } else {
-    task.classList.add('selected');
-    selectedTask.classList.remove('selected');
-  }
-  selectedTask = task;
+// Solução encontrada no respositório de Anajulia
+// Source: https://github.com/tryber/sd-011-project-todo-list/blob/anajulia-bs-todo-list-project/script.js
+
+const removeSelected = (evt) => evt.classList.remove('selected');
+const selectTask = () => {
+  const tasks = document.querySelectorAll('li');
+  tasks.forEach((task) => {
+    task.addEventListener('click', () => {
+      tasks.forEach(removeSelected);
+      task.classList.add('selected');
+    });
+  });
 };
 
 const addTask = () => {
@@ -20,7 +22,7 @@ const addTask = () => {
   newTask.classList.add('task');
   taskList.appendChild(newTask);
   taskInput.value = '';
-  newTask.addEventListener('click', selectTask);
+  selectTask();
 };
 
 addTaskButton.addEventListener('click', addTask);
