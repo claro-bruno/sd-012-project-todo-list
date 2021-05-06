@@ -1,6 +1,6 @@
 window.onload = function () {
 
-//5
+//5 e 6
 let addTaskButton = document.getElementById('criar-tarefa');
 function addTask() {
     const input = document.getElementById('texto-tarefa');
@@ -17,5 +17,15 @@ function addTask() {
   }
   addTaskButton.addEventListener('click', addTask); 
 
-//6 
+//7
+
+// document.addEventListener('click', function (event) {
+//   if (event.target.classList.contains('task-item')) {
+//     clickedTask();
+//   };
+// })
+
+// function clickedTask()
+
+//
 }
