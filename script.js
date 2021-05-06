@@ -41,3 +41,15 @@ function newTask() {
     textEntrance.value = '';
   }
 }
+
+function oldTask(event) {
+  let tasks = document.querySelectorAll('li');
+  for (let index = 0; index < tasks.length; index += 1) {
+    tasks[index].className = 'task';
+  }
+  if (event.target.classList.contains('task')) {
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  }
+}
+
+document.addEventListener('click', oldTask);
