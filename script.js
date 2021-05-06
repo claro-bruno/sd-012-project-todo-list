@@ -18,6 +18,8 @@ window.onload = function () {
     if (tarefaSelecionada.length > 0) {
       tarefaSelecionada[0].className = 'tarefa';
       event.target.className = 'tarefa-selecionada';
+    } else if (event.target.className === 'completed') {
+      event.target.className = 'completed';
     } else {
       event.target.className = 'tarefa-selecionada';
     }
@@ -30,7 +32,6 @@ window.onload = function () {
   listaTarefas.addEventListener('click', function (event) {
     pintaTarefa(event);
   });
-
 
   function concluiTarefa(event) {
     if (event.target.className === 'completed') {
