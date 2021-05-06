@@ -1,6 +1,7 @@
 const criarButton = document.querySelector('#criar-tarefa');
 const text = document.querySelector('#texto-tarefa');
 const listMom = document.querySelector('#lista-tarefas');
+const limpar = document.querySelector('#apaga-tudo');
 
 function completeItem(allItems) {
   const last = allItems.length - 1;
@@ -41,3 +42,14 @@ function addElement() {
 }
 
 addElement();
+
+function deleteList() {
+  limpar.addEventListener('click', () => {
+    const allItems = document.querySelectorAll('li');
+    for (let i = 0; i < allItems.length; i += 1) {
+      listMom.removeChild(allItems[i]);
+    }
+  });
+}
+
+deleteList();
