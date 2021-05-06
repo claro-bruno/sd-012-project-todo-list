@@ -21,7 +21,7 @@ function dblclicker(eventObject) {
   }
 }
 
-function criaTarefa (){
+function criaTarefa() {
   const li = document.createElement('li');
   li.innerHTML = inputTarefas.value;
   inputTarefas.value = '';
@@ -29,15 +29,15 @@ function criaTarefa (){
   listaTarefas.appendChild(li);
 }
 
-function apagaTodas (){
+function apagaTodas() {
   document.querySelectorAll('.tarefa').forEach(e => e.remove()); // Fonte: https://stackoverflow.com/questions/10842471/how-to-remove-all-elements-of-a-certain-class-from-the-dom
 }
 
-function apagaFinalizadas (){
-  document.querySelectorAll('.finalizada').forEach(e => e.remove()); // Fonte: https://stackoverflow.com/questions/10842471/how-to-remove-all-elements-of-a-certain-class-from-the-dom
+function apagaFinalizadas() {
+  document.querySelectorAll('.completed').forEach(e => e.remove()); // Fonte: https://stackoverflow.com/questions/10842471/how-to-remove-all-elements-of-a-certain-class-from-the-dom
 }
 
-function apagaSelecionada (){
+function apagaSelecionada() {
   document.querySelector('.selecionada').remove();
 }
 
