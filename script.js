@@ -4,7 +4,7 @@ let listaTarefas = document.getElementById('lista-tarefas');
 let botaoCriarTarefa = document.getElementById('criar-tarefa');
 let elementoInput = document.getElementById('texto-tarefa');
 
-//criando uma div para guardar texto do botão
+//criando uma div para guardar texto do botao
 let divBotao = document.createElement('div');
 botaoCriarTarefa.appendChild(divBotao);
 divBotao.id = 'texto-botao'
@@ -17,9 +17,25 @@ function criaEventoBotao() {
     botaoCriarTarefa.addEventListener('click', function() {
         let novoLi = document.createElement('li');
         listaTarefas.appendChild(novoLi);
+        novoLi.className = 'item-lista';
         novoLi.innerHTML = elementoInput.value;
         elementoInput.value = '';
     });
 };
 
 criaEventoBotao();
+
+//REQUISITO 7
+
+function mudaCorItem() {
+    let listaTarefas = document.getElementById('lista-tarefas');
+    let listaLis = document.getElementsByClassName('item-lista');
+    listaTarefas.addEventListener('click', function(event) {
+        for (index = 0; index < listaLis.length; index += 1){
+            listaLis[index].style.backgroundColor = '';
+        }
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+        });
+};
+
+mudaCorItem();
