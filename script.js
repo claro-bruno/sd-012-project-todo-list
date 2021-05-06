@@ -16,13 +16,24 @@ function mudaFundoSeleciona(event){
     event.target.classList.add("selected");
 };
 
+//  função adiciona classe completed na tarefa
+function addCompleted (event){
+    if(event.target.classList.contains("completed") === true){
+        event.target.classList.remove("completed"); 
+    }else {
+        event.target.classList.add("completed");
+    };
+};
+
 //  funções de adiciona tarefa e limpa imput
 function addTarefa (){
     let caixaTarefa = document.createElement("li");
     caixaTarefa.className = "tarefa";
     caixaTarefa.innerText = caminhoImput.value;
     caminhoLista.appendChild(caixaTarefa);
-    caixaTarefa.addEventListener("click", mudaFundoSeleciona); //  adiciona eventlistener na tarefa 
+    //  adiciona eventlistener na tarefa 
+    caixaTarefa.addEventListener("click", mudaFundoSeleciona);
+    caixaTarefa.addEventListener("dblclick", addCompleted);
 };
 
 function limpaImput(){
@@ -35,5 +46,5 @@ function clicaBtn(){
     limpaImput();
 };
 
-//adiciona eventlistener no botão
+//  adiciona eventlistener no botão
 caminhoBtn.addEventListener("click", clicaBtn);

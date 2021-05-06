@@ -28,5 +28,9 @@ header {
 
 /* itens da lista */
 .tarefa {
-    
+
+}
+
+.completed {
+    text-decoration: line-through;
 }
