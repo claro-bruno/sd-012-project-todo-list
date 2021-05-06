@@ -60,15 +60,30 @@ function rmFinalizados() {
         listaToda.removeChild(finalizados[0]);
         index += 1;
       }
-      console.log(finalizados);
-      console.log(itens);
-    //   for (let index = 0; index < itens.length; index += 1) {
-    //       if (itens[index].className === "item completed") {
-    //         listaToda.removeChild(itens[index]);
-    //       }
+    // for (let index = 0; index < itens.length; index += 1) {
+    //   if (itens[index].className === "item completed") {
+    //     listaToda.removeChild(itens[index]);
     //   }
+    // }
     }
   });
+}
+
+function salvaLista() {
+  document.addEventListener("click", function(salva) {
+    if (salva.target.id === "salvar-tarefas") {
+      let lista = document.getElementById("lista-lugar");
+      localStorage.setItem("item", lista.innerHTML);
+      console.log(lista);
+    }
+  });
+}
+
+window.onload = function() {
+
+  let isLista = document.getElementById("lista-lugar");     
+  isLista.innerHTML = localStorage.getItem("item");
+  console.log(isLista);
 }
 
 risco();
@@ -76,3 +91,4 @@ adicionar();
 corCinza();
 apagaTudo();
 rmFinalizados();
+salvaLista();
