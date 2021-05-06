@@ -10,10 +10,28 @@
 <body>
     <h1>Minha Lista de Tarefas</h1>
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    <input type="text" id="texto-tarefa">
+    <input value="" type="text" id="texto-tarefa">
     <ol id="lista-tarefas"></ol>
-    <button id="criar-tarefa"></button>
+    <button id="criar-tarefa">Create</button>
 
-    <script href='script.js'></script>
+    <script href='script.js'>
+        function buttonClick () {
+    let getButton = document.querySelector('#criar-tarefa');
+    let getUL = document.querySelector('#lista-tarefas');
+
+    getButton.addEventListener('click', function() {
+        let newListItem = document.createElement('li');
+        let getInput = document.getElementById('texto-tarefa');
+
+        newListItem.innerHTML = getInput.value;
+        getUL.appendChild(newListItem);
+
+        getInput.value = '';
+    })
+}
+
+buttonClick();
+
+    </script>
 </body>
 </html>
