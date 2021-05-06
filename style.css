@@ -1,3 +1,8 @@
 h1 {
-    color: black;
+  color: black;
+}
+
+.tarefa {
+  font-weight: 550;
+  font-family: sans-serif;
 }
