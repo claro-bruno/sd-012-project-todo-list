@@ -50,3 +50,15 @@ function clearList() {
     })
 }
 clearList();
+
+function clearCompleted() {
+    let list = document.getElementById('lista-tarefas');
+    let buttonCompleted = document.getElementById('remover-finalizados');
+    buttonCompleted.addEventListener('click', () => {
+        let completedItems = document.querySelectorAll('.completed');
+        for (let index = 0; index < completedItems.length; index += 1) {
+            list.removeChild(completedItems[index]);
+        }
+    })
+}
+clearCompleted();
