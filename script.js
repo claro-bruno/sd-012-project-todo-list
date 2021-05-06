@@ -9,6 +9,10 @@ document.getElementById('criar-tarefa').addEventListener('click', function () {
 
 document.body.addEventListener('click', function (event) {
     if (event.target.className === 'taskItem') {
-        event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+        let allTasks = document.getElementsByClassName('selected');
+        for (let task = 0; task < allTasks.length; task += 1) {
+            allTasks[task].className = 'taskItem';
+        }
+        event.target.className = 'taskItem selected';
     }
 })
