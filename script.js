@@ -51,15 +51,14 @@ clearList();
 
 function removeCompleted() {
   let removeCompletedButton = document.getElementById('remover-finalizados');
-  let orderedList = document.getElementById('lista-tarefas');
-  let listItems = orderedList.children;
+  let completedItems = document.getElementsByClassName('completed');
+  let numberOfElements = completedItems.length;
 
   removeCompletedButton.addEventListener('click', function () {
-    for (let index = 0; index < listItems.length; index += 1) {
-      if (listItems[index].className === 'completed') {
-        listItems[index].remove();
-      }
-    }
-  })
+    while (completedItems.length !== 0){
+      completedItems[0].remove();
+    };
+    // opcao de usar while lido no artigo: https://www.javascripttutorial.net/javascript-dom/javascript-removechild/
+  });
 }
 removeCompleted();
