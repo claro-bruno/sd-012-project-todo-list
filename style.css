@@ -1,7 +1,8 @@
 body {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: #0f1a26;
-    margin: 120px;
+    margin: 80px;
+    background-color: #e5ab09;
 }
 
 body span {
@@ -16,7 +17,7 @@ input {
     display: inline-block;
     border-radius: 6px;
     padding: 5px;
-    width: 360px;
+    width: 300px;
     border: #0f1a26 solid 2px;
 }
 
@@ -37,6 +38,21 @@ ol {
     color: #6a2202;
 }
 
+li {
+    padding: 10px;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+    width: 389px;
+}
+
+#todo {
+    padding: 40px;
+    border-radius: 10px;
+    width: 400px;
+    min-height: 450px;
+    background-color: #fff;
+}
+
 #add-button {
     display: inline-block;
     position: relative;
@@ -53,11 +69,11 @@ ol {
 }
 
 #input-box {
-    display: none;
+    display: block;
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: #fcfcfc;
     border-radius: 10px;
-    width: 430px;
-    position: relative;
-    top: -30px;
+    width: 370px;
+    position: absolute;
+    top: 200px;
 }
