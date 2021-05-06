@@ -14,8 +14,23 @@ function createListItem(text) {
   const listItem = document.createElement('li');
 
   listItem.innerHTML = text;
+  listItem.className = 'item-tarefa';
 
   listParent.appendChild(listItem);
+}
+
+function eventSelectItem() {
+  const listItens = document.querySelectorAll('.item-tarefa');
+
+  for (let index = 0; index < listItens.length; index += 1) {
+    listItens[index].addEventListener('click', (event) => {
+      const listItemSelected = document.querySelector('.selected');
+      if (listItemSelected !== null) {
+        listItemSelected.classList.remove('selected');
+      }
+      event.target.classList.add('selected');
+    });
+  }
 }
 
 function eventAddTask() {
@@ -25,6 +40,7 @@ function eventAddTask() {
     const inputContent = document.getElementById('texto-tarefa');
     createListItem(inputContent.value);
     inputContent.value = '';
+    eventSelectItem();
   });
 }
 

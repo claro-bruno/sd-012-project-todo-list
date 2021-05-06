@@ -35,6 +35,10 @@ button {
   margin-right: 5px;
 }
 
+.selected {
+  background-color: gray;
+}
+
 footer {
   background-color: rgb(146 , 145 , 153);
   padding: 1px;
