@@ -1,6 +1,6 @@
 body {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: #012e67;
+    color: #0f1a26;
     margin: 120px;
 }
 
@@ -17,7 +17,7 @@ input {
     border-radius: 6px;
     padding: 5px;
     width: 360px;
-    border: #032e42 solid 2px;
+    border: #0f1a26 solid 2px;
 }
 
 button {
@@ -25,11 +25,16 @@ button {
     padding: 5px;
     width: 50px;
     height: 30px;
-    background-color: #032e42;
-    border: #032e42 solid 1px;
+    background-color: #e5ab09;
+    border: #e5ab09 solid 1px;
     color: #fff;
     font-weight: 550;
     cursor: pointer;
+}
+
+ol {
+    font-size: 18px;
+    color: #6a2202;
 }
 
 #add-button {
@@ -38,7 +43,7 @@ button {
     top: -50px;
     left: 20px;
     border-radius: 10px;
-    background-color: #032e42;
+    background-color: #e5ab09;
     padding: 10px;
     cursor: pointer;
 }

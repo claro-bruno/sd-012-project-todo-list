@@ -18,5 +18,6 @@ window.onload = function() {
         task.innerHTML = inputText;
         list.appendChild(task);
         inputBox.style.display = 'none';
+        input.value = '';
     })
 }
