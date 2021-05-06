@@ -33,7 +33,7 @@ window.onload = function () {
     pintaTarefa(event);
   });
 
-  botaoLimpaLista.addEventListener('click', limpaLista());
+//   botaoLimpaLista.addEventListener('click', limpaLista());
 
   function concluiTarefa(event) {
     if (event.target.className === 'tarefa-concluida') {
@@ -43,10 +43,10 @@ window.onload = function () {
     }
   }
 
-  function limpaLista() {
-    let listaTarefas = document.querySelector('#lista-tarefas');
-    listaTarefas.removeChild(listaTarefas.lastElementChild);
-  }
+//   function limpaLista() {
+//     let listaTarefas = document.querySelector('#lista-tarefas');
+//     listaTarefas.removeChild(listaTarefas.lastElementChild);
+//   }
 
   function limpaConcluidos() {
     let listaTarefas = document.querySelectorAll('.tarefa-concluida');
