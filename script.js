@@ -7,12 +7,16 @@ function addTask() {
   task.focus();
   addButton.addEventListener('click', function () {
     const item = document.createElement('li');
+    item.addEventListener('click', changeBgTaskClick);
     item.innerHTML = task.value;
+    item.className = 'item';
     list.appendChild(item);
     task.value = '';
   });
-  
+}
 
+function changeBgTaskClick(element) {
+  element.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 window.onload = function toDoList() {
