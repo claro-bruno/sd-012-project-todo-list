@@ -1,18 +1,14 @@
-let ul = document.createElement("ul");
-document.body.appendChild(ul);
+const form = document.getElementById("form");
+const ol = document.getElementById("lista-tarefas");
+const botao = document.getElementById("criar-tarefa");
 
-for (let index = 1; index <= 10; index +=1)
-{
-    let li = document.createElement("li");  
-    li.className = "file";
+botao.addEventListener("click", (e) => {
+  e.preventDefault();
 
-    var a = document.createElement("a");
-    a.innerHTML = "Subfile " + i;
+  let input = document.getElementById("texto-tarefa");
+  let listaOrganizada = document.createElement("li");
+	listaOrganizada.innerHTML = input.value
+  ol.appendChild(listaOrganizada);
 
-    li.appendChild(a);
-    ul.appendChild(li);
-}
-
-//criar uma funcao pro valor do input, inserir o li na ol 
-//if a pessoa clicar no botao e nao tiver nada dentro return msg de rro
-//aplicar o evento de clique no botao, aplicar neles
+  input.value = ""
+})
