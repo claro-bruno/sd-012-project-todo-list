@@ -59,7 +59,7 @@ document.addEventListener('click', oldTask);
 function completeTask(event) {
   if (event.target.classList.contains('completed')){
     event.target.classList.remove('completed');
-  } else {
+  } else if (event.target.classList.contains('task')) {
     event.target.classList.add('completed');
   }
 }
@@ -82,3 +82,27 @@ refresh.addEventListener('click', clearAll);
 function clearAll() {
   document.location.reload(true);
 }
+
+let doneButton;
+
+function filterButton() {
+  doneButton = document.createElement('button');
+  doneButton.id = 'remover-finalizados';
+  doneButton.innerText = 'Remover finalizados';
+  document.body.appendChild(doneButton);
+}
+
+filterButton();
+
+let removedTasks = [];
+
+function removeDone() {
+  if (document.querySelectorAll('.completed').length != 0) {
+    let doneTasks = document.querySelectorAll('.completed');
+    for (let index = 0; index < doneTasks.length; index += 1) {
+        taskList.removeChild(doneTasks[index]);
+    }
+  }
+}
+
+doneButton.addEventListener('click', removeDone);
