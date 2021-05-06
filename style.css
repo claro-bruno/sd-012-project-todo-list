@@ -22,3 +22,8 @@ h1 {
 .selected {
     background-color: rgb(128, 128, 128);
 }
+
+.completed {
+    font-style: solid rgb(0, 0, 0);
+    text-decoration: line-through;
+}
