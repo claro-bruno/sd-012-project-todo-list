@@ -5,6 +5,7 @@ function adicionar() {
         let novaTarefa = document.createElement("li");
         let textoTarefa = document.getElementById("texto-tarefa");
         let tarefaValor = textoTarefa.value;
+        novaTarefa.className = "item";
         novaTarefa.innerText = tarefaValor;
         lista.appendChild(novaTarefa);
         textoTarefa.value = "";
