@@ -39,3 +39,13 @@ function taskCompleted() {
   });
 }
 taskCompleted();
+
+function clearList() {
+  let clearButton = document.getElementById('apaga-tudo');
+  let orderedList = document.getElementById('lista-tarefas');
+
+  clearButton.addEventListener('click', function () {
+    orderedList.innerHTML = '';
+  })
+}
+clearList();
