@@ -53,12 +53,20 @@ function rmFinalizados() {
   document.addEventListener("click", function(remover) {
     if (remover.target.id === "remover-finalizados") {
       let listaToda = document.getElementById("lista-tarefas");
-      let finalizados = document.getElementsByClassName("item");
-      for (let index = 0; index < finalizados.length; index += 1) {
-          if (finalizados[index].className === "item completed") {
-            listaToda.removeChild(finalizados[index]);
-          }
+      let itens = document.getElementsByClassName("item");
+      let finalizados = document.getElementsByClassName("completed");
+      let index = 0;
+      while (index <= itens.length) {
+        listaToda.removeChild(finalizados[0]);
+        index += 1;
       }
+      console.log(finalizados);
+      console.log(itens);
+    //   for (let index = 0; index < itens.length; index += 1) {
+    //       if (itens[index].className === "item completed") {
+    //         listaToda.removeChild(itens[index]);
+    //       }
+    //   }
     }
   });
 }
