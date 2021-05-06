@@ -14,4 +14,8 @@ window.onload = function () {
   const input = document.createElement('input');
   input.id = 'texto-tarefa';
   main.appendChild(input);
+
+  const lista = document.createElement('ol');
+  lista.id = 'lista-tarefas';
+  main.appendChild(lista);
 }
