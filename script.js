@@ -36,3 +36,11 @@ const apagarTodasAsTarefas = () => {
     listaDeTarefas.removeChild(listaDeTarefas.firstChild);
   }
 };
+
+const removerConcluidos = () => {
+  const tarefasConcluidas = document.querySelectorAll('.completed');
+
+  for (let index = 0; index < tarefasConcluidas.length; index += 1) {
+    tarefasConcluidas[index].remove();
+  }
+};
