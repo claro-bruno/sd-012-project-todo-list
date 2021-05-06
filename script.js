@@ -9,6 +9,14 @@ function criaTarefa() {
     lista.innerHTML = inputField.value;
     ordList.appendChild(lista);
     inputField.value = '';
+    lista.addEventListener('click', changeColor);
   });
 }
 criaTarefa()
+
+
+
+function changeColor(event) { 
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
