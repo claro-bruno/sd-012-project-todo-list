@@ -1,19 +1,38 @@
 const bodyPagina = document.body;
 
-const pIdFuncionamento = document.createElement('p');
-pIdFuncionamento.id = 'funcionamento';
-pIdFuncionamento.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
-bodyPagina.appendChild(pIdFuncionamento);
+const pIdFuncionamentoCria = document.createElement('p');
+pIdFuncionamentoCria.id = 'funcionamento';
+pIdFuncionamentoCria.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
+bodyPagina.appendChild(pIdFuncionamentoCria);
 
-const inputIdTextoTarefa = document.createElement('input');
-inputIdTextoTarefa.id = 'texto-tarefa';
-bodyPagina.appendChild(inputIdTextoTarefa);
+const inputIdTextoTarefaCria = document.createElement('input');
+inputIdTextoTarefaCria.id = 'texto-tarefa';
+bodyPagina.appendChild(inputIdTextoTarefaCria);
 
-const olIdListaTarefa = document.createElement('ol');
-olIdListaTarefa.id = 'lista-tarefas';
-bodyPagina.appendChild(olIdListaTarefa);
+const olIdListaTarefaCria = document.createElement('ol');
+olIdListaTarefaCria.id = 'lista-tarefas';
+bodyPagina.appendChild(olIdListaTarefaCria);
 
-const botaoIdCriarTarefa = document.createElement('button');
-botaoIdCriarTarefa.id = 'criar-tarefa';
-botaoIdCriarTarefa.innerText = 'Criar Tarefa';
-bodyPagina.appendChild(botaoIdCriarTarefa);
+const botaoIdCriarTarefaCria = document.createElement('button');
+botaoIdCriarTarefaCria.id = 'criar-tarefa';
+botaoIdCriarTarefaCria.innerText = 'Criar Tarefa';
+bodyPagina.appendChild(botaoIdCriarTarefaCria);
+
+function adicionaTarefas() {
+  const inputIdTextoTarefa = document.querySelector('#texto-tarefa');
+  const botaoIdCriarTarefa = document.querySelector('#criar-tarefa');
+  const olIdListaTarefa = document.querySelector('#lista-tarefas');
+
+  botaoIdCriarTarefa.addEventListener('click', () => {
+    const novaLi = document.createElement('li');
+    novaLi.innerText = inputIdTextoTarefa.value;
+    olIdListaTarefa.appendChild(novaLi);
+    inputIdTextoTarefa.value = '';
+  });
+
+  inputIdTextoTarefa.addEventListener('keyup', () => {
+    const novaLi = document.createElement('li');
+    novaLi.innerText = inputIdTextoTarefa.value;
+  });
+}
+adicionaTarefas();
