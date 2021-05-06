@@ -1,3 +1,4 @@
+
 /* Function Title creates <h1> Title based on the string
 used as parameter */
 function title(string) {
@@ -27,6 +28,7 @@ function newTasks() {
         } else {
             let listItem = document.createElement('li')
             listItem.innerHTML = input.value;
+            listItem.className = 'listItem';
             list.appendChild(listItem);
             input.value = "";
         }
