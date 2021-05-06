@@ -9,7 +9,7 @@ function changeBgColor(event) {
 
 function changeSelected() {
   const selected = document.querySelector('.selected');
-  selected.style.backgroundColor = 'white';
+  selected.style.backgroundColor = '';
   selected.classList.remove('selected');
 }
 
