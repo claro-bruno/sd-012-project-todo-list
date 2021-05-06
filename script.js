@@ -14,4 +14,13 @@ document.addEventListener('click', (event) => {
     oderList.appendChild(lista);
     inputText.value = ''
   }
+  if (event.target.className === 'item-list') {
+    const selected = document.querySelector('.selected');
+    if (selected !== null) {
+      selected.classList.remove('selected');
+      selected.style.backgroundColor = 'white'
+    }
+    event.target.classList.add ('selected');
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+  }
 })
