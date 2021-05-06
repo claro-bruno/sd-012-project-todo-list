@@ -9,8 +9,13 @@ body {
 
 }
 
-#criar-tarefa {
-
+#texto-tarefa {
+  margin: 5px;
+  width: 400px;
+}
+.botao {
+  margin: 5px;
+  width: 200px;
 }
 
 #lista-tarefas {
@@ -19,20 +24,20 @@ body {
   padding-left: 50px;
   text-decoration: none;
   border-radius: 15px;
+  
 }
 
 .tarefa {
 background-color: white;
 padding: 10px;
 border-radius: 10px;
-
+margin: 10px;
 }
 
 .selecionada {
-
+background-color: rgb(128, 128, 128);
 }
 
 .finalizada {
-
-
+  text-decoration: line-through;
 }
