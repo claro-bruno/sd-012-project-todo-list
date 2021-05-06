@@ -65,3 +65,20 @@ function completeTask(event) {
 }
 
 document.addEventListener('dblclick', completeTask);
+
+let refresh;
+
+function clearButton() {
+  refresh = document.createElement('button');
+  refresh.id = 'apaga-tudo';
+  refresh.innerText = 'Apagar tudo';
+  document.body.appendChild(refresh);
+}
+
+clearButton();
+
+refresh.addEventListener('click', clearAll);
+
+function clearAll() {
+  document.location.reload(true);
+}
