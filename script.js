@@ -6,11 +6,13 @@ window.onload = function() {
     let apaga_tudo = document.getElementById('apaga-tudo');
     let remover_finalizados = document.getElementById('remover-finalizados');
     let salvar_tarefas = document.getElementById('salvar-tarefas');
+    let remover_selecionado = document.getElementById('remover-selecionado');
     
     criar_tarefa.addEventListener('click', addTarefa);
     apaga_tudo.addEventListener('click', apagaTudo);
     remover_finalizados.addEventListener('click', apagaFinalizados);
     salvar_tarefas.addEventListener('click', salvarTarefas);
+    remover_selecionado.addEventListener('click', apagaSelecionado)
 
     for(let i = 0; i < localStorage.length/2; i++) {
         let item = localStorage.getItem('item ' + i);
@@ -98,6 +100,16 @@ window.onload = function() {
         for(let i = 0; i < lis.length; i++) {
             localStorage.setItem('item ' + i, lis[i].innerHTML);
             localStorage.setItem('classes ' + i, lis[i].className);
+        }
+    }
+
+    function apagaSelecionado() {
+        let lis = document.getElementsByTagName('li');
+        let length = lis.length;
+        for(let i = 0; i < length; i++) {
+            if (lis[i].className == 'select' || lis[i].className == 'select completed') {
+                lista_tarefas.removeChild(lis[i]);
+            }
         }
     }
 }
