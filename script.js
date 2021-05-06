@@ -34,4 +34,25 @@ function taskSelect () {
 
 taskSelect();
 
+//8 - 
+
+
+
+//9 - CRIEIE A FUNCTION PARA EXECUTAR A LOGICA DO REQUISITO. CRIEI UM EVENT LISTENER COM DOUBLE CLICK E UM EVENTO PARA ACONTECER. DENTRO CRIEI A CONST PARA RESGATAR O EVENTO, O ALVO, E A LISTA DE CLASSES. POR FIM CRIEI O IF, SE dcTask CONTER A CLASSE COMPLETED, ELE REMOVE A MESMA, SENAO, ELE ADICIONA. ISSO TUDO CONDICIONADO AO EVENTO DOUBLE CLICK.
+
+function taskComplete () {
+    taskList.addEventListener('dblclick', (event) => {
+        const dcTask = event.target.classList;
+        if (dcTask.contains('completed')) {
+            dcTask.remove('completed');
+        }
+        else {
+            dcTask.add('completed');
+        }
+    })
+}
+
+taskComplete();
+
+
     
