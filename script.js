@@ -17,12 +17,25 @@ function changeItemBG() {
   let listItems = orderedList.children;
 
   orderedList.addEventListener('click', function (event) {
-
     for (let index = 0; index < listItems.length; index += 1) {
       listItems[index].style.backgroundColor = '';
     };
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  })
+  });
 
 }
 changeItemBG();
+
+function taskCompleted() {
+  let orderedList = document.getElementById('lista-tarefas');
+  let listItems = orderedList.children;
+
+  orderedList.addEventListener('dblclick', function (event) {
+    if (event.target.className === 'completed') {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.className = 'completed';
+    }
+  });
+}
+taskCompleted();
