@@ -1,5 +1,6 @@
 const taskList = document.getElementById('lista-tarefas');
 const addBtn = document.getElementById('criar-tarefa');
+const removeBtn = document.getElementById('remover-selecionado');
 const taskInput = document.getElementById('texto-tarefa');
 const clearAllBtn = document.getElementById('apaga-tudo');
 const clearDoneBtn = document.getElementById('remover-finalizados');
@@ -21,6 +22,15 @@ function clearCompleted() {
       taskList.removeChild(list[index]);
     }
   }
+}
+
+function removeSelected() {
+  const list = document.querySelectorAll('li');
+    for (let index = 0; index < list.length; index += 1) {
+      if (list[index].classList.contains('selected')) {
+        taskList.removeChild(list[index]);
+      }
+    }
 }
 
 function select(event) {
@@ -69,6 +79,7 @@ function save() {
 
 window.onload = function loadPage() {
   addBtn.addEventListener('click', addTask);
+  removeBtn.addEventListener('click', removeSelected);
   clearAllBtn.addEventListener('click', clearList);
   clearDoneBtn.addEventListener('click', clearCompleted);
   saveBtn.addEventListener('click', save);
