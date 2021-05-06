@@ -13,13 +13,12 @@ function createList() {
   // Parte 7 resolvida com auxílio do colega Rodrigo Facury:
   newLi.addEventListener('click', (event) => {
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  // 
+    //
     const selected = document.querySelectorAll('.selected');
     for (let index = 0; index < selected.length; index += 1) {
       selected[index].classList.remove('selected');
-
       if (selected[index] !== 'selected') {
-        selected[index].style.backgroundColor = 'white';
+        selected[index].style.backgroundColor = '';
       }
     }
     event.target.classList.add('selected');
