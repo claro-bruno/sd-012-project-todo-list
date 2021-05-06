@@ -4,6 +4,7 @@ const taskInput = document.getElementById('texto-tarefa');
 const title = document.getElementById('title');
 const clearAllBtn = document.getElementById('apaga-tudo');
 const clearDoneBtn = document.getElementById('remover-finalizados');
+const saveBtn = document.getElementById('salvar-tarefas');
 
 function clearSelection() {
   const list = document.querySelectorAll('li');
@@ -37,7 +38,7 @@ function check(event) {
   }
 }
 
-function upgradeList() {
+function updateList() {
   const list = document.querySelectorAll('li');
   for (let index = 0; index < list.length; index += 1) {
     list[index].addEventListener('click', select);
@@ -50,7 +51,7 @@ function addTask() {
   task.innerText = taskInput.value;
   taskList.appendChild(task);
   taskInput.value = null;
-  upgradeList();
+  updateList();
 }
 
 function clearList() {
@@ -59,9 +60,22 @@ function clearList() {
   }
 }
 
+function save() {
+  const listItens = taskList.innerHTML;
+  if (localStorage.getItem('list')) {
+    localStorage.removeItem('list');
+  }
+  localStorage.setItem("list", listItens);
+}
+
 window.onload = function loadPage() {
   addBtn.addEventListener('click', addTask);
   clearAllBtn.addEventListener('click', clearList);
   clearDoneBtn.addEventListener('click', clearCompleted);
-  title.addEventListener('click', select);
+  saveBtn.addEventListener('click', save);
+  if (localStorage.getItem('list')) {
+    const list = localStorage.getItem('list');
+    taskList.innerHTML = list;
+    updateList();
+  }
 };
