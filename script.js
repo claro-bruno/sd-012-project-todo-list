@@ -2,6 +2,7 @@ const taskList = document.getElementById('lista-tarefas');
 const addBtn = document.getElementById('criar-tarefa');
 const taskInput = document.getElementById('texto-tarefa');
 const title = document.getElementById('title');
+const clearBtn = document.getElementById('apaga-tudo');
 
 function clearSelection() {
   const list = document.querySelectorAll('li');
@@ -42,7 +43,14 @@ function addTask() {
   upgradeList();
 }
 
+function clearList() {
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.lastChild);
+  }
+}
+
 window.onload = function loadPage() {
   addBtn.addEventListener('click', addTask);
+  clearBtn.addEventListener('click', clearList);
   title.addEventListener('click', select);
 };
