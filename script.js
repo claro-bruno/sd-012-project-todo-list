@@ -11,8 +11,6 @@ window.onload = function () {
     novaTarefa.className = 'tarefa';
     listaTarefas.appendChild(novaTarefa);
     inputTarefa.value = '';
-    // limpaLista();
-    // limpaConcluidos();
   });
 
   function pintaTarefa(event) {
@@ -33,29 +31,12 @@ window.onload = function () {
     pintaTarefa(event);
   });
 
-//   botaoLimpaLista.addEventListener('click', limpaLista());
 
   function concluiTarefa(event) {
-    if (event.target.className === 'tarefa-concluida') {
+    if (event.target.className === 'completed') {
       event.target.className = 'tarefa';
     } else {
-      event.target.className = 'tarefa-concluida';
+      event.target.className = 'completed';
     }
-  }
-
-//   function limpaLista() {
-//     let listaTarefas = document.querySelector('#lista-tarefas');
-//     listaTarefas.removeChild(listaTarefas.lastElementChild);
-//   }
-
-  function limpaConcluidos() {
-    let listaTarefas = document.querySelectorAll('.tarefa-concluida');
-    botaoLimpaConcluidos.addEventListener('click', function () {
-      for (let index = 0; index < listaTarefas.length; index += 1) {
-        if (listaTarefas[index].className === 'tarefa-concluida') {
-          console.log(listaTarefas[index]);
-        }
-      }
-    });
   }
 };
