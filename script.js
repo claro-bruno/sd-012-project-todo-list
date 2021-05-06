@@ -14,7 +14,6 @@ addTask();
 
 function removeClassSelected() {
     let elementSelected = document.querySelector('.selected');
-    console.log(elementSelected)
     if (elementSelected !== null) {
         elementSelected.classList.remove('selected');
     }
@@ -29,3 +28,16 @@ function selectedItems() {
     })
 }
 selectedItems();
+
+function completedTask() {
+    let list = document.querySelector('#lista-tarefas');
+    list.addEventListener('dblclick', (event) => {
+        let evento = event;
+        if (evento.target.classList.contains('completed')) {
+            evento.target.classList.remove('completed');
+        } else {
+            evento.target.classList.add('completed');
+        }
+    })
+}
+completedTask();
