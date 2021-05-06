@@ -9,6 +9,7 @@ getInstrucao.appendChild(newInstruction);
 }
 createInstruction();
 
+//Função que cria um input de id como parametro a ser passado pelo usuário dentro da section de id caixaInput
 function createInput(inputId) {
   const getCaixaInput = document.getElementById('caixaInput');
 
@@ -17,3 +18,14 @@ function createInput(inputId) {
   getCaixaInput.appendChild(newInput);
 }
 createInput('texto-tarefa');
+
+//Função que cria uma ol de id como parametro a ser passado pelo usuário dentro da section de id ListaOrdenada
+function createOl(olId) {
+  const getListaOrdenada = document.getElementById('listaOrdenada');
+
+  const newOl = document.createElement('ol');
+  newOl.id = olId;
+  getListaOrdenada.appendChild(newOl);
+}
+createOl('lista-tarefas');
+
