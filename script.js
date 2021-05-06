@@ -33,3 +33,11 @@ document.getElementById('apaga-tudo').addEventListener('click', function () {
         taskList.removeChild(taskList.firstChild)
     }
 })
+
+document.getElementById('remover-finalizados').addEventListener('click', function () {
+    let finished = document.getElementsByClassName('completed');
+    let quantity = finished.length
+    for (let task = 0; task < quantity;) {
+        finished[task].remove();
+    }
+})
