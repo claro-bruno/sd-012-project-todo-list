@@ -1,3 +1,7 @@
 body {
     background-color: lightgray;
 }
+
+.tarefa-selecionada {
+    background-color: rgb(128, 128, 128);
+}
