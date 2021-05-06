@@ -13,18 +13,6 @@ window.onload = function () {
     inputTarefa.value = '';
   });
 
-  function pintaTarefa(event) {
-    let tarefaSelecionada = document.querySelectorAll('.tarefa-selecionada');
-    if (tarefaSelecionada.length > 0) {
-      tarefaSelecionada[0].className = 'tarefa';
-      event.target.className = 'tarefa-selecionada';
-    } else if (event.target.className === 'completed') {
-      event.target.className = 'completed';
-    } else {
-      event.target.className = 'tarefa-selecionada';
-    }
-  }
-
   listaTarefas.addEventListener('dblclick', function (event) {
     concluiTarefa(event);
   });
@@ -39,6 +27,25 @@ window.onload = function () {
           listaTarefas.removeChild(tarefas[index]);
       }
   })
+
+  botaoLimpaConcluidos.addEventListener('click', function() {
+      let tarefasConcluidas = document.querySelectorAll('.completed');
+      for (let index = 0; index < tarefasConcluidas.length; index += 1) {
+          listaTarefas.removeChild(tarefasConcluidas[index]);
+      }
+  })
+
+  function pintaTarefa(event) {
+    let tarefaSelecionada = document.querySelectorAll('.tarefa-selecionada');
+    if (tarefaSelecionada.length > 0) {
+      tarefaSelecionada[0].className = 'tarefa';
+      event.target.className = 'tarefa-selecionada';
+    } else if (event.target.className === 'completed') {
+      event.target.className = 'completed';
+    } else {
+      event.target.className = 'tarefa-selecionada';
+    }
+  }
 
   function concluiTarefa(event) {
     if (event.target.className === 'completed') {
