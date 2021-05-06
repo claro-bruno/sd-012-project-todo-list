@@ -12,7 +12,3 @@ function insertTask(value) {
     insertTask(contentInput);
     document.querySelector('#texto-tarefa').value = '';
 }
-
-
-
-
