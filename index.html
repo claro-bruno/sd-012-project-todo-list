@@ -12,16 +12,18 @@
     <h1>Minha Lista de Tarefas</h1>
   </header>
   <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  <input type="text" name="" id="texto-tarefa">
-  <button class="botao" id="criar-tarefa" onclick="criaTarefa();">Criar tarefa</button>
-  <br>
-  <button class="botao" id="apaga-tudo" onclick="apagaTodas();">Apaga todas</button>
-  <button class="botao" id="remover-finalizados" onclick="apagaFinalizadas();">Apaga finalizadas</button>
-  <button class="botao" id="remover-selecionado" onclick="apagaSelecionada();">Apaga selecionada</button>
-  <button class="botao" id="salvar-tarefas" onclick="salvaTarefas();">Salva tarefas</button>
-  <ol id="lista-tarefas">
-  </ol>
-  
+  <section id="bloco-controles">
+    <input type="text" name="" id="texto-tarefa">
+    <button class="botao" id="criar-tarefa" onclick="criaTarefa();">Criar tarefa</button>
+    <button class="botao" id="mover-cima" onclick="mover(1);">Move cima</button>
+    <br>
+    <button class="botao" id="apaga-tudo" onclick="apagaTodas();">Apaga todas</button>
+    <button class="botao" id="remover-finalizados" onclick="apagaFinalizadas();">Apaga finalizadas</button>
+    <button class="botao" id="remover-selecionado" onclick="apagaSelecionada();">Apaga selecionada</button>
+    <button class="botao" id="salvar-tarefas" onclick="salvaTarefas();">Salva tarefas</button>
+    <button class="botao" id="mover-baixo" onclick="mover(-1);">Move baixo</button>
+  </section>
+  <ol id="lista-tarefas"></ol> 
   <script src="script.js"></script>
 </body>
 </html>

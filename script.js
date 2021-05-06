@@ -47,6 +47,18 @@ function salvaTarefas() {
   localStorage.setItem('backup', backup);
 }
 
+function mover(sentido) {
+  const tarefas = document.querySelectorAll('.tarefa');
+  let selecionada = document.querySelector('.selecionada'); //https://stackoverflow.com/questions/5913927/get-child-node-index
+  let elementoPai = selecionada.parentNode;
+  let index = Array.prototype.indexOf.call(elementoPai.children, selecionada);
+  if(sentido === 1 && tarefas[index - 1]) {
+    listaTarefas.insertBefore(tarefas[index], tarefas[index - 1]);
+  } else if ((sentido === -1 && tarefas[index + 1])) {
+    listaTarefas.insertBefore(tarefas[index], tarefas[index + 2]);
+  }
+}
+
 listaTarefas.innerHTML = localStorage.getItem('backup');
 document.addEventListener('click', clicker);
 document.addEventListener('dblclick', dblclicker);
