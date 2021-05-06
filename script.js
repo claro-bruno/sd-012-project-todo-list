@@ -1,27 +1,27 @@
 function openSavedTasks() {
-    const tasks = JSON.parse(localStorage.getItem('tasks'));
-    for (let key in tasks) {
-      let taskText = key;
-      let isCompleted = tasks[key];
-      let task = document.createElement('li');
-      if(isCompleted){
-          task.className = 'tarefa completed';
-      }else{
-          task.className = 'tarefa';
-      }
-      task.innerHTML = taskText;
-      let list = document.querySelector('#lista-tarefas');
-      list.appendChild(task);
-      deleteAllList();
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
+  for (let key in tasks) {
+    let taskText = key;
+    let isCompleted = tasks[key];
+    let task = document.createElement('li');
+    if (isCompleted) {
+      task.className = 'tarefa completed';
+    } else {
+      task.className = 'tarefa';
     }
+    task.innerHTML = taskText;
+    let list = document.querySelector('#lista-tarefas');
+    list.appendChild(task);
+    deleteAllList();
   }
+}
 
 function saveTasks() {
   let tasks = document.querySelectorAll('.tarefa');
   console.log(tasks)
   let tasksObj = {};
   for (let taskIndex = 0; taskIndex < tasks.length; taskIndex += 1) {
-      let task = tasks[taskIndex];
+    let task = tasks[taskIndex];
     let taskValue = task.innerHTML;
     console.log(task.classList)
     let isTaskCompleted = false;
@@ -103,7 +103,17 @@ function createTask() {
   });
 }
 
+function moverCima() {
+  let taskSelected = document.querySelector('#selected');
+  let previousTask = taskSelected.previousElementSibling;
+  taskSelected.parentNode.insertBefore(previousTask, taskSelected.nextElementSibling);
+}
 
+function moverBaixo() {
+  let taskSelected = document.querySelector('#selected');
+  let nextTask = taskSelected.nextElementSibling;
+  taskSelected.parentNode.insertBefore(nextTask, nextTask.previousElementSibling);
+}
 
 
 window.onload = () => {
@@ -113,6 +123,7 @@ window.onload = () => {
   completeTask();
 
   const btnSaveTasks = document.querySelector('#salvar-tarefas');
-  console.log(btnSaveTasks)
   btnSaveTasks.addEventListener('click', saveTasks);
+  document.querySelector('#mover-cima').addEventListener('click', moverCima);
+  document.querySelector('#mover-baixo').addEventListener('click', moverBaixo);
 };
