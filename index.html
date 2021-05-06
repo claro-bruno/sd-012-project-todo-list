@@ -9,30 +9,33 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main id="content">
-    <header>
-      <h1>Minha Lista de Tarefas</h1>
-      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    </header>
+  <header>
+    <h1>Minha Lista de Tarefas</h1>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+  </header>
 
+  <main id="content">
+
+    <h4 id="tarefas">Tarefas</h4>
     <section id="input-section">
       <input type="text" id="texto-tarefa" placeholder="Adicionar Tarefa">
-      <button id="criar-tarefa">Adicionar</button>
+      <button id="criar-tarefa"><em class="fas fa-plus"></em> Adicionar</button>
     </section>
 
-    <section id="list-section">
-      <h4>Tarefas</h4>
-      <ol id="lista-tarefas"></ol>
-    </section>
+    <ol id="lista-tarefas"></ol>
+    
+
 
     <section id="buttons-section">
-      <button id="remover-selecionado">X</button>
+      <button id="remover-selecionado"><em class="fas fa-window-close"></em></button>
       <button id="mover-cima"><em class="fas fa-chevron-up"></em></button>
       <button id="mover-baixo"><em class="fas fa-chevron-down"></em></button>
-      <button id="apaga-tudo">Apagar Tudo</button>
-      <button id="remover-finalizados">Remover Finalizados</button>
-      <button id="salvar-tarefas">Salvar</button>
+      <button id="apaga-tudo"><em class="fas fa-recycle"></em> Apagar Tudo</button>
+      <button id="remover-finalizados"><em class="far fa-window-close"></em> Remover Finalizados</button>
+      <button id="salvar-tarefas"><em class="fas fa-cloud"></em> Salvar</button>
     </section>
+
+
 
   </main>
   <script src="script.js"></script>
