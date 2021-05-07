@@ -109,7 +109,7 @@ function moveUp() {
 }
 
 function moveDown() {
-  const selectedTask = document.querySelector('.selected');  
+  const selectedTask = document.querySelector('.selected');
   if (selectedTask !== null) {
     const nextTask = selectedTask.nextElementSibling;
     if (nextTask !== null) {
