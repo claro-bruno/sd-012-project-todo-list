@@ -7,7 +7,7 @@
     <title>To-Do List</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="carregarTarefasSalvas()">
     <header>
         <h1>Minha Lista de Tarefas</h1>
     </header>
@@ -19,6 +19,7 @@
                 <button id="criar-tarefa" onclick="criarTarefa()">Criar Tarefa</button>
                 <button id="apaga-tudo" onclick="apagarTodasAsTarefas()">Apagar Tudo</button>
                 <button id="remover-finalizados" onclick="removerConcluidos()">Remover Finalizados</button>
+                <button id="salvar-tarefas" onclick="salvarTarefas()">Salvar</button>
             </div>
         </section>
         <section>

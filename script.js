@@ -12,6 +12,12 @@ const selecionarTarefa = () => {
   }
 };
 
+const marcarConcluida = (li) => {
+  li.addEventListener('dblclick', (evento) => {
+    evento.target.classList.toggle('completed');
+  });
+};
+
 const criarTarefa = () => {
   const textoTarefa = document.querySelector('#texto-tarefa');
   const listaDeTarefas = document.querySelector('#lista-tarefas');
@@ -21,11 +27,8 @@ const criarTarefa = () => {
   novaTarefa.className = 'tarefa';
   listaDeTarefas.appendChild(novaTarefa);
 
-  // marcar elemento como concluido
-  novaTarefa.addEventListener('dblclick', (evento) => {
-    evento.target.classList.toggle('completed');
-  });
   textoTarefa.value = '';
+  marcarConcluida(novaTarefa);
   selecionarTarefa();
 };
 
@@ -42,5 +45,41 @@ const removerConcluidos = () => {
 
   for (let index = 0; index < tarefasConcluidas.length; index += 1) {
     tarefasConcluidas[index].remove();
+  }
+};
+
+const salvarTarefas = () => {
+  const todasAsTarefas = document.querySelectorAll('.tarefa');
+  const tarefasSalvas = [];
+  const tarefasSalvasClass = [];
+
+  if (todasAsTarefas != null) {
+    for (let index = 0; index < todasAsTarefas.length; index += 1) {
+      tarefasSalvas.push(todasAsTarefas[index].innerHTML);
+      tarefasSalvasClass.push(todasAsTarefas[index].classList);
+    }
+  }
+
+  localStorage.setItem('tarefasSalvas', tarefasSalvas);
+  localStorage.setItem('classes', tarefasSalvasClass);
+};
+
+const carregarTarefasSalvas = () => {
+  const tarefasSalvas = localStorage.getItem('tarefasSalvas');
+  const classesSalvas = localStorage.getItem('classes');
+  if (tarefasSalvas !== null && tarefasSalvas !== '') {
+    const arrayDeClasses = classesSalvas.split(',');
+    const arrayDeTarefas = tarefasSalvas.split(',');
+    const listaDeTarefas = document.querySelector('#lista-tarefas');
+
+    for (let index = 0; index < arrayDeTarefas.length; index += 1) {
+      const criarTarefaSalva = document.createElement('li');
+      criarTarefaSalva.innerText = arrayDeTarefas[index];
+      criarTarefaSalva.className = arrayDeClasses[index];
+      listaDeTarefas.appendChild(criarTarefaSalva);
+      marcarConcluida(criarTarefaSalva);
+    }
+
+    selecionarTarefa();
   }
 };
