@@ -21,7 +21,7 @@
     <input value="" type="text" id="texto-tarefa">
     <ol id="lista-tarefas"></ol>
     <button id="criar-tarefa">Create</button>
-    <button id='apaga-tudo'>Clean</button>
+    <button id='apaga-tudo'>Clear</button>
     <script href='script.js'>
         function buttonClick () {
     let getButton = document.querySelector('#criar-tarefa');
@@ -74,10 +74,10 @@ function riscaLista () {
 
     for (let index = 0; index < getListItem.length; index += 1) {
         getListItem[index].addEventListener('dblclick', function(event) {
-            if (event.target.style.textDecoration !== 'line-through') {
+            
+           if (event.target.style.textDecoration !== 'line-through') {
                 event.target.classList.add('completed');
-            } 
-            if (event.target.style.textDecoration === 'line-through') {
+            } else {
                 event.target.classList.remove('completed');
                 console.log(event.target.classList)
             }
@@ -93,7 +93,6 @@ let getCleanButton = document.querySelector('#apaga-tudo');
 
         for (let index = 0; index < getListItem.length; index += 1) {
             if (getListItem.length > 0) {
-                console.log(getListItem);
                 getUL.removeChild(getListItem[index]);
             }
         }
