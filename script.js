@@ -13,9 +13,13 @@ function addItenList() {
   document.getElementById('texto-tarefa').value = '';
 }
 
-function paintBg(ent) {
-  ent.classList.add('selected');
-}
+function testeAndPaintBg(ent) {
+  let remov = document.getElementsByClassName('selected');
+  if (remov.length !== 0) {
+    remov[0].classList.remove('selected');
+  } 
+    ent.classList.add('selected');
+  }
 
 window.onload = function main() {
   let button = document.querySelector('#criar-tarefa');
@@ -23,7 +27,7 @@ window.onload = function main() {
   document.addEventListener('click', function (event) {
     let exporto = event.target;
     if (exporto.className === 'itemSelecionado') {
-      paintBg(exporto);
+      testeAndPaintBg(exporto);
     }
   })
 }
