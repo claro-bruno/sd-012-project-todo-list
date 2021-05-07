@@ -60,8 +60,10 @@ const removeSelected = () => {
   const selected = document.querySelector('.selected');
   if (selected) {
     taskList.removeChild(selected);
+    errorMessage.innerText = '';
+  } else {
+    errorMessage.innerText = 'Nenhuma tarefa selecionada!';
   }
-  errorMessage.innerText = 'Nenhuma tarefa selecionada!';
 };
 
 saveButton.addEventListener('mouseover', () => {
