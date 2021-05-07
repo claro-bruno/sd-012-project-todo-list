@@ -1,4 +1,4 @@
-let arrTasks = localStorage.getItem('tasks');
+let arrTasks = JSON.parse(localStorage.getItem('tasks'));
 console.log(arrTasks);
 function loadTasksList(arrTasks){
     if(arrTasks !== null) {
@@ -77,10 +77,9 @@ function cleanCompletedTasks(event) {
 
 function saveTasks (event) {
     let li_tasks = document.querySelectorAll('.task');
-    
+    let arrTasks = [];
     for(let index = 0; index < li_tasks.length; index += 1) {
-        console.log(li_tasks[index].innerText);
-        localStorage.setItem(`task${index+1}`, arrTasks[index].innerText);
+        arrTasks.push(li_tasks[index].innerText);
     }
-    
-}
+    localStorage.setItem('tasks', JSON.stringify(arrTasks));
+    }
