@@ -16,6 +16,7 @@ const selectTask = () => {
     task.addEventListener('click', () => {
       tasks.forEach(removeSelectedClass);
       task.classList.add('selected');
+      console.log(task);
     });
   });
 };

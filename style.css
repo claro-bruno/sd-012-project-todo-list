@@ -100,7 +100,6 @@ h2 {
   padding: 0;
   text-align: center;
   border-radius: 5px;
-  transition: all 0.3s;
   font-weight: 500;
 }
 
@@ -112,18 +111,15 @@ h2 {
 
 .selected {
   background-color: gray;
-  transition: all 0.3s;
 }
 
 .selected:hover {
   background-color: rgb(179 , 179 , 179);
   transition: all 0.3s;
-
 }
 
 #lista-tarefas {
   padding: 0;
-
 }
 
 #texto-tarefa {
