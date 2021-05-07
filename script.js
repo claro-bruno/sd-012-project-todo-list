@@ -35,3 +35,16 @@ function selectTask(event) {
 };
 
 document.addEventListener('click', selectTask);
+
+function completedTask(event) {
+  const targetedEvent = event.target;
+  if (targetedEvent.classList.contains('task')) {
+    if (targetedEvent.classList.contains('completed')) {
+      targetedEvent.classList.remove('completed');
+    } else {
+      targetedEvent.classList.add('completed');
+    }
+  }
+}
+
+document.addEventListener('dblclick', completedTask);
