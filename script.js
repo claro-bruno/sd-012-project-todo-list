@@ -10,7 +10,9 @@ function criaLista(event){
     document.querySelector('#lista-tarefas').appendChild(item);
     let returnList = document.getElementById('texto-tarefa').value;
     item.innerHTML = returnList;
+    document.getElementById('texto-tarefa').value = '';
+    
+}
+    
     
 
-}
-//console.log(valorList);
