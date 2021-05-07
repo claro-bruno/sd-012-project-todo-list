@@ -70,10 +70,10 @@ function adicionaTarefas() {
   botaoIdCriarTarefa.addEventListener('click', () => {
     const novaLi = document.createElement('li');
     novaLi.innerHTML = inputIdTextoTarefa.value;
-    novaLi.addEventListener('dblclick', removeRiscaLi);
+    //novaLi.addEventListener('dblclick', removeRiscaLi);
     novaLi.addEventListener('dblclick', riscaLi);
     novaLi.addEventListener('click', colocaFundo);
-    //novaLi.addEventListener('click', removeFundo);
+    novaLi.addEventListener('click', removeFundo);
     olIdListaTarefa.appendChild(novaLi);
     inputIdTextoTarefa.value = '';
   });
