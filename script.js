@@ -1,11 +1,15 @@
 let bornTodo = document.querySelector("#criar-tarefa")
-let countList = document.getElementById("lista-tarefas");
-let newItem = document.createElement("li");
 
 function funcBornTodo() {
+  let contentNewTodo = document.querySelector("#texto-tarefa");
+  if (contentNewTodo.value == '') {}
+  else{
+  let countList = document.getElementById("lista-tarefas");
+  let newItem = document.createElement("li");
   countList.appendChild(newItem);
-  let contentNewTodo = document.querySelector("#texto-tarefa").value;
-  
+  document.getElementById("lista-tarefas").lastChild.innerHTML = contentNewTodo.value;
+  contentNewTodo.value = "";};
+
 };
 
 bornTodo.addEventListener("click", funcBornTodo);
