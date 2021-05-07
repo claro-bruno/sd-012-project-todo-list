@@ -107,7 +107,7 @@ const moveDown = () => {
   }
 };
 
-function saveList() {
+const saveTasks = () => {
   if (!Storage) {
     return;
   }
@@ -125,28 +125,25 @@ function saveList() {
   }
   const listJson = JSON.stringify(rawList);
   localStorage.setItem('taskList', listJson);
-}
+};
 
-saveButton.addEventListener('click', saveList);
+saveButton.addEventListener('click', saveTasks);
 
-function loadList() {
+const loadTasks = () => {
   if (!Storage || !localStorage.taskList) {
     return;
   }
-
   const loadedTaskList = JSON.parse(localStorage.taskList);
-
   for (let i = 0; i < loadedTaskList.length; i += 1) {
     const newTask = addTask(loadedTaskList[i].text);
-
     if (loadedTaskList[i].completed) {
       newTask.classList.add('completed');
     }
   }
-}
+};
 
 window.onload = () => {
-  loadList();
+  loadTasks();
   moveUpButton.addEventListener('click', moveUp);
   moveDownButton.addEventListener('click', moveDown);
   removeSelectedButton.addEventListener('click', removeSelected);
