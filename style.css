@@ -1,31 +1,96 @@
 #adiçao {
-    text-align: center;
-
+  text-align: center;
 }
 
 #corSelecionada {
-    background-color: rgb(128, 128, 128);
+  background-color: rgb(128, 128, 128);
+}
+
+#adiçao {
+  display: inline-block;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+#content {
+  text-align: center;
 }
 
 .completed {
-    text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.bot {
+  width: 80px;
+  height: 50px;
+  display: inline-flex;
+  background-color: white;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #4caf50;
+  border-radius: 30%;
+  transition-duration: 0.4s;
+  padding: 8px 5px;
+}
+
+.bot:hover {
+  background-color: #4caf50;
+  color: white;
 }
 
 header {
-    text-align: center;
-    margin-bottom: 50px;
-    
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 40px;
+  color: black;
 }
 
-h1{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-decoration: underline;
+input {
+  display: block;
+  width: 200px;
+  height: 17px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-decoration: underline;
 }
 
 p {
-    font-size: 18px;
+  font-size: 20px;
 }
 
-ol li{
-   font-size: 25px;
+ol {
+  font-size: 20px;
+  font-family: monospace;
+  padding: 0;
+  margin: 0;
+  display: flex-box;
+  flex-wrap: wrap;
+  list-style-position: inside;
+}
+
+ol li {
+  font-size: 25px;
+
+  margin-bottom: 5px;
+  min-width: 100px;
+  padding: 3px;
+  color: black;
+}
+
+body {
+  background-image: url('papiro.jpg');
+  text-align: center;
+}
+
+footer {
+  color: black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: block;
 }

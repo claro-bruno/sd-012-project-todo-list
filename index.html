@@ -4,28 +4,36 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>To do list</title>
   </head>
   <body>
     <header>
       <h1>Minha Lista de Tarefas</h1>
       <p id="funcionamento">
-        Clique duas vezes em um item para marcá-lo como completo
+        <b>Clique duas vezes em um item para marcá-lo como completo</b>
       </p>
     </header>
 
-   
+    <input id="texto-tarefa" type="text" />
 
     <div id="adiçao">
-      <input id="texto-tarefa" type="text" />
-      <button id="criar-tarefa">Adicionar</button>
-      <button id="apaga-tudo">Limpar Lista</button>
-      <button id="remover-finalizados">Limpar Completos</button>
+      <button class="bot" id="criar-tarefa"><b>Adicionar</b></button>
+      <button class="bot" id="apaga-tudo"><b>Limpar Lista</b></button>
+      <button class="bot" id="remover-finalizados">
+        <b>Limpar Completos</b>
+      </button>
     </div>
 
-    <ol id="lista-tarefas"></ol>
+    <section id="content">
+      <ol id="lista-tarefas">
+        <b>Suas Tarefas:</b>
+      </ol>
+    </section>
 
+    <footer>
+      <h3>Direitos reservados por: Wellington Gregorio.</h3>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
