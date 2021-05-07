@@ -14,12 +14,21 @@ function alteraFundoLista(event){
     event.target.style.backgroundColor = "rgb(128, 128, 128)";
     
 };
+function riscaElemento(event){
+    if (!event.target.classList.contains("completed")) {
+        event.target.classList.add("completed");
+    } else {
+        event.target.classList.remove("completed");
+    };
+};
+
 function criarElementosLista(){
     let novaTarefa = document.createElement("li");
     novaTarefa.classList.add("tarefa-lista");
     novaTarefa.innerHTML = input.value;
     document.querySelector("#lista-tarefas").appendChild(novaTarefa);
     novaTarefa.addEventListener("click", alteraFundoLista);
+    novaTarefa.addEventListener("dblclick", riscaElemento);
 
 };
 
@@ -33,3 +42,11 @@ function funcaoBotao(){
 };
 
 button.addEventListener("click", funcaoBotao);
+
+
+
+// function duploClick (){
+//     riscaElemento();
+// }
+    
+
