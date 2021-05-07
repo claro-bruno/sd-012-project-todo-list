@@ -30,13 +30,13 @@ document.addEventListener('click', (event) => {
 });
 
 function throughItem(finishItem) {
-  const throughIteml = document.querySelector('.through');
+  const throughIteml = document.querySelector('.completed');
   if (throughIteml === null) {
-    finishItem.classList.add('through');
-  } else if (finishItem.classList.contains('through')) {
-    finishItem.classList.remove('through');
+    finishItem.classList.add('completed');
+  } else if (finishItem.classList.contains('completed')) {
+    finishItem.classList.remove('completed');
   } else {
-    finishItem.classList.add('through');
+    finishItem.classList.add('completed');
   }
 }
 
