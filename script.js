@@ -1,4 +1,9 @@
-    function makeList() {
+let orderedList = document.querySelector('#lista-tarefas');
+
+addBackgroundColor();
+
+
+function makeList() {
         let li = document.createElement('li');
         let userTask = document.getElementById('texto-tarefa').value;
         let listItem = document.createTextNode(userTask);
@@ -10,3 +15,14 @@
         }
         document.getElementById('texto-tarefa').value ='';
     }
+
+function addBackgroundColor() {
+  orderedList.addEventListener('click', function(event) {    
+    let selected = event.target;
+    selected.classList.add('selected');     
+  }
+  )
+}
+
+
+
