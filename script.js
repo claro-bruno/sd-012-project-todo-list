@@ -3,6 +3,7 @@
 let listaTarefas = document.getElementById('lista-tarefas');
 let botaoCriarTarefa = document.getElementById('criar-tarefa');
 let elementoInput = document.getElementById('texto-tarefa');
+const listaLis = document.getElementsByClassName('item-lista');
 
 //criando uma div para guardar texto do botao//
 let divBotao = document.createElement('div');
@@ -29,7 +30,6 @@ criaEventoBotao();
 
 function mudaCorItem() {
     let listaTarefas = document.getElementById('lista-tarefas');
-    let listaLis = document.getElementsByClassName('item-lista');
     listaTarefas.addEventListener('click', function(event) {
         for (index = 0; index < listaLis.length; index += 1){
             listaLis[index].style.backgroundColor = '';
@@ -46,7 +46,6 @@ mudaCorItem();
 
 function riscaItem() {
     let listaTarefas = document.getElementById('lista-tarefas');
-    let listaLis = document.getElementsByClassName('item-lista');
     listaTarefas.addEventListener('dblclick', function(event) {
         if (event.target.className === 'item-lista completed'){
             event.target.className = 'item-lista';
@@ -57,3 +56,32 @@ function riscaItem() {
 };
 
 riscaItem();
+
+//REQUISITO 10//
+//função do botão que ao ser clicado limpa a lista//
+
+function apagaTudo() {
+    let botaoApagador = document.getElementById('apaga-tudo');
+    botaoApagador.addEventListener('click', function() {
+        while (listaTarefas.firstChild) {
+            listaTarefas.removeChild(listaTarefas.firstChild);
+        };
+    });
+};
+
+apagaTudo();
+
+//REQUISITO 11//
+//função do botão que remove itens finalizados da lista//
+
+function removeFinalizados() {
+    let itensRiscados = document.getElementsByClassName('item-lista completed');
+    let botaoApagaFin = document.getElementById('remover-finalizados');
+    botaoApagaFin.addEventListener('click', function() {
+        for(index2 = 0; index2 < itensRiscados.length; index2 += 1){
+            itensRiscados[index2].remove();
+        };
+    });
+};
+
+removeFinalizados();
