@@ -35,3 +35,22 @@ function completado(event){
   else
   event.target.className += ' completed'
 }
+
+
+function botaoApagar(){
+  let botao = document.createElement('button')
+  botao.innerHTML = 'Apagar'
+  botao.id = 'apaga-tudo'
+  botao.addEventListener('click', apagar)
+  document.body.appendChild(botao)
+}
+botaoApagar()
+
+function apagar(){
+let itemlista = document.querySelectorAll('.item-lista')
+let pai = document.querySelector('#lista-tarefas')
+for(let i = 0;i < itemlista.length; i += 1){
+  pai.removeChild(itemlista[i])
+}
+}
+
