@@ -171,7 +171,7 @@ h2 {
   flex-flow: column wrap;
 }
 
-.fa-recycle {
+.fa-undo {
   color: green;
 }
 
@@ -185,7 +185,7 @@ h2 {
   color: var(--cloud-white);
 }
 
-.fa-cloud {
+.fa-cloud-upload-alt {
   color: var(--cloud-white);
 }
 
