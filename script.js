@@ -11,7 +11,8 @@ window.onload = function () {
   getTarefas();
 
   botaoTarefa.addEventListener('click', function (event) {
-    novaTarefa(event)});
+    novaTarefa(event);
+  });
 
   listaTarefas.addEventListener('dblclick', function (event) {
     concluiTarefa(event);
@@ -21,35 +22,34 @@ window.onload = function () {
     pintaTarefa(event);
   });
 
-  botaoLimpaLista.addEventListener('click', function() {
+  botaoLimpaLista.addEventListener('click', function () {
     let tarefas = document.querySelectorAll('.tarefa');
-      for (let index = 0; index < tarefas.length; index += 1) {
-          listaTarefas.removeChild(tarefas[index]);
-      }
-      arrayTarefas = [];
-  })
+    for (let index = 0; index < tarefas.length; index += 1) {
+      listaTarefas.removeChild(tarefas[index]);
+    }
+    arrayTarefas = [];
+  });
 
-  botaoLimpaConcluidos.addEventListener('click', function() {
-      let tarefasConcluidas = document.querySelectorAll('.tarefa completed');
-      for (let index = 0; index < tarefasConcluidas.length; index += 1) {
-          listaTarefas.removeChild(tarefasConcluidas[index]);
-        }
-  })
+  botaoLimpaConcluidos.addEventListener('click', function () {
+    let tarefasConcluidas = document.querySelectorAll('.tarefa completed');
+    for (let index = 0; index < tarefasConcluidas.length; index += 1) {
+      listaTarefas.removeChild(tarefasConcluidas[index]);
+    }
+  });
 
-  botaoSalvarLista.addEventListener('click', function() {
+  botaoSalvarLista.addEventListener('click', function () {
     let tarefas = document.querySelectorAll('.tarefa');
     let arrayTarefas = [];
     for (let index = 0; index < tarefas.length; index += 1) {
       arrayTarefas.push(tarefas[index].innerHTML);
     }
     localStorage.setItem('Lista', arrayTarefas);
-  })
+  });
 
-  botaoMoveCima.addEventListener('click', function() {
-
-  })
+  botaoMoveCima.addEventListener('click', function () {});
 
   function getTarefas() {
+    localStorage.setItem('Lista', []);
     let arrayTarefas = localStorage.getItem('Lista');
     let arraySplit = arrayTarefas.split(',');
     for (let index = 0; index < arraySplit.length; index += 1) {
@@ -61,11 +61,15 @@ window.onload = function () {
   }
 
   function novaTarefa() {
-      let novaTarefa = document.createElement('li');
+    let novaTarefa = document.createElement('li');
+    if (inputTarefa.length < 0) {
       novaTarefa.innerHTML = inputTarefa.value;
       novaTarefa.className = 'tarefa';
       listaTarefas.appendChild(novaTarefa);
       inputTarefa.value = '';
+    } else {
+      alert('Valor de entrada não pode ser vazio.');
+    }
   }
 
   function pintaTarefa(event) {
