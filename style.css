@@ -2,12 +2,15 @@
     margin-left: 10px;
 }
 
-.list-item {    
-    margin-top: 35px;
-    line-height: 25px;
+.list-item {        
+    line-height: 35px;
 }
 
 .item-selected {
     background-color: rgb(128, 128, 128);
     max-width: fit-content;    
+}
+
+.completed {
+    text-decoration: line-through solid black;    
 }

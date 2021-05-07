@@ -2,7 +2,7 @@ window.onload = function() {
     let addButton = document.getElementById('criar-tarefa');
     let taskInput = document.getElementById('texto-tarefa');
     let taskList = document.getElementById('lista-tarefas');
-    let listItems;
+    let listItems;    
 
     addButton.addEventListener('click', addTask);
 
@@ -21,14 +21,25 @@ window.onload = function() {
         
         for (let index = 0; index < listItems.length; index += 1) {
             listItems[index].addEventListener('click', selectItem);
+            listItems[index].addEventListener('dblclick', completedItem);
         }
     }
 
     function selectItem(eventSource) {        
         for (let index = 0; index < (listItems.length); index += 1) {
-            listItems[index].className = 'list-item';
+            listItems[index].classList.remove('item-selected');
         }
 
-        eventSource.target.className = 'list-item item-selected';
+        eventSource.target.classList.add('item-selected');
+    }
+
+    function completedItem(eventSource) {
+        if (eventSource.target.classList.contains('completed')) {
+            eventSource.target.classList.remove('completed');
+            eventSource.target.classList.remove('item-selected');
+        } else {
+            eventSource.target.classList.add('completed');
+            eventSource.target.classList.remove('item-selected');
+        }
     }
 }
