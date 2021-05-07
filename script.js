@@ -1,6 +1,7 @@
 const input = document.querySelector('#texto-tarefa');
 const button = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
+const eraseAll = document.querySelector('#apaga-tudo');
 
 function changeBgColor(event) {
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
@@ -36,3 +37,11 @@ function createItem() {
 }
 
 button.addEventListener('click', createItem);
+
+function eraseAllTasks() {
+  for (let indexErase = list.children.length - 1; indexErase >= 0; indexErase -= 1) {
+    list.removeChild(list.children[indexErase]);
+  }
+}
+
+eraseAll.addEventListener('click', eraseAllTasks);
