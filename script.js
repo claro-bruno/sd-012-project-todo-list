@@ -40,6 +40,21 @@ function itemListConcluded() {
   });
 }
 
+function createClearButton() {
+  let createButton = document.createElement('button');
+  createButton.id = 'apaga-tudo';
+  createButton.innerHTML = 'Limpar tarefas';
+  document.querySelector('#container-tools').appendChild(createButton);
+}
+
+function clearListTask() {
+  let listItem = document.querySelectorAll('.task');
+  let containerListItem = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < listItem.length; index += 1) {
+    containerListItem.removeChild(listItem[index]);
+  }
+}
+
 let itemList = document.querySelectorAll('li');
 let buttonSubmit = document.querySelector('#criar-tarefa');
 let ordenedList = document.querySelector('#lista-tarefas');
@@ -52,4 +67,7 @@ function eventAddTask() {
     itemListConcluded();
   });
 }
+createClearButton();
 eventAddTask();
+let clearButton = document.querySelector('#apaga-tudo');
+clearButton.addEventListener('click', clearListTask);
