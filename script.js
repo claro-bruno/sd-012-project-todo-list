@@ -3,6 +3,7 @@ const title = document.createElement('h1');
 title.innerHTML = 'Minha Lista de Tarefas';
 
 const header = document.createElement('header');
+header.className = 'header-content';
 
 header.appendChild(title);
 content.appendChild(header);
@@ -34,11 +35,12 @@ content.appendChild(tasksListContainer);
 function createBtn(id, text) {
   const btn = document.createElement('button');
   btn.id = id;
+  btn.className = 'btn';
   btn.innerHTML = text;
   return btn;
 }
 
-const addTaskBtn = createBtn('criar-tarefa', 'adiconar');
+const addTaskBtn = createBtn('criar-tarefa', 'Adiconar');
 
 function liCreate(text) {
   const li = document.createElement('li');
@@ -78,7 +80,7 @@ function addTask(task, completed = false) {
   if (completed) {
     li.classList.add('completed');
   }
-  li.style.backgroundColor = 'orange';
+  li.style.backgroundColor = 'transparent';
   li.addEventListener('click', switchColor);
   li.addEventListener('dblclick', switchClass);
   tasksList.appendChild(li);
@@ -94,7 +96,7 @@ btnContainer.className = 'btn-container';
 
 content.appendChild(btnContainer);
 
-const btnClearAll = createBtn('apaga-tudo', 'apagar todas as tarefas');
+const btnClearAll = createBtn('apaga-tudo', 'Apagar Tarefas');
 
 function cleanTaskList() {
   tasksList.innerHTML = '';
@@ -104,7 +106,7 @@ btnClearAll.addEventListener('click', cleanTaskList);
 
 btnContainer.appendChild(btnClearAll);
 
-const btnFinished = createBtn('remover-finalizados', 'apagar tarefas finalizadas');
+const btnFinished = createBtn('remover-finalizados', 'Apagar Concluídas');
 
 function cleanFiniShedTasks() {
   const completedList = document.querySelectorAll('.completed');
@@ -117,7 +119,7 @@ btnFinished.addEventListener('click', cleanFiniShedTasks);
 
 btnContainer.appendChild(btnFinished);
 
-const btnSave = createBtn('salvar-tarefas', 'salvar tarefas');
+const btnSave = createBtn('salvar-tarefas', 'salvar');
 
 function saveInLocalStorage() {
   const tasks = document.getElementsByClassName('task');
@@ -151,7 +153,7 @@ function renderTasks() {
   }
 }
 
-const btnMoveUp = createBtn('mover-cima', 'UP');
+const btnMoveUp = createBtn('mover-cima', '↑');
 
 function upMoveElement() {
   const selected = document.querySelector('.selected');
@@ -169,7 +171,7 @@ btnMoveUp.addEventListener('click', upMoveElement);
 
 btnContainer.appendChild(btnMoveUp);
 
-const btnMoveDown = createBtn('mover-baixo', 'Down');
+const btnMoveDown = createBtn('mover-baixo', '↓');
 
 function downMoveElement() {
   const selected = document.querySelector('.selected');
@@ -187,7 +189,7 @@ btnMoveDown.addEventListener('click', downMoveElement);
 
 btnContainer.appendChild(btnMoveDown);
 
-const btnRemove = createBtn('remover-selecionado', 'remover tarefa');
+const btnRemove = createBtn('remover-selecionado', 'Remover');
 
 function removeTask() {
   const task = document.querySelector('.selected');
