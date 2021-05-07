@@ -54,3 +54,23 @@ window.onload = function initialD() {
     }
 };
 
+const moveUpButton = document.getElementById('mover-cima');
+const moveDownButton = document.getElementById('mover-baixo');
+
+moveDownButton.addEventListener('click', function() {
+    const selected = document.querySelector('.selected');
+    if (selected !== null && selected !== listParent.lastElementChild) {
+      listParent.insertBefore(selected.nextElementSibling, selected);
+    }
+});
+
+moveUpButton.addEventListener('click', function() {
+    const selected = document.querySelector('.selected');
+    if (selected !== null && selected !== listParent.firstElementChild) {
+      listParent.insertBefore(selected, selected.previousSibling);
+    }
+});
+
+
+
+
