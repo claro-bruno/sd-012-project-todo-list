@@ -1,5 +1,6 @@
 const buttonToDo = document.querySelector('#criar-tarefa');
 const orderList = document.querySelector('#lista-tarefas');
+const buttonClear = document.querySelector('#apaga-tudo');
 const tarefas = document.getElementsByClassName('tarefa');
 
 function dbClick(event) {
@@ -19,7 +20,7 @@ function createList() {
   newLi.textContent = inputToDo.value;
   inputToDo.value = '';
 
-  newLi.addEventListener('click', (event) =>{
+  newLi.addEventListener('click', (event) => {
     const selected = document.querySelectorAll('.selected');
     for (let index = 0; index < selected.length; index += 1) {
       selected[index].classList.remove('selected');
@@ -39,3 +40,9 @@ function createList() {
 }
 
 buttonToDo.addEventListener('click', createList);
+
+buttonClear.addEventListener('click', () => {
+  for (let indexLi = tarefas.length -1; indexLi >= 0; indexLi -= 1) {
+    tarefas[indexLi].remove();
+  }
+});
