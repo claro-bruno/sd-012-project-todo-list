@@ -4,13 +4,12 @@ function addItenList() {
     return null;
   }
   let item = document.createElement('li');
-  let descItem = document.createElement('p');
   let lista = document.getElementById('lista-tarefas');
-  descItem.innerHTML = desc;
-  descItem.className = 'itemSelecionado'
+  item.innerHTML = desc;
+  item.className = 'itemSelecionado'
   lista.appendChild(item);
-  item.appendChild(descItem);
   document.getElementById('texto-tarefa').value = '';
+  console.log(item)
 }
 
 function testeAndPaintBg(ent) {
@@ -19,7 +18,15 @@ function testeAndPaintBg(ent) {
     remov[0].classList.remove('selected');
   } 
     ent.classList.add('selected');
+}
+
+function checkUnCheck(check) {
+  if (check.classList[2] === 'completed') {
+    check.classList.remove('completed');
+  } else {
+    check.classList.add('completed');
   }
+}
 
 window.onload = function main() {
   let button = document.querySelector('#criar-tarefa');
@@ -29,5 +36,11 @@ window.onload = function main() {
     if (exporto.className === 'itemSelecionado') {
       testeAndPaintBg(exporto);
     }
-  })
+  });
+  document.addEventListener('dblclick', function (event){
+    let work = event.target;
+    if (work.classList[0] === 'itemSelecionado') {
+      checkUnCheck(work);
+    }
+  });
 }
