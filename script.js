@@ -11,9 +11,6 @@ const saveTasksButton = document.querySelector('#salvar-tarefas');
 const moveUpButton = document.querySelector('#mover-cima');
 const moveDownButton = document.querySelector('#mover-baixo');
 const removeSelectedButton = document.querySelector('#remover-selecionado');
-if (localStorage.getItem('arrayOfTaskObjs')) {
-  loadtasks();
-};
 
 function deselectOtherLis() {
   const li = document.querySelectorAll('li');
@@ -59,6 +56,32 @@ function loadtasks() {
   }
 };
 
+function makeArrayOfTaskObjs() {
+  const li = document.querySelectorAll('li');
+  let arrayOfTaskObjs = [];
+  for (let index = 0; index < li.length; index += 1) {
+    let taskObj = {
+      'position':  index + 1,
+      'task':      li[index].innerHTML
+    };
+    if (li[index].classList.contains('selected')) {
+      taskObj.selected = true;
+    }
+    if (li[index].classList.contains('completed')) {
+      taskObj.completed = true;
+    }
+    arrayOfTaskObjs.push(taskObj)
+    console.log(taskObj); //
+  }
+  return arrayOfTaskObjs;
+};
+
+if (localStorage.getItem('arrayOfTaskObjs')) {
+  loadtasks();
+};
+
+let arrayOfTaskObjs = makeArrayOfTaskObjs();
+
 newTaskButton.addEventListener('click', () => {
   const li = document.querySelectorAll('li');
   let taskObj = {
@@ -84,29 +107,6 @@ removeAllButton.addEventListener('click', () => {
     taskList.removeChild(taskList.firstChild);
   }
 });
-
-function makeArrayOfTaskObjs() {
-  const li = document.querySelectorAll('li');
-  let arrayOfTaskObjs = [];
-  for (let index = 0; index < li.length; index += 1) {
-    let taskObj = {
-      'position':  index + 1,
-      'task':      li[index].innerHTML
-    };
-    if (li[index].classList.contains('selected')) {
-      taskObj.selected = true;
-    }
-    if (li[index].classList.contains('completed')) {
-      taskObj.completed = true;
-    }
-    arrayOfTaskObjs.push(taskObj)
-    console.log(taskObj); //
-  }
-  return arrayOfTaskObjs;
-};
-
-let arrayOfTaskObjs = makeArrayOfTaskObjs();
-console.log(arrayOfTaskObjs); //
 
 saveTasksButton.addEventListener('click', () => {
   let arrayOfTaskObjs = makeArrayOfTaskObjs();
