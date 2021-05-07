@@ -70,7 +70,15 @@ function botaoCriarTarefa () {
            let item = document.createElement('li');
            lista.appendChild(item);
            item.innerHTML = input.value;
+           item.className = 'tarefa'
            input.value = '';
+            item.addEventListener('click', function (event2) {
+                if (event2.target.style.backgroundColor !== 'rgb(128, 128, 128)') {
+                    event2.target.style.backgroundColor = 'rgb(128, 128, 128)';
+                } else {
+                    event2.target.style.backgroundColor = 'white';
+                }
+            })
        }
     })
 }
@@ -87,11 +95,16 @@ O que será verificado:
 Será verificado que, ao se carregar a página, os itens da lista não tem o estilo CSS background-color: rgb(128, 128, 128)
 Será verificado que, ao se clicar em um item da lista, ele passa a ter o estilo CSS background-color: rgb(128, 128, 128) */
 
-function alteraFundoItem () {
-    let lista = document.getElementsByTagName('li');
-    for (let item of lista) {
-        item.addEventListener('click', function (event) {
+/* Com o  uso da funcao abaixo, nao deu certo... 
+Soh depois de adicionar as linhas referentes ao addEventListener na criacao dos elementos, no botao que cria a tarefa
+Essa funcao abaixo funcionou apenas quando se cria os elementos da lista... Dai DEPOIS se executa alteraFundoItem() no console... */
+
+/* function alteraFundoItem () {
+    let lista = document.getElementsByClassName('tarefa')
+    for (let tarefa of lista) {
+        tarefa.addEventListener('click', function (event) {
             console.log(`clicado`)
+            // tarefa.classList.add('selected')
             if (event.target.style.backgroundColor !== 'rgb(128, 128, 128)') {
                 event.target.style.backgroundColor = 'rgb(128, 128, 128)';
             } else {
@@ -100,7 +113,7 @@ function alteraFundoItem () {
         })
     }
 }
-alteraFundoItem();
+alteraFundoItem(); */
 
 
 /* 8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo
