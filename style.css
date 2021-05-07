@@ -24,6 +24,18 @@ button#remover-finalizados {
     margin-left: 30px;
 }
 
+button#salvar-tarefas {
+    display: inline-block;
+    width: 90px;
+    height: 40px;
+    margin-left: 30px;
+}
+
+.item-lista {
+    font-family: monospace;
+    color: darkblue;
+}
+
 .item-lista.completed {
     text-decoration: line-through solid rgb(0, 0, 0);
 }
@@ -34,13 +46,18 @@ button#remover-finalizados {
 }
 
 #texto-botao-apagar {
-    text-align:center;
+    text-align: center;
     line-height: 0px;
 }
 
 #texto-botao-apagar-finalizados {
-    text-align:center;
+    text-align: center;
     line-height: 0px;
+}
+
+#texto-botao-salvar {
+    text-align: center;
+    line-height: 10px;
 }
 
 #texto-tarefa {
