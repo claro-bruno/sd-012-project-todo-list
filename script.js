@@ -7,6 +7,7 @@ const buttonSalvaLista = document.querySelector('#salvar-tarefas');
 const buttonApagaSelecionado = document.querySelector('#remover-selecionado');
 const buttonMoverCima = document.querySelector('#mover-cima');
 const buttonMoverBaixo = document.querySelector('#mover-baixo');
+const textoErro = 'Nenhum item selecionado';
 
 function riscaItemDaLista(element) {
   element.addEventListener('dblclick', (event) => {
@@ -89,7 +90,7 @@ window.onload = () => {
 function apagandoSelecionado() {
   buttonApagaSelecionado.addEventListener('click', () => {
     const itemSelecionado = document.querySelector('.selected');
-    if (itemSelecionado === null) return alert('Nenhum item selecionado');
+    if (itemSelecionado === null) return alert(textoErro);
     listaTarefas.removeChild(itemSelecionado);
   });
 }
@@ -98,12 +99,12 @@ apagandoSelecionado();
 
 function moverItemParaCima() {
   buttonMoverCima.addEventListener('click', () => {
-    let itemSelecionado = document.querySelector('.selected');
-    if (itemSelecionado === null) return alert('Nenhum item selecionado');
-    let itemAnterior = itemSelecionado.previousElementSibling;
+    const itemSelecionado = document.querySelector('.selected');
+    if (itemSelecionado === null) return alert(textoErro);
+    const itemAnterior = itemSelecionado.previousElementSibling;
     if (itemAnterior === null) return alert('Item Selecionado e o primeiro da Lista');
-    let variavelDeTroca ='';
-    let variavelTrocaClasses ='';
+    let variavelDeTroca = '';
+    let variavelTrocaClasses = '';
     variavelDeTroca = itemSelecionado.innerText;
     variavelTrocaClasses = itemSelecionado.className;
     itemSelecionado.innerText = itemAnterior.innerText;
@@ -117,12 +118,12 @@ moverItemParaCima();
 
 function moverItemParaBaixo() {
   buttonMoverBaixo.addEventListener('click', () => {
-    let itemSelecionado = document.querySelector('.selected');
-    if (itemSelecionado === null) return alert('Nenhum item selecionado');
-    let itemSeguinte = itemSelecionado.nextElementSibling;
+    const itemSelecionado = document.querySelector('.selected');
+    if (itemSelecionado === null) return alert(textoErro);
+    const itemSeguinte = itemSelecionado.nextElementSibling;
     if (itemSeguinte === null) return alert('Item Selecionado e o ultimo da Lista');
-    let variavelDeTroca ='';
-    let variavelTrocaClasses ='';
+    let variavelDeTroca = '';
+    let variavelTrocaClasses = '';
     variavelDeTroca = itemSelecionado.innerText;
     variavelTrocaClasses = itemSelecionado.className;
     itemSelecionado.innerText = itemSeguinte.innerText;
