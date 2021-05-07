@@ -12,11 +12,14 @@ function eventCompleted(e) {
     e.target.classList.toggle('completed');
 };
 
-function taskGenerator(taskString) {
+function taskGenerator(taskString, taskStatus) {
     let taskList = document.querySelector("#lista-tarefas");
     let taskItem = document.createElement('li');
     taskItem.innerHTML = taskString;
     taskItem.classList.add('tarefa');
+    if(taskStatus === "finalizado") {
+        taskItem.classList.add("completed")
+    };
     taskItem.addEventListener("click", eventSelected);
     taskItem.addEventListener('dblclick', eventCompleted);
     taskList.appendChild(taskItem);
@@ -38,8 +41,33 @@ function rmCompBtn() {
 
 function rmBtnSelected() {
     let selectedTask = document.querySelector('.selected');
-    selectedTask.remove()
-}
+    selectedTask.remove();
+};
+
+function saveTasks() {
+    let taskList = document.querySelectorAll('.tarefa');
+    let taskStorage = {
+    }
+    for (let index = 0; index < taskList.length; index += 1) {
+        let taskItemContent = taskList[index].innerHTML;
+        let taskItem = taskList[index];
+        let statusTaskItem = null;
+        if(taskItem.classList.contains("completed")) {
+            statusTaskItem = "finalizado";
+        } else {
+            statusTaskItem = "não finalizado";
+        };
+        taskStorage[taskItemContent] = statusTaskItem;
+    };
+    localStorage.setItem("savedTasks", JSON.stringify(taskStorage));
+};
+
+function getSavedTasks() {
+    let taskStorage = JSON.parse(localStorage.getItem("savedTasks"));
+    for(let key in taskStorage) {
+        taskGenerator(key, taskStorage[key]);
+    };
+};
 
 window.onload = () => {
     let inputSection = document.querySelector("#texto-tarefa");
@@ -51,4 +79,6 @@ window.onload = () => {
     document.querySelector("#apaga-tudo").addEventListener('click', rmBtn);
     document.querySelector("#remover-finalizados").addEventListener('click', rmCompBtn);
     document.querySelector("#remover-selecionado").addEventListener('click', rmBtnSelected);
+    document.querySelector("#salvar-tarefas").addEventListener('click', saveTasks);
+    getSavedTasks();
 };
