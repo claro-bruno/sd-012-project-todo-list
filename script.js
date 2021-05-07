@@ -43,7 +43,6 @@ function taskCompleted(event) {
   }
 }
 
-
 taskList.addEventListener('dblclick', taskCompleted);
 
 // Limpa tarefas selecionadas
