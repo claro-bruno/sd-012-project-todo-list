@@ -1,4 +1,3 @@
-const form = document.getElementById('form');
 const ol = document.getElementById('lista-tarefas');
 const botao = document.getElementById('criar-tarefa');
 const botao1 = document.getElementById('apaga-tudo');
@@ -15,7 +14,13 @@ botao.addEventListener('click', (e) => {
   input.value = "";
 
   listaOrganizada.addEventListener('click', () => {
-    listaOrganizada.style.backgroundColor = 'rgb(128, 128, 128)';
+    for (let index = 0; index < listaOrganizada.length; index += 1) {
+      const select = document.querySelector('.selected');
+      if (select != null) {
+        listaOrganizada.classList.remove('selected');
+      }
+      listaOrganizada.classList.add('selected');
+    }
   });
 
   listaOrganizada.addEventListener('dblclick', () => {
@@ -25,14 +30,14 @@ botao.addEventListener('click', (e) => {
   input.value = "";
 });
 
-botao1.addEventListener('click', () => {
-  const removerDaLista = document.querySelectorAll('li');
-  ol.remove(removerDaLista);
+botao1.addEventListener('click', (e) => {
+  e.preventDefault();
+  ol.innerHTML = '';
 });
 
-botao2.addEventListener('click', (e) => {
-  e.preventDefault()
-  const removerFinalizado = document.getElementsByClassName('completed');
-  console.log(removerFinalizado);
-  ol.remove(removerFinalizado); 
-});
+botao2.addEventListener("click", (e) => {
+  e.preventDefault();
+  const toRemove = document.getElementsByClassName('completed');
+  for (let index = 0; index < toRemove.length; index += 1) {
+    toRemove[index].parentNode.removeChild(toRemove[index])};
+  });
