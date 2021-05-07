@@ -79,21 +79,24 @@ function carregarTarefas() {
 function moveUp() {
   const moverCima = document.getElementById('mover-cima');
   moverCima.addEventListener('click', function () {
-    let indexAtual = 0;
-    for (let i = 0; i < pegarLista.childNodes.length; i += 1) {
-      if (pegarLista.childNodes[i].className.includes('selected')) {
-        indexAtual = i;
+    const getSelected = document.getElementsByClassName('selected');
+    if (getSelected.length) {
+      let indexAtual = 0;
+      for (let i = 0; i < pegarLista.childNodes.length; i += 1) {
+        if (pegarLista.childNodes[i].className.includes('selected')) {
+          indexAtual = i;
+        }
       }
-    }
 
-    if (indexAtual > 0) {
-      const atual = pegarLista.childNodes[indexAtual];
-      const previousClass = pegarLista.childNodes[indexAtual - 1].className;
-      const previousValue = pegarLista.childNodes[indexAtual - 1].innerText;
-      pegarLista.childNodes[indexAtual - 1].innerText = atual.innerText;
-      pegarLista.childNodes[indexAtual - 1].className = atual.className;
-      pegarLista.childNodes[indexAtual].className = previousClass;
-      pegarLista.childNodes[indexAtual].innerText = previousValue;
+      if (indexAtual > 0) {
+        const atual = pegarLista.childNodes[indexAtual];
+        const previousClass = pegarLista.childNodes[indexAtual - 1].className;
+        const previousValue = pegarLista.childNodes[indexAtual - 1].innerText;
+        pegarLista.childNodes[indexAtual - 1].innerText = atual.innerText;
+        pegarLista.childNodes[indexAtual - 1].className = atual.className;
+        pegarLista.childNodes[indexAtual].className = previousClass;
+        pegarLista.childNodes[indexAtual].innerText = previousValue;
+      }
     }
   })
 }
@@ -101,21 +104,24 @@ function moveUp() {
 function moveDown() {
   const moverCima = document.getElementById('mover-baixo');
   moverCima.addEventListener('click', function () {
-    let indexAtual = 0;
-    for (let i = 0; i < pegarLista.childNodes.length; i += 1) {
-      if (pegarLista.childNodes[i].className.includes('selected')) {
-        indexAtual = i;
+    const getSelected = document.getElementsByClassName('selected');
+    if (getSelected.length) {
+      let indexAtual = 0;
+      for (let i = 0; i < pegarLista.childNodes.length; i += 1) {
+        if (pegarLista.childNodes[i].className.includes('selected')) {
+          indexAtual = i;
+        }
       }
-    }
 
-    if (indexAtual < pegarLista.childNodes.length - 1) {
-      const atual = pegarLista.childNodes[indexAtual];
-      const previousClass = pegarLista.childNodes[indexAtual + 1].className;
-      const previousValue = pegarLista.childNodes[indexAtual + 1].innerText;
-      pegarLista.childNodes[indexAtual + 1].innerText = atual.innerText;
-      pegarLista.childNodes[indexAtual + 1].className = atual.className;
-      pegarLista.childNodes[indexAtual].className = previousClass;
-      pegarLista.childNodes[indexAtual].innerText = previousValue;
+      if (indexAtual < pegarLista.childNodes.length - 1) {
+        const atual = pegarLista.childNodes[indexAtual];
+        const previousClass = pegarLista.childNodes[indexAtual + 1].className;
+        const previousValue = pegarLista.childNodes[indexAtual + 1].innerText;
+        pegarLista.childNodes[indexAtual + 1].innerText = atual.innerText;
+        pegarLista.childNodes[indexAtual + 1].className = atual.className;
+        pegarLista.childNodes[indexAtual].className = previousClass;
+        pegarLista.childNodes[indexAtual].innerText = previousValue;
+      }
     }
   });
 }

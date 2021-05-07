@@ -11,11 +11,11 @@ body {
 
 header {
   text-align: center;
-  padding: 3rem 0 3rem;
+  padding: 4rem 0 3rem;
 }
 
 .container {
-  width: min(90vw, 700px);
+  width: min(90vw, 768px);
   margin: auto;
 }
 
