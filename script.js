@@ -48,3 +48,14 @@ function completedTask(event) {
 }
 
 document.addEventListener('dblclick', completedTask);
+
+function removeAllTasks() {
+  const tasksList = list.children.length;
+  for (let index = 0; index < tasksList; index += 1) {
+    const task = document.querySelector('.task');
+    list.removeChild(task);
+  }
+}
+
+const removeButton = document.getElementById('apaga-tudo');
+removeButton.addEventListener('click', removeAllTasks);
