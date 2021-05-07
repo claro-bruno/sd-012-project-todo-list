@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,28 @@
   <link rel="stylesheet" href="style.css">
   <title>Lista de Tarefas</title>
 </head>
+
 <body>
   <header>
     <h1>Minha Lista de Tarefas</h1>
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  </header>
 
-  <main>
     <form id="form">
       <label for="texto-tarefa">Nova tarefa:</label>
       <input type="text" id="texto-tarefa">
-      <button type="button" id="criar-tarefa">Adicionar</button>
-      <button type="button" id="apaga-tudo">Apagar tarefas</button>
-      <button type="button" id="remover-finalizados">Apagar completas</button>
+      <div class="buttons">
+        <button type="button" id="criar-tarefa">Adicionar</button>
+        <button type="button" id="apaga-tudo">Apagar tarefas</button>
+        <button type="button" id="remover-finalizados">Apagar completas</button>
+      </div>
     </form>
+  </header>
 
+  <main>
     <ol id="lista-tarefas"></ol>
   </main>
 
   <script src="script.js"></script>
 </body>
+
 </html>
