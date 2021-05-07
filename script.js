@@ -2,7 +2,6 @@ const criaTarefaButton = document.getElementById('criar-tarefa');
 const oderList = document.getElementById('lista-tarefas');
 const buttonApaga = document.getElementById('apaga-tudo');
 const finishied = document.getElementById('remover-finalizados');
-const listali = document.getElementsByClassName('item-list');
 
 document.addEventListener('click', (event) => {
   const alvo = event.target;
@@ -12,7 +11,7 @@ document.addEventListener('click', (event) => {
       selected.classList.remove('selected');
       selected.style.backgroundColor = 'white';
     }
-    alvo.classList.add ('selected');
+    alvo.classList.add('selected');
   }
 });
 
@@ -32,19 +31,19 @@ function eraseAll() {
 buttonApaga.addEventListener('click', eraseAll);
 
 function removeDone() {
-  let selecionados = document.querySelectorAll('.completed') // descobrir por que que com o querySelectorAll funciona e com o getElementsbyClassName Não
+  const selecionados = document.querySelectorAll('.completed'); // descobrir por que que com o querySelectorAll funciona e com o getElementsbyClassName Não
   for (let index = 0; index < selecionados.length; index += 1) {
-      selecionados[index].remove();
+    selecionados[index].remove();
   }
 }
-finishied.addEventListener('click', removeDone)
+finishied.addEventListener('click', removeDone);
 
 function doneMarker(evento) {
-  let alvo = evento.target
+  const alvo = evento.target;
   if (alvo.classList.contains('completed')) {
-    alvo.classList.remove('completed')
+    alvo.classList.remove('completed');
   } else {
     alvo.classList.add('completed');
   }
 }
-oderList.addEventListener('dblclick', doneMarker)
+oderList.addEventListener('dblclick', doneMarker);
