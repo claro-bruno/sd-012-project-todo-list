@@ -10,7 +10,14 @@ window.onload = function() {
         let inputText = input.value;
         let task = document.createElement('li');
         task.innerHTML = inputText;
+        task.className = 'task';
         list.appendChild(task);
         input.value = '';
     })
+
+    // Task Selection
+    list.addEventListener('click', function(event) {
+        let target = event.target;
+        target.classList.toggle('selected');
+    });  
 }
