@@ -49,18 +49,17 @@ const salvaListaAtual = () => {
 };
 
 // Adiciona Eventos
+// Adiciona evento de duplo clique
 document.addEventListener('dblclick', (event) => {
   if (event.target.classList.contains('tarefa')) {
     completaTarefa(event);
   }
 });
 
+// Adiciona evento de clique aos ids
 document.addEventListener('click', (event) => {
   if (event.target.id === 'criar-tarefa') {
     adicionaTarefa();
-  }
-  if (event.target.className === ('tarefa')) {
-    selecionaTarefa(event);
   }
   if (event.target.id === 'apaga-tudo') {
     apagaTudo();
@@ -69,10 +68,18 @@ document.addEventListener('click', (event) => {
     apagaTarefasCompletas();
   }
   if (event.target.id === 'salvar-tarefas') {
-    salvaListaAtual(event);
+    salvaListaAtual();
   }
 });
 
+// Adiciona evento de clique às classes
+document.addEventListener('click', (event) => {
+  if (event.target.className === ('tarefa')) {
+    selecionaTarefa(event);
+  }
+});
+
+// Adiciona evento de tecla
 capturaInput.addEventListener('keypress', (event) => {
   if (event.keyCode === 13) {
     adicionaTarefa();
