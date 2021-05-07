@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 const list = document.getElementById('lista-tarefas');
 
 function createTask() {
@@ -72,42 +73,38 @@ function saveTasks() {
 }
 
 function moveUp() {
-  const listItens = document.getElementsByTagName('li');
   const moveUpBtn = document.getElementById('mover-cima');
+  const selected = document.getElementsByClassName('selected-item');
 
-  for (let index = 0; index < listItens.length; index += 1) {
-    listItens[index].addEventListener('click', (event) => {
-      const clicked = event.target;
-      const previousElement = clicked.previousElementSibling;
+  moveUpBtn.addEventListener('click', () => {
+    for (let index = 0; index < selected.length; index += 1) {
+      const previousElement = selected[index].previousSibling;
+      const clicked = selected[index];
 
-      moveUpBtn.addEventListener('click', () => {
-        if (previousElement === null) {
-          return;
-        }
-        list.insertBefore(clicked, previousElement);
-      });
-    });
-  }
+      if (previousElement === null) {
+        return;
+      }
+      list.insertBefore(clicked, previousElement);
+    }
+  });
 }
 
 function moveDown() {
-  const listItens = document.getElementsByTagName('li');
   const moveDownBtn = document.getElementById('mover-baixo');
+  const selected = document.getElementsByClassName('selected-item');
 
-  for (let index = 0; index < listItens.length; index += 1) {
-    listItens[index].addEventListener('click', (event) => {
-      const clicked = event.target;
-      const nextElement = clicked.nextElementSibling;
+  moveDownBtn.addEventListener('click', () => {
+    for (let index = 0; index < selected.length; index += 1) {
+      const nextElement = selected[index].nextSibling;
+      const clicked = selected[index];
       console.log(nextElement);
 
-      moveDownBtn.addEventListener('click', () => {
-        if (nextElement === null) {
-          return;
-        }
-        list.insertBefore(clicked, nextElement.nextSibling);
-      });
-    });
-  }
+      if (nextElement === null) {
+        return;
+      }
+      list.insertBefore(clicked, nextElement.nextSibling);
+    }
+  });
 }
 window.onload = () => {
   createTask();
