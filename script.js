@@ -45,7 +45,9 @@ createButton('criar-tarefa');
 function addNewTask() {
   let getInputField = document.getElementById('texto-tarefa');
   let getButton = document.getElementById('criar-tarefa');
-  let getTaskList = document.getElementById('lista-tarefas');
+  let getTaskList = document.getElementById('lista-tarefas')
+  console.log(getTaskList);
+  ;
 
   getButton.addEventListener('click', function() {
     if (getInputField.value.length > 0) {
@@ -197,4 +199,22 @@ function addTask(task, completed) {
   addDoubleClickListener();
 }
 
+function createButtonClearSelected(buttonId) {
+  const getBotaoClearSelected = document.getElementById('botaoClearSelected');
 
+  const newButton = document.createElement('button');
+  newButton.id = buttonId;
+  newButton.innerHTML = 'Apagar Selecionado';
+  getBotaoClearSelected.appendChild(newButton);
+}
+createButtonClearSelected('remover-selecionado');
+
+function clearSelected() {
+  let getTaskList = document.getElementById('lista-tarefas');
+  const getButtonClearSelected = document.getElementById('remover-selecionado');
+
+  getButtonClearSelected.addEventListener('click', function () {
+    getTaskList.removeChild(document.querySelector('.selected'));
+  })
+}
+clearSelected();
