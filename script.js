@@ -2,6 +2,7 @@ let buttonAdicionar = document.getElementById('criar-tarefa');
 let listaTarefas = document.getElementById('lista-tarefas');
 let inputTarefas = document.getElementById('texto-tarefa');
 let buttonApagar = document.getElementById('apaga-tudo');
+let removeFinalizados = document.getElementById('remover-finalizados');
 let elementosDaLista = listaTarefas.childNodes;
  
 buttonAdicionar.addEventListener('click', () => {
@@ -29,4 +30,13 @@ listaTarefas.addEventListener('dblclick', (event) => {
 
 buttonApagar.addEventListener('click', () => {
   listaTarefas.innerHTML = '';
+})
+
+removeFinalizados.addEventListener('click', () => {
+  let completos = document.querySelectorAll('.completed');
+  for (let n = 0; n < completos.length; n += 1) {
+    if (completos[n].classList.contains('completed')){
+      completos[n].remove();
+    }
+  }
 })
