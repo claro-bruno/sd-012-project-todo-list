@@ -2,10 +2,12 @@ const input = document.querySelector('#texto-tarefa');
 const button = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
 const eraseAll = document.querySelector('#apaga-tudo');
-const eraseCompleted = document.querySelector('#remover-finalizados')
+const eraseCompleted = document.querySelector('#remover-finalizados');
+const saveButton = document.querySelector('#salvar-tarefas');
 
 function changeBgColor(event) {
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  let target = event.target;
+  target.style.backgroundColor = 'rgb(128, 128, 128)';
   event.target.classList.add('selected');
 }
 
@@ -56,3 +58,27 @@ function eraseCompletedTasks() {
 }
 
 eraseCompleted.addEventListener('click', eraseCompletedTasks);
+
+function saveTasks() {
+  const arrayList = [];
+  for (let indexStorage = 0; indexStorage < list.children.length; indexStorage += 1) {
+    arrayList.push(list.children[indexStorage].innerText);
+  }
+  localStorage.setItem('taskList', JSON.stringify(arrayList));
+}
+
+saveButton.addEventListener('click', saveTasks);
+
+function rememberList() {
+  const lastList = JSON.parse(localStorage.getItem('taskList'));
+  for (let indexRemember = 0; indexRemember < lastList.length; indexRemember += 1) {
+    const rememberItem = document.createElement('li');
+    rememberItem.innerHTML = lastList[indexRemember];
+    rememberItem.addEventListener('click', changeSelected);
+    rememberItem.addEventListener('click', changeBgColor);
+    rememberItem.addEventListener('dblclick', completedTasks);
+    list.appendChild(rememberItem);
+  }
+}
+
+rememberList();
