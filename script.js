@@ -21,7 +21,7 @@ function mudaCorDeFundo(elemento) {
     for (let index = 0; index < itensDalista.length; index += 1) {
       if (event.target !== itensDalista[index]) itensDalista[index].classList.remove('selected');
     }
-    event.target.classList.toggle('selected');
+    event.target.classList.add('selected');
   });
 }
 
@@ -102,7 +102,7 @@ function moverItemParaCima() {
     const itemSelecionado = document.querySelector('.selected');
     if (itemSelecionado === null) return alert(textoErro);
     const itemAnterior = itemSelecionado.previousElementSibling;
-    if (itemAnterior === null) return alert('Item Selecionado e o primeiro da Lista');
+    if (itemAnterior === null) return alert('Item Selecionado é o primeiro da Lista');
     let variavelDeTroca = '';
     let variavelTrocaClasses = '';
     variavelDeTroca = itemSelecionado.innerText;
@@ -121,7 +121,7 @@ function moverItemParaBaixo() {
     const itemSelecionado = document.querySelector('.selected');
     if (itemSelecionado === null) return alert(textoErro);
     const itemSeguinte = itemSelecionado.nextElementSibling;
-    if (itemSeguinte === null) return alert('Item Selecionado e o ultimo da Lista');
+    if (itemSeguinte === null) return alert('Item Selecionado é o último da Lista');
     let variavelDeTroca = '';
     let variavelTrocaClasses = '';
     variavelDeTroca = itemSelecionado.innerText;
