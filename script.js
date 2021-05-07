@@ -59,12 +59,20 @@ function createRemoveCompletedTasksButton() {
   optionContent.appendChild(removeCompletedTasksButton);
 }
 
+function createSaveTasksButton() {
+  const SaveTasksButton = document.createElement('button');
+  SaveTasksButton.id = 'salvar-tarefas';
+  SaveTasksButton.innerText = 'Salvar Tarefas';
+  optionContent.appendChild(SaveTasksButton);
+}
+
 function createOptionsMenu() {
   createAddTaskLabel();
   createAddTaskInput();
   createAddTaskButton();
   createRemoveAllTasksButton();
   createRemoveCompletedTasksButton();
+  createSaveTasksButton();
 }
 createOptionsMenu();
 
@@ -129,6 +137,13 @@ function updateTasks() {
   createEventsForTasks();
 }
 
+function updateIdsOfTasks() {
+  tasks = document.querySelector(taskListId).children;
+  for (let index = 0; index < tasks.length; index += 1) {
+    tasks[index].id = `task-${index + 1}`;
+  }
+}
+
 const addTaskButtonElement = document.querySelector('#criar-tarefa');
 function addTask() {
   const taskInput = document.querySelector('#texto-tarefa');
@@ -154,5 +169,41 @@ function removeCompletedTasks() {
   for (let index = 0; index < completedElements.length; index += 1) {
     taskList.removeChild(completedElements[index]);
   }
+  updateIdsOfTasks();
 }
 removeCompletedTasksButtonElement.addEventListener('click', removeCompletedTasks);
+
+const saveTasksButtonElement = document.querySelector('#salvar-tarefas');
+function saveTasks() {
+  taskList = document.querySelector(taskListId);
+  const taskListItens = taskList.children;
+  console.log(taskListItens);
+  localStorage.clear();
+  for (let index = 0; index < taskListItens.length; index += 1) {
+    localStorage.setItem(taskListItens[index].id, taskListItens[index].innerText);
+    localStorage.setItem(`class-${index + 1}`, taskListItens[index].className);
+    console.log(`${localStorage.getItem(taskListItens[index].id)} -> Salvo com Sucesso!`);
+  }
+}
+saveTasksButtonElement.addEventListener('click', saveTasks);
+
+function loadTasks(task, taskClass, index) {
+  taskList = document.querySelector(taskListId);
+  const loadTask = document.createElement('li');
+  loadTask.id = `task-${(index)}`;
+  loadTask.className = taskClass;
+  loadTask.innerHTML = task;
+  taskList.appendChild(loadTask);
+}
+
+function verifyStorage() {
+  if (localStorage.length !== 0) {
+    for (let index = 1; index <= (localStorage.length) / 2; index += 1) {
+      const taskKey = `task-${index}`;
+      const classKey = `class-${index}`;
+      loadTasks(localStorage.getItem(taskKey), localStorage.getItem(classKey), index);
+    }
+    updateTasks();
+  }
+}
+verifyStorage();
