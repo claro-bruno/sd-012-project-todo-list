@@ -106,20 +106,12 @@ document.querySelector("#salvar-tarefas").addEventListener("click", saveTasks);
     // Para Cima
 
 function moveUp () {
-    let firstElement = document.querySelector("#lista-tarefas").firstChild;
+    let taskList = document.querySelector("#lista-tarefas");
     let selectedTask = document.querySelector(".selected");
     let previousTask = selectedTask.previousElementSibling;
-    let changedContent = previousTask.innerHTML;
-    let changedClass = previousTask.className;
 
-    if(selectedTask !== firstElement){
-        // Trocar Task Anterior
-        previousTask.innerHTML = selectedTask.innerHTML
-        previousTask.className = selectedTask.className   
-        
-        // Trocar conteudo da selected Task
-        selectedTask.innerHTML = changedContent;
-        selectedTask.className = changedClass;
+    if(selectedTask !== null && previousTask !== null){
+        taskList.insertBefore(selectedTask, previousTask);
     };
 };
 
@@ -128,20 +120,12 @@ document.querySelector("#mover-cima").addEventListener("click", moveUp);
     // Para Baixo
 
 function moveDown () {
-    let lastElement = document.querySelector("#lista-tarefas").lastChild;
+    let taskList = document.querySelector("#lista-tarefas");
     let selectedTask = document.querySelector(".selected");
     let nextTask = selectedTask.nextElementSibling;
-    let changedContent = nextTask.innerHTML;
-    let changedClass = nextTask.className;
 
-    if(selectedTask !== lastElement){
-        // Trocar Task Anterior
-        nextTask.innerHTML = selectedTask.innerHTML
-        nextTask.className = selectedTask.className   
-        
-        // Trocar conteudo da selected Task
-        selectedTask.innerHTML = changedContent;
-        selectedTask.className = changedClass;
+    if(selectedTask !== null && nextTask !== null){
+        taskList.insertBefore(selectedTask, nextTask.nextElementSibling);
     };
 };
 
