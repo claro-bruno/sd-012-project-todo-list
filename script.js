@@ -31,7 +31,7 @@ window.onload = function () {
   });
 
   botaoLimpaConcluidos.addEventListener('click', function () {
-    let tarefasConcluidas = document.querySelectorAll('.tarefa completed');
+    let tarefasConcluidas = document.querySelectorAll('.completed');
     for (let index = 0; index < tarefasConcluidas.length; index += 1) {
       listaTarefas.removeChild(tarefasConcluidas[index]);
     }
