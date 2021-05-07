@@ -19,6 +19,11 @@ botaoIdApagatudo.id = 'apaga-tudo';
 botaoIdApagatudo.innerText = 'Apaga Tudo';
 bodyPagina.appendChild(botaoIdApagatudo);
 
+const botaoIdApagaConcluidos = document.createElement('button');
+botaoIdApagaConcluidos.id = 'remover-finalizados';
+botaoIdApagaConcluidos.innerText = 'Apaga Finalizados';
+bodyPagina.appendChild(botaoIdApagaConcluidos);
+
 const olIdListaTarefaCria = document.createElement('ol');
 olIdListaTarefaCria.id = 'lista-tarefas';
 bodyPagina.appendChild(olIdListaTarefaCria);
@@ -71,9 +76,20 @@ function removeTarefas() {
   });
 }
 
+function removeTarefasFinalizadas() {
+  const botaoIdApagaFinalizados = document.getElementById('remover-finalizados');
+  const liCompletadas = document.getElementsByClassName('completed');
+  botaoIdApagaFinalizados.addEventListener('click', () => {
+    for (let index = 0; index < liCompletadas.length; index += 1) {
+      liCompletadas[index].remove();
+    }
+  });
+}
+
 function ordemTarefas() {
   adicionaTarefas();
   removeFundo();
   removeTarefas();
+  removeTarefasFinalizadas();
 }
 ordemTarefas();
