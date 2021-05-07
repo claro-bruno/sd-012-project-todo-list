@@ -51,6 +51,7 @@ let color = '';
 
 function switchColor(event) {
   if (event.target.style.backgroundColor === 'rgb(128, 128, 128)') {
+    event.target.classList.remove('selected');
     return (event.target.style.backgroundColor = color);
   }
   const beforeSelected = document.querySelector('.selected');
@@ -148,7 +149,7 @@ btnSave.addEventListener('click', saveInLocalStorage);
 
 btnContainer.appendChild(btnSave);
 
-function renderTask() {
+function renderTasks() {
   const arrayJson = localStorage.getItem('Todo-List');
   if (!arrayJson) {
     return console.log('não há itens salvos');
@@ -160,4 +161,56 @@ function renderTask() {
   }
 }
 
-renderTask();
+const btnMoveUp = createBtn('mover-cima', 'UP');
+
+function upMoveElement() {
+  const selected = document.querySelector('.selected');
+  if (!selected) {
+    return console.log('nenhum elemento selecionado');
+  }
+  if (selected === tasksList.firstChild) {
+    return console.log('O item selecionado está na posição limite');
+  }
+  const beforeElement = selected.previousElementSibling;
+  // const memory = beforeElement.innerHTML;
+  // const memoryClass = beforeElement.className;
+  // beforeElement.innerHTML = selected.innerHTML;
+  // beforeElement.className = selected.className;
+  // selected.innerHTML = memory;
+  // selected.className = memoryClass;
+  // selected.style.backgroundColor = color;
+  // beforeElement.style.backgroundColor = 'rgb(128, 128, 128)';
+  beforeElement.insertAdjacentElement('beforebegin', selected);
+}
+
+btnMoveUp.addEventListener('click', upMoveElement);
+
+btnContainer.appendChild(btnMoveUp);
+
+const btnMoveDown = createBtn('mover-baixo', 'Down');
+
+function downMoveElement() {
+  const selected = document.querySelector('.selected');
+  if (!selected) {
+    return console.log('nenhum elemento selecionado');
+  }
+  if (selected === tasksList.lastChild) {
+    return console.log('O item selecionado está na posição limite');
+  }
+  const nextElement = selected.nextElementSibling;
+  // const memory = nextElement.innerHTML;
+  // const memoryClass = nextElement.className;
+  // nextElement.innerHTML = selected.innerHTML;
+  // nextElement.className = selected.className;
+  // selected.innerHTML = memory;
+  // selected.className = memoryClass;
+  // selected.style.backgroundColor = color;
+  // nextElement.style.backgroundColor = 'rgb(128, 128, 128)';
+  nextElement.insertAdjacentElement('afterend', selected);
+}
+
+btnMoveDown.addEventListener('click', downMoveElement);
+
+btnContainer.appendChild(btnMoveDown);
+
+renderTasks();
