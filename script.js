@@ -26,12 +26,8 @@ window.onload = function() {
     }
 
     function selectItem(eventSource) {
-        for (let index = 0; index < (listItems.length); index += 1) {
-            if (!listItems[index].classList.contains('completed')) {
-                listItems[index].className = 'list-item';
-            } else {
-                listItems[index].classList.remove('item-selected');
-            }
+        for (let index = 0; index < (listItems.length); index += 1) {                       
+            listItems[index].classList.remove('item-selected');            
         }
 
         eventSource.target.classList.add('item-selected');

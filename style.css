@@ -12,6 +12,5 @@
 }
 
 .completed {
-    text-decoration: line-through solid rgb(0, 0, 0);
-    line-height: 35px;
+    text-decoration: line-through solid rgb(0, 0, 0);    
 }
