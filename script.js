@@ -39,13 +39,25 @@ function removeFundo() {
     liLista[index].style.backgroundColor = null;
   }
 }
-
+/*
 function riscaLi(event) {
   const classCompleted = document.querySelectorAll('.completed');
   if (classCompleted.length > 0) {
     event.target.classList.remove('completed');
   } else if (classCompleted.length === 0) {
     event.target.className = 'completed';
+  }
+}
+*/
+
+function riscaLi(event) {
+  event.target.className = 'completed';
+}
+
+function naoRiscaLi(event) {
+  const classCompleted = document.querySelectorAll('.completed');
+  for (let index = 0; index < classCompleted.length; index += 1) {
+    event.target.classList.remove('completed');
   }
 }
 
@@ -56,6 +68,7 @@ function adicionaTarefas() {
   botaoIdCriarTarefa.addEventListener('click', () => {
     const novaLi = document.createElement('li');
     novaLi.innerHTML = inputIdTextoTarefa.value;
+    novaLi.addEventListener('dblclick', naoRiscaLi);
     novaLi.addEventListener('dblclick', riscaLi);
     novaLi.addEventListener('click', removeFundo);
     novaLi.addEventListener('click', colocaFundo);
@@ -80,7 +93,7 @@ function removeTarefasFinalizadas() {
   const botaoIdApagaFinalizados = document.getElementById('remover-finalizados');
   const liCompletadas = document.getElementsByClassName('completed');
   botaoIdApagaFinalizados.addEventListener('click', () => {
-    for (let index = 0; index < liCompletadas.length; index += 1) {
+    for (let index = liCompletadas.length - 1; index >= 0; index -= 1) {
       liCompletadas[index].remove();
     }
   });
