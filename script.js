@@ -77,7 +77,8 @@ function botaoCriarTarefa () {
            item.innerHTML = input.value;
            item.className = 'tarefa'
            input.value = '';
-           item.addEventListener('click', alteraFundoItem );
+           item.addEventListener('click', alteraFundoItem);
+           item.addEventListener('dblclick', riscaTarefa);
        }
     })
 }
@@ -108,8 +109,6 @@ function alteraFundoItem (event) {
 }
 
 
-
-
 /* 9 - Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item
 Pontos importantes sobre este requisito:
 * Crie uma classe CSS com o nome "completed" e defina a propriedade "text-decoration" com o valor "line-through".
@@ -118,6 +117,16 @@ O que será verificado:
 Será verificado que, antes da ação ser disparada, o elemento adicionado à lista não tem nem a classe completed nem o estilo line-through solid rgb(0, 0, 0).
 Será verificado que a ação pedida é disparada mediante duplo clique no elemento da lista e que os elementos da lista completos tem em si a classe completed e a propriedade text-decoration com o valor line-through solid rgb(0, 0, 0)
 Será verificado que, com um segundo duplo clique, um elemento completo deixa de sê-lo */
+/* Credito: https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event */
+/* https://codetogo.io/how-to-check-if-element-has-class-in-javascript/ */
+
+function riscaTarefa (event) {
+    if (event.target.classList.contains('completed') === false) {
+        event.target.classList.add('completed');
+    } else {
+        event.target.classList.remove('completed');
+    }
+}
 
 
 /* 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
