@@ -21,32 +21,40 @@ createBtn.addEventListener('click', createTask);
 
 // Seleciona tarefa
 function selectTask(event) {
-  const tasks = document.getElementsByTagName('li');
-  const selectedLi = event.target;
-  for (let index = 0; index < tasks.length; index += 1) {
-    tasks[index].style.backgroundColor = 'rgb(255,255,255)';
+  if (event.target.id != 'lista-tarefas') {
+    const tasks = document.getElementsByTagName('li');
+    const selectedLi = event.target;
+    for (let index = 0; index < tasks.length; index += 1) {
+      tasks[index].style.backgroundColor = 'rgb(255,255,255)';
+    }
+    selectedLi.style.backgroundColor = selectedColor;
   }
-  selectedLi.style.backgroundColor = selectedColor;
 }
 
 taskList.addEventListener('click', selectTask);
 
-// Marca tarega como completa
+// Marca tarefa como completa
 function taskCompleted(event) {
-  if (event.target.classList.contains('completed')) {
-    event.target.classList.remove('completed');
-  } else { event.target.classList.add('completed'); }
+  if (event.target.id != 'lista-tarefas') {
+    if (event.target.tagName = 'li') {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else { event.target.classList.add('completed'); }
+    }
+  }
 }
 
 taskList.addEventListener('dblclick', taskCompleted);
 
 // Limpa tarefas selecionadas
 function clearDone() {
-  const done = document.getElementsByTagName('li');
-  for (let index = 0; index < done.length; index += 1) {
-    if (done[index].classList.contains('completed')) {
-      done[index].remove();
-      index -= 1;
+  if (event.target.tagName = 'li') {
+    const done = document.getElementsByTagName('li');
+    for (let index = 0; index < done.length; index += 1) {
+      if (done[index].classList.contains('completed')) {
+        done[index].remove();
+        index -= 1;
+      }
     }
   }
 }
