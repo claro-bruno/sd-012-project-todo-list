@@ -1,14 +1,15 @@
 const toDoList = [''];
 
-const textInput = document.querySelector('#texto-tarefa');
+let textInput = document.querySelector('#texto-tarefa');
 
 const buttonCreate = document.querySelector('.submit');
 
 buttonCreate.addEventListener('click',function () {
-    let catOl = document.getElementById('lista-tarefa');
+    let catOl = document.getElementById('lista-tarefas');
     let text = textInput.value;
     let createLi = document.createElement('li');
-    createLi.className = 'empty';
+    createLi.className = 'unselected';
     createLi.innerHTML = text;
     catOl.appendChild(createLi);
+    document.getElementById('texto-tarefa').value = '';
 } );
