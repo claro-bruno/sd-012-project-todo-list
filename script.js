@@ -95,27 +95,31 @@ function restoreSaveTasks() {
 
 function moveUp() {
   const selectedTask = document.querySelector('.selected');
-  const previousTask = selectedTask.previousElementSibling;
-  if (selectedTask !== null && previousTask !== null) {
-    const previousTaskText = previousTask.innerText;
-    const previousTaskClass = previousTask.className;
-    previousTask.innerText = selectedTask.innerText;
-    previousTask.className = selectedTask.className;
-    selectedTask.innerText = previousTaskText;
-    selectedTask.className = previousTaskClass;
+  if (selectedTask !== null) {
+    const previousTask = selectedTask.previousElementSibling;
+    if (previousTask !== null) {
+      const previousTaskText = previousTask.innerText;
+      const previousTaskClass = previousTask.className;
+      previousTask.innerText = selectedTask.innerText;
+      previousTask.className = selectedTask.className;
+      selectedTask.innerText = previousTaskText;
+      selectedTask.className = previousTaskClass;
+    }
   }
 }
 
 function moveDown() {
-  const selectedTask = document.querySelector('.selected');
-  const nextTask = selectedTask.nextElementSibling;
-  if (selectedTask !== null && nextTask !== null) {
-    const nextTaskText = nextTask.innerText;
-    const nextTaskClass = nextTask.className;
-    nextTask.innerText = selectedTask.innerText;
-    nextTask.className = selectedTask.className;
-    selectedTask.innerText = nextTaskText;
-    selectedTask.className = nextTaskClass;
+  const selectedTask = document.querySelector('.selected');  
+  if (selectedTask !== null) {
+    const nextTask = selectedTask.nextElementSibling;
+    if (nextTask !== null) {
+      const nextTaskText = nextTask.innerText;
+      const nextTaskClass = nextTask.className;
+      nextTask.innerText = selectedTask.innerText;
+      nextTask.className = selectedTask.className;
+      selectedTask.innerText = nextTaskText;
+      selectedTask.className = nextTaskClass;
+    }
   }
 }
 
