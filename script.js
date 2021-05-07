@@ -5,13 +5,13 @@ function insertTask(value) {
   orderList.addEventListener('click', setGreyItem);
   const taskList = document.querySelector('#lista-tarefas');
   taskList.appendChild(orderList);
+  taskCompleted(orderList);
 }
 
 function receiveInput() {
   const contentInput = document.querySelector('#texto-tarefa').value;
   insertTask(contentInput);
   setGreyItem();
-  taskCompleted();
   document.querySelector('#texto-tarefa').value = '';
 }
 
@@ -24,24 +24,18 @@ function setNoBackgroundColor(orderList) {
 function setGreyItem() {
   const orderList = document.querySelectorAll('.task-list');
   for (let index = 0; index < orderList.length; index += 1) {
-    orderList[index].addEventListener('click', function () {
+    orderList[index].addEventListener('click', function() {
       setNoBackgroundColor(orderList);
       orderList[index].classList.add('selected');
     });
   }
 }
 
-function taskCompleted() {
-  let orderList = document.querySelectorAll('.task-list');
-  for (let index = 0; index < orderList.length; index += 1) {
-    orderList[index].addEventListener('dblclick', function() {
-      if (orderList[index].classList.contains('completed')) {
-        orderList[index].classList.remove('completed');
-      } else {
-        orderList[index].classList.add('completed');
-      }
-    })
-  }
+function taskCompleted(value) {
+  // let orderList = document.querySelectorAll('.task-list');
+  value.addEventListener('dblclick', function(teste) {
+    teste.target.classList.toggle('completed')
+  })
 }
 
 function clearTasks() {
