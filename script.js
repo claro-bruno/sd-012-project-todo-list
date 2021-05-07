@@ -19,7 +19,7 @@ function changeItemBG() {
   orderedList.addEventListener('click', function (event) {
     for (let index = 0; index < listItems.length; index += 1) {
       listItems[index].classList.remove('selected');
-    };
+    }
     event.target.classList.add('selected');
   });
 
@@ -46,7 +46,7 @@ function clearList() {
   clearButton.addEventListener('click', function () {
     orderedList.innerHTML = '';
     localStorage.savedTasks = '';
-  })
+  });
 }
 clearList();
 
@@ -57,7 +57,7 @@ function removeCompleted() {
   removeCompletedButton.addEventListener('click', function () {
     while (completedItems.length !== 0) {
       completedItems[0].remove();
-    };
+    }
     // opcao de usar while lido no artigo: https://www.javascripttutorial.net/javascript-dom/javascript-removechild/
   });
 }
@@ -81,7 +81,7 @@ function storageTasks() {
   const taskList = document.getElementById('lista-tarefas');
   const saveItemsButton = document.getElementById('salvar-tarefas');
 
-  if (localStorage.savedTasks == undefined) {
+  if (localStorage.savedTasks === undefined) {
     taskList.innerHTML = '';
   } else {
     taskList.innerHTML = localStorage.savedTasks;
@@ -98,8 +98,9 @@ function moveUp() {
 
   upButton.addEventListener('click', function () {
     const selectedItem = document.getElementsByClassName('selected')[0];
+    const selectedClass = document.getElementsByClassName('selected');
 
-    if (selectedItem !== selectedItem.parentElement.firstElementChild) {
+    if (selectedItem !== selectedItem.parentElement.firstElementChild && selectedClass.length > 0) {
       sessionStorage.moveUpCacheInner = selectedItem.previousElementSibling.innerHTML;
       sessionStorage.moveUpCacheClass = selectedItem.previousElementSibling.className;
 
@@ -118,8 +119,9 @@ function moveDown() {
 
   downButton.addEventListener('click', function () {
     const selectedItem = document.getElementsByClassName('selected')[0];
+    const selectedClass = document.getElementsByClassName('selected');
 
-    if (selectedItem !== selectedItem.parentElement.lastElementChild) {
+    if (selectedItem !== selectedItem.parentElement.lastElementChild && selectedClass.length > 0) {
       sessionStorage.moveDownCacheInner = selectedItem.nextElementSibling.innerHTML;
       sessionStorage.moveDownCacheClass = selectedItem.nextElementSibling.className;
 
@@ -128,7 +130,7 @@ function moveDown() {
 
       selectedItem.innerHTML = sessionStorage.moveDownCacheInner;
       selectedItem.className = sessionStorage.moveDownCacheClass;
-    };
+    }
   });
 }
 moveDown();
