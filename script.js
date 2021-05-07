@@ -106,8 +106,8 @@ function eventSaveList() {
     localStorage.setItem('classLists', listItens[0].classList);
 
     for (let index = 1; index < listItens.length; index += 1) {
-      localStorage.setItem('itens', `${localStorage.getItem('itens')} | ${listItens[index].innerHTML}`);
-      localStorage.setItem('classLists', `${localStorage.getItem('classLists')} | ${listItens[index].classList}`);
+      localStorage.setItem('itens', `${localStorage.getItem('itens')}|${listItens[index].innerHTML}`);
+      localStorage.setItem('classLists', `${localStorage.getItem('classLists')}|${listItens[index].classList}`);
     }
   });
 }
