@@ -29,12 +29,17 @@ function rmBtn() {
     };
 };
 
-function rmCompBtn () {
+function rmCompBtn() {
     let completed = document.querySelectorAll(".completed");
     for(index = 0; index < completed.length; index += 1) {
         completed[index].remove();
     };
 };
+
+function rmBtnSelected() {
+    let selectedTask = document.querySelector('.selected');
+    selectedTask.remove()
+}
 
 window.onload = () => {
     let inputSection = document.querySelector("#texto-tarefa");
@@ -45,4 +50,5 @@ window.onload = () => {
     });
     document.querySelector("#apaga-tudo").addEventListener('click', rmBtn);
     document.querySelector("#remover-finalizados").addEventListener('click', rmCompBtn);
+    document.querySelector("#remover-selecionado").addEventListener('click', rmBtnSelected);
 };
