@@ -7,6 +7,7 @@ const stateFinished = 'task completed';
 const stateSelectedFinished = 'task selected completed';
 
 let tasks = document.querySelector(taskListId).children;
+let taskList = document.querySelector(taskListId);
 
 function createHeaderContent() {
   headerContent.innerHTML = 'Minha Lista de Tarefas';
@@ -44,15 +45,23 @@ function createAddTaskButton() {
   optionContent.appendChild(addTaskButton);
 }
 
+function createRemoveAllTasksButton() {
+  const removeAllTasksButton = document.createElement('button');
+  removeAllTasksButton.id = 'apaga-tudo';
+  removeAllTasksButton.innerText = 'Remover Todas as Tarefas';
+  optionContent.appendChild(removeAllTasksButton);
+}
+
 function createOptionsMenu() {
   createAddTaskLabel();
   createAddTaskInput();
   createAddTaskButton();
+  createRemoveAllTasksButton();
 }
 createOptionsMenu();
 
 function createTask(taskInput) {
-  const taskList = document.querySelector(taskListId);
+  taskList = document.querySelector(taskListId);
   const newTask = document.createElement('li');
   newTask.id = `task-${(taskList.children.length + 1)}`;
   newTask.className = 'task';
@@ -120,3 +129,12 @@ function addTask() {
   taskInput.value = '';
 }
 addTaskButtonElement.addEventListener('click', addTask);
+
+const removeAllTasksButtonElement = document.querySelector('#apaga-tudo');
+function removeAllTasks() {
+  taskList = document.querySelector(taskListId);
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild);
+  }
+}
+removeAllTasksButtonElement.addEventListener('click', removeAllTasks);
