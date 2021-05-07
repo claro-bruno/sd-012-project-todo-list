@@ -18,14 +18,22 @@ function addTask() {
   addTaskButton.addEventListener('click', addTask); 
 
 //7
+//Aplicando event bubbling (Amigo de turma Thalles me mostrou e ensinou como funciona!)
+//Link: https://gomakethings.com/attaching-multiple-elements-to-a-single-event-listener-in-vanilla-js/
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('task-item')) {
+    clickedTask(event);
+  };
+})
 
-// document.addEventListener('click', function (event) {
-//   if (event.target.classList.contains('task-item')) {
-//     clickedTask();
-//   };
-// })
+function clickedTask(event) {
+  const greyTask = document.querySelector('.selected');
+  if (greyTask === undefined) {
+    event.target.classList.add('selected');
+  } else {  
+    event.target.classList.add('selected');  
+    greyTask.classList.remove('selected');
+}
 
-// function clickedTask()
-
-//
+}
 }
