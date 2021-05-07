@@ -5,6 +5,8 @@ const btnXX = document.getElementById('remover-finalizados');
 const itemList = document.querySelectorAll('.item-list');
 const taskList = document.getElementById('lista-tarefas');
 const btnSave = document.getElementById('salvar-tarefas');
+const btnUP = document.getElementById('mover-cima');
+const btnDown = document.getElementById('mover-baixo');
 // Captura o texto do input e adiciona à lista
 function catchInput() {
   btnAdd.addEventListener('click', () => {
@@ -24,8 +26,10 @@ function selectItem() {
     item.addEventListener('click', () => {
       for (const item2 of itemList) {
         item2.style.backgroundColor = null;
+        item2.style.fontSize = '16px';
       }
       item.style.backgroundColor = 'rgb(128, 128, 128)';
+      item.style.fontSize = '20px';
     });
   }
 }
@@ -62,3 +66,38 @@ btnSave.addEventListener('click', saveTasks);
 window.onload = function () {
   taskList.innerHTML = localStorage.getItem('task');
 }
+// Move tarefas para cima
+function moveUp () {
+  const itemList = document.querySelectorAll('.item-list');
+  for (let index = 0; index < itemList.length; index += 1) {
+    let item = itemList[index];
+    if(item.style.backgroundColor === 'rgb(128, 128, 128)' && item === itemList[0]) {
+      break;
+    }
+    if (item.style.backgroundColor === 'rgb(128, 128, 128)') {
+      item.style.backgroundColor = null
+      item.style.fontSize = '16px';
+      item.previousElementSibling.style.backgroundColor = 'rgb(128, 128, 128)';
+      item.previousElementSibling.style.fontSize = '20px';
+    }
+  }
+}
+btnUP.addEventListener('click', moveUp);
+// Move tarefas para baixo
+function moveDown () {
+  const itemList = document.querySelectorAll('.item-list');
+  for (let index = 0; index < itemList.length; index += 1) {
+    let item = itemList[index];
+    if(item.style.backgroundColor === 'rgb(128, 128, 128)' && item === itemList[itemList.length -1]) {
+      break;
+    }
+    if (item.style.backgroundColor === 'rgb(128, 128, 128)') {
+      item.nextElementSibling.style.backgroundColor = 'rgb(128, 128, 128)';
+      item.nextElementSibling.style.fontSize = '20px';
+      item.style.backgroundColor = null
+      item.style.fontSize = '16px';
+      break;
+    }
+  }
+}
+btnDown.addEventListener('click', moveDown);
