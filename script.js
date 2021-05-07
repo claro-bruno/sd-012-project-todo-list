@@ -16,18 +16,17 @@ function capturar () {
             let teste = document.querySelector('.selected');
             if (teste) {
                 teste.classList.remove('selected');
-                teste.style.backgroundColor = '';
             } 
             event.target.classList.add('selected');
-            event.target.style.backgroundColor = 'rgb(128, 128, 128)';
         });
         createList.addEventListener('dblclick', function (event) { // Exercício 9
-            let doubleClicke = document.querySelector('.completed');
-            if (doubleClicke) {
-                doubleClicke.remove('completed');
-            }
-            event.target.classList.add('completed');
-        })
+            event.target.classList.toggle('completed');
+            // if (event.target.classList.contains('completed')) {
+            //     event.target.classList.remove('completed');
+            // } else {
+            //     event.target.classList.add('completed');
+            // }
+        });
 
         let valorCapturado = inputSelect.value;
         createList.innerHTML = valorCapturado;
