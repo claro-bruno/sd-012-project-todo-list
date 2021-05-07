@@ -13,13 +13,15 @@ const moveDownButton = document.getElementById('mover-baixo');
 // Source: https://github.com/tryber/sd-011-project-todo-list/blob/heyset-todo-list-project/script.js
 // selectTask() requer melhorias de dinamismo
 
+let selectedTask = document.querySelector('.selected');
+
 const selectTask = (e) => {
-  const selectedTask = document.querySelector('.selected');
   const task = e.target;
   task.classList.toggle('selected');
   if (selectedTask) {
-    selectedTask.classList.remove('selected');
+    selectedTask.classList.toggle('selected');
   }
+  selectedTask = task;
 };
 
 const toggleCompleted = (evt) => {
@@ -77,8 +79,6 @@ saveButton.addEventListener('mouseout', () => {
 });
 
 const moveUp = () => {
-  const selectedTask = document.querySelector('.selected');
-
   if (!selectedTask) {
     errorMessage.innerText = 'Adicione e/ou Selecione uma tarefa!';
   } else {
@@ -90,15 +90,12 @@ const moveUp = () => {
     const swap = taskAbove.cloneNode(true);
     taskAbove.remove();
     const insertedTask = selectedTask.insertAdjacentElement('afterend', swap);
-    selectedTask.classList.toggle('selected');
     insertedTask.addEventListener('click', selectTask);
     insertedTask.addEventListener('dblclick', toggleCompleted);
   }
 };
 
 const moveDown = () => {
-  const selectedTask = document.querySelector('.selected');
-
   if (!selectedTask) {
     errorMessage.innerText = 'Adicione e/ou Selecione uma tarefa!';
   } else {
@@ -110,7 +107,6 @@ const moveDown = () => {
     const swap = taskBellow.cloneNode(true);
     taskBellow.remove();
     const insertedTask = selectedTask.insertAdjacentElement('beforebegin', swap);
-    selectedTask.classList.toggle('selected');
     insertedTask.addEventListener('click', selectTask);
     insertedTask.addEventListener('dblclick', toggleCompleted);
   }
