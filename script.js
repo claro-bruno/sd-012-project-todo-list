@@ -7,6 +7,7 @@ const removeSelectedButton = document.getElementById('remover-selecionado');
 const saveButton = document.getElementById('salvar-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const errorMessage = document.getElementById('error');
+const moveDownButton = document.getElementById('mover-baixo');
 
 // Ideia encontrada no respositório de Matheus "Set" Inacio
 // Source: https://github.com/tryber/sd-011-project-todo-list/blob/heyset-todo-list-project/script.js
@@ -80,18 +81,33 @@ const moveUp = () => {
     if (!taskAbove) {
       return;
     }
-
     const swap = taskAbove.cloneNode(true);
     taskAbove.remove();
-
     const insertedTask = selectedTask.insertAdjacentElement('afterend', swap);
     insertedTask.addEventListener('click', selectTask);
     insertedTask.addEventListener('dblclick', toggleCompleted);
   }
 };
 
-moveUpButton.addEventListener('click', moveUp);
+const moveDown = () => {
+  if (!selectedTask) {
+    errorMessage.innerText = 'Adicione e/ou Selecione uma tarefa!';
+  } else {
+    errorMessage.innerText = '';
+    const taskBellow = selectedTask.nextSibling;
+    if (!taskBellow) {
+      return;
+    }
+    const swap = taskBellow.cloneNode(true);
+    taskBellow.remove();
+    const insertedTask = selectedTask.insertAdjacentElement('beforebegin', swap);
+    insertedTask.addEventListener('click', selectTask);
+    insertedTask.addEventListener('dblclick', toggleCompleted);
+  }
+};
 
+moveUpButton.addEventListener('click', moveUp);
+moveDownButton.addEventListener('click', moveDown);
 removeSelectedButton.addEventListener('click', removeSelected);
 removeCompletedButton.addEventListener('click', removeCompleted);
 removeAllButton.addEventListener('click', removeAll);
