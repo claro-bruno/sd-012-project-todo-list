@@ -26,3 +26,6 @@ footer {
 .selected{
     background-color: rgb(128, 128, 128);
 }
+.through{
+    text-decoration: line-through;
+}

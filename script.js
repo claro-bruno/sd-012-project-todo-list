@@ -28,3 +28,21 @@ document.addEventListener('click', (event) => {
     alvo.classList.add('selected');
   }
 });
+
+function throughItem(finishItem) {
+  const throughIteml = document.querySelector('.through');
+  if (throughIteml === null) {
+    finishItem.classList.add('through');
+  } else if (finishItem.classList.contains('through')) {
+    finishItem.classList.remove('through');
+  } else {
+    finishItem.classList.add('through');
+  }
+}
+
+document.addEventListener('dblclick', (event) => {
+  if (event.target.classList.contains('item')) {
+    const getEventElement = event.target;
+    throughItem(getEventElement);
+  }
+});
