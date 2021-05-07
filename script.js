@@ -15,10 +15,12 @@ btnRemoverSelecionado.addEventListener('click', removeSelected);
 
 function addTask(myTask,evt) {
 
-    let ol_task = document.querySelector('#lista-tarefas');
+   
 
     if(myTask.length > 0) {
-        
+
+
+        let ol_task = document.querySelector('#lista-tarefas');
         let li_task = document.createElement('li');
         li_task.innerHTML = myTask;
         li_task.className = 'task';
@@ -67,14 +69,14 @@ function cleanCompletedTasks(event) {
 
 function saveTasks (event) {
     let li_tasks = document.querySelectorAll('.task');
-    let ol_tasks = document.querySelector('#lista-tarefas');
+    let ol_tasks = document.querySelector('#lista-tarefas').innerHTML;
     /*
     let arrTasks = [];
     for(let index = 0; index < li_tasks.length; index += 1) {
         arrTasks.push(li_tasks[index].innerText);
     }*/
     console.log(ol_tasks);
-    localStorage.setItem('task', JSON.stringify(ol_tasks.innerHTML));
+    localStorage.setItem('task', JSON.stringify(ol_tasks));
 }
 
 function removeSelected(event) {
@@ -89,5 +91,9 @@ function removeSelected(event) {
 window.onload = function () {
     let ol_tasks = document.querySelector('#lista-tarefas');
     ol_tasks.innerHTML = JSON.parse(localStorage.getItem('task'));
-
+    let li_task = document.querySelectorAll('.task');
+    for(let index = 0 ; index < li_task.length; index += 1 ) {
+        li_task[index].addEventListener('click', changeBackgroundTask)
+        li_task[index].addEventListener('dblclick', setCompletedTask)
+    }
 };
