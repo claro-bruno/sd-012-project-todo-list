@@ -3,6 +3,8 @@ const headerContent = document.querySelector('#header-content');
 const taskListId = '#lista-tarefas';
 const stateNormal = 'task';
 const stateSelected = 'task selected';
+const stateFinished = 'task completed';
+const stateSelectedFinished = 'task selected completed';
 
 let tasks = document.querySelector(taskListId).children;
 
@@ -65,6 +67,10 @@ function clearPreviousSelected() {
       tasks[index].className = stateNormal;
       tasks[index].style.backgroundColor = '';
     }
+    if (tasks[index].className === stateSelectedFinished) {
+      tasks[index].className = stateFinished;
+      tasks[index].style.backgroundColor = '';
+    }
   }
 }
 
@@ -75,12 +81,28 @@ function selectTask(event) {
     selectedTask.className = stateSelected;
     selectedTask.style.backgroundColor = 'rgb(128, 128, 128)';
   }
+  if (selectedTask.className === stateFinished) {
+    selectedTask.className = stateSelectedFinished;
+    selectedTask.style.backgroundColor = 'rgb(128, 128, 128)';
+  }
+}
+
+function finishTask(event) {
+  const finishedTask = event.target;
+  if (finishedTask.className === stateSelected) {
+    finishedTask.className = stateSelectedFinished;
+    finishedTask.style.textDecoration = 'line-through solid black';
+  } else if (finishedTask.className === stateSelectedFinished) {
+    finishedTask.className = stateSelected;
+    finishedTask.style.textDecoration = '';
+  }
 }
 
 tasks = document.querySelector(taskListId).children;
 function createEventsForTasks() {
   for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].addEventListener('click', selectTask);
+    tasks[index].addEventListener('dblclick', finishTask);
   }
 }
 createEventsForTasks();
