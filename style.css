@@ -12,6 +12,6 @@ h1 {
 }
 
 .completed {
-  text-decoration: line-through;
+  text-decoration: line-through solid black;
   color: rgb(32 , 85 , 85);
 }
