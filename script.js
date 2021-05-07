@@ -50,6 +50,8 @@ oderList.addEventListener('dblclick', doneMarker);
 
 // Bonus
 const removeSelButton = document.getElementById('remover-selecionado');
+const moveUpButton = document.getElementById('mover-cima');
+const moveDownButton = document.getElementById('mover-baixo');
 
 document.addEventListener('click', (event) => {
   if (event.target.id === 'salvar-tarefas') {
@@ -62,8 +64,24 @@ window.onload = function initialD() {
   }
 };
 
+function moveUp() {
+  const selected = document.querySelector('.selected');
+  if (selected !== null && selected !== oderList.firstElementChild) {
+    oderList.insertBefore(selected, selected.previousSibling);
+  }
+}
+moveUpButton.addEventListener('click', moveUp);
+
+function moveDown() {
+  const selected = document.querySelector('.selected');
+  if (selected !== null && selected !== oderList.lastElementChild) {
+    oderList.insertBefore(selected.nextElementSibling, selected);
+  }
+}
+moveDownButton.addEventListener('click', moveDown);
+
 function removeSelected() {
-  const selecionados = document.querySelectorAll('.item-list'); // descobrir por que que com o querySelectorAll funciona e com o getElementsbyClassName Não
+  const selecionados = document.querySelectorAll('.item-list');
   for (let index = 0; index < selecionados.length; index += 1) {
     if (selecionados[index].classList.contains('selected')) {
       selecionados[index].remove();
