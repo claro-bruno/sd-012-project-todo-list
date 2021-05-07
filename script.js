@@ -69,7 +69,7 @@ function removeSelected() {
 
   removeSelectedButton.addEventListener('click', function () {
     for (let index = 0; index < listItems.length; index += 1) {
-      if (listItems[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      if (listItems[index].classList.contains('selected')) {
         listItems[index].remove();
       }
     }
@@ -92,3 +92,38 @@ function storageTasks() {
   });
 }
 storageTasks();
+
+function moveUp() {
+  const upButton = document.getElementById('mover-cima');
+
+  upButton.addEventListener('click', function () {
+    const selectedItem = document.getElementsByClassName('selected')[0];
+    sessionStorage.moveUpCacheInner = selectedItem.previousElementSibling.innerHTML;
+    sessionStorage.moveUpCacheClass = selectedItem.previousElementSibling.className;
+
+    selectedItem.previousElementSibling.innerHTML = selectedItem.innerHTML;
+    selectedItem.previousElementSibling.className = selectedItem.className;
+
+    selectedItem.innerHTML = sessionStorage.moveUpCacheInner;
+    selectedItem.className = sessionStorage.moveUpCacheClass;
+
+  });
+}
+moveUp();
+
+function moveDown() {
+  const downButton = document.getElementById('mover-baixo');
+
+  downButton.addEventListener('click', function () {
+    const selectedItem = document.getElementsByClassName('selected')[0];
+    sessionStorage.moveDownCacheInner = selectedItem.nextElementSibling.innerHTML;
+    sessionStorage.moveDownCacheClass = selectedItem.nextElementSibling.className;
+
+    selectedItem.nextElementSibling.innerHTML = selectedItem.innerHTML;
+    selectedItem.nextElementSibling.className = selectedItem.className;
+
+    selectedItem.innerHTML = sessionStorage.moveDownCacheInner;
+    selectedItem.className = sessionStorage.moveDownCacheClass;
+  });
+}
+moveDown();
