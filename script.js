@@ -49,11 +49,13 @@ window.onload = function () {
   botaoMoveCima.addEventListener('click', function () {});
 
   function getTarefas() {
+    localStorage.setItem('Lista', []);
     let arrayTarefas = localStorage.getItem('Lista');
     let arraySplit = arrayTarefas.split(',');
-    for (let index = 0; index < arraySplit.length; index += 1) {
+    let arrayFilter = arraySplit.filter(Boolean);
+    for (let index = 0; index < arrayFilter.length; index += 1) {
       let novaTarefa = document.createElement('li');
-      novaTarefa.innerHTML = arraySplit[index];
+      novaTarefa.innerHTML = arrayFilter[index];
       novaTarefa.className = 'tarefa';
       listaTarefas.appendChild(novaTarefa);
     }
