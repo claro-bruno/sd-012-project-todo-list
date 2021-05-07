@@ -13,6 +13,7 @@ function clearInput() {
 
 function newTask() {
   let newLi = createTask();
+  newLi.className = 'task'
   newLi.innerText = input.value;
   list.appendChild(newLi);
   clearInput();
@@ -22,3 +23,15 @@ createButton.addEventListener('click', function() {
   newTask();
 });
 
+function selectTask(event) {
+  const targetEvent = event.target;
+  if (targetEvent.classList.contains('task')) {
+    const currentTaskSelected = document.querySelector('.selected');
+    if (currentTaskSelected !== null) {
+      currentTaskSelected.classList.remove('selected');
+    }
+    targetEvent.classList.add('selected');
+  };
+};
+
+document.addEventListener('click', selectTask);
