@@ -2,14 +2,28 @@
 //armazenando elementos uteis em variaveis//
 let listaTarefas = document.getElementById('lista-tarefas');
 let botaoCriarTarefa = document.getElementById('criar-tarefa');
+let botaoApagarTudo = document.getElementById('apaga-tudo');
+let botaoApagarFin = document.getElementById('remover-finalizados');
 let elementoInput = document.getElementById('texto-tarefa');
 const listaLis = document.getElementsByClassName('item-lista');
 
-//criando uma div para guardar texto do botao//
+//criando uma div para guardar texto do botao adicionar//
 let divBotao = document.createElement('div');
 botaoCriarTarefa.appendChild(divBotao);
 divBotao.id = 'texto-botao'
 divBotao.innerHTML = 'Adicionar'
+
+//criando uma div para guardar texto do botao apagar tudo//
+let divBotaoApagar = document.createElement('div');
+botaoApagarTudo.appendChild(divBotaoApagar);
+divBotaoApagar.id = 'texto-botao-apagar';
+divBotaoApagar.innerHTML = 'Apagar tudo';
+
+////criando uma div para guardar texto do botao apagar tudo//
+let divBotaoApagarFin = document.createElement('div');
+botaoApagarFin.appendChild(divBotaoApagarFin);
+divBotaoApagarFin.id = 'texto-botao-apagar-finalizados';
+divBotaoApagarFin.innerHTML = 'Apagar finalizados'
 
 //REQUISITO 5 e 6//
 //função que cria event listener no botao, adiciona value na lista e limpa input//
