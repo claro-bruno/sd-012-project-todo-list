@@ -55,6 +55,30 @@ window.onload = function () {
     listaTarefas.removeChild(tarefaSelecionada);
   })
 
+  
+  botaoMoveBaixo.addEventListener('click', function () {
+    let tarefaSelecionada = document.querySelector('.selecionada');
+    let proximoItem = tarefaSelecionada.nextElementSibling;
+
+    if (tarefaSelecionada === listaTarefas.lastChild) {
+      alert('Item está na posição máxima');
+    } else {
+      proximoItem.insertAdjacentElement('afterend', tarefaSelecionada); // Referência David Gonzaga
+    }
+  });
+
+  botaoMoveCima.addEventListener('click', function () {
+    let tarefaSelecionada = document.querySelector('.selecionada');
+    let itemAnterior = tarefaSelecionada.previousElementSibling;
+
+    if (tarefaSelecionada === listaTarefas.firstChild) {
+      alert('Item está na posição máxima');
+    } else {
+      itemAnterior.insertAdjacentElement('beforebegin', tarefaSelecionada); // Referência David Gonzaga
+    }
+  });
+
+
   function getTarefas() {
     if (typeof localStorage.getItem('Lista') === 'object') {
       localStorage.setItem('Lista', []);
