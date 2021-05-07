@@ -27,4 +27,12 @@ window.onload = function(){
             evento.target.classList.add('completed');
         }
     });
+
+    const deleteButton = document.getElementById('apaga-tudo');
+    deleteButton.addEventListener('click', function () {
+        let itensLista = document.querySelector('#lista-tarefas')
+            itensLista.innerText = '';
+            console.log('dale')
+    })
+
 };
