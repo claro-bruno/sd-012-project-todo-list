@@ -4,7 +4,7 @@ window.onload = () => {
 
 const newTaskButton = document.getElementById('criar-tarefa');
 const inputTask = document.getElementById('texto-tarefa');
-const taskList = document.getElementById('lista-tarefas');
+const taskList = document.querySelector('#lista-tarefas');
 const removeFinishedTasksButton = document.getElementById('remover-finalizados');
 const removeAllButton = document.querySelector("#apaga-tudo");
 const saveTasksButton = document.querySelector('#salvar-tarefas');
@@ -102,7 +102,6 @@ removeFinishedTasksButton.addEventListener('click', () => {
 });
 
 removeAllButton.addEventListener('click', () => {
-  const taskList = document.getElementById('lista-tarefas');
   while (taskList.firstChild) {
     taskList.removeChild(taskList.firstChild);
   }
@@ -122,6 +121,7 @@ moveUpButton.addEventListener('click', () => {
         let selected = taskListChildren[index];
         let aboveSelected = taskListChildren.item(index - 1);
         selected.parentElement.insertBefore(selected, aboveSelected);
+        break;
       }
     }
   }
