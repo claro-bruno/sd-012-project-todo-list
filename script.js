@@ -21,7 +21,7 @@ function capturar () {
             event.target.classList.add('selected');
             event.target.style.backgroundColor = 'rgb(128, 128, 128)';
         });
-        createList.addEventListener('dblclick', function (event) {
+        createList.addEventListener('dblclick', function (event) { // Exercício 9
             let doubleClicke = document.querySelector('.completed');
             if (doubleClicke) {
                 doubleClicke.remove('completed');
