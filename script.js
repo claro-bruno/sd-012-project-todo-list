@@ -3,6 +3,8 @@ const btnRemoveAllTasks = document.querySelector('#apaga-tudo');
 const btnRemoveCompletedTasks = document.querySelector('#remover-finalizados');
 const btnRemoveSelectedTask = document.querySelector('#remover-selecionado');
 const btnSaveTasks = document.querySelector('#salvar-tarefas');
+const btnMoveUpTask = document.querySelector('#mover-cima');
+const btnMoveDownTask = document.querySelector('#mover-baixo');
 const textInput = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 
@@ -61,7 +63,7 @@ function removeSelectedTask() {
 
 function saveTasks() {
   if (typeof (Storage) !== 'undefined') {
-    let allTasks = document.getElementsByClassName('tarefa');
+    const allTasks = document.getElementsByClassName('tarefa');
     for (let index = 0; index < allTasks.length; index += 1) {
       const taskText = allTasks[index].innerText;
       const taskIsCompleted = allTasks[index].classList.contains('completed');
@@ -75,7 +77,7 @@ Navegador sem suporte para Web Storage.`);
 
 function taskRecreator(text, isCompleted) {
   const taskItem = document.createElement('li');
-  if (isCompleted === "true") {
+  if (isCompleted === 'true') {
     taskItem.className = 'tarefa completed';
   } else {
     taskItem.className = 'tarefa';
@@ -92,7 +94,18 @@ function restoreSaveTasks() {
   }
 }
 
-console.log()
+function moveUp() {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask !== null && selectedTask.previousElementSibling !== null) {
+    const previousTask = selectedTask.previousElementSibling;
+    const previousTaskText = previousTask.innerText;
+    const previousTaskClass = previousTask.className;
+    previousTask.innerText = selectedTask.innerText;
+    previousTask.className = selectedTask.className;
+    selectedTask.innerText = previousTaskText;
+    selectedTask.className = previousTaskClass;
+  }
+}
 
 window.onload = function page() {
   btnTaskCreate.addEventListener('click', taskCreator);
@@ -100,7 +113,10 @@ window.onload = function page() {
   btnRemoveCompletedTasks.addEventListener('click', removeTasksComplete);
   btnRemoveSelectedTask.addEventListener('click', removeSelectedTask);
   btnSaveTasks.addEventListener('click', saveTasks);
+  btnMoveUpTask.addEventListener('click', moveUp);
   document.addEventListener('click', selectTask);
   document.addEventListener('dblclick', completeTask);
   restoreSaveTasks();
+  console.log(document.getElementsByClassName('tarefa')[5].nextElementSibling, 'oi');
+  console.log(document.querySelector('.selected'));
 };
