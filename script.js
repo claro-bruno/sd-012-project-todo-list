@@ -68,3 +68,27 @@ if (localStorage.length > 0) {
         document.getElementById('lista-tarefas').appendChild(task);
     }
 }
+
+document.getElementById('mover-cima').addEventListener('click', function () {
+    let selected = document.querySelector('.selected');
+    if (selected.previousElementSibling !== null) {
+        let previousTaskText = selected.previousElementSibling.innerText;
+        let previousTaskClass = selected.previousElementSibling.className;
+        selected.previousElementSibling.innerText = selected.innerText;
+        selected.previousElementSibling.className = selected.className;
+        selected.innerText = previousTaskText;
+        selected.className = previousTaskClass;
+    }
+});
+
+document.getElementById('mover-baixo').addEventListener('click', function () {
+    let selected = document.querySelector('.selected');
+    if (selected.nextElementSibling !== null) {
+        let nextTaskText = selected.nextElementSibling.innerText;
+        let nextTaskClass = selected.nextElementSibling.className;
+        selected.nextElementSibling.innerText = selected.innerText;
+        selected.nextElementSibling.className = selected.className;
+        selected.innerText = nextTaskText;
+        selected.className = nextTaskClass;
+    }
+});
