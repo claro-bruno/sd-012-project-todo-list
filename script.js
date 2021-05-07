@@ -35,11 +35,9 @@ window.onload = function() {
 
     function completedItem(eventSource) {
         if (eventSource.target.classList.contains('completed')) {
-            eventSource.target.classList.remove('completed');
-            eventSource.target.classList.remove('item-selected');
+            eventSource.target.className = 'list-Item';
         } else {
-            eventSource.target.classList.add('completed');
-            eventSource.target.classList.remove('item-selected');
+            eventSource.target.classList = 'completed';
         }
     }
 }
