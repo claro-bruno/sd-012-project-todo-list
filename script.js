@@ -179,7 +179,7 @@ function getTasks() {
   }
   const arraySave = JSON.parse(jsonArray);
   for (let index = 0; index < arraySave.length; index += 1) {
-    addTask(arraySave[index].text, arraySave[index].finished);
+    addTask(arraySave[index].text, arraySave[index].completed);
   }
 }
 getTasks();
