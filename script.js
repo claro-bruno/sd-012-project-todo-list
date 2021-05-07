@@ -12,7 +12,7 @@ const moveUpButton = document.querySelector('#mover-cima');
 const moveDownButton = document.querySelector('#mover-baixo');
 const removeSelectedButton = document.querySelector('#remover-selecionado');
 
-function deselectOtherLis() {
+function deselectAll() {
   const li = document.querySelectorAll('li');
   for (let index = 0; index < li.length; index += 1) { // refatorar para retirar o loop e retirar a seleção apenas do elemento com classe selected
     li[index].style.backgroundColor = 'white';
@@ -20,7 +20,7 @@ function deselectOtherLis() {
   }
 };
 
-function createTask(taskObject) {
+function buildTask(taskObject) {
   const li = document.createElement('li');
   li.innerHTML = taskObject.task;
   if (taskObject.selected) {
@@ -32,7 +32,7 @@ function createTask(taskObject) {
     li.style.textDecoration = 'line-through';
   }
   li.addEventListener('click', (event) => {
-    deselectOtherLis();
+    deselectAll();
     const targ = event.target;
     targ.classList.add('selected');
     targ.style.backgroundColor = 'rgb(128, 128, 128)';
@@ -52,7 +52,7 @@ function createTask(taskObject) {
 function loadtasks() {
   let arrayOfTaskObjs = JSON.parse(localStorage.getItem('arrayOfTaskObjs'));
   for (let index = 0; index < arrayOfTaskObjs.length; index += 1) {
-    createTask(arrayOfTaskObjs[index]);
+    buildTask(arrayOfTaskObjs[index]);
   }
 };
 
@@ -88,7 +88,7 @@ newTaskButton.addEventListener('click', () => {
     'position':  li.length + 1,
     'task':      inputTask.value
   };
-  createTask(taskObj);
+  buildTask(taskObj);
   inputTask.value = '';
 });
 
