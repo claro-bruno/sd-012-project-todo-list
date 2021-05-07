@@ -9,8 +9,7 @@ content.appendChild(header);
 
 const paragraph = document.createElement('p');
 paragraph.id = 'funcionamento';
-paragraph.innerHTML =
-  'Clique duas vezes em um item para marcá-lo como completo';
+paragraph.innerHTML = 'Clique duas vezes em um item para marcá-lo como completo';
 
 header.appendChild(paragraph);
 
@@ -56,8 +55,9 @@ function switchColor(event) {
     beforeSelected.classList.remove('selected');
   }
   color = event.target.style.backgroundColor;
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   event.target.classList.add('selected');
+  const selected = document.querySelector('.selected');
+  selected.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 function switchClass(event) {
@@ -85,10 +85,7 @@ function addTask(task, completed = false) {
   taskText.value = '';
 }
 
-addTaskBtn.addEventListener('click', function () {
-  const task = taskText.value;
-  addTask(task);
-});
+addTaskBtn.addEventListener('click', (_) => addTask(taskText.value));
 
 insertTask.appendChild(addTaskBtn);
 
@@ -107,10 +104,7 @@ btnClearAll.addEventListener('click', cleanTaskList);
 
 btnContainer.appendChild(btnClearAll);
 
-const btnFinished = createBtn(
-  'remover-finalizados',
-  'apagar tarefas finalizadas'
-);
+const btnFinished = createBtn('remover-finalizados', 'apagar tarefas finalizadas');
 
 function cleanFiniShedTasks() {
   const completedList = document.querySelectorAll('.completed');
