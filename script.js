@@ -131,7 +131,10 @@ moveDownButton.addEventListener('click', () => {
   const taskListChildren = document.getElementById('lista-tarefas').children;
   let count = 1;
   for (let index = 0; index < taskListChildren.length; index += 1) {
-    if (taskListChildren[index].classList.contains('selected') && count === 1) {
+    if (count !== 1) {
+      break;
+    }
+    if (taskListChildren[index].classList.contains('selected')) {
       count += 1;
       if (index !== (taskListChildren.length - 1)) {
         let selected = taskListChildren[index];
