@@ -1,14 +1,14 @@
-let arrTasks = JSON.parse(localStorage.getItem('tasks'));
-console.log(arrTasks);
-function loadTasksList(arrTasks){
+window.onload = function () {
+    let arrTasks = JSON.parse(localStorage.getItem('task'));
     if(arrTasks !== null) {
         for(let index = 0; index < arrTasks.length; index += 1) {
-            addTask(arrTasks[index],'');
-        }
+            addTask(arrTasks[index],'')
     }
-}
+  }
+};
 
-loadTasksList(arrTasks);
+
+
 
 let btnAddTask = document.querySelector('#criar-tarefa');
 btnAddTask.addEventListener('click',  (evt) => addTask(document.querySelector('#texto-tarefa').value,evt));
@@ -79,7 +79,7 @@ function saveTasks (event) {
     let li_tasks = document.querySelectorAll('.task');
     let arrTasks = [];
     for(let index = 0; index < li_tasks.length; index += 1) {
-        arrTasks.push(li_tasks[index].innerText);
+        arrTasks.push(li_tasks[index].outerHTML);
     }
-    localStorage.setItem('tasks', JSON.stringify(arrTasks));
+    localStorage.setItem('task', JSON.stringify(arrTasks));
     }
