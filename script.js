@@ -18,9 +18,9 @@ function changeItemBG() {
 
   orderedList.addEventListener('click', function (event) {
     for (let index = 0; index < listItems.length; index += 1) {
-      listItems[index].style.backgroundColor = '';
+      listItems[index].classList.remove('selected');
     };
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    event.target.classList.add('selected');
   });
 
 }
@@ -30,10 +30,10 @@ function taskCompleted() {
   const orderedList = document.getElementById('lista-tarefas');
 
   orderedList.addEventListener('dblclick', function (event) {
-    if (event.target.className === 'completed') {
+    if (event.target.classList.contains('completed')) {
       event.target.classList.remove('completed');
     } else {
-      event.target.className = 'completed';
+      event.target.classList.add('completed');
     }
   });
 }

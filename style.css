@@ -1,3 +1,23 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.selected{
+  background-color: rgb(128, 128, 128);
+}
+
 .completed{
   text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+button {
+  font-size: larger;
+}
+
+#lista-tarefas {
+  padding: 0;
+  margin-left: 90px;
+  font-size: 1.3em;
 }
