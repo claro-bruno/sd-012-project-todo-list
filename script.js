@@ -1,14 +1,23 @@
 function criarItem(event) {
+
+    //criado a "li" e adicionado na lista
     const itemLista = document.createElement('li')
     document.querySelector('#lista-tarefas').appendChild(itemLista)
-    let valorList = document.getElementById('texto-tarefa').value
-    itemLista.addEventListener('click', function() {
 
-        if (itemLista.classList.contains('lista')) {
-            itemLista.classList.remove('lista')
-        } else {
-            itemLista.className = 'lista'
+    //pego o valor da caixa de entrada
+    let valorList = document.getElementById('texto-tarefa').value
+
+    // criado o evento para colorir a li e descolorir
+    itemLista.addEventListener('click', function(event) {
+        const listaTodos = document.querySelectorAll('li')
+        for (let index = 0; index < listaTodos.length; index += 1) {
+            if (listaTodos[index].classList.contains('lista')) {
+                listaTodos[index].classList.remove('lista')
+            }
+
+            event.target.classList.add('lista')
         }
+
     })
     itemLista.innerHTML = valorList
     document.getElementById('texto-tarefa').value = ""
@@ -18,5 +27,3 @@ function criarItem(event) {
 
 let clickButton = document.getElementById("criar-tarefa")
 clickButton.addEventListener('click', criarItem)
-
-let clickList = document.querySelector('.lista')
