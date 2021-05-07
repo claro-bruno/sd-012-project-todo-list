@@ -4,6 +4,7 @@ const btnX = document.getElementById('apaga-tudo');
 const btnXX = document.getElementById('remover-finalizados');
 const itemList = document.querySelectorAll('.item-list');
 const taskList = document.getElementById('lista-tarefas');
+const btnSave = document.getElementById('salvar-tarefas');
 // Captura o texto do input e adiciona à lista
 function catchInput() {
   btnAdd.addEventListener('click', () => {
@@ -53,3 +54,11 @@ function removeCompleted () {
     taskList.removeChild(item);
   }
  }
+// Salvas a lista
+function saveTasks() {
+  localStorage.setItem('task', taskList.innerHTML);
+}
+btnSave.addEventListener('click', saveTasks);
+window.onload = function () {
+  taskList.innerHTML = localStorage.getItem('task');
+}
