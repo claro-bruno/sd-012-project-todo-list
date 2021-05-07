@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project to do list</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+    .selected {
+        background-color: rgb(128,128,128);
+    }
+    </style>
 </head>
 <body>
     <header>Minha Lista de Tarefas</header>
@@ -39,16 +44,28 @@ function highlightText () {
 let getListItem = document.querySelectorAll('#list-item');
 let newBgColor = 'rgb(128,128,128)';
 
-for (let index = 0; index < getListItem.length; index += 1) {
+    for (let index = 0; index < getListItem.length; index += 1) {
     getListItem[index].addEventListener('click', function(event) {
-
         if (event.target.style.backgroundColor !== newBgColor) {
-            event.target.style.backgroundColor = newBgColor;
-        }
-    })
-}
+            removeTudo();
+            event.target.className = 'selected';
+
+        }        
+            })
+          
+    }
 }
 
+function removeTudo() {
+    let getSelected = document.querySelectorAll('.selected');
+
+    for (let key = 0; key < getSelected.length; key += 1) {
+        let aRemover = getSelected[key];
+
+        aRemover.classList.remove('selected');
+    }
+
+}
 
 
     </script>
