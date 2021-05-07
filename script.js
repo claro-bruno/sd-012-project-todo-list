@@ -38,6 +38,56 @@ function addTask() {
   addButton.addEventListener('click', addTaskClick);
 }
 
+function localCompletedRule(items, index, completed) {
+  if (items[index].innerHTML === localStorage[`completed${completed}`]) {
+    items[index].className += ' completed';
+  }
+}
+
+function localCompleted() {
+  const items = document.querySelectorAll('.item');
+  for (let index = 0; index < items.length; index += 1) {
+    for (let completed = 0; completed < localStorage.length; completed += 1) {
+      localCompletedRule(items, index, completed);
+    }
+  }
+ }
+
+function changeData() {
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const list = document.getElementById('lista-tarefas');
+    const item = document.createElement('li');
+    if (localStorage[index] !== undefined) {
+      item.innerHTML = localStorage[index];
+      item.className = 'item';
+      list.appendChild(item);
+      item.addEventListener('click', selectOnlyOne);
+      item.addEventListener('dblclick', riskItem);
+    }
+  }
+  localCompleted();
+}
+
+function saveDataClick() {
+  localStorage.clear();
+  const items = document.querySelectorAll('.item');
+  const completedList = document.querySelectorAll('.completed');
+  if (items.length === 0) {
+    return alert('Adicione tarefas para salvar');
+  }
+  for (let index = 0; index < items.length; index += 1) {
+    localStorage.setItem(index, items[index].innerHTML);
+  }
+  for (let index = 0; index < completedList.length; index += 1) {
+    localStorage.setItem(`completed${index}`, completedList[index].innerHTML);
+  }
+}
+
+function saveData() {
+  const saveButton = document.getElementById('salvar-tarefas');
+  saveButton.addEventListener('click', saveDataClick);
+}
+
 function clearListClick() {
   const list = document.getElementById('lista-tarefas');
   list.innerHTML = '';
@@ -127,10 +177,12 @@ function removeSelected() {
 }
 
 window.onload = function toDoList() {
+  changeData();
   addTask();
   clearList();
   clearCheckList();
   moveUp();
   moveDown();
   removeSelected();
+  saveData();
 };
