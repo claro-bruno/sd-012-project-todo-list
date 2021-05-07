@@ -17,7 +17,15 @@ window.onload = function() {
 
     // Task Selection
     list.addEventListener('click', function(event) {
+        let taskLength = document.querySelectorAll('li').length;
+        for (let index = 0; index < taskLength; index += 1) {
+            if( document.querySelectorAll('li')[index].classList.contains('selected')){
+                document.querySelectorAll('li')[index].classList.remove('selected');
+            }
+        }
         let target = event.target;
         target.classList.toggle('selected');
-    });  
+    });
+
+
 }
