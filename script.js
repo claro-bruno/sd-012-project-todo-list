@@ -1,5 +1,14 @@
 const buttonToDo = document.querySelector('#criar-tarefa');
 const orderList = document.querySelector('#lista-tarefas');
+const tarefas = document.getElementsByClassName('tarefa');
+
+function dbClick(event) {
+  if (event.target.className.includes('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
 
 function createList() {
   const inputToDo = document.getElementById('texto-tarefa');
@@ -10,7 +19,7 @@ function createList() {
   newLi.textContent = inputToDo.value;
   inputToDo.value = '';
 
-  function color(event) {
+  newLi.addEventListener('click', (event) =>{
     const selected = document.querySelectorAll('.selected');
     for (let index = 0; index < selected.length; index += 1) {
       selected[index].classList.remove('selected');
@@ -19,14 +28,14 @@ function createList() {
         selected[index].style.backgroundColor = '';
       }
     }
-  }
-  newLi.addEventListener('click', color);
+  });
 
-    // Parte 7 resolvida com auxílio do colega Rodrigo Facury:
+  // Parte 7 resolvida com auxílio do colega Rodrigo Facury:
   newLi.addEventListener('click', (event) => {
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    //
   });
+
+  newLi.addEventListener('dblclick', dbClick);
 }
 
 buttonToDo.addEventListener('click', createList);

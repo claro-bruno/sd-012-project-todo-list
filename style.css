@@ -1,3 +1,7 @@
+body {
+  background-color: gainsboro;
+}
+
 h1 {
   color: black;
 }
@@ -5,4 +9,9 @@ h1 {
 .tarefa {
   font-weight: 550;
   font-family: sans-serif;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+  color: rgb(32, 85, 85);
 }
