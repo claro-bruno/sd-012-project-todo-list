@@ -7,19 +7,19 @@ const saveButton = document.querySelector('#salvar-tarefas');
 const lastList = JSON.parse(localStorage.getItem('taskList'));
 
 function rememberList() {
-  for (let indexRemember = 0; indexRemember < lastList.length; indexRemember += 1) {
-    const rememberItem = document.createElement('li');
-    rememberItem.innerHTML = lastList[indexRemember];
-    rememberItem.addEventListener('click', changeSelected);
-    rememberItem.addEventListener('click', changeBgColor);
-    rememberItem.addEventListener('dblclick', completedTasks);
-    list.appendChild(rememberItem);
+  if (lastList !== null) { 
+    for (let indexRemember = 0; indexRemember < lastList.length; indexRemember += 1) {
+      const rememberItem = document.createElement('li');
+      rememberItem.innerHTML = lastList[indexRemember];
+      rememberItem.addEventListener('click', changeSelected);
+      rememberItem.addEventListener('click', changeBgColor);
+      rememberItem.addEventListener('dblclick', completedTasks);
+      list.appendChild(rememberItem);
+    }
   }
 }
 
-if (lastList.length > 0) {
-  rememberList();
-}
+rememberList();
 
 function changeBgColor(event) {
   let target = event.target;
