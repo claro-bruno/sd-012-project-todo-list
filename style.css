@@ -2,7 +2,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   padding-left: 30px;
   padding-right: 30px;
+  background-color: #353D40;
 }
+
+header {
+  color: #D9D9D9;
+  text-shadow: 0px 0px 3px #A1A5A6;
+}
+
 
 .selected{
   background-color: rgb(128, 128, 128);
@@ -13,7 +20,43 @@ body {
 }
 
 button {
-  font-size: larger;
+  font-size: medium;
+  height: 30px;
+  background-color: #F2B138;
+  border: solid 1px #353D40;
+  border-radius: 6px;
+  color: #353D40;
+  font-weight: bold;
+  text-shadow: 0.6px 0.6px 3px white;
+}
+
+#mover-cima, #mover-baixo {
+  width: 5em;
+}
+
+#controls-section{
+  margin-top: 9px;
+}
+
+.list {
+  background-color: #D9D9D9;
+  width: 900px;
+  padding: 15px;
+  border-radius: 9px;
+}
+
+li {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 9px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+input {
+  height: 26px;
+  border-radius: 6px;
+  border: solid 1px #353D40;
 }
 
 #lista-tarefas {
