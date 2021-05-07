@@ -37,7 +37,9 @@ lineThrough();
 
 botaoLimpar.addEventListener('click', ()  =>{
     for (let index = 0; index <= task.length; index += 1){
-        task[index].remove();
+        if (task[index] !== undefined){
+            task[index].remove();
+        }
     }
 })
 
