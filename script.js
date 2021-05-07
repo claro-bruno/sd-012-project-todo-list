@@ -60,11 +60,11 @@ saveButton.addEventListener('mouseover', () => {
   child.style.color = 'rgb(0, 141, 179)';
   child.style.transition = '0.7s';
 });
+
 saveButton.addEventListener('mouseout', () => {
   const child = saveButton.firstElementChild;
   child.style.color = 'rgb(254, 238, 223)';
   child.style.transition = '0.7s';
-
 });
 
 removeSelectedButton.addEventListener('click', removeSelected);
