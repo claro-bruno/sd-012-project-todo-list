@@ -5,7 +5,7 @@
 
 body {
   font-family: Poppins, sans-serif;
-  background: #f0f2f5;
+  background: rgb(240 242 245);
   text-align: center;
 }
 
@@ -15,7 +15,7 @@ header {
 }
 
 .container {
-  width: min(90vw, 768px);
+  width: min(90vw , 768px);
   margin: auto;
 }
 
@@ -33,12 +33,12 @@ ol li {
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
   border-radius: 0.7rem;
 }
 
 .completed {
-	text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 #criar-tarefa {
