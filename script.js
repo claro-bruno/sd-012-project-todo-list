@@ -53,6 +53,7 @@ function clearListTask() {
   for (let index = 0; index < listItem.length; index += 1) {
     containerListItem.removeChild(listItem[index]);
   }
+  saveToDoList();
 }
 
 function createButtonClearCompleted() {
@@ -68,6 +69,7 @@ function clearItemCompleted() {
   for (let index = 0; index < itemCompleted.length; index += 1) {
     containerListItem.removeChild(itemCompleted[index]);
   }
+  saveToDoList();
 }
 
 function createSaveButton() {
@@ -87,7 +89,36 @@ function recoverToDoList() {
   let ListSaved = localStorage.getItem('taskList');
   if (ListSaved !== null) {
     taskList.innerHTML = ListSaved;
-    console.log('teste');
+  }
+}
+
+function createMoveUpButton() {
+  let createButton = document.createElement('button');
+  createButton.id = 'mover-cima';
+  createButton.innerHTML = '&uarr;';
+  document.querySelector('#container-tools').appendChild(createButton);
+}
+
+function createMoveDownButton() {
+  let createButton = document.createElement('button');
+  createButton.id = 'mover-baixo';
+  createButton.innerHTML = '&darr;';
+  document.querySelector('#container-tools').appendChild(createButton);
+}
+
+//Consultei o PR do Thalles Carneiro para resolver essa parte
+// https://github.com/tryber/sd-012-project-todo-list/pull/51/files
+function moveUp() {
+  let itemList = document.querySelector('.selected');
+  if (itemList !== null && itemList !== taskList.firstElementChild) {
+    itemList.parentNode.insertBefore(itemList, itemList.previousElementSibling);
+  }
+}
+
+function moveDown() {
+  let itemList = document.querySelector('.selected');
+  if (itemList !== null && itemList !== taskList.lastElementChild) {
+    itemList.parentNode.insertBefore(itemList.nextElementSibling, itemList);
   }
 }
 
@@ -103,6 +134,8 @@ function eventAddTask() {
     itemListConcluded();
   });
 }
+createMoveUpButton();
+createMoveDownButton();
 recoverToDoList();
 createButtonClearCompleted();
 createClearButton();
@@ -114,3 +147,7 @@ let clearCompleted = document.querySelector('#remover-finalizados');
 clearCompleted.addEventListener('click', clearItemCompleted);
 let saveButton = document.querySelector('#salvar-tarefas');
 saveButton.addEventListener('click', saveToDoList);
+let moveListUp = document.querySelector('#mover-cima');
+moveListUp.addEventListener('click', moveUp);
+let moveListDown = document.querySelector('#mover-baixo');
+moveListDown.addEventListener('click', moveDown);
