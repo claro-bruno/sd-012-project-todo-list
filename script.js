@@ -11,4 +11,10 @@ botao.addEventListener("click", (e) => {
   ol.appendChild(listaOrganizada);
 
   input.value = ""
+
+listaOrganizada.addEventListener("dblclick", () => {
+  listaOrganizada.classList.toggle('completed');
+});
+  ol.appendChild(listaOrganizada);
+  input.value = ""
 })

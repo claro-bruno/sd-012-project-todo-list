@@ -15,6 +15,11 @@ h1 {
   opacity: 0.4;
 }
 
+#funcionamento {
+  text-align: center;
+  color: #b5b5b5;
+}
+
 form {
   margin: auto;
   max-width: 100%;
@@ -48,4 +53,8 @@ form {
 
 criar-tarefa {
   background-color: white;
+}
+
+.completed {
+  text-decoration: line-through;
 }
