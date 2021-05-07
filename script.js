@@ -30,11 +30,8 @@ botaoLimparLista.addEventListener('click', () => {
 });
 // Configura Botão Remover Finalizados
 botaoRemFin.addEventListener('click', () => {
-  const tarefas = document.getElementsByClassName('tarefa');
-  for (let index = 0; index < tarefas.length; index += 1) {
-    const tarefa = tarefas[index];
-    if (tarefa.classList.contains('completed')) {
-      listaTarefas.removeChild(tarefa);
-    }
+  const completos = document.querySelectorAll('.completed');
+  for (let index = 0; index < completos.length; index += 1) {
+    listaTarefas.removeChild(completos[index]);
   }
 });
