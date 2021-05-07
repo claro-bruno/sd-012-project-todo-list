@@ -67,7 +67,7 @@ window.onload = () => {
 function moveUp() {
   const selected = document.querySelector('.selected');
   const taskList = document.getElementById('lista-tarefas');
-  if(selected.classList.contains('selected') && selected.previousElementSibling !== null) {
+  if(selected !== null && selected.previousElementSibling !== null) {
     taskList.insertBefore(selected, selected.previousElementSibling);
   }
 }
@@ -76,7 +76,7 @@ btnUP.addEventListener('click', moveUp);
 function moveDown() {
   const selected = document.querySelector('.selected');
   const taskList = document.getElementById('lista-tarefas');
-  if (selected.classList.contains('selected') && selected.nextElementSibling !== null) {
+  if (selected !== null && selected.nextElementSibling !== null) {
     taskList.insertBefore(selected, selected.nextElementSibling.nextElementSibling);
   }
 }
