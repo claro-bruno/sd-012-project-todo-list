@@ -30,7 +30,7 @@ window.onload = function () {
   })
 
   botaoLimpaConcluidos.addEventListener('click', function() {
-      let tarefasConcluidas = document.querySelectorAll('.completed');
+      let tarefasConcluidas = document.querySelectorAll('.tarefa completed');
       for (let index = 0; index < tarefasConcluidas.length; index += 1) {
           listaTarefas.removeChild(tarefasConcluidas[index]);
         }
@@ -73,18 +73,18 @@ window.onload = function () {
     if (tarefaSelecionada.length > 0) {
       tarefaSelecionada[0].className = 'tarefa';
       event.target.className = 'tarefa selecionada';
-    } else if (event.target.className === 'completed') {
-      event.target.className = 'completed';
+    } else if (event.target.className === 'tarefa completed') {
+      event.target.className = 'tarefa completed';
     } else {
       event.target.className = 'tarefa selecionada';
     }
   }
 
   function concluiTarefa(event) {
-    if (event.target.className === 'completed') {
+    if (event.target.className === 'tarefa completed') {
       event.target.className = 'tarefa';
     } else {
-      event.target.className = 'completed';
+      event.target.className = 'tarefa completed';
     }
   }
 };
