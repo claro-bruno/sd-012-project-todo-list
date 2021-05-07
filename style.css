@@ -5,11 +5,36 @@
 
 body {
   font-family: Poppins, sans-serif;
+  background: #f0f2f5;
   text-align: center;
 }
 
 header {
   text-align: center;
+  padding: 3rem 0 3rem;
+}
+
+.container {
+  width: min(90vw, 700px);
+  margin: auto;
+}
+
+ol {
+  text-align: left;
+  background-color: white;
+  border-radius: 0.7rem;
+  list-style: none;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+ol li {
+  padding: 1rem 2rem;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+  border-radius: 0.7rem;
 }
 
 .completed {
