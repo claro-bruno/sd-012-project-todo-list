@@ -1,19 +1,15 @@
-window.onload = () => {
-  if (localStorage.getItem('arrayOfTaskObjs')) {
-    loadtasks();
-  };
-};
-
 const newTaskButton = document.getElementById('criar-tarefa');
 const inputTask = document.getElementById('texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const removeFinishedTasksButton = document.getElementById('remover-finalizados');
-const removeAllButton = document.querySelector("#apaga-tudo");
+const removeAllButton = document.querySelector('#apaga-tudo');
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 const moveUpButton = document.querySelector('#mover-cima');
 const moveDownButton = document.querySelector('#mover-baixo');
 const removeSelectedButton = document.querySelector('#remover-selecionado');
 const deselectButton = document.querySelector('#remover-selecao');
+const taskListChildren = document.getElementById('lista-tarefas').children;
+const textDecoration = 'line-through';
 
 function deselectAll() {
   const li = document.querySelectorAll('li');
@@ -21,19 +17,22 @@ function deselectAll() {
     li[index].style.backgroundColor = 'white';
     li[index].classList.remove('selected');
   }
-};
+}
 
-function buildTask(taskObject) {
-  const li = document.createElement('li');
-  li.innerHTML = taskObject.task;
+function recuperarClasses(elemento, taskObject) {
+  const elementum = elemento;
   if (taskObject.selected) {
-    li.classList.add('selected');
-    li.style.backgroundColor = 'rgb(128, 128, 128)';
+    elementum.classList.add('selected');
+    elementum.style.backgroundColor = 'rgb(128, 128, 128)';
   }
   if (taskObject.completed) {
-    li.classList.add('completed');
-    li.style.textDecoration = 'line-through';
+    elementum.classList.add('completed');
+    elementum.style.textDecoration = textDecoration;
   }
+  return elementum;
+}
+
+function adicionarEscutadores(li) {
   li.addEventListener('click', (event) => {
     deselectAll();
     const targ = event.target;
@@ -42,30 +41,42 @@ function buildTask(taskObject) {
   });
   li.addEventListener('dblclick', (event) => {
     const targ = event.target;
-    if (targ.style.textDecoration === 'line-through') {
+    if (targ.style.textDecoration === textDecoration) {
       targ.style.textDecoration = '';
     } else {
-      targ.style.textDecoration = 'line-through';
+      targ.style.textDecoration = textDecoration;
     }
     targ.classList.toggle('completed');
   });
+  return li;
+}
+
+function buildTask(taskObject) {
+  let li = document.createElement('li');
+  li.innerHTML = taskObject.task;
+  li = recuperarClasses(li, taskObject);
+  li = adicionarEscutadores(li);
   taskList.appendChild(li);
-};
+}
 
 function loadtasks() {
-  let arrayOfTaskObjs = JSON.parse(localStorage.getItem('arrayOfTaskObjs'));
+  const arrayOfTaskObjs = JSON.parse(localStorage.getItem('arrayOfTaskObjs'));
   for (let index = 0; index < arrayOfTaskObjs.length; index += 1) {
     buildTask(arrayOfTaskObjs[index]);
   }
-};
+}
+
+if (localStorage.getItem('arrayOfTaskObjs')) {
+  loadtasks();
+}
 
 function makeArrayOfTaskObjs() {
   const li = document.querySelectorAll('li');
-  let arrayOfTaskObjs = [];
+  const arrayOfTaskObjs = [];
   for (let index = 0; index < li.length; index += 1) {
-    let taskObj = {
-      'position':  index + 1,
-      'task':      li[index].innerHTML
+    const taskObj = {
+      position: index + 1,
+      task: li[index].innerHTML,
     };
     if (li[index].classList.contains('selected')) {
       taskObj.selected = true;
@@ -73,16 +84,16 @@ function makeArrayOfTaskObjs() {
     if (li[index].classList.contains('completed')) {
       taskObj.completed = true;
     }
-    arrayOfTaskObjs.push(taskObj)
+    arrayOfTaskObjs.push(taskObj);
   }
   return arrayOfTaskObjs;
-};
+}
 
 newTaskButton.addEventListener('click', () => {
   const li = document.querySelectorAll('li');
-  let taskObj = {
-    'position':  li.length + 1,
-    'task':      inputTask.value
+  const taskObj = {
+    position: li.length + 1,
+    task: inputTask.value,
   };
   buildTask(taskObj);
   inputTask.value = '';
@@ -104,27 +115,31 @@ removeAllButton.addEventListener('click', () => {
 });
 
 saveTasksButton.addEventListener('click', () => {
-  let arrayOfTaskObjs = makeArrayOfTaskObjs();
+  const arrayOfTaskObjs = makeArrayOfTaskObjs();
   console.log(arrayOfTaskObjs); //
   localStorage.setItem('arrayOfTaskObjs', JSON.stringify(arrayOfTaskObjs));
 });
 
 moveUpButton.addEventListener('click', () => {
-  const taskListChildren = document.getElementById('lista-tarefas').children;
   for (let index = 0; index < taskListChildren.length; index += 1) {
-    if (taskListChildren[index].classList.contains('selected')) {
-      if (index !== 0) {
-        let selected = taskListChildren[index];
-        let aboveSelected = taskListChildren.item(index - 1);
-        selected.parentElement.insertBefore(selected, aboveSelected);
-        break;
-      }
+    if (taskListChildren[index].classList.contains('selected') && index !== 0) {
+      const selected = taskListChildren[index];
+      const aboveSelected = taskListChildren.item(index - 1);
+      selected.parentElement.insertBefore(selected, aboveSelected);
+      break;
     }
   }
 });
 
+function moveDownIfNotLast(liList, index) {
+  if (index !== (liList.length - 1)) {
+    const selected = liList[index];
+    const belowSelected = liList.item(index + 1);
+    belowSelected.parentElement.insertBefore(selected, belowSelected.nextElementSibling);
+  }
+}
+
 moveDownButton.addEventListener('click', () => {
-  const taskListChildren = document.getElementById('lista-tarefas').children;
   let count = 1;
   for (let index = 0; index < taskListChildren.length; index += 1) {
     if (count !== 1) {
@@ -132,22 +147,17 @@ moveDownButton.addEventListener('click', () => {
     }
     if (taskListChildren[index].classList.contains('selected')) {
       count += 1;
-      if (index !== (taskListChildren.length - 1)) {
-        let selected = taskListChildren[index];
-        let belowSelected = taskListChildren.item(index + 1);
-        belowSelected.parentElement.insertBefore(selected, belowSelected.nextElementSibling);
-      }
+      moveDownIfNotLast(taskListChildren, index);
     }
   }
 });
 
 removeSelectedButton.addEventListener('click', () => {
-  const taskListChildren = document.getElementById('lista-tarefas').children;
   for (let index = 0; index < taskListChildren.length; index += 1) {
     if (taskListChildren[index].classList.contains('selected')) {
-        let selected = taskListChildren[index];
-        selected.parentElement.removeChild(selected);
-      }
+      const selected = taskListChildren[index];
+      selected.parentElement.removeChild(selected);
+    }
   }
 });
 
