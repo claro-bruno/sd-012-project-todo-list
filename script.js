@@ -2,9 +2,11 @@ let input = document.querySelector('#texto-tarefa');
 let button = document.querySelector('#criar-tarefa');
 let getOl = document.querySelector('#lista-tarefas');
 let list = document.querySelectorAll('li');
+let btnEraseAll = document.querySelector('#apaga-tudo');
 
 
 button.innerHTML = 'Adicionar';
+btnEraseAll.innerHTML = 'Apagar'
 
 
 button.addEventListener('click', () => {
@@ -20,6 +22,12 @@ button.addEventListener('click', () => {
         createList.addEventListener('click', changeBackColor)       
         
         createList.addEventListener('dblclick', itemComplete)
+
+       /*  btnEraseAll */
+
+       btnEraseAll.addEventListener('click', eraseAll)
+
+       
 });
 
 function changeBackColor(event) {
@@ -37,5 +45,14 @@ function itemComplete(event) {
     target.classList.toggle ('completed')
 };
 
+/* botao apagar tudo tentativas: */
+
+function eraseAll(event) {
+    let olChildrens = document.querySelector('#lista-tarefas');
+    console.log(olChildrens)
+    while (olChildrens.firstChild) {
+        olChildrens.removeChild(olChildrens.firstChild)
+    }
+};
 
 

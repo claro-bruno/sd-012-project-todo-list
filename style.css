@@ -1,10 +1,18 @@
-button {
+#criar-tarefa {
     width: 70px;
     height: 20px;
-    background-color:coral;
+    background-color:rgb(250, 143, 104);
     border-radius: 16px;
 }
 
+#apaga-tudo {
+    width: 70px;
+    height: 20px;
+    background-color:rgb(202, 85, 85);
+    border-radius: 16px;
+    margin-left: 40px;
+    margin-top: 6px;
+}
 
 .completed {
     text-decoration: line-through;
