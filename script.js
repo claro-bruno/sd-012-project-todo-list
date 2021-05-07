@@ -96,21 +96,23 @@ function removeSelected(event) {
 
 function moveUpTask(event) {
     let li_selected = document.querySelector('.selected');
-    let li_selected_before = document.querySelector('.selected').previousSibling;
     let ol_tasks = document.querySelector('#lista-tarefas');
 
-    let li_insered = ol_tasks.insertBefore(li_selected,li_selected_before);
-
+    if(li_selected !== ol_tasks.firstChild && li_selected !== null) {
+        let li_selected_before = document.querySelector('.selected').previousSibling;
+        let li_insered = ol_tasks.insertBefore(li_selected,li_selected_before);
+    }
+    
 }
 
 function moveDownTask(event) {
     let li_selected = document.querySelector('.selected');
-    let li_selected_after = document.querySelector('.selected').nextSibling.nextSibling;
     let ol_tasks = document.querySelector('#lista-tarefas');
-    console.log(li_selected,li_selected_after);
-
-    let li_insered = ol_tasks.insertBefore(li_selected,li_selected_after);
-
+    
+    if(li_selected !== ol_tasks.lastChild && li_selected !== null) {
+        let li_selected_after = document.querySelector('.selected').nextSibling.nextSibling;
+        let li_insered = ol_tasks.insertBefore(li_selected,li_selected_after);
+    }
 
 }
 
