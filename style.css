@@ -43,6 +43,7 @@ button {
   border: 0;
   font-size: 1rem;
   color: var(--blue-color);
+  box-shadow: 1px 2px var(--blue-color);
 }
 
 
@@ -53,7 +54,9 @@ button , button:after {
 }
 
 button:active {
-  transform: translateY(10px);
+  box-shadow: 0 0;
+  transform: translateY(2px) translateX(1px);
+  transition: all 0s;
 }
 
 button:before , button:after {
