@@ -71,6 +71,14 @@ function saveTasks() {
   });
 }
 
+function moveUp() {
+  const moveUpBtn = document.getElementById('mover-cima');
+
+  moveUpBtn.addEventListener('click', () => {
+    list.insertBefore(list, list.childNodes[0]);
+  });
+}
+
 window.onload = () => {
   createTask();
   selectedTask();
@@ -78,4 +86,5 @@ window.onload = () => {
   removeTasks();
   removeFinalizedTasks();
   saveTasks();
+  moveUp();
 };

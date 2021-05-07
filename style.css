@@ -43,6 +43,14 @@ button {
   background-color: rgb(101, 192, 106);
 }
 
+#mover-cima {
+  background-color: rgb(175, 107, 238);
+}
+
+#mover-baixo {
+  background-color: rgb(175, 107, 238);
+}
+
 button:hover {
   background-color: rgb(137, 73, 197);
 }
