@@ -27,11 +27,11 @@ document.addEventListener('click', function (event) {
 })
 
 document.addEventListener('dblclick', function (event) {
-  if (event.target.classList.contains('completed')) {
-    completedTask();
+  if (event.target.classList.contains('task-item')) {
+    completedTasks(event);
   }
 })
-
+//8
 function clickedTask(event) {
   const tasks = document.getElementsByClassName('task-item');
   const greyTask = event.target;
@@ -44,14 +44,13 @@ function clickedTask(event) {
     greyTask.classList.add('selected');
   }
 }
-
-function completedTask(event) {
-  const taskCompleted = document.querySelector('completed');
-  if (taskCompleted === undefined) {
-    event.target.classList.add('completed');
+//9
+function completedTasks(event) {
+  const completedTask = event.target;
+  if (completedTask.classList.contains('completed')) {
+    completedTask.classList.remove('completed');
   } else {
-    event.target.classList.add('completed');
-    taskCompleted.classList.remove('completed');
+    completedTask.classList.add('completed');
   }
 }
 }
