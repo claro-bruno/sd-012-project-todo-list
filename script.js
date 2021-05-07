@@ -46,3 +46,12 @@ document.addEventListener('dblclick', (event) => {
     throughItem(getEventElement);
   }
 });
+
+const listaDeTarefas = document.querySelector('#lista-tarefas');
+const apaga = document.querySelector('#apaga-tudo');
+
+apaga.addEventListener('click', () => {
+  while (listaDeTarefas.firstChild) {
+    listaDeTarefas.removeChild(listaDeTarefas.firstChild);
+  }
+});
