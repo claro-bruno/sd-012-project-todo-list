@@ -45,6 +45,9 @@ button {
   color: var(--blue-color);
 }
 
+button:active {
+  transform: translateY(10px);
+}
 
 button , button:after {
   transition: all 0.3s;
