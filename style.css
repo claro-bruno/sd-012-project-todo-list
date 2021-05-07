@@ -1,5 +1,15 @@
-html,
-body {
+:root {
+
+  --blue-color: rgb(0 , 141 , 179);
+
+  --white-translucent: rgba(255 , 255 , 255 , 0.5);
+
+  --background-blur: blur(10px);
+
+  --cloud-white: rgb(254 , 238 , 223);
+}
+
+html , body {
   height: 100%;
   width: 100%;
   font-family: Fira sans, -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
@@ -22,39 +32,34 @@ main {
   flex-grow: 1;
   margin-bottom: 50px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--white-translucent);
   backdrop-filter: blur(10px);
 }
 
 button {
   cursor: pointer;
   backdrop-filter: blur(1px);
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--white-translucent);
   border: 0;
   font-size: 1rem;
-  color: rgb(0, 141, 179);
+  color: var(--blue-color);
 }
 
 
-button,
-button::after {
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
+button , button:after {
   transition: all 0.3s;
   border-radius: 10px;
-  background-color: rgb(255, 255, 255, 0);
+  background-color: transparent;
 }
 
-button::before,
-button::after {
-  background-color: rgba(255, 255, 255, 0.5);
+button:before , button:after {
+  background-color: var(--white-translucent);
   content: '';
   position: absolute;
   z-index: -1;
 }
 
-button::after {
+button:after {
   height: 0;
   left: 50%;
   top: 50%;
@@ -74,8 +79,7 @@ header {
   margin: 0;
 }
 
-h1,
-#funcionamento {
+h1 , #funcionamento {
   color: white;
   cursor: default;
 }
@@ -102,7 +106,7 @@ h2 {
 
 .task:hover {
   cursor: default;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--white-translucent);
   transition: all 0.3s;
 }
 
@@ -112,7 +116,7 @@ h2 {
 }
 
 .selected:hover {
-  background-color: rgb(179, 179, 179);
+  background-color: rgb(179 , 179 , 179);
   transition: all 0.3s;
 
 }
@@ -155,30 +159,27 @@ h2 {
 
 .fa-trash {
   color: red;
+  font-size: 0.8rem;
 }
 
 #remover-selecionado {
   background-color: red;
-  color: white;
-}
-
-.fa-trash {
-  font-size: 0.8rem;
+  color: var(--cloud-white);
 }
 
 .fa-cloud {
-  color: #feeedf;
+  color: var(--cloud-white);
 }
 
 .chevron {
-  color: rgb(0, 141, 179);
+  color: var(--blue-color);
 }
 
 #criar-tarefa {
-  background-color: rgb(0, 141, 179);
+  background-color: var(--blue-color);
   color: white;
 }
 
 #criar-tarefa:hover {
-  color: rgb(0, 141, 179);
+  color: var(--blue-color);
 }
