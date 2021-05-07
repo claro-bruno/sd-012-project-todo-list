@@ -65,23 +65,19 @@ function cleanCompletedTasks(event) {
 function saveTasks (event) {
     let li_tasks = document.querySelectorAll('.task');
     let ol_tasks = document.querySelector('#lista-tarefas');
-
+    /*
     let arrTasks = [];
     for(let index = 0; index < li_tasks.length; index += 1) {
         arrTasks.push(li_tasks[index].innerText);
-    }
-
-    localStorage.setItem('task', JSON.stringify(arrTasks));
+    }*/
+    console.log(ol_tasks);
+    localStorage.setItem('task', JSON.stringify(ol_tasks.innerHTML));
 }
 
 
 window.onload = function () {
-    let arrTasks = JSON.parse(localStorage.getItem('task'));
-    if(arrTasks !== null) {
-        let ol_tasks = document.querySelector('#lista-tarefas');
-        ol_tasks.innerHTML = '';
-        for(let index = 0; index < arrTasks.length; index += 1) {
-            addTask(arrTasks[index],'')
-    }}
+    
+    let ol_tasks = document.querySelector('#lista-tarefas');
+    ol_tasks.innerHTML = JSON.parse(localStorage.getItem('task'));
 
 };
