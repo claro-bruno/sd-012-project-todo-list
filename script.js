@@ -10,6 +10,7 @@ const removeAllButton = document.querySelector("#apaga-tudo");
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 const moveUpButton = document.querySelector('#mover-cima');
 const moveDownButton = document.querySelector('#mover-baixo');
+const removeSelectedButton = document.querySelector('#remover-selecionado');
 if (localStorage.getItem('arrayOfTaskObjs')) {
   loadtasks();
 };
@@ -138,6 +139,16 @@ moveDownButton.addEventListener('click', () => {
         belowSelected.parentElement.insertBefore(selected, belowSelected.nextElementSibling);
       }
     }
+  }
+});
+
+removeSelectedButton.addEventListener('click', () => {
+  const taskListChildren = document.getElementById('lista-tarefas').children;
+  for (let index = 0; index < taskListChildren.length; index += 1) {
+    if (taskListChildren[index].classList.contains('selected')) {
+        let selected = taskListChildren[index];
+        selected.parentElement.removeChild(selected);
+      }
   }
 });
 
