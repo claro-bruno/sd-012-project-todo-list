@@ -16,11 +16,7 @@ const moveDownButton = document.getElementById('mover-baixo');
 const selectTask = (e) => {
   const selectedTask = document.querySelector('.selected');
   const task = e.target;
-  if (!task.classList.contains('selected')) {
-    task.classList.add('selected');
-  } else {
-    task.classList.remove('selected');
-  }
+  task.classList.toggle('selected');
   if (selectedTask) {
     selectedTask.classList.remove('selected');
   }
@@ -81,6 +77,8 @@ saveButton.addEventListener('mouseout', () => {
 });
 
 const moveUp = () => {
+  const selectedTask = document.querySelector('.selected');
+
   if (!selectedTask) {
     errorMessage.innerText = 'Adicione e/ou Selecione uma tarefa!';
   } else {
@@ -92,12 +90,15 @@ const moveUp = () => {
     const swap = taskAbove.cloneNode(true);
     taskAbove.remove();
     const insertedTask = selectedTask.insertAdjacentElement('afterend', swap);
+    selectedTask.classList.toggle('selected');
     insertedTask.addEventListener('click', selectTask);
     insertedTask.addEventListener('dblclick', toggleCompleted);
   }
 };
 
 const moveDown = () => {
+  const selectedTask = document.querySelector('.selected');
+
   if (!selectedTask) {
     errorMessage.innerText = 'Adicione e/ou Selecione uma tarefa!';
   } else {
@@ -109,6 +110,7 @@ const moveDown = () => {
     const swap = taskBellow.cloneNode(true);
     taskBellow.remove();
     const insertedTask = selectedTask.insertAdjacentElement('beforebegin', swap);
+    selectedTask.classList.toggle('selected');
     insertedTask.addEventListener('click', selectTask);
     insertedTask.addEventListener('dblclick', toggleCompleted);
   }
