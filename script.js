@@ -20,24 +20,15 @@ window.onload = function() {
         listItems = document.getElementsByClassName('list-item');        
         
         for (let index = 0; index < listItems.length; index += 1) {
-            listItems[index].addEventListener('click', selectItem);
-            listItems[index].addEventListener('dblclick', completedItem);
+            listItems[index].addEventListener('click', selectItem);            
         }
     }
 
-    function selectItem(eventSource) {        
+    function selectItem(eventSource) {
         for (let index = 0; index < (listItems.length); index += 1) {
-            listItems[index].classList.remove('item-selected');
+            listItems[index].className = 'list-item';
         }
 
         eventSource.target.classList.add('item-selected');
-    }
-
-    function completedItem(eventSource) {
-        if (eventSource.target.classList.contains('completed')) {
-            eventSource.target.className = 'list-Item';
-        } else {
-            eventSource.target.classList = 'completed';
-        }
-    }
+    }    
 }
