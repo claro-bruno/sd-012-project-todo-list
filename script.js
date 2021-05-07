@@ -120,6 +120,30 @@ function cleanAll() {
 }
 cleanAll();
 
+function createButtonIII(buttonId) {
+  const getBotaoApagaCompleted = document.getElementById('botaoApagaCompleted');
+
+  const newButton = document.createElement('button');
+  newButton.id = buttonId;
+  newButton.innerHTML = 'Apagar tarefas concluídas';
+  getBotaoApagaCompleted.appendChild(newButton);
+}
+createButtonIII('remover-finalizados');
+
+
+function cleanCompleted() {
+  const getCompletedButton = document.getElementById('remover-finalizados');
+
+  getCompletedButton.addEventListener('click', function () {
+    const getTaskList = document.querySelectorAll('.completed');
+    for (let index = 0; index < getTaskList.length; index += 1) {
+      getTaskList[index].remove();
+    }
+  })
+}
+cleanCompleted();
+
+
 
 
 
