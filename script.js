@@ -6,7 +6,7 @@ function criarItem(event) {
         itemLista.className = 'lista'
     })
     itemLista.innerHTML = valorList
-    valorList
+    document.getElementById('texto-tarefa').value = ""
 
 }
 
