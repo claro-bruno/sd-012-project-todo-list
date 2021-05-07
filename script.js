@@ -20,7 +20,8 @@ window.onload = function(){
     };
     listParent.addEventListener('click', chooseTaks);
 
-    document.addEventListener('dblclick', (evento) => {
+    const listaOrdenada = document.querySelector('#lista-tarefas');
+    listaOrdenada.addEventListener('dblclick', (evento) => {
         if (evento.target.classList.contains('completed')) {
             evento.target.classList.remove('completed')
         } else {
@@ -32,7 +33,13 @@ window.onload = function(){
     deleteButton.addEventListener('click', function () {
         let itensLista = document.querySelector('#lista-tarefas')
             itensLista.innerText = '';
-            console.log('dale')
+    })
+
+    const deletecheckButton = document.getElementById('remover-finalizados');
+    deletecheckButton.addEventListener('click', function () {
+        let itenscheckedLista = document.querySelectorAll('.completed')
+        for (let index = 0; index < itenscheckedLista.length; index += 1)
+            itenscheckedLista[index].remove();
     })
 
 };
