@@ -6,11 +6,12 @@ window.onload = function() {
     function criaTarefa() {
         btn.addEventListener('click', function() {
             let listItem = document.createElement('li');
-            listItem.addEventListener('click', function() {
-                if(document.querySelector('.itemLista') === null)
-                listItem.classList.add('itemLista');
-                else
-                listItem.classList.remove('itemLista');
+            listItem.addEventListener('click', function(event) {
+                let seleciona = document.querySelector('.itemLista');
+                if(seleciona){
+                    seleciona.classList.remove('itemLista');
+                }
+                event.target.classList.add('itemLista');
             })
             let tarefa = entrada.value;
             listaTarefas.appendChild(listItem);
@@ -18,7 +19,5 @@ window.onload = function() {
             entrada.value = '';
         });
     }
-
     criaTarefa();
-
 }
