@@ -3,6 +3,7 @@ const listaTarefas = document.querySelector('#lista-tarefas');
 const inputTxtTarefa = document.getElementById('texto-tarefa');
 const botaoLimparLista = document.getElementById('apaga-tudo');
 const botaoRemFin = document.getElementById('remover-finalizados');
+const botaoRemSelec = document.getElementById('remover-selecionado');
 const botaoSalvTaref = document.getElementById('salvar-tarefas');
 const botaoMovCima = document.getElementById('mover-cima');
 const botaoMovBaixo = document.getElementById('mover-baixo');
@@ -62,4 +63,9 @@ botaoMovBaixo.addEventListener('click', () => {
   if (tarefaMarcada !== null && tarefaMarcada.nextElementSibling !== null) {
     listaTarefas.insertBefore(tarefaMarcada, tarefaMarcada.nextElementSibling.nextElementSibling);
   }
+});
+// Configura botão Remover Selecionados
+botaoRemSelec.addEventListener('click', () => {
+  const tarefaMarcada = document.querySelector('.marcador');
+  listaTarefas.removeChild(tarefaMarcada);
 });
