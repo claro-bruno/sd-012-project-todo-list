@@ -38,6 +38,7 @@ window.onload = function () {
   });
 
   botaoSalvarLista.addEventListener('click', function () {
+    let arrayTarefas = [];
     let tarefas = document.querySelectorAll('.tarefa');
     for (let index = 0; index < tarefas.length; index += 1) {
       arrayTarefas.push(tarefas[index].innerHTML);
@@ -48,7 +49,6 @@ window.onload = function () {
   botaoMoveCima.addEventListener('click', function () {});
 
   function getTarefas() {
-    localStorage.setItem('Lista', []);
     let arrayTarefas = localStorage.getItem('Lista');
     let arraySplit = arrayTarefas.split(',');
     for (let index = 0; index < arraySplit.length; index += 1) {
