@@ -1,12 +1,8 @@
 
-.completed {
-  text-decoration: line-through;
-}
-
 li {
   font-size: 30px;
 }
 
-.color {
-  background-color:rgb(128, 128, 128);
+.completed {
+  text-decoration: line-through;
 }
