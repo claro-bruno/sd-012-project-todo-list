@@ -7,6 +7,7 @@ const saveTasks = document.getElementById('salvar-tarefas');
 const moveUpBtn = document.getElementById('mover-cima');
 const moveDownBtn = document.getElementById('mover-baixo');
 const removeBtn = document.getElementById('remover-selecionado');
+const selectedColor = 'rgb(128, 128, 128)';
 
 // Acrescentar tarefa
 function createTask() {
@@ -20,11 +21,12 @@ createBtn.addEventListener('click', createTask);
 
 // Seleciona tarefa
 function selectTask(event) {
-  let tasks = document.getElementsByTagName('li');
+  const tasks = document.getElementsByTagName('li');
+  const selectedLi = event.target;
   for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].style.backgroundColor = 'rgb(255,255,255)';
   }
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  selectedLi.style.backgroundColor = selectedColor;
 }
 
 taskList.addEventListener('click', selectTask);
@@ -54,7 +56,7 @@ clearCompleted.addEventListener('click', clearDone);
 // Apaga todas as tarefas
 function clearTasks() {
   const done = document.getElementsByTagName('li');
-  for (let index = 0; index < done.length; index +=1 ) {
+  for (let index = 0; index < done.length; index += 1) {
     done[index].remove();
     index -= 1;
   }
@@ -81,7 +83,7 @@ window.onload = getStoredata;
 function moveTaskup() {
   const tasks = document.getElementsByTagName('li');
   for (let index = 1; index < (tasks.length); index += 1) {
-    if (tasks[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+    if (tasks[index].style.backgroundColor === selectedColor) {
       const aux1 = tasks[index].cloneNode(true);
       const aux2 = tasks[index - 1].cloneNode(true);
       tasks[index].replaceWith(aux2);
@@ -97,11 +99,11 @@ moveUpBtn.addEventListener('click', moveTaskup);
 function moveTaskdown() {
   const tasks = document.getElementsByTagName('li');
   for (let index = 0; index < (tasks.length - 1); index += 1) {
-    if (tasks[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+    if (tasks[index].style.backgroundColor === selectedColor) {
       const aux1 = tasks[index].cloneNode(true);
       const aux2 = tasks[index + 1].cloneNode(true);
       tasks[index].replaceWith(aux2);
-      tasks[index +1 ].replaceWith(aux1);
+      tasks[index + 1].replaceWith(aux1);
       index = tasks.length;
     }
   }
@@ -113,7 +115,7 @@ moveDownBtn.addEventListener('click', moveTaskdown);
 function removeTask() {
   const tasks = document.getElementsByTagName('li');
   for (let index = 0; index < (tasks.length); index += 1) {
-    if (tasks[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+    if (tasks[index].style.backgroundColor === selectedColor) {
       tasks[index].remove();
     }
   }
