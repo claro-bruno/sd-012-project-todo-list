@@ -29,7 +29,7 @@ function backgroundColor() {
 function lineThrough (){
     listaTarefas.addEventListener('dblclick', (evt) => {
         const completado = document.querySelector('.completed')
-        evt.target.classList.add('completed')
+        evt.target.classList.toggle('completed')
     })
 }
 lineThrough();
