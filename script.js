@@ -4,6 +4,22 @@ const list = document.querySelector('#lista-tarefas');
 const eraseAll = document.querySelector('#apaga-tudo');
 const eraseCompleted = document.querySelector('#remover-finalizados');
 const saveButton = document.querySelector('#salvar-tarefas');
+const lastList = JSON.parse(localStorage.getItem('taskList'));
+
+function rememberList() {
+  for (let indexRemember = 0; indexRemember < lastList.length; indexRemember += 1) {
+    const rememberItem = document.createElement('li');
+    rememberItem.innerHTML = lastList[indexRemember];
+    rememberItem.addEventListener('click', changeSelected);
+    rememberItem.addEventListener('click', changeBgColor);
+    rememberItem.addEventListener('dblclick', completedTasks);
+    list.appendChild(rememberItem);
+  }
+}
+
+if (lastList.length > 0) {
+  rememberList();
+}
 
 function changeBgColor(event) {
   let target = event.target;
@@ -62,23 +78,9 @@ eraseCompleted.addEventListener('click', eraseCompletedTasks);
 function saveTasks() {
   const arrayList = [];
   for (let indexStorage = 0; indexStorage < list.children.length; indexStorage += 1) {
-    arrayList.push(list.children[indexStorage].innerText);
+    arrayList.push(list.children[indexStorage].innerHTML);
   }
   localStorage.setItem('taskList', JSON.stringify(arrayList));
 }
 
 saveButton.addEventListener('click', saveTasks);
-
-function rememberList() {
-  const lastList = JSON.parse(localStorage.getItem('taskList'));
-  for (let indexRemember = 0; indexRemember < lastList.length; indexRemember += 1) {
-    const rememberItem = document.createElement('li');
-    rememberItem.innerHTML = lastList[indexRemember];
-    rememberItem.addEventListener('click', changeSelected);
-    rememberItem.addEventListener('click', changeBgColor);
-    rememberItem.addEventListener('dblclick', completedTasks);
-    list.appendChild(rememberItem);
-  }
-}
-
-rememberList();
