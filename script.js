@@ -55,6 +55,21 @@ function clearListTask() {
   }
 }
 
+function clearTaskCompleted() {
+  let createButton = document.createElement('button');
+  createButton.id = 'remover-finalizados';
+  createButton.innerHTML = 'Remover concluídos';
+  document.querySelector('#container-tools').appendChild(createButton);
+}
+
+function clearItemCompleted() {
+  let itemCompleted = document.querySelectorAll('.completed');
+  let containerListItem = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < itemCompleted.length; index += 1) {
+    containerListItem.removeChild(itemCompleted[index]);
+  }
+}
+
 let itemList = document.querySelectorAll('li');
 let buttonSubmit = document.querySelector('#criar-tarefa');
 let ordenedList = document.querySelector('#lista-tarefas');
@@ -67,7 +82,10 @@ function eventAddTask() {
     itemListConcluded();
   });
 }
+clearTaskCompleted();
 createClearButton();
 eventAddTask();
 let clearButton = document.querySelector('#apaga-tudo');
 clearButton.addEventListener('click', clearListTask);
+let clearCompleted = document.querySelector('#remover-finalizados');
+clearCompleted.addEventListener('click', clearItemCompleted);
