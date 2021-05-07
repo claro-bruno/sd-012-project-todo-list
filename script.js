@@ -39,7 +39,7 @@ window.onload = function() {
 
     // Clear All
     clearAll.addEventListener('click', function() {
-        for (let child in list) {
+        while (list.lastElementChild) {
             list.removeChild(list.lastElementChild);
         }
     })
@@ -48,7 +48,7 @@ window.onload = function() {
     clearCompleted.addEventListener('click', function () {
         let tasks = document.querySelectorAll('li');
         for (let child = 0; child < tasks.length; child += 1) {
-            if (tasks[child].classList.contains('selected')) {
+            if (tasks[child].classList.contains('completed')) {
                 tasks[child].remove();
             }
         }
