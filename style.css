@@ -2,7 +2,7 @@
   margin: 10px;
 }
 
-.selected {
+li.selected {
   background-color: rgb(128, 128, 128);
 }
 
