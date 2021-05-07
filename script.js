@@ -1,5 +1,6 @@
 const optionContent = document.querySelector('#option-content');
 const headerContent = document.querySelector('#header-content');
+const taskListId = '#lista-tarefas';
 
 function createHeaderContent() {
   headerContent.innerHTML = 'Minha Lista de Tarefas';
@@ -30,8 +31,33 @@ function createAddTaskInput() {
   optionContent.appendChild(addTaskInput);
 }
 
+function createAddTaskButton() {
+  const addTaskButton = document.createElement('button');
+  addTaskButton.id = 'criar-tarefa';
+  addTaskButton.innerText = 'Adicionar Tarefa';
+  optionContent.appendChild(addTaskButton);
+}
+
 function createOptionsMenu() {
   createAddTaskLabel();
   createAddTaskInput();
+  createAddTaskButton();
 }
 createOptionsMenu();
+
+function createTask(taskInput) {
+  const taskList = document.querySelector(taskListId);
+  const newTask = document.createElement('li');
+  newTask.id = `task-${(taskList.children.length + 1)}`;
+  newTask.className = 'task';
+  newTask.innerHTML = taskInput;
+  taskList.appendChild(newTask);
+}
+
+const addTaskButtonElement = document.querySelector('#criar-tarefa');
+function addTask() {
+  const taskInput = document.querySelector('#texto-tarefa');
+  createTask(taskInput.value);
+  taskInput.value = '';
+}
+addTaskButtonElement.addEventListener('click', addTask);
