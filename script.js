@@ -13,6 +13,10 @@ botao.addEventListener('click', (e) => {
 
   input.value = "";
 
+  listaOrganizada.addEventListener("click", () => {
+    listaOrganizada.style.backgroundColor= "rgb(128, 128, 128)"
+  })
+  
   listaOrganizada.addEventListener('click', () => {
     for (let index = 0; index < listaOrganizada.length; index += 1) {
       const select = document.querySelector('.selected');
