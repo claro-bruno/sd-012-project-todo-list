@@ -37,28 +37,31 @@ window.onload = function () {
   });
 
   botaoSalvarLista.addEventListener('click', function () {
-
     let arrayTarefas = [];
+    let classes = []
     let tarefas = document.querySelectorAll('.tarefa');
     for (let index = 0; index < tarefas.length; index += 1) {
-      arrayTarefas.push(tarefas[index].innerHTML);
+      let classe = tarefas[index].classList;
+      arrayTarefas.push((tarefas[index].innerHTML));
+      classes.push(classe);
     }
     localStorage.setItem('Lista', arrayTarefas);
+    localStorage.setItem('Classes', classes);
   });
-
-  botaoMoveCima.addEventListener('click', function () {});
 
   function getTarefas() {
     if (typeof localStorage.getItem('Lista') === 'object') {
       localStorage.setItem('Lista', []);
     }
     let arrayTarefas = localStorage.getItem('Lista');
+    let classes = localStorage.getItem('Classes');
+    let classesSplit = classes.split(',');
     let arraySplit = arrayTarefas.split(',');
     let arrayFilter = arraySplit.filter(Boolean);
     for (let index = 0; index < arrayFilter.length; index += 1) {
       let novaTarefa = document.createElement('li');
       novaTarefa.innerHTML = arrayFilter[index];
-      novaTarefa.className = 'tarefa';
+      novaTarefa.className = classesSplit[index];
       listaTarefas.appendChild(novaTarefa);
     }
   }
