@@ -142,10 +142,10 @@ const loadTasks = () => {
     }
   }
 };
-removeSelectedButton.addEventListener('click', removeSelected);
 
 window.onload = () => {
   loadTasks();
+  removeSelectedButton.addEventListener('click', removeSelected);
   saveButton.addEventListener('click', saveTasks);
   moveUpButton.addEventListener('click', moveUp);
   moveDownButton.addEventListener('click', moveDown);
