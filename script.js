@@ -7,4 +7,22 @@ let salvaLis = document.getElementById('salvar-tarefas');
 let removeSel = document.getElementById('remover-selecionado');
 
 let caixaInput = document.getElementById('texto-tarefa');
-let list = document.getElementById('lista-tarefas');
+let listarray = document.getElementById('lista-tarefas');
+
+function addlist(){
+ let cria = document.createElement('li')
+ cria.innerHTML = caixaInput.value;
+    listarray.appendChild(cria)
+    return cria
+};
+Adicionar.addEventListener('click',addlist);
+
+/*Adicionar.addEventListener('click',function(){
+    listarray.push(caixaInput)
+    return listarray
+})
+ 
+Adicionar.addEventListener('click',() => {
+    listarray.push(caixaInput)
+    return listarray
+}*/
