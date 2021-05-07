@@ -8,7 +8,7 @@ const btnSave = document.getElementById('salvar-tarefas');
 const btnUP = document.getElementById('mover-cima');
 const btnDown = document.getElementById('mover-baixo');
 const btnRemoveSelected = document.getElementById('remover-selecionado')
-// Captura o texto do input e adiciona à lista
+
 function catchInput() {
   btnAdd.addEventListener('click', () => {
     const createLi = document.createElement('li');
@@ -20,20 +20,6 @@ function catchInput() {
   });
 }
 catchInput();
-// Altera a cor de fundo do item selecinado
-   function deselectItem () {
-     const selectedItem = document.querySelector('.selected');
-     if (selectedItem !== null) {
-       selectItem.classList.remove('selected');
-     }
-   }
-  //  function selectItem () {
-  //    taskList.addEventListener('click', event => {
-  //      event.target.classList.add('selected');
-  //      deselectItem();
-  //    })
-  //  }
-  //  selectItem();
   function selectItem() {
     const itemList = document.querySelectorAll('.item-list');
     for (const item of itemList) {
@@ -45,20 +31,6 @@ catchInput();
       });
     }
   }
-// function selectItem() {
-//   const itemList = document.querySelectorAll('.item-list');
-//   for (const item of itemList) {
-//     item.addEventListener('click', () => {
-//       for (const item2 of itemList) {
-//         item2.style.backgroundColor = null;
-//         item2.style.fontSize = '16px';
-//       }
-//       item.style.backgroundColor = 'rgb(128, 128, 128)';
-//       item.style.fontSize = '20px';
-//     });
-//   }
-// }
-// Marca item como completed
 function markAsCompleted(event) {
   if (event.target.classList.contains('completed') !== true) {
     event.target.classList.add('completed');
@@ -67,7 +39,7 @@ function markAsCompleted(event) {
   }
 }
 taskList.addEventListener('dblclick', markAsCompleted);
-// Botao apaga tudo
+
 btnX.addEventListener('click', removeAll);
 function removeAll() {
   const itemList = document.querySelectorAll('.item-list');
@@ -75,7 +47,7 @@ function removeAll() {
       taskList.removeChild(item);
     }
 }
-// Botao para remover finalizados
+
 btnXX.addEventListener('click', removeCompleted);
 function removeCompleted() {
   const completed = document.querySelectorAll('.completed');
@@ -83,7 +55,7 @@ function removeCompleted() {
     taskList.removeChild(item);
   }
  }
-// Salvas a lista
+
 function saveTasks() {
   localStorage.setItem('task', taskList.innerHTML);
 }
@@ -91,51 +63,25 @@ btnSave.addEventListener('click', saveTasks);
 window.onload = function () {
   taskList.innerHTML = localStorage.getItem('task');
 }
-// Move tarefas para cima
+
 function moveUp() {
-  const itemList = document.querySelectorAll('.item-list');
+  const selected = document.querySelector('.selected');
   const taskList = document.getElementById('lista-tarefas');
-  for (let index = 0; index < itemList.length; index += 1) {
-    let item = itemList[index];
-    console.log(item);
-    // if(item.style.backgroundColor === 'rgb(128, 128, 128)' && item === itemList[0]) {
-    //   break;
-    // }
-    if (item.style.backgroundColor === 'rgb(128, 128, 128)') {
-      let temp;
-
-
-
-
-      // itemList[index -1] = temp;
-      break;
-      // item.style.backgroundColor = null
-      // item.style.fontSize = '16px';
-      // item.previousElementSibling.style.backgroundColor = 'rgb(128, 128, 128)';
-      // item.previousElementSibling.style.fontSize = '20px';
-    }
+  if(selected.classList.contains('selected') && selected.previousElementSibling !== null) {
+    taskList.insertBefore(selected, selected.previousElementSibling);
   }
 }
 btnUP.addEventListener('click', moveUp);
 // Move tarefas para baixo
 function moveDown() {
-  const itemList = document.querySelectorAll('.item-list');
-  for (let index = 0; index < itemList.length; index += 1) {
-    let item = itemList[index];
-    if(item.style.backgroundColor === 'rgb(128, 128, 128)' && item === itemList[itemList.length -1]) {
-      break;
-    }
-    if (item.style.backgroundColor === 'rgb(128, 128, 128)') {
-      item.nextElementSibling.style.backgroundColor = 'rgb(128, 128, 128)';
-      item.nextElementSibling.style.fontSize = '20px';
-      item.style.backgroundColor = null
-      item.style.fontSize = '16px';
-      break;
-    }
+  const selected = document.querySelector('.selected');
+  const taskList = document.getElementById('lista-tarefas');
+  if (selected.classList.contains('selected') && selected.nextElementSibling !== null) {
+    taskList.insertBefore(selected, selected.nextElementSibling.nextElementSibling);
   }
 }
 btnDown.addEventListener('click', moveDown);
-//Remove selecionados
+
 function removeSelected() {
   const itemList = document.querySelectorAll('.item-list');
   for (let index = 0; index < itemList.length; index += 1) {
