@@ -17,6 +17,8 @@ window.onload = function () {
   moveUp();
 
   moveDown();
+
+  removerSelecionados();
 }
 
 function criarTarefa() {
@@ -151,6 +153,19 @@ function moveDown() {
       pegarLista.childNodes[indexAtual].classList.remove('selected');
       pegarLista.childNodes[indexAtual].style.backgroundColor = 'white';
       pegarLista.childNodes[indexAtual].innerText = previousValue;
+    }
+  })
+}
+
+function removerSelecionados() {
+  const botaoSelecionados = document.getElementById('remover-selecionado');
+  const pegarLista = document.getElementById('lista-tarefas');
+  botaoSelecionados.addEventListener('click', function () {
+    const getAllSelecteds = document.querySelectorAll('#lista-tarefas li');
+    for (let i = 0; i < getAllSelecteds.length; i += 1) {
+      if (getAllSelecteds[i].className.includes('selected')) {
+        pegarLista.removeChild(getAllSelecteds[i]);
+      }
     }
   })
 }
