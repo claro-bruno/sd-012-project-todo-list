@@ -7,7 +7,7 @@ function adcLista() {
   texto = input.value;
   if (texto !== 0) {
     const li = document.createElement('li');
-    lista.appendChild(li);
+    li.className = 'item';
     li.innerHTML = texto;
     lista.appendChild(li);
   }
@@ -16,3 +16,15 @@ function adcLista() {
 }
 
 criar.addEventListener('click', adcLista);
+
+document.addEventListener('click', (event) => {
+  const alvo = event.target;
+  if (alvo.className === 'item') {
+    const selected = document.querySelector('.selected');
+    if (selected !== null) {
+      selected.classList.remove('selected');
+      selected.style.backgroundColor = '#212121';
+    }
+    alvo.classList.add('selected');
+  }
+});
