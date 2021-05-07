@@ -10,6 +10,9 @@ btnCleanCompletedTasks.addEventListener('click', cleanCompletedTasks);
 let btnSaveTasks = document.querySelector('#salvar-tarefas');
 btnSaveTasks.addEventListener('click', saveTasks);
 
+let btnRemoverSelecionado = document.querySelector('#remover-selecionado');
+btnRemoverSelecionado.addEventListener('click', removeSelected);
+
 function addTask(myTask,evt) {
 
     let ol_task = document.querySelector('#lista-tarefas');
@@ -74,9 +77,16 @@ function saveTasks (event) {
     localStorage.setItem('task', JSON.stringify(ol_tasks.innerHTML));
 }
 
+function removeSelected(event) {
+    let li_selected = document.querySelector('.selected');
+    let ol_tasks = document.querySelector('#lista-tarefas');
+
+    if(li_selected !== null) {
+        ol_tasks.removeChild(li_selected);
+    }
+}
 
 window.onload = function () {
-    
     let ol_tasks = document.querySelector('#lista-tarefas');
     ol_tasks.innerHTML = JSON.parse(localStorage.getItem('task'));
 
