@@ -8,6 +8,8 @@ const taskList = document.getElementById('lista-tarefas');
 const removeFinishedTasksButton = document.getElementById('remover-finalizados');
 const removeAllButton = document.querySelector("#apaga-tudo");
 const saveTasksButton = document.querySelector('#salvar-tarefas');
+const moveUpButton = document.querySelector('#mover-cima');
+const moveDownButton = document.querySelector('#mover-baixo');
 if (localStorage.getItem('arrayOfTaskObjs')) {
   loadtasks();
 };
@@ -97,16 +99,70 @@ function makeArrayOfTaskObjs() {
       taskObj.completed = true;
     }
     arrayOfTaskObjs.push(taskObj)
-    console.log(taskObj);
+    console.log(taskObj); //
   }
   return arrayOfTaskObjs;
 };
 
 let arrayOfTaskObjs = makeArrayOfTaskObjs();
-console.log(arrayOfTaskObjs);
+console.log(arrayOfTaskObjs); //
 
 saveTasksButton.addEventListener('click', () => {
   let arrayOfTaskObjs = makeArrayOfTaskObjs();
-  console.log(arrayOfTaskObjs);
+  console.log(arrayOfTaskObjs); //
   localStorage.setItem('arrayOfTaskObjs', JSON.stringify(arrayOfTaskObjs));
 });
+
+moveUpButton.addEventListener('click', () => {
+  const taskListChildren = document.getElementById('lista-tarefas').children;
+  for (let index = 0; index < taskListChildren.length; index += 1) {
+    if (taskListChildren[index].classList.contains('selected')) {
+      if (index !== 0) {
+        let selected = taskListChildren[index];
+        let aboveSelected = taskListChildren.item(index - 1);
+        selected.parentElement.insertBefore(selected, aboveSelected);
+      }
+    }
+  }
+});
+
+moveDownButton.addEventListener('click', () => {
+  const taskListChildren = document.getElementById('lista-tarefas').children;
+  let count = 1;
+  for (let index = 0; index < taskListChildren.length; index += 1) {
+    if (taskListChildren[index].classList.contains('selected') && count === 1) {
+      count += 1;
+      if (index !== (taskListChildren.length - 1)) {
+        let selected = taskListChildren[index];
+        let belowSelected = taskListChildren.item(index + 1);
+        belowSelected.parentElement.insertBefore(selected, belowSelected.nextElementSibling);
+      }
+    }
+  }
+});
+
+// moveUpButton.addEventListener('click', () => {
+//   let arrayOfTaskObjs = makeArrayOfTaskObjs();
+//   let newArrayOfTaskObjs = [];
+//   for (let index = 0; index < arrayOfTaskObjs.length; index += 1) {
+//     if (arrayOfTaskObjs[index].selected) {
+//       let element = arrayOfTaskObjs[index];
+//       console.log(`element: `);
+//       let position = arrayOfTaskObjs[index].position;
+//       let subtracted = arrayOfTaskObjs[index].splice(position, 1);
+//       let added = subtracted.splice((arrayOfTaskObjs[index -1]), 0, element);
+//       newArrayOfTaskObjs.push(added);
+//     }
+//   }
+
+//   arrayOfTaskObjs.every((task) => {
+//     if (task.selected) {
+//       let element = task;
+//       console.log(`element: ${task}`);
+//       let position = task.position;
+
+//     }
+//   });
+
+//   console.log(`novo array${newArrayOfTaskObjs}`)
+// });
