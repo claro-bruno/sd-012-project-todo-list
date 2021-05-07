@@ -10,7 +10,7 @@ function createListItem() {
   let createItemList = document.createElement('li');
   let contentInput = document.querySelector('#texto-tarefa').value;
   createItemList.innerHTML = contentInput;
-  createItemList.style.background = 'white';
+  createItemList.className = 'task';
   document.querySelector('#lista-tarefas').appendChild(createItemList);
 }
 
@@ -19,16 +19,37 @@ function clearInput() {
   contentInput.value = '';
 }
 
-function addBgcItemList(event) {
-  let itemList = document.getElementsByTagName('li');
-  for (let items = 0; items < itemList.length; items += 1) {
-    console.log(itemList[items].style.background);
-    itemList[items].style.backgroundColor = 'white';
+function selectItemList() {
+  let itemList = document.querySelectorAll('.task');
+  for (let index = 0; index < itemList.length; index += 1) {
+    itemList[index].addEventListener('click', (event) => {
+      let itemSelected = document.querySelector('.selected');
+      if (itemSelected !== null) {
+        itemSelected.classList.remove('selected');
+      }
+      event.target.classList.add('selected');
+    });
   }
-  event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
+// Essa questão eu consegui através do PR do Roberval.
+// https://github.com/tryber/sd-012-project-todo-list/pull/15/files
+function itemListConcluded() {
+  let itemList = document.querySelector('#lista-tarefas').lastChild;
+  itemList.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
+}
+
+let itemList = document.querySelectorAll('li');
 let buttonSubmit = document.querySelector('#criar-tarefa');
 let ordenedList = document.querySelector('#lista-tarefas');
-buttonSubmit.addEventListener('click', createListItem);
-buttonSubmit.addEventListener('click', clearInput);
-ordenedList.addEventListener('click', addBgcItemList);
+
+function eventAddTask() {
+  buttonSubmit.addEventListener('click', () => {
+    createListItem();
+    clearInput();
+    selectItemList();
+    itemListConcluded();
+  });
+}
+eventAddTask();
