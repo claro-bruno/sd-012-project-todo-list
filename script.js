@@ -2,6 +2,8 @@ const buttonToDo = document.querySelector('#criar-tarefa');
 const orderList = document.querySelector('#lista-tarefas');
 const buttonClear = document.querySelector('#apaga-tudo');
 const tarefas = document.getElementsByClassName('tarefa');
+const buttonConcluded = document.querySelector('#remover-finalizados');
+const completed = document.getElementsByClassName('completed');
 
 function dbClick(event) {
   if (event.target.className.includes('completed')) {
@@ -42,7 +44,15 @@ function createList() {
 buttonToDo.addEventListener('click', createList);
 
 buttonClear.addEventListener('click', () => {
-  for (let indexLi = tarefas.length -1; indexLi >= 0; indexLi -= 1) {
+  for (let indexLi = tarefas.length - 1; indexLi >= 0; indexLi -= 1) {
     tarefas[indexLi].remove();
+  }
+});
+
+buttonConcluded.addEventListener('click', () => {
+  for (let indexComp = tarefas.length - 1; indexComp >= 0; indexComp -= 1) {
+    if (tarefas[indexComp].className.includes('completed')) {
+      tarefas[indexComp].remove();
+    } 
   }
 });
