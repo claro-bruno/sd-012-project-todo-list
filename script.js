@@ -13,10 +13,11 @@ buttonAdd.addEventListener('click', () => {
     clearTextInput();
 })
 
+//Consegui com ajuda do Ronald no plantão, também era dúvida de outro colega
 function selectTask(event) {
-    const targetedEvent = event.target;
+    let targetedEvent = event.target;
     if (targetedEvent.classList.contains('task')) {
-      const currentTaskSelected = document.querySelector('.selected');
+      let currentTaskSelected = document.querySelector('.selected');
       if (currentTaskSelected !== null) {
         currentTaskSelected.classList.remove('selected');
       }
@@ -24,6 +25,31 @@ function selectTask(event) {
     }
   }
 
+//Consegui realizar com ajuda de um colega e do Ronald no plantão:
+function completeTask(event) { 
+  let targetedEvent = event.target;
+  if (targetedEvent.classList.contains('task')) {
+    if (targetedEvent.classList.contains('completed')) {
+      targetedEvent.classList.remove('completed');
+    } else {
+      targetedEvent.className += ' completed';
+    }
+  }
+}
+
+//Consegui com ajuda do post no Slack do colega:
+let eraseListButton = document.getElementById('apaga-tudo');
+function listClear() {
+  let taskList = document.getElementById('lista-tarefas');
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.lastChild);
+  }
+}
+
+
+
 window.onload =  function() {
     document.addEventListener('click', selectTask);
+    document.addEventListener('dblclick', completeTask);
+    eraseListButton.addEventListener('click', listClear);
 }
