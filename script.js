@@ -80,6 +80,13 @@ function createMoveDownButton() {
   optionContent.appendChild(moveDownButton);
 }
 
+function createSelectedTaskButton() {
+  const removeSelectedTaskButton = document.createElement('button');
+  removeSelectedTaskButton.id = 'remover-selecionado';
+  removeSelectedTaskButton.innerText = 'Remover a Tarefa Selecionada';
+  optionContent.appendChild(removeSelectedTaskButton);
+}
+
 function createOptionsMenu() {
   createAddTaskLabel();
   createAddTaskInput();
@@ -89,6 +96,7 @@ function createOptionsMenu() {
   createSaveTasksButton();
   createMoveUpButton();
   createMoveDownButton();
+  createSelectedTaskButton();
 }
 createOptionsMenu();
 
@@ -236,6 +244,16 @@ function removeCompletedTasks() {
   updateIdsOfTasks();
 }
 removeCompletedTasksButtonElement.addEventListener('click', removeCompletedTasks);
+
+const removeSelectedTaskButtonsElement = document.querySelector('#remover-selecionado');
+
+function removeSelectedTask() {
+  taskList = document.querySelector(taskListId);
+  const selectedElement = document.querySelector('.selected');
+  taskList.removeChild(selectedElement);
+  updateIdsOfTasks();
+}
+removeSelectedTaskButtonsElement.addEventListener('click', removeSelectedTask);
 
 const saveTasksButtonElement = document.querySelector('#salvar-tarefas');
 
