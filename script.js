@@ -61,3 +61,22 @@ function clearTaskCompleted() {
     tasks[index].outerHTML = '';
   }
 }
+
+function saveTasks() {
+
+}
+
+function moveUp() {
+  
+}
+
+function moveDown() {
+  
+}
+
+function clearTaskSelected() {
+  let tasks = document.querySelectorAll('.selected');
+  for (let index = 0; index < tasks.length; index += 1) {
+    tasks[index].outerHTML = '';
+  }
+}
