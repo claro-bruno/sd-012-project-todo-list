@@ -50,13 +50,17 @@ window.onload = function () {
   });
 
   botaoMoveCima.addEventListener('clicl', function () {
-    
+
   })
 
   function getTarefas() {
     if (typeof localStorage.getItem('Lista') === 'object') {
       localStorage.setItem('Lista', []);
     }
+    if (typeof localStorage.getItem('Classes') === 'object') {
+      localStorage.setItem('Classes', []);
+    }
+
     let arrayTarefas = localStorage.getItem('Lista');
     let classes = localStorage.getItem('Classes');
     let classesSplit = classes.split(',');
