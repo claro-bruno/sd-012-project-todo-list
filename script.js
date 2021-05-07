@@ -47,3 +47,10 @@ function taskCompleted() {
     })
   }
 }
+
+function clearInput() {
+  let contentInput = document.querySelectorAll('.task-list');
+  for (let index = 0; index < contentInput.length; index += 1) {
+    contentInput[index].outerHTML = '';
+  }
+}
