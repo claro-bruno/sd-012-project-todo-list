@@ -80,14 +80,29 @@ recoverTasksValues();
 
 document.addEventListener('click', (event) => {
   if (event.target.id === 'criar-tarefa') {
-    addTasks();
+    const getInputElement = document.getElementById('texto-tarefa');
+    const getInputValue = getInputElement.value;
+    if (getInputValue === '') {
+      const emoji = String.fromCodePoint(0x1F600);
+      alert(`Você esqueceu de inserir a tarefa ${emoji}`);
+    } else {
+      addTasks();
+    }
   }
   if (event.target.classList.contains('task')) {
     const getEventElement = event.target;
     selectTask(getEventElement);
   }
+});
+
+document.addEventListener('click', (event) => {
+/* Consultei por recomendação da Camila Malvessi o link abaixo para resolver essa parte de uma forma melhor.
+https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
+*/
   if (event.target.id === 'apaga-tudo') {
-    getTasksList.innerHTML = '';
+    while (getTasksList.firstElementChild) {
+      getTasksList.removeChild(getTasksList.firstElementChild);
+    }
   }
   if (event.target.id === 'remover-finalizados') {
     const completedList = document.querySelectorAll('.completed');

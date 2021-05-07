@@ -1,7 +1,117 @@
+body {
+  margin: 0;
+  background-color: aquamarine;
+}
+
+header {
+  font-size: 2rem;
+  text-align: center;
+}
+
+main {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 70%;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+li {
+  font-size: 1.5rem;
+}
+
+#buttons {
+  text-align: center;
+}
+
+button {
+  border: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 20px;
+  margin: 0 10px;
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+#criar-tarefa {
+  background-color: lightskyblue;
+}
+
+#criar-tarefa:hover {
+  background-color: lightblue;
+}
+
+#remover-selecionado {
+  background-color: red;
+}
+
+#remover-selecionado:hover {
+  background-color: crimson;
+}
+
+#mover-cima {
+  background-color: lightsalmon;
+}
+
+#mover-cima:hover {
+  background-color: lightpink;
+}
+
+#mover-baixo {
+  background-color: lightsalmon;
+}
+
+#mover-baixo:hover {
+  background-color: lightpink;
+}
+
+#apaga-tudo {
+  background-color: brown;
+}
+
+#apaga-tudo:hover {
+  background-color: rosybrown;
+}
+
+#remover-finalizados {
+  background-color: lightskyblue;
+}
+
+#remover-finalizados:hover {
+  background-color: lightblue;
+}
+
+#salvar-tarefas {
+  background-color: green;
+}
+
+#salvar-tarefas:hover {
+  background-color: lightseagreen;
+}
+
 .selected {
   background-color: gray;
 }
 
 .completed {
   text-decoration: line-through solid black;
+  width: fit-content;
+}
+
+.completed:after {
+  content: '\2714';
+}
+
+footer {
+  background-color: azure;
 }
