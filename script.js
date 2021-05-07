@@ -21,19 +21,43 @@ function catchInput() {
 }
 catchInput();
 // Altera a cor de fundo do item selecinado
-function selectItem() {
-  const itemList = document.querySelectorAll('.item-list');
-  for (const item of itemList) {
-    item.addEventListener('click', () => {
-      for (const item2 of itemList) {
-        item2.style.backgroundColor = null;
-        item2.style.fontSize = '16px';
-      }
-      item.style.backgroundColor = 'rgb(128, 128, 128)';
-      item.style.fontSize = '20px';
-    });
+   function deselectItem () {
+     const selectedItem = document.querySelector('.selected');
+     if (selectedItem !== null) {
+       selectItem.classList.remove('selected');
+     }
+   }
+  //  function selectItem () {
+  //    taskList.addEventListener('click', event => {
+  //      event.target.classList.add('selected');
+  //      deselectItem();
+  //    })
+  //  }
+  //  selectItem();
+  function selectItem() {
+    const itemList = document.querySelectorAll('.item-list');
+    for (const item of itemList) {
+      item.addEventListener('click', () => {
+        for (const item2 of itemList) {
+          item2.classList.remove('selected');
+        }
+        item.classList.add('selected');
+      });
+    }
   }
-}
+// function selectItem() {
+//   const itemList = document.querySelectorAll('.item-list');
+//   for (const item of itemList) {
+//     item.addEventListener('click', () => {
+//       for (const item2 of itemList) {
+//         item2.style.backgroundColor = null;
+//         item2.style.fontSize = '16px';
+//       }
+//       item.style.backgroundColor = 'rgb(128, 128, 128)';
+//       item.style.fontSize = '20px';
+//     });
+//   }
+// }
 // Marca item como completed
 function markAsCompleted(event) {
   if (event.target.classList.contains('completed') !== true) {
@@ -69,18 +93,20 @@ window.onload = function () {
 }
 // Move tarefas para cima
 function moveUp() {
-  const ol = document.querySelector('#lista-tarefas');
-  console.log(ol);
+  const itemList = document.querySelectorAll('.item-list');
+  const taskList = document.getElementById('lista-tarefas');
   for (let index = 0; index < itemList.length; index += 1) {
     let item = itemList[index];
-
+    console.log(item);
     // if(item.style.backgroundColor === 'rgb(128, 128, 128)' && item === itemList[0]) {
     //   break;
     // }
     if (item.style.backgroundColor === 'rgb(128, 128, 128)') {
       let temp;
-      temp = itemList[index]
-      itemList[index - 1] = itemList[index];
+
+
+
+
       // itemList[index -1] = temp;
       break;
       // item.style.backgroundColor = null
