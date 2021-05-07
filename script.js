@@ -72,13 +72,43 @@ function saveTasks() {
 }
 
 function moveUp() {
+  const listItens = document.getElementsByTagName('li');
   const moveUpBtn = document.getElementById('mover-cima');
 
-  moveUpBtn.addEventListener('click', () => {
-    list.insertBefore(list, list.childNodes[0]);
-  });
+  for (let index = 0; index < listItens.length; index += 1) {
+    listItens[index].addEventListener('click', (event) => {
+      const clicked = event.target;
+      const previousElement = clicked.previousElementSibling;
+
+      moveUpBtn.addEventListener('click', () => {
+        if (previousElement === null) {
+          return;
+        }
+        list.insertBefore(clicked, previousElement);
+      });
+    });
+  }
 }
 
+function moveDown() {
+  const listItens = document.getElementsByTagName('li');
+  const moveDownBtn = document.getElementById('mover-baixo');
+
+  for (let index = 0; index < listItens.length; index += 1) {
+    listItens[index].addEventListener('click', (event) => {
+      const clicked = event.target;
+      const nextElement = clicked.nextElementSibling;
+      console.log(nextElement);
+
+      moveDownBtn.addEventListener('click', () => {
+        if (nextElement === null) {
+          return;
+        }
+        list.insertBefore(clicked, nextElement.nextSibling);
+      });
+    });
+  }
+}
 window.onload = () => {
   createTask();
   selectedTask();
@@ -87,4 +117,5 @@ window.onload = () => {
   removeFinalizedTasks();
   saveTasks();
   moveUp();
+  moveDown();
 };
