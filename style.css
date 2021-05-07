@@ -123,6 +123,7 @@ h2 {
 
 .selected {
   background-color: gray;
+  user-select: none;
 }
 
 .selected:hover {
