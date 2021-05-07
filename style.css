@@ -1,14 +1,15 @@
-body{
+body {
   margin: 0;
-  background-color: #379683;
+  background-color: rgb(55 , 150 , 131);
   text-align: center;
 }
 
 #content-container {
   width: 80%;
-  margin: 10px auto;
-  background-color: #edf5e1;
+  margin: 20px auto;
+  background-color: rgb(237 , 245 , 225);
   border-radius: 10px;
+  padding: 20px 0;
 }
 
 header {
@@ -21,7 +22,12 @@ h1 {
 }
 
 #criar-tarefa {
-  
+  background-color: rgb(5 , 56 , 107);
+  color: white;
+}
+
+#texto-tarefa {
+  height: 20px;
 }
 
 .selected {
@@ -35,17 +41,41 @@ h1 {
 #lista-tarefas {
   list-style-position: inside;
   text-align: left;
-  width: 30%;
-  margin: 10px auto;
+  margin: 25px auto;
+  font-size: 1.25em;
+  width: 55%;
+
 }
 
-.buttons-container{
+#lista-tarefas li {
+  width: fit-content;
+}
+
+.buttons-container {
   text-align: center;
   margin-bottom: 10px;
-  padding-bottom: 10px;
 }
 
 .buttons {
   width: 170px;
   height: 30px;
+  border-radius: 20px;
+  border: 1px solid black;
+  color: white;
+}
+
+.buttons:hover {
+  border: 2px solid black;
+}
+
+#salvar-tarefas {
+  background-color: rgb(92 , 219 , 149);
+}
+
+.move {
+  background-color: rgb(85 , 188 , 201);
+}
+
+.delete {
+  background-color: rgb(252 , 68 , 69);
 }
