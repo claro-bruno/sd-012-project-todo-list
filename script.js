@@ -59,3 +59,14 @@ function removeAllTasks() {
 
 const removeButton = document.getElementById('apaga-tudo');
 removeButton.addEventListener('click', removeAllTasks);
+
+function removeCompletedTasks() {
+  const tasksList = list.children.length;
+  for (let index = 0; index < tasksList; index += 1) {
+    const completedTask = document.querySelector('.completed');
+    list.removeChild(completedTask);
+  }
+}
+
+const removeCompletedButton = document.getElementById('remover-finalizados');
+removeCompletedButton.addEventListener('click', removeCompletedTasks);
