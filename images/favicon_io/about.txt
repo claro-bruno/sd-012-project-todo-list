@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Allura
+- Font Author: Copyright (c) 2011 TypeSETit, LLC (typesetit@att.net), with Reserved Font Name "Allura"
+- Font Source: http://fonts.gstatic.com/s/allura/v9/9oRPNYsQpS4zjuAPjAIXPtrrGA.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL)
