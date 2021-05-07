@@ -3,18 +3,16 @@ const btnAdd = document.getElementById('criar-tarefa');
 const btnX = document.getElementById('apaga-tudo');
 const btnXX = document.getElementById('remover-finalizados');
 const itemList = document.querySelectorAll('.item-list');
+const taskList = document.getElementById('lista-tarefas');
 // Captura o texto do input e adiciona à lista
 function catchInput() {
   btnAdd.addEventListener('click', () => {
-    const taskList = document.getElementById('lista-tarefas');
     const createLi = document.createElement('li');
     createLi.className = 'item-list';
     createLi.innerHTML = input.value;
     taskList.appendChild(createLi);
     input.value = '';
     selectItem();
-    markAsCompleted();
-
   });
 }
 catchInput();
@@ -31,24 +29,17 @@ function selectItem() {
   }
 }
 // Marca item como completed
-
-function markAsCompleted() {
-  const itemList = document.querySelectorAll('.item-list');
-  for (const item of itemList) {
-    item.addEventListener('dblclick', event => {
-      if (event.target.className === 'item-list completed') {
-        event.target.className = 'item-list';
-      } else {
-        event.target.className = 'item-list completed';
-      }
-    });
+function markAsCompleted(event) {
+  if (event.target.classList.contains('completed') !== true) {
+    event.target.classList.add('completed');
+  } else {
+    event.target.classList.remove('completed');
   }
 }
-
+taskList.addEventListener('dblclick', markAsCompleted);
 // Botao apaga tudo
 btnX.addEventListener('click', removeAll);
 function removeAll() {
-  const taskList = document.querySelector('#lista-tarefas');
   const itemList = document.querySelectorAll('.item-list');
     for (const item of itemList) {
       taskList.removeChild(item);
@@ -57,7 +48,6 @@ function removeAll() {
 // Botao para remover finalizados
 btnXX.addEventListener('click', removeCompleted);
 function removeCompleted () {
-  const taskList = document.querySelector('#lista-tarefas');
   const completed = document.querySelectorAll('.completed');
   for (const item of completed) {
     taskList.removeChild(item);
