@@ -54,3 +54,20 @@ for(let i = 0;i < itemlista.length; i += 1){
 }
 }
 
+
+function botaoFinalizados(){
+  let botaofinalizar = document.createElement('button')
+  botaofinalizar.innerHTML = 'Apagar Finalizados'
+  botaofinalizar.id = 'remover-finalizados'
+  botaofinalizar.addEventListener('click', finalizar)
+  document.body.appendChild(botaofinalizar)
+}
+botaoFinalizados()
+
+function finalizar(){
+  let completados = document.querySelectorAll('.completed')
+  let pai = document.querySelector('#lista-tarefas')
+  for(let i = 0;i < completados.length; i += 1){
+    pai.removeChild(completados[i])
+  }
+}
