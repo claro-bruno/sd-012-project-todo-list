@@ -139,39 +139,33 @@ function finishTask(event) {
   }
 }
 
-const moveUpButton = document.querySelector('#mover-cima');
-function moveUp() {
-  const selectetUpTask = document.querySelector('.selected').previousElementSibling;
-  if (selectetUpTask !== null) {
-    clearPreviousSelected();
-    if (selectetUpTask.className === stateNormal) {
-      selectetUpTask.className = stateSelected;
-      selectetUpTask.style.backgroundColor = 'gray';
-    }
-    if (selectetUpTask.className === stateCompleted) {
-      selectetUpTask.className = stateSelectedCompleted;
-      selectetUpTask.style.backgroundColor = 'gray';
-    }
-  }
+function loadTasks(task, taskClass, index) {
+  taskList = document.querySelector(taskListId);
+  const loadTask = document.createElement('li');
+  loadTask.id = `task-${(index)}`;
+  loadTask.className = taskClass;
+  loadTask.innerHTML = task;
+  taskList.appendChild(loadTask);
 }
-moveUpButton.addEventListener('click', moveUp);
 
-const moveDownButton = document.querySelector('#mover-baixo');
-function moveDown() {
-  const selectetDownTask = document.querySelector('.selected').nextElementSibling;
-  if (selectetDownTask !== null) {
-    clearPreviousSelected();
-    if (selectetDownTask.className === stateNormal) {
-      selectetDownTask.className = stateSelected;
-      selectetDownTask.style.backgroundColor = 'gray';
-    }
-    if (selectetDownTask.className === stateCompleted) {
-      selectetDownTask.className = stateSelectedCompleted;
-      selectetDownTask.style.backgroundColor = 'gray';
-    }
+function swapId(idSelected, idSwap, direction) {
+  const selected = document.querySelector('.selected');
+  const swap = idSelected.id;
+  const after = idSwap.id;
+  const before = swap;
+  selected.id = after;
+  if (direction === 'up') selected.previousElementSibling.id = before;
+  if (direction === 'down') selected.nextElementSibling.id = before;
+}
+
+const removeAllTasksButtonElement = document.querySelector('#apaga-tudo');
+function removeAllTasks() {
+  taskList = document.querySelector(taskListId);
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild);
   }
 }
-moveDownButton.addEventListener('click', moveDown);
+removeAllTasksButtonElement.addEventListener('click', removeAllTasks);
 
 tasks = document.querySelector(taskListId).children;
 function createEventsForTasks() {
@@ -194,6 +188,38 @@ function updateIdsOfTasks() {
   }
 }
 
+const moveUpButton = document.querySelector('#mover-cima');
+function moveUp() {
+  const selectedUpTask = document.querySelector('.selected');
+  const swapTaskUp = document.querySelector('.selected').previousElementSibling;
+  if (swapTaskUp !== null) {
+    swapId(selectedUpTask, swapTaskUp, 'up');
+  }
+  const tasksUp = document.querySelector(taskListId).children;
+  removeAllTasks();
+  for (let index = 0; index < tasksUp.length; index += 1) {
+    loadTasks(tasksUp.innerText, tasksUp.className, index);
+  }
+  updateTasks();
+}
+moveUpButton.addEventListener('click', moveUp);
+
+const moveDownButton = document.querySelector('#mover-baixo');
+function moveDown() {
+  const selectedDownTask = document.querySelector('.selected');
+  const swapTaskDown = document.querySelector('.selected').nextElementSibling;
+  if (swapTaskDown !== null) {
+    swapId(selectedDownTask, swapTaskDown, 'down');
+  }
+  const tasksDown = document.querySelector(taskListId).children;
+  removeAllTasks();
+  for (let index = 0; index < tasksDown.length; index += 1) {
+    loadTasks(tasksDown.innerText, tasksDown.className, index);
+  }
+  updateTasks();
+}
+moveDownButton.addEventListener('click', moveDown);
+
 const addTaskButtonElement = document.querySelector('#criar-tarefa');
 function addTask() {
   const taskInput = document.querySelector('#texto-tarefa');
@@ -202,15 +228,6 @@ function addTask() {
   taskInput.value = '';
 }
 addTaskButtonElement.addEventListener('click', addTask);
-
-const removeAllTasksButtonElement = document.querySelector('#apaga-tudo');
-function removeAllTasks() {
-  taskList = document.querySelector(taskListId);
-  while (taskList.firstChild) {
-    taskList.removeChild(taskList.firstChild);
-  }
-}
-removeAllTasksButtonElement.addEventListener('click', removeAllTasks);
 
 const removeCompletedTasksButtonElement = document.querySelector('#remover-finalizados');
 function removeCompletedTasks() {
@@ -236,15 +253,6 @@ function saveTasks() {
   }
 }
 saveTasksButtonElement.addEventListener('click', saveTasks);
-
-function loadTasks(task, taskClass, index) {
-  taskList = document.querySelector(taskListId);
-  const loadTask = document.createElement('li');
-  loadTask.id = `task-${(index)}`;
-  loadTask.className = taskClass;
-  loadTask.innerHTML = task;
-  taskList.appendChild(loadTask);
-}
 
 function verifyStorage() {
   if (localStorage.length !== 0) {
