@@ -26,6 +26,12 @@ document.addEventListener('click', function (event) {
   };
 })
 
+document.addEventListener('dblclick', function (event) {
+  if (event.target.classList.contains('completed')) {
+    completedTask();
+  }
+})
+
 function clickedTask(event) {
   const greyTask = document.querySelector('.selected');
   if (greyTask === undefined) {
@@ -34,5 +40,15 @@ function clickedTask(event) {
     event.target.classList.add('selected');  
     greyTask.classList.remove('selected');
 }
+}
+
+function completedTask(event) {
+  const taskCompleted = document.querySelector('completed');
+  if (taskCompleted === undefined) {
+    event.target.classList.add('completed');
+  } else {
+    event.target.classList.add('completed');
+    taskCompleted.classList.remove('completed');
+  }
 }
 }
