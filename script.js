@@ -20,13 +20,14 @@ function capturar () {
             } 
             event.target.classList.add('selected');
             event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-
-            // createList.classList.add('selected');
-            // event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-            // if(createList.classList.contains('selected')) {
-            //     event.target.classList.remove('selected');
-            // } 
         });
+        createList.addEventListener('dblclick', function (event) {
+            let doubleClicke = document.querySelector('.completed');
+            if (doubleClicke) {
+                doubleClicke.remove('completed');
+            }
+            event.target.classList.add('completed');
+        })
 
         let valorCapturado = inputSelect.value;
         createList.innerHTML = valorCapturado;
