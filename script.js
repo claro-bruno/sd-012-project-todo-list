@@ -57,6 +57,10 @@ A adição de elementos na lista será feita algumas vezes, e será checado se t
 /* Credito: https://www.w3schools.com/js/js_input_examples.asp */
 /* Credito: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener */
 
+/* 6 - Ordene os itens da lista de tarefas por ordem de criação
+O que será verificado:
+Três itens serão criados na lista e será checado se eles estão ordenados por ordem de criação - ou seja, primeiro o primeiro item criado, depois o segundo, e assim por diante. */
+
 function botaoCriarTarefa () {
     let lista = document.getElementById('lista-tarefas');
     let input = document.getElementById('texto-tarefa');
@@ -73,16 +77,12 @@ function botaoCriarTarefa () {
            item.innerHTML = input.value;
            item.className = 'tarefa'
            input.value = '';
-            item.addEventListener('click', alteraFundoItem );
+           item.addEventListener('click', alteraFundoItem );
        }
     })
 }
 botaoCriarTarefa();
 
-
-/* 6 - Ordene os itens da lista de tarefas por ordem de criação
-O que será verificado:
-Três itens serão criados na lista e será checado se eles estão ordenados por ordem de criação - ou seja, primeiro o primeiro item criado, depois o segundo, e assim por diante. */
 
 
 /* 7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128)
@@ -90,7 +90,16 @@ O que será verificado:
 Será verificado que, ao se carregar a página, os itens da lista não tem o estilo CSS background-color: rgb(128, 128, 128)
 Será verificado que, ao se clicar em um item da lista, ele passa a ter o estilo CSS background-color: rgb(128, 128, 128) */
 
+/* 8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo
+O que será verificado:
+Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo background-color: rgb(128, 128, 128) no elemento. */
+
+
 function alteraFundoItem (event) {
+    let tarefas = document.getElementsByClassName('tarefa');
+    for (let tarefa of tarefas) {
+        tarefa.style.backgroundColor = 'white';
+    }
     if (event.target.style.backgroundColor !== 'rgb(128, 128, 128)') {
         event.target.style.backgroundColor = 'rgb(128, 128, 128)';
     } else {
@@ -98,10 +107,6 @@ function alteraFundoItem (event) {
     }
 }
 
-
-/* 8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo
-O que será verificado:
-Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo background-color: rgb(128, 128, 128) no elemento. */
 
 
 
