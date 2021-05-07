@@ -9,6 +9,7 @@ let removeSel = document.getElementById('remover-selecionado');
 let caixaInput = document.getElementById('texto-tarefa');
 let listarray = document.getElementById('lista-tarefas');
 //aqu capturei os elementos html da caixa de input e do arrey que iremos criar com ela <3
+
 function addlist(){
  let cria = document.createElement('li')
  cria.innerHTML = caixaInput.value;
@@ -24,3 +25,18 @@ function limpacaixa(){
 Adicionar.addEventListener('click',addlist,);
 Adicionar.addEventListener('click', limpacaixa);
 //ate aqui cimprimos do requisito 1 ao 6 com exito <3
+
+function trocaofundico(){
+    let listItem = document.querySelectorAll('li');     //-----------------------------------------// aqui criamos uma variavel e atribuimos a ela a tag li com o query selector
+    for (let posicaoDoarray = 0; posicaoDoarray < listItem.length; posicaoDoarray += 1) {//-------// enquanto o index for menor que o tamanho  do meu arrey  index recebe o antigo valor dele +1
+      listItem[posicaoDoarray].addEventListener('click', (clicaste) => {   //--------------------// aqui a variavel (lis[posição do array])  recebe um evento cujo um click seguido de um parametro 
+        let xablau = (clicaste).target;      //-------------------------------------------------// aqui é onde nasce o xablau que entra como alvo do paramentro da nossa função
+        xablau.style.backgroundColor = 'rgb(128, 128, 128)'; //--------------------------------// adicionamos um backgroud diferenciado para xablau 
+        xablau.style.borderradius= '10px'  //-------------------------------------------------//aqui damos um trato na bordinha do xablau (viva ao xablau )
+    });
+  }
+  return listItem
+};
+//----------------------------------------------------------------------------------------// oprigado por ler a fanfique do xablau ̣:roket:
+
+listarray.addEventListener('click',trocaofundico)
