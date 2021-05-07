@@ -17,8 +17,7 @@ function reloadSavedTasks () {
 
 if (localStorage.length > 0){
     reloadSavedTasks();
-}
-
+};
 
 //Colocar Tarefa Nova na Lista
 
@@ -112,8 +111,10 @@ function moveUp () {
 
     if(selectedTask !== null && previousTask !== null){
         taskList.insertBefore(selectedTask, previousTask);
-    } else {
+    } else if (selectedTask === null) {
         alert("Nenhuma tarefa selecionada");
+    } else {
+        alert("A Primeira tarefa não pode ser movida para cima");
     };
 };
 
@@ -128,9 +129,11 @@ function moveDown () {
 
     if(selectedTask !== null && nextTask !== null){
         taskList.insertBefore(selectedTask, nextTask.nextElementSibling);
-    } else {
+    } else if (selectedTask === null) {
         alert("Nenhuma tarefa selecionada");
-    }
+    }else {
+        alert("A Última tarefa não pode ser movida para baixo");
+    };
 };
 
 document.querySelector("#mover-baixo").addEventListener("click", moveDown);
