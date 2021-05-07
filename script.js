@@ -16,8 +16,8 @@ function addTask() {
     }
   }
   addTaskButton.addEventListener('click', addTask); 
-
-//7
+  
+//7 e 8
 //Aplicando event bubbling (Amigo de turma Thalles me mostrou e ensinou como funciona!)
 //Link: https://gomakethings.com/attaching-multiple-elements-to-a-single-event-listener-in-vanilla-js/
 document.addEventListener('click', function (event) {
@@ -34,6 +34,5 @@ function clickedTask(event) {
     event.target.classList.add('selected');  
     greyTask.classList.remove('selected');
 }
-
 }
 }
