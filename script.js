@@ -143,8 +143,58 @@ function cleanCompleted() {
 }
 cleanCompleted();
 
+function createButtonSave(buttonId) {
+  const getBotaoSave = document.getElementById('botaoSave');
 
+  const newButton = document.createElement('button');
+  newButton.id = buttonId;
+  newButton.innerHTML = 'Salvar Tarefas';
+  getBotaoSave.appendChild(newButton);
+}
+createButtonSave('salvar-tarefas');
 
+function saveLocalStorage () {
+  const getButtonSave = document.getElementById('salvar-tarefas');
+  const getTasks = document.getElementsByClassName('task');
+  
+  getButtonSave.addEventListener('click', function() {
+    const arrayObjectsSave = [];
+    for (let index = 0; index < getTasks.length; index += 1) {
+      const taskObject = {
+        text: getTasks[index].innerHTML,
+        completed: getTasks[index].classList.contains('completed')
+      }
+      arrayObjectsSave.push(taskObject);
+    }
+    const jsonArray = JSON.stringify(arrayObjectsSave);
+    localStorage.setItem('Lista de tarefas', jsonArray);
+  })
+}
+saveLocalStorage();
 
+function getTasks() {
+  const jsonArray = localStorage.getItem('Lista de tarefas');
+  if (!jsonArray) {
+    return console.log('0 itens salvos');
+  }
+  const arraySave = JSON.parse(jsonArray);
+  for (let index = 0; index < arraySave.length; index += 1) {
+    addTask(arraySave[index].text, arraySave[index].finished);
+  }
+}
+getTasks();
+
+function addTask(task, completed) {
+  let getTaskList = document.getElementById('lista-tarefas');
+  const newLi = document.createElement('li');
+  newLi.innerHTML = task;
+  newLi.classList.add('task');
+  if (completed) {
+    newLi.classList.add('completed');
+  }
+  getTaskList.appendChild(newLi);
+  addClickListener();
+  addDoubleClickListener();
+}
 
 
