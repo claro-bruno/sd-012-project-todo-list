@@ -2,6 +2,7 @@ const listaTarefas = document.getElementById('lista-tarefas');
 const inputTexto = document.getElementById('texto-tarefa');
 const criarTarefa = document.getElementById('criar-tarefa');
 const task = document.getElementsByTagName('li');
+const botaoLimpar = document.getElementById('apaga-tudo');
 
 
 function createLi(){
@@ -33,6 +34,15 @@ function lineThrough (){
     })
 }
 lineThrough();
+
+botaoLimpar.addEventListener('click', function buttonLimpar() {
+    for (let index = 0; index <= task.length; index += 1){
+        task[index].remove();
+    }
+    buttonLimpar();
+})
+
+
 
 
 
