@@ -48,9 +48,16 @@ function taskCompleted() {
   }
 }
 
-function clearInput() {
-  let contentInput = document.querySelectorAll('.task-list');
-  for (let index = 0; index < contentInput.length; index += 1) {
-    contentInput[index].outerHTML = '';
+function clearTasks() {
+  let tasks = document.querySelectorAll('.task-list');
+  for (let index = 0; index < tasks.length; index += 1) {
+    tasks[index].outerHTML = '';
+  }
+}
+
+function clearTaskCompleted() {
+  let tasks = document.querySelectorAll('.completed');
+  for (let index = 0; index < tasks.length; index += 1) {
+    tasks[index].outerHTML = '';
   }
 }
