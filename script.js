@@ -4,6 +4,7 @@ const taskInput = document.getElementById('texto-tarefa');
 const removeAllButton = document.getElementById('apaga-tudo');
 const removeCompletedButton = document.getElementById('remover-finalizados');
 const removeSelectedButton = document.getElementById('remover-selecionado');
+const saveButton = document.getElementById('salvar-tarefas');
 
 // Solução encontrada no respositório de Anajulia
 // Source: https://github.com/tryber/sd-011-project-todo-list/blob/anajulia-bs-todo-list-project/script.js
@@ -53,6 +54,18 @@ const removeSelected = () => {
   const selected = document.querySelector('.selected');
   taskList.removeChild(selected);
 };
+
+saveButton.addEventListener('mouseover', () => {
+  const child = saveButton.firstElementChild;
+  child.style.color = 'rgb(0, 141, 179)';
+  child.style.transition = '0.7s';
+});
+saveButton.addEventListener('mouseout', () => {
+  const child = saveButton.firstElementChild;
+  child.style.color = 'rgb(254, 238, 223)';
+  child.style.transition = '0.7s';
+
+});
 
 removeSelectedButton.addEventListener('click', removeSelected);
 removeCompletedButton.addEventListener('click', removeCompleted);

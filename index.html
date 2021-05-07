@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
   <script src="https://kit.fontawesome.com/b1efb4aa58.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header>
     <h1>Minha Lista de Tarefas</h1>
@@ -16,28 +18,47 @@
 
   <main id="content">
 
-    <h2 id="tarefas"><em class="fas fa-tasks"></em> Tarefas</h2>
+    <h2 id="tarefas">
+      <span class="fas fa-tasks"></span>
+      Tarefas
+    </h2>
+
     <section id="input-section">
       <input type="text" id="texto-tarefa" placeholder="Adicionar Tarefa">
-      <button id="criar-tarefa"><em class="fas fa-plus"></em> Adicionar</button>
+      <button id="criar-tarefa">
+        <span class="fas fa-plus"></span>
+      </button>
+    </section>
+
+    <section id="buttons-section">
+      <button id="remover-selecionado">
+        <span class="fas fa-times"></span>
+      </button>
+      <button id="mover-cima">
+        <span class="fas fa-chevron-up chevron"></spa>
+      </button>
+      <button id="mover-baixo">
+        <span class="fas fa-chevron-down chevron"></span>
+      </button>
+      <button id="apaga-tudo">
+        <span class="fas fa-recycle"></span>
+        Resetar
+      </button>
+      <button id="remover-finalizados" class="button1">
+        <span class="far fas fa-trash"></span>
+        Completas
+      </button>
+      <button id="salvar-tarefas">
+        <span class="fas fa-cloud"></span>
+        Salvar
+      </button>
     </section>
 
     <ol id="lista-tarefas"></ol>
-    
-
-
-    <section id="buttons-section">
-      <button id="remover-selecionado"><em class="fas fa-window-close"></em></button>
-      <button id="mover-cima"><em class="fas fa-chevron-up"></em></button>
-      <button id="mover-baixo"><em class="fas fa-chevron-down"></em></button>
-      <button id="apaga-tudo"><em class="fas fa-recycle"></em> Apagar Tudo</button>
-      <button id="remover-finalizados"><em class="far fa-window-close"></em> Remover Finalizados</button>
-      <button id="salvar-tarefas"><em class="fas fa-cloud"></em> Salvar</button>
-    </section>
-
 
 
   </main>
   <script src="script.js"></script>
 </body>
+
 </html>

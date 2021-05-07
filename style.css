@@ -1,4 +1,5 @@
-html , body {
+html,
+body {
   height: 100%;
   width: 100%;
   font-family: Fira sans, -apple-system, Roboto, Ubuntu, Cantarell, sans-serif;
@@ -9,7 +10,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background: url('./images/chuttersnap-olqdyg9Bxg4-unsplash.png') no-repeat center fixed;
+  background: url('./images/kamil-porembinski-clouds.jpg') no-repeat center fixed;
   background-size: cover;
 }
 
@@ -21,56 +22,119 @@ main {
   flex-grow: 1;
   margin-bottom: 50px;
   border-radius: 10px;
-  background-color: rgba(128, 128, 128, 0.185);
-  backdrop-filter: blur(5px);
-  box-shadow: 2px 2px 10px 2px rgba(255, 255, 255, 0.233);
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
 }
 
-button:hover {
-  
+button {
+  cursor: pointer;
+  backdrop-filter: blur(1px);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 0;
+  font-size: 1rem;
+  color: rgb(0, 141, 179);
 }
+
+
+button,
+button::after {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255, 0);
+}
+
+button::before,
+button::after {
+  background-color: rgba(255, 255, 255, 0.5);
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+button::after {
+  height: 0;
+  left: 50%;
+  top: 50%;
+  width: 0;
+}
+
+button:hover:after {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
 
 header {
   text-align: center;
   margin: 0;
 }
 
-h1, h2, #funcionamento {
+h1,
+#funcionamento {
   color: white;
+  cursor: default;
+}
+
+h2 {
+  cursor: default;
 }
 
 
 #funcionamento {
   font-style: italic;
-  opacity: 30%;
+  opacity: 50%;
 }
 
 .task {
   width: 50%;
-  margin: auto;
+  margin: 20px auto;
   padding: 0;
   text-align: center;
   border-radius: 5px;
+  transition: all 0.3s;
+  font-weight: 500;
 }
 
 .task:hover {
-  cursor: pointer;
-  background-color: rgb(0 , 0 , 0 , 0.233);
+  cursor: default;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s;
 }
 
-.selected, .selected:hover {
+.selected {
   background-color: gray;
+  transition: all 0.3s;
 }
 
+.selected:hover {
+  background-color: rgb(179, 179, 179);
+  transition: all 0.3s;
+
+}
 
 #lista-tarefas {
   padding: 0;
+
 }
 
 #texto-tarefa {
   font-style: italic;
+  padding: 3px;
+  border-radius: 10px;
+  border: 0;
+  text-align: center;
+  font-size: 1rem;
 }
 
+#texto-tarefa:focus {
+  outline: 0;
+  box-shadow: 1px 1px 2px black;
+}
 
 .completed {
   text-decoration: line-through;
@@ -78,5 +142,43 @@ h1, h2, #funcionamento {
 
 #buttons-section {
   margin: 10px;
+  cursor: default;
 }
 
+#input-section {
+  cursor: default;
+}
+
+.fa-recycle {
+  color: green;
+}
+
+.fa-trash {
+  color: red;
+}
+
+#remover-selecionado {
+  background-color: red;
+  color: white;
+}
+
+.fa-trash {
+  font-size: 0.8rem;
+}
+
+.fa-cloud {
+  color: #feeedf;
+}
+
+.chevron {
+  color: rgb(0, 141, 179);
+}
+
+#criar-tarefa {
+  background-color: rgb(0, 141, 179);
+  color: white;
+}
+
+#criar-tarefa:hover {
+  color: rgb(0, 141, 179);
+}
