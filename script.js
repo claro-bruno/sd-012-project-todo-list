@@ -70,7 +70,7 @@ function moveItemsUp() {
   const buttonMoveUp = document.getElementById('mover-cima');
   buttonMoveUp.addEventListener('click', () => {
     const selectedItem = document.querySelector('.selected');
-    if (selectedItem.previousElementSibling !== null && selectedItem !== null) {
+    if (selectedItem !== null && selectedItem.previousElementSibling !== null) {
       const itemAntes = document.createElement('li');
       itemAntes.innerHTML = selectedItem.previousElementSibling.innerHTML;
       itemAntes.classList = selectedItem.previousElementSibling.classList;
@@ -86,7 +86,7 @@ function moveItemsDown() {
   const buttonMoveDown = document.getElementById('mover-baixo');
   buttonMoveDown.addEventListener('click', () => {
     const selectedItem = document.querySelector('.selected');
-    if (selectedItem.nextElementSibling !== null && selectedItem !== null) {
+    if (selectedItem !== null && selectedItem.nextElementSibling !== null) {
       const itemDepois = document.createElement('li');
       itemDepois.innerHTML = selectedItem.nextElementSibling.innerHTML;
       itemDepois.classList = selectedItem.nextElementSibling.classList;
