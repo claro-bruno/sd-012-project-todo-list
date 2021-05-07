@@ -50,6 +50,9 @@ function liCreate(text) {
 let color = '';
 
 function switchColor(event) {
+  if (event.target.style.backgroundColor === 'rgb(128, 128, 128)') {
+    return (event.target.style.backgroundColor = color);
+  }
   const beforeSelected = document.querySelector('.selected');
   if (beforeSelected) {
     beforeSelected.style.backgroundColor = color;
@@ -69,10 +72,15 @@ function switchClass(event) {
   }
 }
 
-function addTask() {
-  const task = taskText.value;
+function addTask(task, completed = false) {
+  if (task === '') {
+    return console.log('insira o texto');
+  }
   const li = liCreate(task);
   li.className = 'task';
+  if (completed) {
+    li.classList.add('completed');
+  }
   li.style.backgroundColor = 'orange';
   li.addEventListener('click', switchColor);
   li.addEventListener('dblclick', switchClass);
@@ -80,7 +88,10 @@ function addTask() {
   taskText.value = '';
 }
 
-addTaskBtn.addEventListener('click', addTask);
+addTaskBtn.addEventListener('click', function () {
+  const task = taskText.value;
+  addTask(task);
+});
 
 insertTask.appendChild(addTaskBtn);
 
@@ -114,3 +125,39 @@ function cleanFiniShedTasks() {
 btnFinished.addEventListener('click', cleanFiniShedTasks);
 
 btnContainer.appendChild(btnFinished);
+
+const btnSave = createBtn('salvar-tarefas', 'salvar tarefas');
+
+function saveInLocalStorage() {
+  const tasks = document.getElementsByClassName('task');
+  const arraySave = [];
+
+  for (let index = 0; index < tasks.length; index += 1) {
+    const objTask = {
+      text: tasks[index].innerHTML,
+      finished: [...tasks[index].classList].includes('completed'),
+    };
+    arraySave.push(objTask);
+  }
+
+  const arrayJson = JSON.stringify(arraySave);
+  localStorage.setItem('Todo-List', arrayJson);
+}
+
+btnSave.addEventListener('click', saveInLocalStorage);
+
+btnContainer.appendChild(btnSave);
+
+function renderTask() {
+  const arrayJson = localStorage.getItem('Todo-List');
+  if (!arrayJson) {
+    return console.log('não há itens salvos');
+  }
+  const arraySave = JSON.parse(arrayJson);
+
+  for (let index = 0; index < arraySave.length; index += 1) {
+    addTask(arraySave[index].text, arraySave[index].finished);
+  }
+}
+
+renderTask();
