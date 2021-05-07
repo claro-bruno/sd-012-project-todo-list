@@ -3,7 +3,7 @@ const headerContent = document.querySelector('#header-content');
 const taskListId = '#lista-tarefas';
 const stateNormal = 'task';
 const stateSelected = 'task selected';
-const stateFinished = 'task completed';
+const stateCompleted = 'task completed';
 const stateSelectedCompleted = 'task selected completed';
 
 let tasks = document.querySelector(taskListId).children;
@@ -60,10 +60,24 @@ function createRemoveCompletedTasksButton() {
 }
 
 function createSaveTasksButton() {
-  const SaveTasksButton = document.createElement('button');
-  SaveTasksButton.id = 'salvar-tarefas';
-  SaveTasksButton.innerText = 'Salvar Tarefas';
-  optionContent.appendChild(SaveTasksButton);
+  const saveTasksButton = document.createElement('button');
+  saveTasksButton.id = 'salvar-tarefas';
+  saveTasksButton.innerText = 'Salvar Tarefas';
+  optionContent.appendChild(saveTasksButton);
+}
+
+function createMoveUpButton() {
+  const moveUpButton = document.createElement('button');
+  moveUpButton.id = 'mover-cima';
+  moveUpButton.innerText = 'Mover para Cima';
+  optionContent.appendChild(moveUpButton);
+}
+
+function createMoveDownButton() {
+  const moveDownButton = document.createElement('button');
+  moveDownButton.id = 'mover-baixo';
+  moveDownButton.innerText = 'Mover para Baixo';
+  optionContent.appendChild(moveDownButton);
 }
 
 function createOptionsMenu() {
@@ -73,6 +87,8 @@ function createOptionsMenu() {
   createRemoveAllTasksButton();
   createRemoveCompletedTasksButton();
   createSaveTasksButton();
+  createMoveUpButton();
+  createMoveDownButton();
 }
 createOptionsMenu();
 
@@ -93,7 +109,7 @@ function clearPreviousSelected() {
       tasks[index].style.backgroundColor = '';
     }
     if (tasks[index].className === stateSelectedCompleted) {
-      tasks[index].className = stateFinished;
+      tasks[index].className = stateCompleted;
       tasks[index].style.backgroundColor = '';
     }
   }
@@ -104,11 +120,11 @@ function selectTask(event) {
   clearPreviousSelected();
   if (selectedTask.className === stateNormal) {
     selectedTask.className = stateSelected;
-    selectedTask.style.backgroundColor = 'rgb(128, 128, 128)';
+    selectedTask.style.backgroundColor = 'gray';
   }
-  if (selectedTask.className === stateFinished) {
+  if (selectedTask.className === stateCompleted) {
     selectedTask.className = stateSelectedCompleted;
-    selectedTask.style.backgroundColor = 'rgb(128, 128, 128)';
+    selectedTask.style.backgroundColor = 'gray';
   }
 }
 
@@ -122,6 +138,40 @@ function finishTask(event) {
     finishedTask.style.textDecoration = '';
   }
 }
+
+const moveUpButton = document.querySelector('#mover-cima');
+function moveUp() {
+  const selectetUpTask = document.querySelector('.selected').previousElementSibling;
+  if (selectetUpTask !== null) {
+    clearPreviousSelected();
+    if (selectetUpTask.className === stateNormal) {
+      selectetUpTask.className = stateSelected;
+      selectetUpTask.style.backgroundColor = 'gray';
+    }
+    if (selectetUpTask.className === stateCompleted) {
+      selectetUpTask.className = stateSelectedCompleted;
+      selectetUpTask.style.backgroundColor = 'gray';
+    }
+  }
+}
+moveUpButton.addEventListener('click', moveUp);
+
+const moveDownButton = document.querySelector('#mover-baixo');
+function moveDown() {
+  const selectetDownTask = document.querySelector('.selected').nextElementSibling;
+  if (selectetDownTask !== null) {
+    clearPreviousSelected();
+    if (selectetDownTask.className === stateNormal) {
+      selectetDownTask.className = stateSelected;
+      selectetDownTask.style.backgroundColor = 'gray';
+    }
+    if (selectetDownTask.className === stateCompleted) {
+      selectetDownTask.className = stateSelectedCompleted;
+      selectetDownTask.style.backgroundColor = 'gray';
+    }
+  }
+}
+moveDownButton.addEventListener('click', moveDown);
 
 tasks = document.querySelector(taskListId).children;
 function createEventsForTasks() {
