@@ -47,6 +47,7 @@ li {
     border-radius: 10px;
     width: 359px;
     cursor: pointer;
+    user-select: none;
 }
 
 #todo {
