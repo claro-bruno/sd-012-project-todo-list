@@ -8,39 +8,40 @@ const moveUpBtn = document.getElementById('mover-cima');
 const moveDownBtn = document.getElementById('mover-baixo');
 const removeBtn = document.getElementById('remover-selecionado');
 
-createBtn.addEventListener('click', createTask);
-
+// Acrescentar tarefa
 function createTask() {
-  let task = document.createElement("li");
+  const task = document.createElement('li');
   task.innerText = InputTask.value;
   InputTask.value = '';
   taskList.appendChild(task);
 }
 
-taskList.addEventListener('click', selectTask);
+createBtn.addEventListener('click', createTask);
 
+// Seleciona tarefa
 function selectTask(event) {
   let tasks = document.getElementsByTagName('li');
-  for (let index = 0; index < tasks.length; index +=1) {
+  for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].style.backgroundColor = 'rgb(255,255,255)';
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-taskList.addEventListener('dblclick', taskCompleted);
+taskList.addEventListener('click', selectTask);
 
+// Marca tarega como completa
 function taskCompleted(event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
-  } else {event.target.classList.add('completed');}
+  } else { event.target.classList.add('completed'); }
 }
 
-//
-clearCompleted.addEventListener('click', clearDone);
+taskList.addEventListener('dblclick', taskCompleted);
 
+// Limpa tarefas selecionadas
 function clearDone() {
-  let done = document.getElementsByTagName('li');
-  for (let index = 0; index < done.length; index +=1) {
+  const done = document.getElementsByTagName('li');
+  for (let index = 0; index < done.length; index += 1) {
     if (done[index].classList.contains('completed')) {
       done[index].remove();
       index -= 1;
@@ -48,44 +49,59 @@ function clearDone() {
   }
 }
 
-//
-clearAlltasks.addEventListener('click', clearTasks);
+clearCompleted.addEventListener('click', clearDone);
 
+// Apaga todas as tarefas
 function clearTasks() {
-  let done = document.getElementsByTagName('li');
-  for (let index = 0; index < done.length; index +=1) {
-      done[index].remove();
-      index -= 1;
+  const done = document.getElementsByTagName('li');
+  for (let index = 0; index < done.length; index +=1 ) {
+    done[index].remove();
+    index -= 1;
   }
 }
 
-//
-saveTasks.addEventListener('click', storeData);
+clearAlltasks.addEventListener('click', clearTasks);
 
+// Armazena o HTML da lista
 function storeData() {
   localStorage.clear();
-  localStorage.setItem(`lista`,taskList.innerHTML);
-
+  localStorage.setItem('lista', taskList.innerHTML);
 }
 
-//
+saveTasks.addEventListener('click', storeData);
+
+// Resgata o HTML do localStorage
+function getStoredata() {
+  taskList.innerHTML = localStorage.getItem('lista');
+}
+
 window.onload = getStoredata;
 
-function getStoredata() {
-taskList.innerHTML = localStorage.getItem('lista');
-}
-
-//
-moveUpBtn.addEventListener('click', moveTaskup);
-
-function moveTaskup(event) {
-  let tasks = document.getElementsByTagName('li');
+// Sobe a Task na lista
+function moveTaskup() {
+  const tasks = document.getElementsByTagName('li');
   for (let index = 1; index < (tasks.length); index += 1) {
     if (tasks[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-      let aux1 = tasks[index].cloneNode(true);
-      let aux2 = tasks[index-1].cloneNode(true);
+      const aux1 = tasks[index].cloneNode(true);
+      const aux2 = tasks[index - 1].cloneNode(true);
       tasks[index].replaceWith(aux2);
-      tasks[index-1].replaceWith(aux1);
+      tasks[index - 1].replaceWith(aux1);
+      index = tasks.length;
+    }
+  }
+}
+
+moveUpBtn.addEventListener('click', moveTaskup);
+
+// Desce a Task na lista
+function moveTaskdown() {
+  const tasks = document.getElementsByTagName('li');
+  for (let index = 0; index < (tasks.length - 1); index += 1) {
+    if (tasks[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      const aux1 = tasks[index].cloneNode(true);
+      const aux2 = tasks[index + 1].cloneNode(true);
+      tasks[index].replaceWith(aux2);
+      tasks[index +1 ].replaceWith(aux1);
       index = tasks.length;
     }
   }
@@ -93,28 +109,14 @@ function moveTaskup(event) {
 
 moveDownBtn.addEventListener('click', moveTaskdown);
 
-function moveTaskdown(event) {
-  let tasks = document.getElementsByTagName('li');
-  for (let index = 0; index < (tasks.length-1); index += 1) {
-    if (tasks[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-      let aux1 = tasks[index].cloneNode(true);
-      let aux2 = tasks[index+1].cloneNode(true);
-      tasks[index].replaceWith(aux2);
-      tasks[index+1].replaceWith(aux1);
-      index = tasks.length;
-    }
-  }
-}
-
-//
-removeBtn.addEventListener('click', removeTask);
-
+// Remove item selecionado
 function removeTask() {
-  let tasks = document.getElementsByTagName('li');
-  console.log('1');
+  const tasks = document.getElementsByTagName('li');
   for (let index = 0; index < (tasks.length); index += 1) {
     if (tasks[index].style.backgroundColor === 'rgb(128, 128, 128)') {
       tasks[index].remove();
     }
   }
 }
+
+removeBtn.addEventListener('click', removeTask);
