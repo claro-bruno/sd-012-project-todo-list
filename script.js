@@ -3,7 +3,7 @@ const orderList = document.querySelector('#lista-tarefas');
 const buttonClear = document.querySelector('#apaga-tudo');
 const tarefas = document.getElementsByClassName('tarefa');
 const buttonConcluded = document.querySelector('#remover-finalizados');
-const completed = document.getElementsByClassName('completed');
+const buttonSave = document.querySelector('#salvar-tarefas');
 
 function dbClick(event) {
   if (event.target.className.includes('completed')) {
@@ -11,6 +11,21 @@ function dbClick(event) {
   } else {
     event.target.classList.add('completed');
   }
+}
+
+function removeSelect(event) {
+  const selected = document.querySelectorAll('.selected');
+  for (let index = 0; index < selected.length; index += 1) {
+    selected[index].classList.remove('selected');
+    event.target.classList.add('selected');
+    if (selected[index].classList !== 'tarefa selected') {
+      selected[index].style.backgroundColor = '';
+    }
+  }
+}
+
+function changeBackgroud(event) {
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 function createList() {
@@ -22,37 +37,25 @@ function createList() {
   newLi.textContent = inputToDo.value;
   inputToDo.value = '';
 
-  newLi.addEventListener('click', (event) => {
-    const selected = document.querySelectorAll('.selected');
-    for (let index = 0; index < selected.length; index += 1) {
-      selected[index].classList.remove('selected');
-      event.target.classList.add('selected');
-      if (selected[index].classList !== 'tarefa selected') {
-        selected[index].style.backgroundColor = '';
-      }
-    }
-  });
-
+  newLi.addEventListener('click', removeSelect);
   // Parte 7 resolvida com auxílio do colega Rodrigo Facury:
-  newLi.addEventListener('click', (event) => {
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  });
-
+  newLi.addEventListener('click', changeBackgroud);
   newLi.addEventListener('dblclick', dbClick);
 }
-
 buttonToDo.addEventListener('click', createList);
 
-buttonClear.addEventListener('click', () => {
+function clear() {
   for (let indexLi = tarefas.length - 1; indexLi >= 0; indexLi -= 1) {
     tarefas[indexLi].remove();
   }
-});
+}
+buttonClear.addEventListener('click', clear);
 
-buttonConcluded.addEventListener('click', () => {
+function concluded() {
   for (let indexComp = tarefas.length - 1; indexComp >= 0; indexComp -= 1) {
     if (tarefas[indexComp].className.includes('completed')) {
       tarefas[indexComp].remove();
-    } 
-  }
-});
+    }
+  } 
+}
+buttonConcluded.addEventListener('click', concluded);
