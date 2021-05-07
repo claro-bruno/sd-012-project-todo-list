@@ -33,13 +33,16 @@ document.addEventListener('dblclick', function (event) {
 })
 
 function clickedTask(event) {
-  const greyTask = document.querySelector('.selected');
-  if (greyTask === undefined) {
-    event.target.classList.add('selected');
-  } else {  
-    event.target.classList.add('selected');  
+  const tasks = document.getElementsByClassName('task-item');
+  const greyTask = event.target;
+  for (let i = 0; i < tasks.length; i += 1) {
+    tasks[i].classList.remove('selected');    
+  }
+  if (greyTask.classList.contains('selected')) {
     greyTask.classList.remove('selected');
-}
+  } else {
+    greyTask.classList.add('selected');
+  }
 }
 
 function completedTask(event) {
