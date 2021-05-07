@@ -27,6 +27,9 @@ window.onload = function () {
     if (event.target.id === 'apaga-tudo') {
       deleteTasks();
     }
+    if (event.target.id === 'remover-finalizados') {
+      removeCompletedTasks();
+    }
   })
 
   document.addEventListener('dblclick', function (event) {
@@ -42,7 +45,7 @@ window.onload = function () {
       tasks[i].classList.remove('selected');    
     }
     if (greyTask.classList.contains('selected')) {
-      greyTask.classList.remove('selected');
+      greyTask.classList.add('selected');
     } else {
       greyTask.classList.add('selected');
     }
@@ -67,5 +70,19 @@ window.onload = function () {
     for (let i = 0; i < tasks.length; i += 1) {
       tasks[i].remove();
     } 
+  }
+  //11
+  const removeButton = document.createElement('button');
+  removeButton.id = 'remover-finalizados';
+  removeButton.innerHTML = 'Remover tarefas cumpridas!';
+  document.body.appendChild(removeButton);
+
+  function removeCompletedTasks() {
+    const tasks = document.querySelectorAll('.task-item');
+    for (let i = 0; i < tasks.length; i += 1) {
+      if (tasks[i].classList.contains('completed')) {
+        tasks[i].remove();
+      }
+    }
   }
 }
