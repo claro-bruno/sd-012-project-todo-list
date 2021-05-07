@@ -1,12 +1,12 @@
 const criarButton = document.querySelector('#criar-tarefa');
 const text = document.querySelector('#texto-tarefa');
-const listMom = document.querySelector('#lista-tarefas');
 const limpar = document.querySelector('#apaga-tudo');
 const limparCompletos = document.querySelector('#remover-finalizados');
-// const salvar = document.querySelector('#salvar-tarefas');
+const salvar = document.querySelector('#salvar-tarefas');
 const cima = document.querySelector('#mover-cima');
 const baixo = document.querySelector('#mover-baixo');
 const remove = document.querySelector('#remover-selecionado');
+const listMom = document.querySelector('#lista-tarefas');
 
 function completeItem(allItems) {
   const last = allItems.length - 1;
@@ -70,23 +70,13 @@ function deleteCompleted() {
 
 deleteCompleted();
 
-// function saveList() {
-//   salvar.addEventListener('click', () => {
-//     const itemStorage = [];
-//     let formatList = {};
-//     const allItems = document.querySelectorAll('li');
-//     for (let i = 0; i < allItems.length; i += 1) {
-//       formatList.title = allItems[i].innerHTML;
-//       formatList.completed = allItems[i].classList.contains('completed');
-//       itemStorage.push(formatList);
-//       formatList = {};
-//     }
-//     console.log(itemStorage);
-//     localStorage.setItem('lista', itemStorage);
-//   });
-// }
+function saveList() {
+  salvar.addEventListener('click', () => {
+    localStorage.setItem('lista', listMom.innerHTML);
+  });
+}
 
-// saveList();
+saveList();
 
 function moveAuxiliar(itemSelected) {
   if (itemSelected.previousElementSibling) {
@@ -129,3 +119,17 @@ function removerSelected() {
 }
 
 removerSelected();
+
+window.onload = () => {
+  const backup = localStorage.getItem('lista');
+  if (backup !== null) {
+    listMom.innerHTML = backup;
+    const allItems = document.querySelectorAll('li');
+    const itemsToGo = [];
+    for (let i = 0; i < allItems.length; i += 1) {
+      itemsToGo.push(allItems[i]);
+      SelectItem(itemsToGo);
+      completeItem(itemsToGo);
+    }
+  }
+};
