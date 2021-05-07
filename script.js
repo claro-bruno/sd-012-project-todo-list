@@ -18,6 +18,25 @@ const olIdListaTarefaCria = document.createElement('ol');
 olIdListaTarefaCria.id = 'lista-tarefas';
 bodyPagina.appendChild(olIdListaTarefaCria);
 
+function alteraCor(event) {
+  const liAlteraCorCinza = document.querySelector('li');
+  const liCorCinza = 'rgb(128, 128, 128)';
+  if (liAlteraCorCinza.style.backgroundColor !== liCorCinza) {
+    event.target.style.backgroundColor = liCorCinza;
+  } else if (liAlteraCorCinza.style.backgroundColor === liCorCinza) {
+    event.target.style.backgroundColor = null;
+  }
+}
+
+function riscaLi(event) {
+  const classCompleted = document.querySelectorAll('.completed');
+  if (classCompleted.length === 0) {
+    event.target.className = 'completed';
+  } else if (classCompleted.length > 0) {
+    event.target.classList.remove('completed');
+  }
+}
+
 function adicionaTarefas() {
   const inputIdTextoTarefa = document.querySelector('#texto-tarefa');
   const botaoIdCriarTarefa = document.querySelector('#criar-tarefa');
@@ -27,6 +46,8 @@ function adicionaTarefas() {
     const novaLi = document.createElement('li');
     novaLi.innerHTML = inputIdTextoTarefa.value;
     novaLi.className = 'alteraCorCinza';
+    novaLi.addEventListener('dblclick', riscaLi);
+    novaLi.addEventListener('click', alteraCor);
     olIdListaTarefa.appendChild(novaLi);
     inputIdTextoTarefa.value = '';
   });
@@ -37,18 +58,3 @@ function adicionaTarefas() {
   });
 }
 adicionaTarefas();
-
-function alteraCor() {
-  const liAlteraCorCinza = document.querySelectorAll('p');
-  const liCorCinza = 'rgb(128, 128, 128)';
-  for (let index = 0; index < liAlteraCorCinza.length; index += 1) {
-    liAlteraCorCinza[index].addEventListener('click', () => {
-      if (liAlteraCorCinza[index].style.backgroundColor !== liCorCinza) {
-        liAlteraCorCinza[index].style.backgroundColor = liCorCinza;
-      } else if (liAlteraCorCinza[index].style.backgroundColor === liCorCinza) {
-        liAlteraCorCinza[index].style.backgroundColor = null;
-      }
-    });
-  }
-}
-alteraCor();
