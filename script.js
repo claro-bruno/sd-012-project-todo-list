@@ -6,20 +6,21 @@ const removeCompletedButton = document.getElementById('remover-finalizados');
 const removeSelectedButton = document.getElementById('remover-selecionado');
 const saveButton = document.getElementById('salvar-tarefas');
 
-// Solução encontrada no respositório de Anajulia
-// Source: https://github.com/tryber/sd-011-project-todo-list/blob/anajulia-bs-todo-list-project/script.js
+// Ideia encontrada no respositório de Matheus "Set" Inacio
+// Source: https://github.com/tryber/sd-011-project-todo-list/blob/heyset-todo-list-project/script.js
 
-const removeSelectedClass = (evt) => evt.classList.remove('selected');
-const selectTask = () => {
-  const tasks = document.querySelectorAll('li');
-  tasks.forEach((task) => {
-    task.addEventListener('click', () => {
-      tasks.forEach(removeSelectedClass);
-      task.classList.add('selected');
-      console.log(task);
-    });
-  });
-};
+let selectedTask;
+
+function selectTask(e) {
+  const task = e.target;
+
+  task.classList.add('selected');
+
+  if (selectedTask) {
+    selectedTask.classList.remove('selected');
+  }
+  selectedTask = task;
+}
 
 const toggleCompleted = (evt) => {
   const completed = evt.target;
@@ -36,7 +37,7 @@ const addTask = () => {
     taskList.appendChild(newTask);
     taskInput.value = '';
     newTask.addEventListener('dblclick', toggleCompleted);
-    selectTask();
+    newTask.addEventListener('click', selectTask);
   }
 };
 
