@@ -51,7 +51,7 @@ let newBgColor = 'rgb(128,128,128)';
     getListItem[index].addEventListener('click', function(event) {
         if (event.target.style.backgroundColor !== newBgColor) {
             removeTudo();
-            event.target.className = 'selected';
+            event.target.classList.add('selected');
         }        
             })
           
@@ -76,28 +76,30 @@ function riscaLista () {
         getListItem[index].addEventListener('dblclick', function(event) {
             if (event.target.style.textDecoration !== 'line-through') {
                 event.target.classList.add('completed');
-                console.log(event.target.classList)
-            } else {
+            } 
+            if (event.target.style.textDecoration === 'line-through') {
                 event.target.classList.remove('completed');
+                console.log(event.target.classList)
             }
         })
     }
 }
 
-function cleanButton () {
-    let getCleanButton = document.querySelector('#apaga-tudo');
-    let getUL = document.querySelector('#lista-tarefas');
-    let getListItem = document.querySelectorAll('#list-item');
+let getCleanButton = document.querySelector('#apaga-tudo');
 
     getCleanButton.addEventListener('click', function() {
+        let getListItem = document.querySelectorAll('#list-item');
+        let getUL = document.querySelector('#lista-tarefas');
+
         for (let index = 0; index < getListItem.length; index += 1) {
             if (getListItem.length > 0) {
+                console.log(getListItem);
                 getUL.removeChild(getListItem[index]);
             }
         }
-    })
+    });
     
-}
+
 
     </script>
 </body>
