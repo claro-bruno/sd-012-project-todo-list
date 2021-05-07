@@ -1,6 +1,7 @@
 let input = document.getElementById("texto-tarefa");
 let listaTarefa = document.getElementById("lista-tarefas");
 let button = document.getElementById("criar-tarefa");
+let buttonErase = document.getElementById("apaga-tudo");
 
 function alteraFundoLista(event){
 
@@ -44,9 +45,16 @@ function funcaoBotao(){
 button.addEventListener("click", funcaoBotao);
 
 
+function limpaLista (){
+    let listaTarefa = document.getElementById("lista-tarefas");
+    while (listaTarefa.firstChild){
+        listaTarefa.removeChild(listaTarefa.firstChild);
+    };
+};
 
-// function duploClick (){
-//     riscaElemento();
-// }
-    
 
+function funcaoBotaoApaga(){
+    limpaLista();
+};
+
+buttonErase.addEventListener("click", funcaoBotaoApaga);
