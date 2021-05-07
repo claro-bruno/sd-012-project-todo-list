@@ -79,14 +79,10 @@ function salvaLista() {
   });
 }
 
-function carregaLista() {
-  document.addEventListener("click", function(btnStorage){
-    if (btnStorage.target.id === "carrega-lista") {
-      let isLista = document.getElementById("lista-lugar");     
-      isLista.innerHTML = localStorage.getItem("item");
-      console.log(isLista); 
-    }
-  });
+window.onload = function() {
+  let isLista = document.getElementById("lista-lugar");     
+  isLista.innerHTML = localStorage.getItem("item");
+  console.log(isLista); 
 }
 
 risco();
@@ -95,4 +91,3 @@ corCinza();
 apagaTudo();
 rmFinalizados();
 salvaLista();
-carregaLista();
