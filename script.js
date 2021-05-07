@@ -71,6 +71,11 @@ moveUpButton.addEventListener('click', function() {
     }
 });
 
+const deleteSelectedButton = document.getElementById('remover-selecionado');
+deleteSelectedButton.addEventListener('click', function () {
+    const selected = document.querySelector('.selected');
+        selected.remove();
+})
 
 
 
