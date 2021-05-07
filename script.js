@@ -98,15 +98,17 @@ function moveUp() {
 
   upButton.addEventListener('click', function () {
     const selectedItem = document.getElementsByClassName('selected')[0];
-    sessionStorage.moveUpCacheInner = selectedItem.previousElementSibling.innerHTML;
-    sessionStorage.moveUpCacheClass = selectedItem.previousElementSibling.className;
 
-    selectedItem.previousElementSibling.innerHTML = selectedItem.innerHTML;
-    selectedItem.previousElementSibling.className = selectedItem.className;
+    if (selectedItem !== selectedItem.parentElement.firstElementChild) {
+      sessionStorage.moveUpCacheInner = selectedItem.previousElementSibling.innerHTML;
+      sessionStorage.moveUpCacheClass = selectedItem.previousElementSibling.className;
 
-    selectedItem.innerHTML = sessionStorage.moveUpCacheInner;
-    selectedItem.className = sessionStorage.moveUpCacheClass;
+      selectedItem.previousElementSibling.innerHTML = selectedItem.innerHTML;
+      selectedItem.previousElementSibling.className = selectedItem.className;
 
+      selectedItem.innerHTML = sessionStorage.moveUpCacheInner;
+      selectedItem.className = sessionStorage.moveUpCacheClass;
+    };
   });
 }
 moveUp();
@@ -116,14 +118,17 @@ function moveDown() {
 
   downButton.addEventListener('click', function () {
     const selectedItem = document.getElementsByClassName('selected')[0];
-    sessionStorage.moveDownCacheInner = selectedItem.nextElementSibling.innerHTML;
-    sessionStorage.moveDownCacheClass = selectedItem.nextElementSibling.className;
 
-    selectedItem.nextElementSibling.innerHTML = selectedItem.innerHTML;
-    selectedItem.nextElementSibling.className = selectedItem.className;
+    if (selectedItem !== selectedItem.parentElement.lastElementChild) {
+      sessionStorage.moveDownCacheInner = selectedItem.nextElementSibling.innerHTML;
+      sessionStorage.moveDownCacheClass = selectedItem.nextElementSibling.className;
 
-    selectedItem.innerHTML = sessionStorage.moveDownCacheInner;
-    selectedItem.className = sessionStorage.moveDownCacheClass;
+      selectedItem.nextElementSibling.innerHTML = selectedItem.innerHTML;
+      selectedItem.nextElementSibling.className = selectedItem.className;
+
+      selectedItem.innerHTML = sessionStorage.moveDownCacheInner;
+      selectedItem.className = sessionStorage.moveDownCacheClass;
+    };
   });
 }
 moveDown();
