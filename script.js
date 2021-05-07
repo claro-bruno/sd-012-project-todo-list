@@ -9,19 +9,19 @@ window.onload = function () {
   let botaoMoveBaixo = document.querySelector('#mover-baixo');
   let botaoRemove = document.querySelector('#remover-selecionado');
   getTarefas();
-
+  
   botaoTarefa.addEventListener('click', function (event) {
     novaTarefa(event);
   });
-
+  
   listaTarefas.addEventListener('dblclick', function (event) {
     concluiTarefa(event);
   });
-
+  
   listaTarefas.addEventListener('click', function (event) {
     pintaTarefa(event);
   });
-
+  
   botaoLimpaLista.addEventListener('click', function () {
     let tarefas = document.querySelectorAll('.tarefa');
     if (tarefas.length > 0) {
@@ -33,6 +33,13 @@ window.onload = function () {
       alert('Não há itens na lista.');
     }
   });
+  
+  inputTarefa.addEventListener('keyup', function (e) {
+    var key = e.which || e.keyCode;
+    if (key == 13) {
+      novaTarefa(e);
+    }
+  })
 
   botaoLimpaConcluidos.addEventListener('click', function () {
     let tarefasConcluidas = document.querySelectorAll('.completed');
@@ -44,7 +51,7 @@ window.onload = function () {
       alert('Não há tarefas marcadas como concluídas.');
     }
   });
-
+  
   botaoSalvarLista.addEventListener('click', function () {
     let arrayTarefas = [];
     let classes = [];
@@ -57,7 +64,7 @@ window.onload = function () {
     localStorage.setItem('Lista', arrayTarefas);
     localStorage.setItem('Classes', classes);
   });
-
+  
   botaoRemove.addEventListener('click', function () {
     let tarefaSelecionada = document.querySelector('.selecionada');
     if (!tarefaSelecionada) {
@@ -66,14 +73,14 @@ window.onload = function () {
       listaTarefas.removeChild(tarefaSelecionada);
     }
   });
-
+  
   botaoMoveBaixo.addEventListener('click', function () {
     let tarefaSelecionada = document.querySelector('.selecionada');
     if (!tarefaSelecionada) {
       alert('Nenhuma tarefa selecionada');
     } else {
       let proximoItem = tarefaSelecionada.nextElementSibling;
-
+      
       if (tarefaSelecionada === listaTarefas.lastChild) {
         alert('Item está na posição máxima');
       } else {
@@ -81,15 +88,15 @@ window.onload = function () {
       }
     }
   });
-
+  
   botaoMoveCima.addEventListener('click', function () {
     let tarefaSelecionada = document.querySelector('.selecionada');
-
+    
     if (!tarefaSelecionada) {
       alert('Nenhuma tarefa selecionada.');
     } else {
       let itemAnterior = tarefaSelecionada.previousElementSibling;
-
+      
       if (tarefaSelecionada === listaTarefas.firstChild) {
         alert('Item está na posição máxima');
       } else {
@@ -97,7 +104,7 @@ window.onload = function () {
       }
     }
   });
-
+  
   function getTarefas() {
     if (typeof localStorage.getItem('Lista') === 'object') {
       localStorage.setItem('Lista', []);
@@ -105,7 +112,7 @@ window.onload = function () {
     if (typeof localStorage.getItem('Classes') === 'object') {
       localStorage.setItem('Classes', []);
     }
-
+    
     let arrayTarefas = localStorage.getItem('Lista');
     let classes = localStorage.getItem('Classes');
     let classesSplit = classes.split(',');
@@ -118,7 +125,7 @@ window.onload = function () {
       listaTarefas.appendChild(novaTarefa);
     }
   }
-
+  
   function novaTarefa() {
     let novaTarefa = document.createElement('li');
     if (inputTarefa.value === '') {
@@ -130,7 +137,7 @@ window.onload = function () {
       inputTarefa.value = '';
     }
   }
-
+  
   function pintaTarefa(event) {
     let tarefaSelecionada = document.querySelectorAll('.selecionada');
     if (tarefaSelecionada.length > 0) {
@@ -138,11 +145,14 @@ window.onload = function () {
       event.target.className = 'tarefa selecionada';
     } else if (event.target.className === 'tarefa completed') {
       event.target.className = 'tarefa completed';
-    } else {
+    } else if (event.target.className === 'tarefa selecionada') {
+      event.target.className = 'tarefa';
+    }
+    else {
       event.target.className = 'tarefa selecionada';
     }
   }
-
+  
   function concluiTarefa(event) {
     if (event.target.className === 'tarefa completed') {
       event.target.className = 'tarefa';
