@@ -71,13 +71,7 @@ function moveItemsUp() {
   buttonMoveUp.addEventListener('click', () => {
     const selectedItem = document.querySelector('.selected');
     if (selectedItem !== null && selectedItem.previousElementSibling !== null) {
-      const itemAntes = document.createElement('li');
-      itemAntes.innerHTML = selectedItem.previousElementSibling.innerHTML;
-      itemAntes.classList = selectedItem.previousElementSibling.classList;
-      selectedItem.previousElementSibling.innerHTML = selectedItem.innerHTML;
-      selectedItem.previousElementSibling.classList = selectedItem.classList;
-      selectedItem.innerHTML = itemAntes.innerHTML;
-      selectedItem.classList = itemAntes.classList;
+      list.insertBefore(selectedItem, selectedItem.previousElementSibling);
     }
   });
 }
@@ -87,13 +81,7 @@ function moveItemsDown() {
   buttonMoveDown.addEventListener('click', () => {
     const selectedItem = document.querySelector('.selected');
     if (selectedItem !== null && selectedItem.nextElementSibling !== null) {
-      const itemDepois = document.createElement('li');
-      itemDepois.innerHTML = selectedItem.nextElementSibling.innerHTML;
-      itemDepois.classList = selectedItem.nextElementSibling.classList;
-      selectedItem.nextElementSibling.innerHTML = selectedItem.innerHTML;
-      selectedItem.nextElementSibling.classList = selectedItem.classList;
-      selectedItem.innerHTML = itemDepois.innerHTML;
-      selectedItem.classList = itemDepois.classList;
+      list.insertBefore(selectedItem, selectedItem.nextElementSibling.nextElementSibling)
     }
   });
 }
