@@ -4,6 +4,10 @@ window.onload = function() {
     const createButton = document.querySelector("#criar-tarefa");
     const input = document.querySelector('input');
     const list = document.querySelector('ol');
+    const clearAll = document.querySelector('#apaga-tudo');
+    const clearCompleted = document.querySelector('#remover-finalizados');
+    const darkMode = document.querySelector('#dark-mode');
+    let mode = 'light';
 
     // Task Add by Input
     createButton.addEventListener('click', function () {
@@ -33,5 +37,35 @@ window.onload = function() {
         target.classList.toggle('completed');
     })
 
+    // Clear All
+    clearAll.addEventListener('click', function() {
+        for (let child in list) {
+            list.removeChild(list.lastElementChild);
+        }
+    })
 
+    // Clear Completed
+    clearCompleted.addEventListener('click', function () {
+        let tasks = document.querySelectorAll('li');
+        for (let child = 0; child < tasks.length; child += 1) {
+            if (tasks[child].classList.contains('selected')) {
+                tasks[child].remove();
+            }
+        }
+    })
+
+    // Dark Mode
+    darkMode.addEventListener('click', function() {
+        if (mode === 'light') {
+            let link = document.querySelector('link');
+            link.setAttribute('href', 'styleDark.css');
+            darkMode.innerHTML = 'Light Mode';
+            mode = 'dark';
+        } else {
+            let link = document.querySelector('link');
+            link.setAttribute('href', 'style.css');
+            darkMode.innerHTML = 'Dark Mode';
+            mode = 'light';
+        }
+    })
 }

@@ -1,8 +1,8 @@
 body {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: #0f1a26;
+    color: #fff;
     margin: 80px;
-    background-color: #e5ab09;
+    background-color: #080F24;
 }
 
 body span {
@@ -18,7 +18,7 @@ input {
     border-radius: 6px;
     padding: 5px;
     width: 310px;
-    border: #0f1a26 solid 2px;
+    border: #fff solid 2px;
 }
 
 button {
@@ -34,14 +34,14 @@ ol {
     margin-top: 40px;
     margin-left: -30px;
     font-size: 18px;
-    color: #6a2202;
+    color: #fff;
     list-style: none;
     min-height: 320px;
 }
 
 li {
     padding: 10px;
-    background-color: #fcfcfc;
+    background-color: #060606;
     border-radius: 10px;
     width: 359px;
     cursor: pointer;
@@ -57,13 +57,13 @@ footer {
     border-radius: 10px;
     width: 400px;
     min-height: 450px;
-    background-color: #fff;
+    background-color: #000;
 }
 
 #input-box {
     display: block;
     padding: 10px;
-    background-color: #fcfcfc;
+    background-color: #060606;
     border-radius: 10px;
     width: 370px;
     position: absolute;
@@ -72,31 +72,31 @@ footer {
 
 #criar-tarefa {
     width: 40px;
-    background-color: #e5ab09;
-    border: #e5ab09 solid 1px;
+    background-color: #080F24;
+    border: #080F24 solid 1px;
 }
 
 #apaga-tudo {
-    background-color: #bc7201;
-    border: #bc7201 solid 1px;
+    background-color: #241C08;
+    border: #241C08 solid 1px;
 }
 
 #remover-finalizados {
-    background-color: #6a2202;
-    border: #6a2202 solid 1px;
+    background-color: #240F15;
+    border: #240F15 solid 1px;
 }
 
 #dark-mode{
-    background-color: #0f1a26;
-    border: #0f1a26 solid 1px;
+    background-color: #080F24;
+    border: #080F24 solid 1px;
 }
 
 .selected {
-    background-color: rgb(128,128,128);
+    background-color: #080F24;
     color: #fff;
     font-weight: bold;
 }
 
 .completed {
-    text-decoration: line-through solid rgb(0, 0, 0);
+    text-decoration: line-through solid rgb(255, 255, 255);
 }
