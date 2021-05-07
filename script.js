@@ -7,7 +7,10 @@ window.onload = function() {
         btn.addEventListener('click', function() {
             let listItem = document.createElement('li');
             listItem.addEventListener('click', function() {
-                listItem.className = 'itemLista'
+                if(document.querySelector('.itemLista') === null)
+                listItem.classList.add('itemLista');
+                else
+                listItem.classList.remove('itemLista');
             })
             let tarefa = entrada.value;
             listaTarefas.appendChild(listItem);
