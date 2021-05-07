@@ -4,7 +4,7 @@ const taskListId = '#lista-tarefas';
 const stateNormal = 'task';
 const stateSelected = 'task selected';
 const stateFinished = 'task completed';
-const stateSelectedFinished = 'task selected completed';
+const stateSelectedCompleted = 'task selected completed';
 
 let tasks = document.querySelector(taskListId).children;
 let taskList = document.querySelector(taskListId);
@@ -52,11 +52,19 @@ function createRemoveAllTasksButton() {
   optionContent.appendChild(removeAllTasksButton);
 }
 
+function createRemoveCompletedTasksButton() {
+  const removeCompletedTasksButton = document.createElement('button');
+  removeCompletedTasksButton.id = 'remover-finalizados';
+  removeCompletedTasksButton.innerText = 'Remover as Tarefas Completas';
+  optionContent.appendChild(removeCompletedTasksButton);
+}
+
 function createOptionsMenu() {
   createAddTaskLabel();
   createAddTaskInput();
   createAddTaskButton();
   createRemoveAllTasksButton();
+  createRemoveCompletedTasksButton();
 }
 createOptionsMenu();
 
@@ -76,7 +84,7 @@ function clearPreviousSelected() {
       tasks[index].className = stateNormal;
       tasks[index].style.backgroundColor = '';
     }
-    if (tasks[index].className === stateSelectedFinished) {
+    if (tasks[index].className === stateSelectedCompleted) {
       tasks[index].className = stateFinished;
       tasks[index].style.backgroundColor = '';
     }
@@ -91,7 +99,7 @@ function selectTask(event) {
     selectedTask.style.backgroundColor = 'rgb(128, 128, 128)';
   }
   if (selectedTask.className === stateFinished) {
-    selectedTask.className = stateSelectedFinished;
+    selectedTask.className = stateSelectedCompleted;
     selectedTask.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }
@@ -99,9 +107,9 @@ function selectTask(event) {
 function finishTask(event) {
   const finishedTask = event.target;
   if (finishedTask.className === stateSelected) {
-    finishedTask.className = stateSelectedFinished;
+    finishedTask.className = stateSelectedCompleted;
     finishedTask.style.textDecoration = 'line-through solid black';
-  } else if (finishedTask.className === stateSelectedFinished) {
+  } else if (finishedTask.className === stateSelectedCompleted) {
     finishedTask.className = stateSelected;
     finishedTask.style.textDecoration = '';
   }
@@ -138,3 +146,13 @@ function removeAllTasks() {
   }
 }
 removeAllTasksButtonElement.addEventListener('click', removeAllTasks);
+
+const removeCompletedTasksButtonElement = document.querySelector('#remover-finalizados');
+function removeCompletedTasks() {
+  taskList = document.querySelector(taskListId);
+  const completedElements = document.querySelectorAll('.completed');
+  for (let index = 0; index < completedElements.length; index += 1) {
+    taskList.removeChild(completedElements[index]);
+  }
+}
+removeCompletedTasksButtonElement.addEventListener('click', removeCompletedTasks);
