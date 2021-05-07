@@ -1,18 +1,11 @@
-  
-document.addEventListener('click', (event)) => {
-    let lista =[];
-    if (event.target.id === 'criar-tarefa' && event.target.id.contains(String')) {
-        intputListaTarefas.appendChild(lista) 
-        const inputTextoTarefa = document.querySelector('#texto-tarefa');
-        const intputListaTarefas = document.querySelector('#lista-tarefas');
+let button = document.getElementById("criar-tarefa")  
 
-
-        for (let    index = 0; index < lista.length; index = += 1) {
-            let item =  inputTextoTarefa;
-            let itemDaLista = document.createElement('li');
-            itemDaLista.innerText = item;
-
-            intputListaTarefas.appendChild(itemDaLista)       
-        }
-    } 
-}
+button.addEventListener('click', (event) => {
+    console.log("cheguei aqui")
+    let itemDaLista = document.createElement('li');
+    const inputTextoTarefa = document.querySelector('#texto-tarefa');
+    const ListaTarefas = document.querySelector('#lista-tarefas');
+    ListaTarefas.appendChild(itemDaLista) 
+    itemDaLista.innerText = inputTextoTarefa.value;
+    inputTextoTarefa.value = '';
+})
