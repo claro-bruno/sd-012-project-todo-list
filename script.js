@@ -30,9 +30,9 @@ function checkUnCheck(check) {
 function clearList() {
   let father = document.getElementById('lista-tarefas');
   console.log(father)
- // while (father.firstChild) {
- //   father.removeChild(father.firstChild);
-//}
+  while (father.firstChild) {
+    father.removeChild(father.firstChild);
+  }
 }
 
 function clearEnded() {
