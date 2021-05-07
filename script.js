@@ -6,10 +6,10 @@ function funcBornTodo() {
   if (contentNewTodo.value == '') {} else {
     let newItem = document.createElement("li");
     let newButton = document.createElement("button");
-    countList.appendChild(newButton);
-    let caughtButton = document.getElementById("lista-tarefas").lastChild
-        caughtButton.appendChild(newItem);
-    document.getElementById("lista-tarefas").lastChild.innerHTML = contentNewTodo.value;
+    countList.appendChild(newItem);
+    let caughtItem = document.getElementById("lista-tarefas").lastChild
+        newItem.appendChild(newButton);
+    caughtItem.innerHTML = contentNewTodo.value;
     contentNewTodo.value = "";
   };
 };
