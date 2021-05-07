@@ -1,6 +1,7 @@
 const botaoCriarTarefa = document.getElementById('criar-tarefa');
 const listaTarefas = document.querySelector('#lista-tarefas');
 const inputTxtTarefa = document.getElementById('texto-tarefa');
+const botaoLimparLista = document.getElementById('apaga-tudo');
 // Adiciona tarefas a lista e aplica sistemas de marcação
 function sistemaDeTarefas() {
   botaoCriarTarefa.addEventListener('click', () => {
@@ -21,3 +22,7 @@ function sistemaDeTarefas() {
   });
 }
 sistemaDeTarefas();
+// Configura botão Limpar Lista
+botaoLimparLista.addEventListener('click', () => {
+  listaTarefas.innerText = '';
+});
