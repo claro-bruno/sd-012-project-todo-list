@@ -6,11 +6,16 @@ window.onload = function() {
     function criaTarefa() {
         btn.addEventListener('click', function() {
             let listItem = document.createElement('li');
+            listItem.addEventListener('click', function() {
+                listItem.className = 'itemLista'
+            })
             let tarefa = entrada.value;
             listaTarefas.appendChild(listItem);
             listItem.innerHTML = tarefa;
             entrada.value = '';
         });
     }
+
     criaTarefa();
+
 }
