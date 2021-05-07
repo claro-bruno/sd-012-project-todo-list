@@ -49,3 +49,48 @@ document.addEventListener('click', (event) => {
     lista.innerHTML = '';
   }
 }, false);
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'salvar-tarefas') {
+    localStorage.setItem('lista', lista.innerHTML);
+  }
+});
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'mover-cima') {
+    const targeto = document.querySelector('.selected');
+    try {
+      if (targeto.previousElementSibling.className === 'item-list') {
+        lista.insertBefore(targeto, targeto.previousElementSibling);
+      }
+    } catch (exception) {
+      console.log('final da lista');
+    }
+  }
+}, false);
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'mover-baixo') {
+    const targeto = document.querySelector('.selected');
+    try {
+      lista.insertBefore(targeto, targeto.nextElementSibling.nextElementSibling);
+    } catch (error) {
+      console.log('final da lista');
+    }
+  }
+}, false);
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'remover-selecionado') {
+    const selected = document.querySelectorAll('.selected');
+    for (let i = 0; i < selected.length; i += 1) {
+      selected[i].remove();
+    }
+  }
+}, false);
+
+function loadList() {
+  lista.innerHTML = localStorage.getItem('lista');
+}
+
+loadList();
