@@ -1,10 +1,12 @@
 const list = document.getElementById('lista-tarefas');
+
 function createTask() {
-  const input = document.getElementById('texto-tarefa');
   const button = document.getElementById('criar-tarefa');
+  const input = document.getElementById('texto-tarefa');
 
   button.addEventListener('click', () => {
     const createItem = document.createElement('li');
+
     createItem.className = 'list-item';
     createItem.innerHTML = input.value;
     list.appendChild(createItem);
@@ -48,10 +50,32 @@ function removeFinalizedTasks() {
   });
 }
 
+function saved() {
+  const saveLi = list.innerHTML;
+  localStorage.saveList = saveLi;
+}
+
+function loadSaved() {
+  if (localStorage.saveList) {
+    list.innerHTML = localStorage.saveList;
+  }
+}
+
+loadSaved();
+
+function saveTasks() {
+  const saveBtn = document.getElementById('salvar-tarefas');
+  saveBtn.addEventListener('click', saved);
+  saveBtn.addEventListener('click', () => {
+    alert('Lista salva com sucesso!');
+  });
+}
+
 window.onload = () => {
   createTask();
   selectedTask();
   completeTask();
   removeTasks();
   removeFinalizedTasks();
+  saveTasks();
 };
