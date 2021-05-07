@@ -21,6 +21,7 @@ window.onload = () => {
         selectTask();
         selectTaskCompleted();
         cleanAllList();
+        DeleteCompleteds();
     }
 
     const add = getById('criar-tarefa');
@@ -78,5 +79,23 @@ window.onload = () => {
     const cleanButton = document.getElementById('apaga-tudo');
     cleanButton.addEventListener('click', cleanList);
    }
+
+   //Apaga Completos
+
+   function completeList() {
+    const selectOl = document.getElementById('lista-tarefas');
+    const selectTasksCompleted = document.querySelectorAll('.completed');
+    console.log(selectTasksCompleted.length);
+        for (let i = 0; i < selectTasksCompleted.length; i += 1){
+            let element = selectTasksCompleted[i];
+            console.log(element);
+            selectOl.removeChild(element);
+        }
+    }
+
+    function DeleteCompleteds() {
+        const cleanButton = document.getElementById('remover-finalizados');
+        cleanButton.addEventListener('click', completeList);
+    }
    
 }
