@@ -49,7 +49,6 @@ window.onload = function () {
   botaoMoveCima.addEventListener('click', function () {});
 
   function getTarefas() {
-    localStorage.setItem('Lista', []);
     let arrayTarefas = localStorage.getItem('Lista');
     let arraySplit = arrayTarefas.split(',');
     for (let index = 0; index < arraySplit.length; index += 1) {
@@ -62,13 +61,13 @@ window.onload = function () {
 
   function novaTarefa() {
     let novaTarefa = document.createElement('li');
-    if (inputTarefa.length < 0) {
-      novaTarefa.innerHTML = inputTarefa.value;
-      novaTarefa.className = 'tarefa';
-      listaTarefas.appendChild(novaTarefa);
-      inputTarefa.value = '';
-    } else {
+    if (inputTarefa.value === '') {
       alert('Valor de entrada não pode ser vazio.');
+    } else {
+        novaTarefa.innerHTML = inputTarefa.value;
+        novaTarefa.className = 'tarefa';
+        listaTarefas.appendChild(novaTarefa);
+        inputTarefa.value = '';
     }
   }
 
