@@ -31,7 +31,7 @@ function selectItemList() {
     });
   }
 }
-// Essa questão eu consegui através do PR do Roberval.
+// Essa questão eu consegui através do PR do Roberval Filho.
 // https://github.com/tryber/sd-012-project-todo-list/pull/15/files
 function itemListConcluded() {
   let itemList = document.querySelector('#lista-tarefas').lastChild;
@@ -95,14 +95,14 @@ function recoverToDoList() {
 function createMoveUpButton() {
   let createButton = document.createElement('button');
   createButton.id = 'mover-cima';
-  createButton.innerHTML = '&uarr;';
+  createButton.innerHTML = '&#129145;';
   document.querySelector('#container-tools').appendChild(createButton);
 }
 
 function createMoveDownButton() {
   let createButton = document.createElement('button');
   createButton.id = 'mover-baixo';
-  createButton.innerHTML = '&darr;';
+  createButton.innerHTML = '&#129147;';
   document.querySelector('#container-tools').appendChild(createButton);
 }
 
@@ -122,6 +122,21 @@ function moveDown() {
   }
 }
 
+function createRemoveSelectedButton() {
+  let createButton = document.createElement('button');
+  createButton.id = 'remover-selecionado';
+  createButton.innerHTML = '&#10006;';
+  document.querySelector('#container-tools').appendChild(createButton);
+}
+
+function clearItemSelected() {
+  let itemSelected = document.querySelector('.selected');
+  if (itemSelected) {
+    itemSelected.remove();
+  }
+  saveToDoList();
+}
+
 let itemList = document.querySelectorAll('li');
 let buttonSubmit = document.querySelector('#criar-tarefa');
 let ordenedList = document.querySelector('#lista-tarefas');
@@ -136,6 +151,7 @@ function eventAddTask() {
 }
 createMoveUpButton();
 createMoveDownButton();
+createRemoveSelectedButton();
 recoverToDoList();
 createButtonClearCompleted();
 createClearButton();
@@ -151,3 +167,5 @@ let moveListUp = document.querySelector('#mover-cima');
 moveListUp.addEventListener('click', moveUp);
 let moveListDown = document.querySelector('#mover-baixo');
 moveListDown.addEventListener('click', moveDown);
+let removeSelected = document.querySelector('#remover-selecionado');
+removeSelected.addEventListener('click', clearItemSelected);
