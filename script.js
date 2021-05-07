@@ -14,24 +14,12 @@ function addlist(){
  cria.innerHTML = caixaInput.value;
     listarray.appendChild(cria)
     return cria
+
 };
-Adicionar.addEventListener('click',addlist)
- 
-function limpalista(){
-    let criado = document.querySelectorAll('li');
-    criado = criado 
-    -=1
-    listarray.innerHTML = criado
-    
-    return licoroio
+function limpacaixa(){
+    caixaInput.value= '';
+    return caixaInput
 }
-apagarGeralX.addEventListener('click', limpalista);
-/*Adicionar.addEventListener('click',function(){
-    listarray.push(caixaInput)
-    return listarray
-})
- 
-Adicionar.addEventListener('click',() => {
-    listarray.push(caixaInput)
-    return listarray
-}*/
+Adicionar.addEventListener('click',addlist,);
+Adicionar.addEventListener('click', limpacaixa);
+//ate aqui cimprimos do requisito 1 ao 6 com exito <3
