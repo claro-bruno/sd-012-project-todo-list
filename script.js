@@ -32,9 +32,8 @@ function setGreyItem() {
 }
 
 function taskCompleted(value) {
-  // let orderList = document.querySelectorAll('.task-list');
-  value.addEventListener('dblclick', function(teste) {
-    teste.target.classList.toggle('completed')
+  value.addEventListener('dblclick', function(value) {
+    value.target.classList.toggle('completed')
   })
 }
 
