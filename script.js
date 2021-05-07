@@ -11,6 +11,7 @@
      itemLista.innerHTML = textoTarefa;
      itemLista.className = 'item-lista'
      itemLista.addEventListener('click',alteraCorDeFundo)
+     itemLista.addEventListener('dblclick', completado)
      listaDeTarefa.appendChild(itemLista)
      textoTarefa = document.querySelector('#texto-tarefa').value = '';
    });
@@ -27,5 +28,10 @@ addLista();
  }
  }
 
+function completado(event){
 
- 
+  if(event.target.className.includes('completed'))
+    event.target.className = 'item-lista'
+  else
+  event.target.className += ' completed'
+}
