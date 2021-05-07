@@ -13,6 +13,12 @@ btnSaveTasks.addEventListener('click', saveTasks);
 let btnRemoverSelecionado = document.querySelector('#remover-selecionado');
 btnRemoverSelecionado.addEventListener('click', removeSelected);
 
+let btnCima = document.querySelector('#mover-cima');
+btnCima.addEventListener('click', moveUpTask);
+
+let btnBaixo = document.querySelector('#mover-baixo');
+btnBaixo.addEventListener('click', moveDownTask);
+
 function addTask(myTask,evt) {
 
    
@@ -75,7 +81,7 @@ function saveTasks (event) {
     for(let index = 0; index < li_tasks.length; index += 1) {
         arrTasks.push(li_tasks[index].innerText);
     }*/
-    console.log(ol_tasks);
+
     localStorage.setItem('task', JSON.stringify(ol_tasks));
 }
 
@@ -88,12 +94,32 @@ function removeSelected(event) {
     }
 }
 
+function moveUpTask(event) {
+    let li_selected = document.querySelector('.selected');
+    let li_selected_before = document.querySelector('.selected').previousSibling;
+    let ol_tasks = document.querySelector('#lista-tarefas');
+
+    let li_insered = ol_tasks.insertBefore(li_selected,li_selected_before);
+
+}
+
+function moveDownTask(event) {
+    let li_selected = document.querySelector('.selected');
+    let li_selected_after = document.querySelector('.selected').nextSibling.nextSibling;
+    let ol_tasks = document.querySelector('#lista-tarefas');
+    console.log(li_selected,li_selected_after);
+
+    let li_insered = ol_tasks.insertBefore(li_selected,li_selected_after);
+
+
+}
+
 window.onload = function () {
     let ol_tasks = document.querySelector('#lista-tarefas');
     ol_tasks.innerHTML = JSON.parse(localStorage.getItem('task'));
     let li_task = document.querySelectorAll('.task');
     for(let index = 0 ; index < li_task.length; index += 1 ) {
-        li_task[index].addEventListener('click', changeBackgroundTask)
-        li_task[index].addEventListener('dblclick', setCompletedTask)
+        li_task[index].addEventListener('click', changeBackgroundTask);
+        li_task[index].addEventListener('dblclick', setCompletedTask);
     }
 };
