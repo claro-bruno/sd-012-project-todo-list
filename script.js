@@ -6,6 +6,7 @@ const clearAlltasks = document.getElementById('apaga-tudo');
 const saveTasks = document.getElementById('salvar-tarefas');
 const moveUpBtn = document.getElementById('mover-cima');
 const moveDownBtn = document.getElementById('mover-baixo');
+const removeBtn = document.getElementById('remover-selecionado');
 
 createBtn.addEventListener('click', createTask);
 
@@ -101,6 +102,19 @@ function moveTaskdown(event) {
       tasks[index].replaceWith(aux2);
       tasks[index+1].replaceWith(aux1);
       index = tasks.length;
+    }
+  }
+}
+
+//
+removeBtn.addEventListener('click', removeTask);
+
+function removeTask() {
+  let tasks = document.getElementsByTagName('li');
+  console.log('1');
+  for (let index = 0; index < (tasks.length-1); index += 1) {
+    if (tasks[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      tasks[index].remove();
     }
   }
 }
