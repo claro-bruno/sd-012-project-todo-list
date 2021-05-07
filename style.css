@@ -1,5 +1,31 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: monospace, sans-serif;
+  background-image: url('rocky-wall-color-scheme.jpeg');
+  background-size: cover;
+}
+
+#all {
+  position: relative;
+  background-color: rgba(255 , 255 , 255 , 0.5);
+  left: 50px;
+  top: 20px;
+  padding: 20px;
+  margin-right: 550px;
+  border-radius: 25px;
+  box-shadow: 0 0 5px 5px black;
+}
+
+header {
+  font-size: xx-large;
+  text-decoration: underline;
+  font-weight: 600;
+  color: rgb(53 , 35 , 11);
+}
+
+#funcionamento {
+  font-style: oblique;
+  font-size: 14px;
+  color: rgb(53 , 35 , 11);
 }
 
 .marcador {
