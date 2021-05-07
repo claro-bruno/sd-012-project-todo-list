@@ -9,7 +9,7 @@ const moveUpButton = document.getElementById('mover-cima');
 const errorMessage = document.getElementById('error');
 const moveDownButton = document.getElementById('mover-baixo');
 
-// Ideia encontrada no respositório de Matheus "Set" Inacio
+// Algumas ideias encontradas no respositório de Matheus "Set" Inacio
 // Source: https://github.com/tryber/sd-011-project-todo-list/blob/heyset-todo-list-project/script.js
 
 let selectedTask;
@@ -127,8 +127,6 @@ const saveTasks = () => {
   localStorage.setItem('taskList', listJson);
 };
 
-saveButton.addEventListener('click', saveTasks);
-
 const loadTasks = () => {
   if (!Storage || !localStorage.taskList) {
     return;
@@ -144,6 +142,7 @@ const loadTasks = () => {
 
 window.onload = () => {
   loadTasks();
+  saveButton.addEventListener('click', saveTasks);
   moveUpButton.addEventListener('click', moveUp);
   moveDownButton.addEventListener('click', moveDown);
   removeSelectedButton.addEventListener('click', removeSelected);
