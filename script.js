@@ -58,7 +58,10 @@ const removeCompleted = () => {
 
 const removeSelected = () => {
   const selected = document.querySelector('.selected');
-  taskList.removeChild(selected);
+  if (selected) {
+    taskList.removeChild(selected);
+  }
+  errorMessage.innerText = 'Nenhuma tarefa selecionada!';
 };
 
 saveButton.addEventListener('mouseover', () => {
@@ -139,13 +142,13 @@ const loadTasks = () => {
     }
   }
 };
+removeSelectedButton.addEventListener('click', removeSelected);
 
 window.onload = () => {
   loadTasks();
   saveButton.addEventListener('click', saveTasks);
   moveUpButton.addEventListener('click', moveUp);
   moveDownButton.addEventListener('click', moveDown);
-  removeSelectedButton.addEventListener('click', removeSelected);
   removeCompletedButton.addEventListener('click', removeCompleted);
   removeAllButton.addEventListener('click', removeAll);
   addTaskButton.addEventListener('click', () => {
