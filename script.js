@@ -29,30 +29,11 @@ function colocaFundo(event) {
 }
 
 function removeFundo() {
-  const LiLista = document.querySelectorAll('li');
-  for (let index = 0; index < LiLista.length; index += 1) {
-    LiLista[index].style.backgroundColor = null;
+  const liLista = document.querySelectorAll('li');
+  for (let index = 0; index < liLista.length; index += 1) {
+    liLista[index].style.backgroundColor = null;
   }
 }
-/*
-DESAFIO 9 TESTE 2
-
-function riscaLi(event) {
-  event.target.className = 'completed';
-}
-
-function removeRiscaLi() {
-  const classCompleted = document.getElementsByClassName('completed');
-  const liLista = document.getElementsByTagName('li');
-  for (let indexLi = 0; indexLi < liLista.length; indexLi += 1) {
-    for (let indexClass = 0; indexClass < classCompleted.length; indexClass += 1) {
-      if (liLista[indexLi] === classCompleted[indexClass]) {
-        liLista[indexLi].classList.remove('completed');
-      }
-    }
-  }
-}
-*/
 
 function riscaLi(event) {
   const classCompleted = document.querySelectorAll('.completed');
@@ -70,10 +51,9 @@ function adicionaTarefas() {
   botaoIdCriarTarefa.addEventListener('click', () => {
     const novaLi = document.createElement('li');
     novaLi.innerHTML = inputIdTextoTarefa.value;
-    //novaLi.addEventListener('dblclick', removeRiscaLi);
     novaLi.addEventListener('dblclick', riscaLi);
-    novaLi.addEventListener('click', colocaFundo);
     novaLi.addEventListener('click', removeFundo);
+    novaLi.addEventListener('click', colocaFundo);
     olIdListaTarefa.appendChild(novaLi);
     inputIdTextoTarefa.value = '';
   });
