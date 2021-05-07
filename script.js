@@ -4,6 +4,7 @@ let caminhoImput = document.getElementById("texto-tarefa");
 let caminhoLista = document.getElementById("lista-tarefas");
 let apagaBtn = document.getElementById("apaga-tudo");
 let apagaFinalizadosBtn = document.getElementById("remover-finalizados");
+let salvarTarefasBtn = document.getElementById("salvar-tarefas");
 // função que muda o backgroundColor de tarefa e seleciona
 function mudaFundoSeleciona(event){
     let velhoClick = document.querySelector(".selected");
@@ -65,4 +66,22 @@ function apagaCompleted(){
 };
 
 //  adiciona eventlistener no botão remove-finalizados
-apagaFinalizadosBtn.addEventListener("click", apagaCompleted);
+apagaFinalizadosBtn.addEventListener("click", apagaCompleted)
+
+//  função que salva tarefas
+function salvaTarefas() {
+    let tarefasAtuais = caminhoLista.innerHTML;
+    localStorage.setItem("tarefasSalvas", tarefasAtuais);
+};
+
+//  adiciona eventlistener no salvar-tarefas
+salvarTarefasBtn.addEventListener("click", salvaTarefas);
+
+window.onload = function (){
+    caminhoLista.innerHTML = localStorage.getItem("tarefasSalvas");
+    let tarefasPostas = document.getElementsByClassName("tarefa");
+    for (let element of tarefasPostas){
+        element.addEventListener("click", mudaFundoSeleciona);
+        element.addEventListener("dblclick", addCompleted);
+    };
+};
