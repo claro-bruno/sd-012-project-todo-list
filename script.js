@@ -39,7 +39,7 @@ window.onload = function() {
 
     function itemCompleted(eventSource) {
         if (!eventSource.target.classList.contains('completed')) {
-            eventSource.target.classList.add('completed');            
+            eventSource.target.classList = 'completed';
         } else {
             eventSource.target.classList.remove('completed');
         }        
