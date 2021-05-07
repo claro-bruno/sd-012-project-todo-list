@@ -103,10 +103,46 @@ document.querySelector("#salvar-tarefas").addEventListener("click", saveTasks);
 
 // Mover itens da Lista
 
- // Para Cima
-function moveTaskUP (event) {
-    let allTasksInList = document.querySelectorAll("#lista-tarefas li");
-    let taskSelected = document
+    // Para Cima
 
-}
+function moveUp () {
+    let firstElement = document.querySelector("#lista-tarefas").firstChild;
+    let selectedTask = document.querySelector(".selected");
+    let previousTask = selectedTask.previousElementSibling;
+    let changedContent = previousTask.innerHTML;
+    let changedClass = previousTask.className;
 
+    if(selectedTask !== firstElement){
+        // Trocar Task Anterior
+        previousTask.innerHTML = selectedTask.innerHTML
+        previousTask.className = selectedTask.className   
+        
+        // Trocar conteudo da selected Task
+        selectedTask.innerHTML = changedContent;
+        selectedTask.className = changedClass;
+    };
+};
+
+document.querySelector("#mover-cima").addEventListener("click", moveUp);
+
+    // Para Baixo
+
+function moveDown () {
+    let lastElement = document.querySelector("#lista-tarefas").lastChild;
+    let selectedTask = document.querySelector(".selected");
+    let nextTask = selectedTask.nextElementSibling;
+    let changedContent = nextTask.innerHTML;
+    let changedClass = nextTask.className;
+
+    if(selectedTask !== lastElement){
+        // Trocar Task Anterior
+        nextTask.innerHTML = selectedTask.innerHTML
+        nextTask.className = selectedTask.className   
+        
+        // Trocar conteudo da selected Task
+        selectedTask.innerHTML = changedContent;
+        selectedTask.className = changedClass;
+    };
+};
+
+document.querySelector("#mover-baixo").addEventListener("click", moveDown);
