@@ -5,27 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>ToDo List</title>
 </head>
 <body>
     <header>
         <h1>Minha Lista de Tarefas</h1>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo!</p>
     </header>
-
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-
-    <input id="texto-tarefa" type="text">
-    <button id="criar-tarefa">Adicionar Tarefa</button>
-
+    <div class="inputSection">
+        <input id="texto-tarefa" type="text">
+        <button id="criar-tarefa"><i class="fa fa-plus-circle"></i> Adicionar Tarefa</button>
+    </div>
     <ol id="lista-tarefas"></ol>
 
     <section id="ButtonsMenu">
-        <button id="apaga-tudo">Apagar Lista</button>
-        <button id="remover-finalizados">Apagar Tarefas Completas</button>
-        <button id="salvar-tarefas">Salvar Lista</button>
-        <button id="mover-cima">Mover Tarefa para Cima</button>
-        <button id="mover-baixo">Mover Tarefa para Baixo</button>
-        <button id="remover-selecionado">Remover Tarefa Selecionada</button>
+        <button id="remover-selecionado"><i class="fa fa-trash"></i></button>
+        <button id="mover-cima"><i class="fa fa-arrow-circle-up"></i></button>
+        <button id="mover-baixo"><i class="fa fa-arrow-circle-down"></i></button>
+        <button id="remover-finalizados"><i class="fa fa-minus-circle"></i></button>
+        <button id="salvar-tarefas"><i class="fa fa-folder-open"></i></button>
+        <button id="apaga-tudo"><i class="fa fa-repeat"></i></button>
     </section>
 
 <script src="/script.js"></script>

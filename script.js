@@ -111,8 +111,6 @@ function moveUp () {
 
     if(selectedTask !== null && previousTask !== null){
         taskList.insertBefore(selectedTask, previousTask);
-    } else if (selectedTask === null) {
-        alert("Nenhuma tarefa selecionada");
     } else {
         alert("A Primeira tarefa não pode ser movida para cima");
     };
@@ -129,8 +127,6 @@ function moveDown () {
 
     if(selectedTask !== null && nextTask !== null){
         taskList.insertBefore(selectedTask, nextTask.nextElementSibling);
-    } else if (selectedTask === null) {
-        alert("Nenhuma tarefa selecionada");
     }else {
         alert("A Última tarefa não pode ser movida para baixo");
     };
