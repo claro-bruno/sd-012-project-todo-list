@@ -33,12 +33,12 @@ main {
   margin-bottom: 50px;
   border-radius: 10px;
   background-color: var(--white-translucent);
-  backdrop-filter: blur(10px);
+  backdrop-filter: var(--background-blur);
 }
 
 button {
   cursor: pointer;
-  backdrop-filter: blur(1px);
+  backdrop-filter: var(--background-blur);
   background-color: var(--white-translucent);
   border: 0;
   font-size: 1rem;
