@@ -14,7 +14,7 @@ botao.addEventListener("click", (e) => {
   input.value = ""
 
   listaOrganizada.addEventListener("click", () => {
-    listaOrganizada.innerHTML = listaOrganizada.style.backgroundColor= "rgb(128, 128, 128)"
+  listaOrganizada.style.backgroundColor= "rgb(128, 128, 128)"
   })
 
   listaOrganizada.addEventListener("dblclick", () => {
@@ -22,5 +22,10 @@ botao.addEventListener("click", (e) => {
 });
   ol.appendChild(listaOrganizada);
   input.value = ""
-})
 
+  botao1.addEventListener("click", () => {
+    let removerDaLista = document.querySelectorAll("li");
+    listaOrganizada.parentNode.removeChild(removerDaLista);
+  })
+
+})
