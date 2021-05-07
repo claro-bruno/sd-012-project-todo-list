@@ -146,3 +146,11 @@ function moveDown () {
 };
 
 document.querySelector("#mover-baixo").addEventListener("click", moveDown);
+
+// Remover Tarefa Selecionada
+
+function removeSelectedTask (){
+    document.querySelector(".selected").remove();
+};
+
+document.querySelector("#remover-selecionado").addEventListener("click",removeSelectedTask);
