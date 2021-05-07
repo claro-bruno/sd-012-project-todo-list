@@ -20,15 +20,28 @@ window.onload = function() {
         listItems = document.getElementsByClassName('list-item');        
         
         for (let index = 0; index < listItems.length; index += 1) {
-            listItems[index].addEventListener('click', selectItem);            
+            listItems[index].addEventListener('click', selectItem); 
+            listItems[index].addEventListener('dblclick', itemCompleted);
         }
     }
 
     function selectItem(eventSource) {
         for (let index = 0; index < (listItems.length); index += 1) {
-            listItems[index].className = 'list-item';
+            if (!listItems[index].classList.contains('completed')) {
+                listItems[index].className = 'list-item';
+            } else {
+                listItems[index].classList.remove('item-selected');
+            }
         }
 
         eventSource.target.classList.add('item-selected');
-    }    
+    }
+
+    function itemCompleted(eventSource) {
+        if (!eventSource.target.classList.contains('completed')) {
+            eventSource.target.classList.add('completed');            
+        } else {
+            eventSource.target.classList.remove('completed');
+        }        
+    }
 }
