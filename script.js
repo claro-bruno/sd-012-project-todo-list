@@ -1,15 +1,3 @@
-window.onload = function () {
-    let arrTasks = JSON.parse(localStorage.getItem('task'));
-    if(arrTasks !== null) {
-        for(let index = 0; index < arrTasks.length; index += 1) {
-            addTask(arrTasks[index],'')
-    }
-  }
-};
-
-
-
-
 let btnAddTask = document.querySelector('#criar-tarefa');
 btnAddTask.addEventListener('click',  (evt) => addTask(document.querySelector('#texto-tarefa').value,evt));
 
@@ -25,7 +13,6 @@ btnSaveTasks.addEventListener('click', saveTasks);
 function addTask(myTask,evt) {
 
     let ol_task = document.querySelector('#lista-tarefas');
-    //let txtTask = document.querySelector('#texto_tarefa').value;
 
     if(myTask.length > 0) {
         
@@ -77,9 +64,24 @@ function cleanCompletedTasks(event) {
 
 function saveTasks (event) {
     let li_tasks = document.querySelectorAll('.task');
+    let ol_tasks = document.querySelector('#lista-tarefas');
+
     let arrTasks = [];
     for(let index = 0; index < li_tasks.length; index += 1) {
-        arrTasks.push(li_tasks[index].outerHTML);
+        arrTasks.push(li_tasks[index].innerText);
     }
+
     localStorage.setItem('task', JSON.stringify(arrTasks));
-    }
+}
+
+
+window.onload = function () {
+    let arrTasks = JSON.parse(localStorage.getItem('task'));
+    if(arrTasks !== null) {
+        let ol_tasks = document.querySelector('#lista-tarefas');
+        ol_tasks.innerHTML = '';
+        for(let index = 0; index < arrTasks.length; index += 1) {
+            addTask(arrTasks[index],'')
+    }}
+
+};
