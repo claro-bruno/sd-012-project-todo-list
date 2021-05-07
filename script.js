@@ -70,17 +70,19 @@ function eventClearItens(buttonId, classToClear) {
 }
 
 function moveUpItem(selectedItem) {
-  const parentElement = document.getElementById(taskList);
-  const previousElement = selectedItem.previousSibling;
-
-  parentElement.insertBefore(selectedItem, previousElement);
+  if (selectedItem !== null) {
+    const parentElement = document.getElementById(taskList);
+    const previousElement = selectedItem.previousSibling;
+    parentElement.insertBefore(selectedItem, previousElement);
+  }
 }
 
 function moveDownItem(selectedItem) {
-  const parentElement = document.getElementById(taskList);
-  const netxElement = selectedItem.nextSibling;
-
-  parentElement.insertBefore(selectedItem, netxElement.nextSibling);
+  if (selectedItem !== null) {
+    const parentElement = document.getElementById(taskList);
+    const netxElement = selectedItem.nextSibling;
+    parentElement.insertBefore(selectedItem, netxElement.nextSibling);
+  }
 }
 
 function eventItemMove(direction) {
@@ -89,11 +91,9 @@ function eventItemMove(direction) {
   upButton.addEventListener('click', () => {
     const selected = document.querySelector('.selected');
     const siblings = document.querySelectorAll(taskItem);
-    if (direction === up && selected !== siblings[0]) {
-      moveUpItem(selected);
-    } else if (direction === down && selected !== siblings[siblings.length - 1]) {
-      moveDownItem(selected);
-    }
+
+    if (direction === up && selected !== siblings[0]) moveUpItem(selected);
+    if (direction === down && selected !== siblings[siblings.length - 1]) moveDownItem(selected);
   });
 }
 
