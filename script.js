@@ -3,9 +3,10 @@ const text = document.querySelector('#texto-tarefa');
 const listMom = document.querySelector('#lista-tarefas');
 const limpar = document.querySelector('#apaga-tudo');
 const limparCompletos = document.querySelector('#remover-finalizados');
-const salvar = document.querySelector('#salvar-tarefas');
+// const salvar = document.querySelector('#salvar-tarefas');
 const cima = document.querySelector('#mover-cima');
 const baixo = document.querySelector('#mover-baixo');
+const remove = document.querySelector('#remover-selecionado');
 
 function completeItem(allItems) {
   const last = allItems.length - 1;
@@ -87,21 +88,29 @@ deleteCompleted();
 
 // saveList();
 
+function moveAuxiliar(itemSelected) {
+  if (itemSelected.previousElementSibling) {
+    itemSelected.parentNode.insertBefore(itemSelected, itemSelected.previousElementSibling);
+  }
+}
+
 function moveUp() {
   cima.addEventListener('click', () => {
-    const itemSelected = document.querySelector('.selected');
-    if (itemSelected.previousElementSibling) {
-      itemSelected.parentNode.insertBefore(itemSelected, itemSelected.previousElementSibling);
+    if (document.querySelector('.selected') !== null) {
+      const itemSelected = document.querySelector('.selected');
+      moveAuxiliar(itemSelected);
     }
   });
 }
 
 function moveDown() {
   baixo.addEventListener('click', () => {
-    if (document.querySelector('.selected').nextElementSibling !== null) {
-      const itemSelected = document.querySelector('.selected').nextElementSibling;
-      if (itemSelected.previousElementSibling) {
-        itemSelected.parentNode.insertBefore(itemSelected, itemSelected.previousElementSibling);
+    const value = document.querySelector('.selected');
+    if (value) {
+      const nextSibling = document.querySelector('.selected').nextElementSibling;
+      if (nextSibling) {
+        const itemSelected = value.nextElementSibling;
+        moveAuxiliar(itemSelected);
       }
     }
   });
@@ -109,3 +118,14 @@ function moveDown() {
 
 moveUp();
 moveDown();
+
+function removerSelected() {
+  remove.addEventListener('click', () => {
+    if (document.querySelector('.selected') !== null) {
+      const itemSelected = document.querySelector('.selected');
+      listMom.removeChild(itemSelected);
+    }
+  });
+}
+
+removerSelected();
