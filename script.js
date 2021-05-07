@@ -9,7 +9,6 @@ function addItenList() {
   item.className = 'itemSelecionado'
   lista.appendChild(item);
   document.getElementById('texto-tarefa').value = '';
-  console.log(item)
 }
 
 function testeAndPaintBg(ent) {
@@ -30,8 +29,16 @@ function checkUnCheck(check) {
 
 function clearList() {
   let father = document.getElementById('lista-tarefas');
-  while (father.firstChild) {
-    father.removeChild(father.firstChild);
+  console.log(father)
+ // while (father.firstChild) {
+ //   father.removeChild(father.firstChild);
+//}
+}
+
+function clearEnded() {
+  let clear = document.querySelectorAll(".completed");
+  for (let cleaner = 0; cleaner < clear.length; cleaner += 1) {
+    clear[cleaner].remove();
   }
 }
 
@@ -52,4 +59,6 @@ window.onload = function main() {
   });
   let bt2 = document.querySelector('#apaga-tudo')
   bt2.addEventListener('click', clearList)
+  let bt3 = document.querySelector('#remover-finalizados')
+  bt3.addEventListener('click', clearEnded)
 }
