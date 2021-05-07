@@ -10,19 +10,9 @@ function insertTask(value) {
 function receiveInput() {
   const contentInput = document.querySelector('#texto-tarefa').value;
   insertTask(contentInput);
-  setGreyItem(); 
+  setGreyItem();
   taskCompleted();
   document.querySelector('#texto-tarefa').value = '';
-}
-
-function setGreyItem() {
-  let orderList = document.querySelectorAll('.task-list');
-  for (let index = 0; index < orderList.length; index += 1) {
-    orderList[index].addEventListener('click', function () {
-      setNoBackgroundColor(orderList);
-      orderList[index].classList.add('selected');
-    })
-  }
 }
 
 function setNoBackgroundColor(orderList) {
@@ -31,32 +21,38 @@ function setNoBackgroundColor(orderList) {
   }
 }
 
-function taskCompleted() {
-  let orderList = document.querySelectorAll('.task-list'); 
+function setGreyItem() {
+  const orderList = document.querySelectorAll('.task-list');
   for (let index = 0; index < orderList.length; index += 1) {
-    orderList[index].addEventListener('dblclick', function () {
-      if (orderList[index].className === 'task-list') {
-        orderList[index].classList.add('completed');
-      } else if (orderList[index].className === 'task-list selected') {
-        orderList[index].classList.add('completed');
-        orderList[index].classList.remove('selected');
-      } else if (orderList[index].className === 'task-list completed' || orderList[index].className === 'task-list completed selected') {
+    orderList[index].addEventListener('click', function () {
+      setNoBackgroundColor(orderList);
+      orderList[index].classList.add('selected');
+    });
+  }
+}
+
+function taskCompleted() {
+  let orderList = document.querySelectorAll('.task-list');
+  for (let index = 0; index < orderList.length; index += 1) {
+    orderList[index].addEventListener('dblclick', function() {
+      if (orderList[index].classList.contains('completed')) {
         orderList[index].classList.remove('completed');
-        orderList[index].classList.remove('selected');
+      } else {
+        orderList[index].classList.add('completed');
       }
     })
   }
 }
 
 function clearTasks() {
-  let tasks = document.querySelectorAll('.task-list');
+  const tasks = document.querySelectorAll('.task-list');
   for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].outerHTML = '';
   }
 }
 
 function clearTaskCompleted() {
-  let tasks = document.querySelectorAll('.completed');
+  const tasks = document.querySelectorAll('.completed');
   for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].outerHTML = '';
   }
@@ -75,7 +71,7 @@ function moveDown() {
 }
 
 function clearTaskSelected() {
-  let tasks = document.querySelectorAll('.selected');
+  const tasks = document.querySelectorAll('.selected');
   for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].outerHTML = '';
   }
