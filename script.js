@@ -17,31 +17,25 @@ button.addEventListener('click', () => {
         if (input.value != '') {
             input.value = '';
         };
-
-        createList.addEventListener('click', changeBackColor)   
-
+        createList.addEventListener('click', changeBackColor)       
         
+        createList.addEventListener('dblclick', itemComplete)
 });
 
-    function changeBackColor(event) {
-
-    
+function changeBackColor(event) {
     let target = event.target;
-    target.style.backgroundColor = 'rgb(128,128,128)';
-    let targetColor = target.style.backgroundColor = 'rgb(128,128,128)';
+
+        for (let item of target.parentNode.children) {
+            item.style.backgroundColor = 'rgb(255,255,255)';
+        }        
+        target.style.backgroundColor = 'rgb(128,128,128)';       
+};
+
+function itemComplete(event) {
+    let target = event.target;
     
-    };
+    target.classList.toggle ('completed')
+};
 
 
-
-/*
-    EX 8 - tentativa de so deixar 1 elemento selecionado
-if (targetColor != 'white') {
-    for (let item of target.parentNode.children) {
-        console.log ('1')
-    targetColor = target.style.removeProperty('backgroundColor')
-    }
-    targetColor;
-}
-*/
 

@@ -4,6 +4,8 @@ button {
     background-color:coral;
     border-radius: 16px;
 }
- .selected {
-     background-color: rgb(128, 128, 128);
- }
+
+
+.completed {
+    text-decoration: line-through;
+}
