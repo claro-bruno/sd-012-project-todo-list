@@ -11,10 +11,11 @@ const moveDownButton = document.getElementById('mover-baixo');
 
 // Algumas ideias encontradas no respositório de Matheus "Set" Inacio
 // Source: https://github.com/tryber/sd-011-project-todo-list/blob/heyset-todo-list-project/script.js
+// selectTask() requer melhorias de dinamismo
 
 let selectedTask;
 
-function selectTask(e) {
+const selectTask = (e) => {
   const task = e.target;
   task.classList.toggle('selected');
 
@@ -22,7 +23,7 @@ function selectTask(e) {
     selectedTask.classList.toggle('selected');
   }
   selectedTask = task;
-}
+};
 
 const toggleCompleted = (evt) => {
   const completed = evt.target;
