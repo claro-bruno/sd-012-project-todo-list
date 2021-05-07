@@ -143,7 +143,6 @@ h2 {
 
 .completed {
   text-decoration: line-through;
-  text-decoration-color: var(--cloud-white);
 }
 
 #buttons-section {
