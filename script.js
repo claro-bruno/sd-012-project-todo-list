@@ -35,13 +35,11 @@ function lineThrough (){
 }
 lineThrough();
 
-botaoLimpar.addEventListener('click', function buttonLimpar() {
+botaoLimpar.addEventListener('click', ()  =>{
     for (let index = 0; index <= task.length; index += 1){
         task[index].remove();
     }
-    buttonLimpar();
 })
-
 
 
 
