@@ -2,8 +2,8 @@
 let listPlace = document.querySelector('#list-place');
 let orderedList = document.querySelector('#lista-tarefas');
 
-
 addBackgroundColor();
+completed();
 
 
 function makeList() {
@@ -19,22 +19,6 @@ function makeList() {
   document.getElementById('texto-tarefa').value = '';
 }
 
-/*function addBackgroundColor() {
-  orderedList.addEventListener('click', function(event) {
-    const selected = event.target;
-    selected.classList.add('selected');
-    removeBackgroundColor();
-  })
-}
-
-function removeBackgroundColor() {
-  orderedList.addEventListener('click', function() {
-    const notSelected = document.querySelector('.selected');
-    notSelected.classList.remove('selected');
-  })
-}
-*/
-
 function addBackgroundColor() {
   listPlace.addEventListener('click', function(event) {
     const selected = event.target;
@@ -46,21 +30,19 @@ function addBackgroundColor() {
     });
   });
 }
-
-
-
-/*
-function addBackgroundColor() {
-  let li = document.createElement('li');
-  orderedList.addEventListener('click', function(event) {
-    for (let index = 0; index < li.length; index += 1) {
-      li[index].style.backgroundColor = 'white';
-    }
-    const selected = event.target;
-    selected.style.backgroundColor = 'rgb(128, 128, 128)';
+function completed() {
+  listPlace.addEventListener('dblclick', function(event) {
+    const itemCompleted = event.target;
+    itemCompleted.classList.toggle('completed');     
   });
 }
-*/
+
+
+
+
+
+
+
 
 
 
