@@ -11,6 +11,7 @@ const saveTasksButton = document.querySelector('#salvar-tarefas');
 const moveUpButton = document.querySelector('#mover-cima');
 const moveDownButton = document.querySelector('#mover-baixo');
 const removeSelectedButton = document.querySelector('#remover-selecionado');
+const deselectButton = document.querySelector('#remover-selecao');
 
 function deselectAll() {
   const li = document.querySelectorAll('li');
@@ -155,6 +156,10 @@ removeSelectedButton.addEventListener('click', () => {
   }
 });
 
+deselectButton.addEventListener('click', () => {
+  deselectAll();
+});
+
 // moveUpButton.addEventListener('click', () => {
 //   let arrayOfTaskObjs = makeArrayOfTaskObjs();
 //   let newArrayOfTaskObjs = [];
@@ -180,3 +185,6 @@ removeSelectedButton.addEventListener('click', () => {
 
 //   console.log(`novo array${newArrayOfTaskObjs}`)
 // });
+
+// https://github.com/tryber/sd-012-project-todo-list/pull/4
+// https://github.com/tryber/sd-012-project-pixels-art/pull/5
