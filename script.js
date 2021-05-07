@@ -27,5 +27,11 @@ window.onload = function() {
         target.classList.toggle('selected');
     });
 
+    // Task Completion
+    list.addEventListener('dblclick', function (event) {
+        let target = event.target;
+        target.classList.toggle('completed');
+    })
+
 
 }

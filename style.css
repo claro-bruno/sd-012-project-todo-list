@@ -35,15 +35,18 @@ button {
 
 ol {
     margin-top: 40px;
+    margin-left: -30px;
     font-size: 18px;
     color: #6a2202;
+    list-style: none;
 }
 
 li {
     padding: 10px;
     background-color: #fcfcfc;
     border-radius: 10px;
-    width: 329px;
+    width: 359px;
+    cursor: pointer;
 }
 
 #todo {
@@ -68,4 +71,8 @@ li {
     background-color: rgb(128,128,128);
     color: #fff;
     font-weight: bold;
+}
+
+.completed {
+    text-decoration: line-through;
 }
