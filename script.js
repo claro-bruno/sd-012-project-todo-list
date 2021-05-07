@@ -139,26 +139,8 @@ function finishTask(event) {
   }
 }
 
-function loadTasks(task, taskClass, index) {
-  taskList = document.querySelector(taskListId);
-  const loadTask = document.createElement('li');
-  loadTask.id = `task-${(index)}`;
-  loadTask.className = taskClass;
-  loadTask.innerHTML = task;
-  taskList.appendChild(loadTask);
-}
-
-function swapId(idSelected, idSwap, direction) {
-  const selected = document.querySelector('.selected');
-  const swap = idSelected.id;
-  const after = idSwap.id;
-  const before = swap;
-  selected.id = after;
-  if (direction === 'up') selected.previousElementSibling.id = before;
-  if (direction === 'down') selected.nextElementSibling.id = before;
-}
-
 const removeAllTasksButtonElement = document.querySelector('#apaga-tudo');
+
 function removeAllTasks() {
   taskList = document.querySelector(taskListId);
   while (taskList.firstChild) {
@@ -168,6 +150,7 @@ function removeAllTasks() {
 removeAllTasksButtonElement.addEventListener('click', removeAllTasks);
 
 tasks = document.querySelector(taskListId).children;
+
 function createEventsForTasks() {
   for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].addEventListener('click', selectTask);
@@ -188,39 +171,52 @@ function updateIdsOfTasks() {
   }
 }
 
+function copySelected(selected) {
+  const copySelectedElement = document.createElement('li');
+  copySelectedElement.id = selected.id;
+  copySelectedElement.className = selected.className;
+  copySelectedElement.innerText = selected.innerText;
+  return copySelectedElement;
+}
+
 const moveUpButton = document.querySelector('#mover-cima');
+
 function moveUp() {
+  taskList = document.querySelector(taskListId);
   const selectedUpTask = document.querySelector('.selected');
-  const swapTaskUp = document.querySelector('.selected').previousElementSibling;
-  if (swapTaskUp !== null) {
-    swapId(selectedUpTask, swapTaskUp, 'up');
+  if (selectedUpTask !== null) {
+    const swapTaskUp = document.querySelector('.selected').previousElementSibling;
+    if (swapTaskUp !== null) {
+      const copyOfSelected = copySelected(selectedUpTask);
+      taskList.removeChild(selectedUpTask);
+      taskList.insertBefore(copyOfSelected, swapTaskUp);
+      updateIdsOfTasks();
+      updateTasks();
+    }
   }
-  const tasksUp = document.querySelector(taskListId).children;
-  removeAllTasks();
-  for (let index = 0; index < tasksUp.length; index += 1) {
-    loadTasks(tasksUp.innerText, tasksUp.className, index);
-  }
-  updateTasks();
 }
 moveUpButton.addEventListener('click', moveUp);
 
 const moveDownButton = document.querySelector('#mover-baixo');
+
 function moveDown() {
+  taskList = document.querySelector(taskListId);
   const selectedDownTask = document.querySelector('.selected');
-  const swapTaskDown = document.querySelector('.selected').nextElementSibling;
-  if (swapTaskDown !== null) {
-    swapId(selectedDownTask, swapTaskDown, 'down');
+  if (selectedDownTask !== null) {
+    const swapTaskDown = document.querySelector('.selected').nextElementSibling;
+    if (swapTaskDown !== null) {
+      const copyOfSelected = copySelected(selectedDownTask);
+      taskList.removeChild(selectedDownTask);
+      taskList.insertBefore(copyOfSelected, swapTaskDown.nextElementSibling);
+      updateIdsOfTasks();
+      updateTasks();
+    }
   }
-  const tasksDown = document.querySelector(taskListId).children;
-  removeAllTasks();
-  for (let index = 0; index < tasksDown.length; index += 1) {
-    loadTasks(tasksDown.innerText, tasksDown.className, index);
-  }
-  updateTasks();
 }
 moveDownButton.addEventListener('click', moveDown);
 
 const addTaskButtonElement = document.querySelector('#criar-tarefa');
+
 function addTask() {
   const taskInput = document.querySelector('#texto-tarefa');
   createTask(taskInput.value);
@@ -230,6 +226,7 @@ function addTask() {
 addTaskButtonElement.addEventListener('click', addTask);
 
 const removeCompletedTasksButtonElement = document.querySelector('#remover-finalizados');
+
 function removeCompletedTasks() {
   taskList = document.querySelector(taskListId);
   const completedElements = document.querySelectorAll('.completed');
@@ -241,6 +238,7 @@ function removeCompletedTasks() {
 removeCompletedTasksButtonElement.addEventListener('click', removeCompletedTasks);
 
 const saveTasksButtonElement = document.querySelector('#salvar-tarefas');
+
 function saveTasks() {
   taskList = document.querySelector(taskListId);
   const taskListItens = taskList.children;
@@ -253,6 +251,15 @@ function saveTasks() {
   }
 }
 saveTasksButtonElement.addEventListener('click', saveTasks);
+
+function loadTasks(task, taskClass, index) {
+  taskList = document.querySelector(taskListId);
+  const loadTask = document.createElement('li');
+  loadTask.id = `task-${(index)}`;
+  loadTask.className = taskClass;
+  loadTask.innerHTML = task;
+  taskList.appendChild(loadTask);
+}
 
 function verifyStorage() {
   if (localStorage.length !== 0) {
