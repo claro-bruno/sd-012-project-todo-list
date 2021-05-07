@@ -24,16 +24,24 @@ window.onload = function () {
 
   botaoLimpaLista.addEventListener('click', function () {
     let tarefas = document.querySelectorAll('.tarefa');
-    for (let index = 0; index < tarefas.length; index += 1) {
-      listaTarefas.removeChild(tarefas[index]);
+    if (tarefas.length > 0) {
+      for (let index = 0; index < tarefas.length; index += 1) {
+        listaTarefas.removeChild(tarefas[index]);
+      }
+      arrayTarefas = [];
+    } else {
+      alert('Não há itens na lista.')
     }
-    arrayTarefas = [];
   });
 
   botaoLimpaConcluidos.addEventListener('click', function () {
     let tarefasConcluidas = document.querySelectorAll('.completed');
-    for (let index = 0; index < tarefasConcluidas.length; index += 1) {
-      listaTarefas.removeChild(tarefasConcluidas[index]);
+    if (tarefasConcluidas.length > 0) {
+      for (let index = 0; index < tarefasConcluidas.length; index += 1) {
+        listaTarefas.removeChild(tarefasConcluidas[index]);
+      } 
+    } else {
+      alert('Não há tarefas marcadas como concluídas.');
     }
   });
 
@@ -55,7 +63,6 @@ window.onload = function () {
     listaTarefas.removeChild(tarefaSelecionada);
   })
 
-  
   botaoMoveBaixo.addEventListener('click', function () {
     let tarefaSelecionada = document.querySelector('.selecionada');
     let proximoItem = tarefaSelecionada.nextElementSibling;
