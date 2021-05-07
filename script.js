@@ -31,6 +31,7 @@ const completaTarefa = (event) => {
 // Apaga tudo
 const apagaTudo = () => {
   capturaOl.innerHTML = '';
+  localStorage.clear();
 };
 
 // Apaga tarefas completas
@@ -46,6 +47,36 @@ const apagaTarefasCompletas = () => {
 // Salva lista atual
 const salvaListaAtual = () => {
   localStorage.setItem('list-item', capturaOl.innerHTML);
+};
+
+// Captura tarefa selecionada
+const capturaTarefaSelecionada = () => {
+  const tarefaSelecionada = document.querySelector('.selecionada');
+  return tarefaSelecionada;
+};
+
+// Move o selecionado para cima
+const moveParaCima = () => {
+  if (capturaTarefaSelecionada() === null) {
+    console.log('Erro: Nenhuma tarefa criada');
+  } else if (capturaTarefaSelecionada().previousElementSibling !== null) {
+    capturaTarefaSelecionada().after(capturaTarefaSelecionada().previousElementSibling);
+  }
+};
+
+// Move o selecionado para baixo
+const moveParaBaixo = () => {
+  if (capturaTarefaSelecionada() === null) {
+    console.log('Erro: Nenhuma tarefa criada');
+  } else if (capturaTarefaSelecionada().nextElementSibling !== null) {
+    capturaTarefaSelecionada().after(capturaTarefaSelecionada().nextElementSibling,
+      capturaTarefaSelecionada());
+  }
+};
+
+// Apaga tarefa selecionada
+const removeSelecionado = () => {
+  capturaTarefaSelecionada().remove();
 };
 
 // Adiciona Eventos
@@ -69,6 +100,19 @@ document.addEventListener('click', (event) => {
   }
   if (event.target.id === 'salvar-tarefas') {
     salvaListaAtual();
+  }
+});
+
+// Adiciona evento de moveup e movedown, e remover selecionado
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'mover-cima') {
+    moveParaCima();
+  }
+  if (event.target.id === 'mover-baixo') {
+    moveParaBaixo();
+  }
+  if (event.target.id === 'remover-selecionado') {
+    removeSelecionado();
   }
 });
 
