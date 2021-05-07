@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: rgb(170 ,216 ,211);
+  background-color: rgb(170, 216, 211);
 }
 
 #funcionamento {
@@ -22,7 +22,7 @@ header {
   font-size: 40px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
-  color: rgb(0 ,173 ,181);
+  color: rgb(0, 173, 181);
   margin-top: 60px;
   margin-bottom: 30px;
 }
@@ -32,7 +32,7 @@ ol {
 }
 
 li {
-  color: rgb(57 ,62 ,70);
+  color: rgb(57, 62, 70);
 }
 
 section {
