@@ -7,7 +7,7 @@ const taskList = document.getElementById('lista-tarefas');
 const btnSave = document.getElementById('salvar-tarefas');
 const btnUP = document.getElementById('mover-cima');
 const btnDown = document.getElementById('mover-baixo');
-const btnRemoveSelected = document.getElementById('remover-selecionado')
+const btnRemoveSelected = document.getElementById('remover-selecionado');
 
 function catchInput() {
   btnAdd.addEventListener('click', () => {
@@ -20,17 +20,17 @@ function catchInput() {
   });
 }
 catchInput();
-  function selectItem() {
-    const itemList = document.querySelectorAll('.item-list');
-    for (const item of itemList) {
-      item.addEventListener('click', () => {
-        for (const item2 of itemList) {
-          item2.classList.remove('selected');
-        }
-        item.classList.add('selected');
-      });
-    }
+function selectItem() {
+  const itemList = document.querySelectorAll('.item-list');
+  for (const item of itemList) {
+    item.addEventListener('click', () => {
+      for (const item2 of itemList) {
+        item2.classList.remove('selected');
+      }
+      item.classList.add('selected');
+    });
   }
+}
 function markAsCompleted(event) {
   if (event.target.classList.contains('completed') !== true) {
     event.target.classList.add('completed');
