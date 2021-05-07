@@ -67,10 +67,8 @@ window.onload = () => {
    function cleanList() {
        const selectOl = document.getElementById('lista-tarefas');
        const selectTasksLi = document.querySelectorAll('li');
-       console.log(selectTasksLi.length);
        for (let i = 0; i < selectTasksLi.length; i += 1){
            let element = selectTasksLi[i];
-           console.log(element);
            selectOl.removeChild(element);
        }
    }
@@ -80,19 +78,15 @@ window.onload = () => {
     cleanButton.addEventListener('click', cleanList);
    }
 
-   //Apaga Completos
-
    function completeList() {
     const selectOl = document.getElementById('lista-tarefas');
     const selectTasksCompleted = document.querySelectorAll('.completed');
-    console.log(selectTasksCompleted.length);
         for (let i = 0; i < selectTasksCompleted.length; i += 1){
             let element = selectTasksCompleted[i];
-            console.log(element);
             selectOl.removeChild(element);
         }
     }
-
+    
     function DeleteCompleteds() {
         const cleanButton = document.getElementById('remover-finalizados');
         cleanButton.addEventListener('click', completeList);
