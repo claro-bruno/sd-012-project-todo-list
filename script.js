@@ -47,3 +47,15 @@ function doneMarker(evento) {
   }
 }
 oderList.addEventListener('dblclick', doneMarker);
+
+// Bonus
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'salvar-tarefas') {
+    localStorage.setItem('key', oderList.innerHTML);
+  }
+})
+window.onload = function() {
+  if (localStorage.getItem('key') !== null)
+  oderList.innerHTML += localStorage.getItem('key')
+}
