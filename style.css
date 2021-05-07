@@ -5,3 +5,20 @@
 .completed {
     text-decoration: line-through;
 }
+
+body {
+    text-align: center;
+    background-image: url(https://www.psicologosberrini.com.br/wp-content/uploads/lista-de-tarefas-para-mudar-sua-vida.jpeg);
+}
+
+#lista-tarefas {
+    list-style-position: inside;
+    background-color: rgba(54, 133, 181, 0.5);
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div {
+    line-height: 1.5;
+}
