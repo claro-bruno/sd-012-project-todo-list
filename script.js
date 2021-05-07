@@ -76,26 +76,30 @@ window.onload = () => {
 
 function moverCima() {
   let selected = document.querySelector('.selected');
-  let upElement = selected.previousSibling;
-  if (upElement) {
-    let copy = document.createElement('li');
-    copy.innerHTML = selected.innerHTML;
-    copy.classList = selected.classList;
-    orderedList.insertBefore(copy, upElement);
-    selected.remove();
+  if (selected) {
+    let upElement = selected.previousSibling;
+    if (upElement) {
+      let copy = document.createElement('li');
+      copy.innerHTML = selected.innerHTML;
+      copy.classList = selected.classList;
+      orderedList.insertBefore(copy, upElement);
+      selected.remove();
+    }
   }
 }
 upButton.addEventListener('click', moverCima);
 
 function moverBaixo() {
   let selected = document.querySelector('.selected');
-  let downElement = selected.nextSibling;
-  if (downElement) {
-    let copy = document.createElement('li');
-    copy.innerHTML = selected.innerHTML;
-    copy.classList = selected.classList;
-    orderedList.insertBefore(copy, downElement.nextSibling);
-    selected.remove();
+  if (selected) {
+    let downElement = selected.nextSibling;
+    if (downElement) {
+      let copy = document.createElement('li');
+      copy.innerHTML = selected.innerHTML;
+      copy.classList = selected.classList;
+      orderedList.insertBefore(copy, downElement.nextSibling);
+      selected.remove();
+    }
   }
 }
 downButton.addEventListener('click', moverBaixo);
