@@ -1,3 +1,7 @@
 #funcionamento {
   color: grey;
 }
+
+.completed {
+  text-decoration: line-through;
+}
