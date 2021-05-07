@@ -134,13 +134,20 @@ h2 {
   padding: 0;
 }
 
-#texto-tarefa {
+::placeholder {
   font-style: italic;
+  opacity: 40%;
+}
+
+#texto-tarefa {
   padding: 3px;
+  height: 20px;
+  width: 300px;
   border-radius: 10px;
   border: 0;
   text-align: center;
   font-size: 1rem;
+  margin: auto;
 }
 
 #texto-tarefa:focus {
@@ -159,6 +166,8 @@ h2 {
 
 #input-section {
   cursor: default;
+  display: flex;
+  flex-flow: column wrap;
 }
 
 .fa-recycle {
@@ -186,6 +195,8 @@ h2 {
 #criar-tarefa {
   background-color: var(--blue-color);
   color: white;
+  width: 50%;
+  margin: 5px auto;
 }
 
 #criar-tarefa:hover {
