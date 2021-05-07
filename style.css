@@ -9,3 +9,7 @@ header {
 .task {
   font-size: 18px;
 }
+
+.selected {
+  background-color: gray;
+}

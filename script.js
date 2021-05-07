@@ -1,6 +1,10 @@
 const optionContent = document.querySelector('#option-content');
 const headerContent = document.querySelector('#header-content');
 const taskListId = '#lista-tarefas';
+const stateNormal = 'task';
+const stateSelected = 'task selected';
+
+let tasks = document.querySelector(taskListId).children;
 
 function createHeaderContent() {
   headerContent.innerHTML = 'Minha Lista de Tarefas';
@@ -54,10 +58,43 @@ function createTask(taskInput) {
   taskList.appendChild(newTask);
 }
 
+function clearPreviousSelected() {
+  tasks = document.querySelector(taskListId).children;
+  for (let index = 0; index < tasks.length; index += 1) {
+    if (tasks[index].className === stateSelected) {
+      tasks[index].className = stateNormal;
+      tasks[index].style.backgroundColor = '';
+    }
+  }
+}
+
+function selectTask(event) {
+  const selectedTask = event.target;
+  clearPreviousSelected();
+  if (selectedTask.className === stateNormal) {
+    selectedTask.className = stateSelected;
+    selectedTask.style.backgroundColor = 'rgb(128, 128, 128)';
+  }
+}
+
+tasks = document.querySelector(taskListId).children;
+function createEventsForTasks() {
+  for (let index = 0; index < tasks.length; index += 1) {
+    tasks[index].addEventListener('click', selectTask);
+  }
+}
+createEventsForTasks();
+
+function updateTasks() {
+  tasks = document.querySelector(taskListId).children;
+  createEventsForTasks();
+}
+
 const addTaskButtonElement = document.querySelector('#criar-tarefa');
 function addTask() {
   const taskInput = document.querySelector('#texto-tarefa');
   createTask(taskInput.value);
+  updateTasks();
   taskInput.value = '';
 }
 addTaskButtonElement.addEventListener('click', addTask);
