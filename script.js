@@ -29,9 +29,9 @@ const toggleCompleted = (evt) => {
   completed.classList.toggle('completed');
 };
 
-const addTask = () => {
+const addTask = (input) => {
   const newTask = document.createElement('li');
-  newTask.innerText = taskInput.value;
+  newTask.innerText = input;
   if (newTask.innerText === '') {
     errorMessage.innerText = 'Digite uma tarefa para adicionar!';
   } else {
@@ -42,6 +42,7 @@ const addTask = () => {
     newTask.addEventListener('click', selectTask);
     errorMessage.innerText = '';
   }
+  return newTask;
 };
 
 const removeAll = () => {
@@ -106,9 +107,52 @@ const moveDown = () => {
   }
 };
 
-moveUpButton.addEventListener('click', moveUp);
-moveDownButton.addEventListener('click', moveDown);
-removeSelectedButton.addEventListener('click', removeSelected);
-removeCompletedButton.addEventListener('click', removeCompleted);
-removeAllButton.addEventListener('click', removeAll);
-addTaskButton.addEventListener('click', addTask);
+function saveList() {
+  if (!Storage) {
+    return;
+  }
+  const rawList = [];
+  const allTasks = taskList.getElementsByClassName('task');
+  if (!allTasks.length) {
+    localStorage.removeItem('taskList');
+    return;
+  }
+  for (let i = 0; i < allTasks.length; i += 1) {
+    rawList.push({
+      text: allTasks[i].innerText,
+      completed: allTasks[i].classList.contains('completed'),
+    });
+  }
+  const listJson = JSON.stringify(rawList);
+  localStorage.setItem('taskList', listJson);
+}
+
+saveButton.addEventListener('click', saveList);
+
+function loadList() {
+  if (!Storage || !localStorage.taskList) {
+    return;
+  }
+
+  const loadedTaskList = JSON.parse(localStorage.taskList);
+
+  for (let i = 0; i < loadedTaskList.length; i += 1) {
+    const newTask = addTask(loadedTaskList[i].text);
+
+    if (loadedTaskList[i].completed) {
+      newTask.classList.add('completed');
+    }
+  }
+}
+
+window.onload = () => {
+  loadList();
+  moveUpButton.addEventListener('click', moveUp);
+  moveDownButton.addEventListener('click', moveDown);
+  removeSelectedButton.addEventListener('click', removeSelected);
+  removeCompletedButton.addEventListener('click', removeCompleted);
+  removeAllButton.addEventListener('click', removeAll);
+  addTaskButton.addEventListener('click', () => {
+    addTask(taskInput.value);
+  });
+};
