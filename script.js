@@ -30,7 +30,7 @@ window.onload = function () {
       }
       arrayTarefas = [];
     } else {
-      alert('Não há itens na lista.')
+      alert('Não há itens na lista.');
     }
   });
 
@@ -39,7 +39,7 @@ window.onload = function () {
     if (tarefasConcluidas.length > 0) {
       for (let index = 0; index < tarefasConcluidas.length; index += 1) {
         listaTarefas.removeChild(tarefasConcluidas[index]);
-      } 
+      }
     } else {
       alert('Não há tarefas marcadas como concluídas.');
     }
@@ -47,11 +47,11 @@ window.onload = function () {
 
   botaoSalvarLista.addEventListener('click', function () {
     let arrayTarefas = [];
-    let classes = []
+    let classes = [];
     let tarefas = document.querySelectorAll('.tarefa');
     for (let index = 0; index < tarefas.length; index += 1) {
       let classe = tarefas[index].classList;
-      arrayTarefas.push((tarefas[index].innerHTML));
+      arrayTarefas.push(tarefas[index].innerHTML);
       classes.push(classe);
     }
     localStorage.setItem('Lista', arrayTarefas);
@@ -60,31 +60,43 @@ window.onload = function () {
 
   botaoRemove.addEventListener('click', function () {
     let tarefaSelecionada = document.querySelector('.selecionada');
-    listaTarefas.removeChild(tarefaSelecionada);
-  })
+    if (!tarefaSelecionada) {
+      alert('Nenhuma tarefa selecionada.');
+    } else {
+      listaTarefas.removeChild(tarefaSelecionada);
+    }
+  });
 
   botaoMoveBaixo.addEventListener('click', function () {
     let tarefaSelecionada = document.querySelector('.selecionada');
-    let proximoItem = tarefaSelecionada.nextElementSibling;
-
-    if (tarefaSelecionada === listaTarefas.lastChild) {
-      alert('Item está na posição máxima');
+    if (!tarefaSelecionada) {
+      alert('Nenhuma tarefa selecionada');
     } else {
-      proximoItem.insertAdjacentElement('afterend', tarefaSelecionada); // Referência David Gonzaga
+      let proximoItem = tarefaSelecionada.nextElementSibling;
+
+      if (tarefaSelecionada === listaTarefas.lastChild) {
+        alert('Item está na posição máxima');
+      } else {
+        proximoItem.insertAdjacentElement('afterend', tarefaSelecionada); // Referência David Gonzaga
+      }
     }
   });
 
   botaoMoveCima.addEventListener('click', function () {
     let tarefaSelecionada = document.querySelector('.selecionada');
-    let itemAnterior = tarefaSelecionada.previousElementSibling;
 
-    if (tarefaSelecionada === listaTarefas.firstChild) {
-      alert('Item está na posição máxima');
+    if (!tarefaSelecionada) {
+      alert('Nenhuma tarefa selecionada.');
     } else {
-      itemAnterior.insertAdjacentElement('beforebegin', tarefaSelecionada); // Referência David Gonzaga
+      let itemAnterior = tarefaSelecionada.previousElementSibling;
+
+      if (tarefaSelecionada === listaTarefas.firstChild) {
+        alert('Item está na posição máxima');
+      } else {
+        itemAnterior.insertAdjacentElement('beforebegin', tarefaSelecionada); // Referência David Gonzaga
+      }
     }
   });
-
 
   function getTarefas() {
     if (typeof localStorage.getItem('Lista') === 'object') {
@@ -112,10 +124,10 @@ window.onload = function () {
     if (inputTarefa.value === '') {
       alert('Valor de entrada não pode ser vazio.');
     } else {
-        novaTarefa.innerHTML = inputTarefa.value;
-        novaTarefa.className = 'tarefa';
-        listaTarefas.appendChild(novaTarefa);
-        inputTarefa.value = '';
+      novaTarefa.innerHTML = inputTarefa.value;
+      novaTarefa.className = 'tarefa';
+      listaTarefas.appendChild(novaTarefa);
+      inputTarefa.value = '';
     }
   }
 
