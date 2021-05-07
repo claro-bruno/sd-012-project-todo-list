@@ -7,22 +7,22 @@
 }
 
 body {
-  background-color: #aad8d3;
+  background-color: rgb(170, 216, 211);
 }
 
 #funcionamento {
   text-align: center;
   margin-bottom: 30px;
   font-size: 18px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
 
 header {
-  font-weight: bolder;
+  font-weight: 600;
   font-size: 40px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
-  color: #00adb5;
+  color: rgb(0, 173, 181);
   margin-top: 60px;
   margin-bottom: 30px;
 }
@@ -32,7 +32,7 @@ ol {
 }
 
 li {
-  color: #393e46;
+  color: rgb(57, 62, 70);
 }
 
 section {
