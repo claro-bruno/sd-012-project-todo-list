@@ -30,7 +30,11 @@ window.onload = function() {
             listItems[index].classList.remove('item-selected');            
         }
 
-        eventSource.target.classList.add('item-selected');
+        if (eventSource.target.classList.contains('completed')) {
+            eventSource.target.className = 'list-item item-selected completed'
+        } else {
+            eventSource.target.classList.add('item-selected');
+        }        
     }
 
     function itemCompleted(eventSource) {
