@@ -112,6 +112,8 @@ function moveUp () {
 
     if(selectedTask !== null && previousTask !== null){
         taskList.insertBefore(selectedTask, previousTask);
+    } else {
+        alert("Nenhuma tarefa selecionada");
     };
 };
 
@@ -126,7 +128,9 @@ function moveDown () {
 
     if(selectedTask !== null && nextTask !== null){
         taskList.insertBefore(selectedTask, nextTask.nextElementSibling);
-    };
+    } else {
+        alert("Nenhuma tarefa selecionada");
+    }
 };
 
 document.querySelector("#mover-baixo").addEventListener("click", moveDown);
