@@ -83,11 +83,12 @@ window.onload = function() {
   let isLista = document.getElementById("lista-lugar");     
   isLista.innerHTML = localStorage.getItem("item");
   console.log(isLista); 
-}
+  
+  risco();
+  adicionar();
+  corCinza();
+  apagaTudo();
+  rmFinalizados();
+  salvaLista();
 
-risco();
-adicionar();
-corCinza();
-apagaTudo();
-rmFinalizados();
-salvaLista();
+}
