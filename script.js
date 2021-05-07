@@ -13,16 +13,17 @@ const moveDownButton = document.getElementById('mover-baixo');
 // Source: https://github.com/tryber/sd-011-project-todo-list/blob/heyset-todo-list-project/script.js
 // selectTask() requer melhorias de dinamismo
 
-let selectedTask = document.querySelector('.selected');
-
 const selectTask = (e) => {
+  const selectedTask = document.querySelector('.selected');
   const task = e.target;
-  task.classList.toggle('selected');
-
-  if (selectedTask) {
-    selectedTask.classList.toggle('selected');
+  if (!task.classList.contains('selected')) {
+    task.classList.add('selected');
+  } else {
+    task.classList.remove('selected');
   }
-  selectedTask = task;
+  if (selectedTask) {
+    selectedTask.classList.remove('selected');
+  }
 };
 
 const toggleCompleted = (evt) => {
