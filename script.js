@@ -14,25 +14,21 @@ buttonAdicionar.addEventListener('click', () => {
 })
 
 function marcarTarefa() {
-  for (let n = 0; n < elementosDaLista.length; n += 1) {
-    elementosDaLista[n].addEventListener('click', (event) => {
-      let element = document.querySelector('.selected');
-      if (element != null) {
-        element.classList.remove('selected');
-      }
-      event.target.classList.add('selected');
-    })
-  }
+  listaTarefas.addEventListener('click', (event) => {
+    let element = document.querySelector('.selected');
+    if (element != null) {
+      element.classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  })
 }
 
 function tarefaCompleta() {
-  for (let n = 0; n < elementosDaLista.length; n += 1) {
-    elementosDaLista[n].addEventListener('dblclick', (event) => {
-      if (elementosDaLista[n].classList.contains('completed')) {
-        event.target.classList.remove('completed');
-      } else {
-        event.target.classList.add('completed');
-      }
-    })
-  }
+  listaTarefas.addEventListener('dblclick', (event) => {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
+  })
 }
