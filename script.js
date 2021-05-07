@@ -55,7 +55,7 @@ function clearListTask() {
   }
 }
 
-function clearTaskCompleted() {
+function createButtonClearCompleted() {
   let createButton = document.createElement('button');
   createButton.id = 'remover-finalizados';
   createButton.innerHTML = 'Remover concluídos';
@@ -67,6 +67,27 @@ function clearItemCompleted() {
   let containerListItem = document.querySelector('#lista-tarefas');
   for (let index = 0; index < itemCompleted.length; index += 1) {
     containerListItem.removeChild(itemCompleted[index]);
+  }
+}
+
+function createSaveButton() {
+  let createButton = document.createElement('button');
+  createButton.id = 'salvar-tarefas';
+  createButton.innerHTML = 'Salvar lista';
+  document.querySelector('#container-tools').appendChild(createButton);
+}
+
+let taskList = document.querySelector('#lista-tarefas');
+
+function saveToDoList() {
+  localStorage.setItem('taskList', taskList.innerHTML);
+}
+
+function recoverToDoList() {
+  let ListSaved = localStorage.getItem('taskList');
+  if (ListSaved !== null) {
+    taskList.innerHTML = ListSaved;
+    console.log('teste');
   }
 }
 
@@ -82,10 +103,14 @@ function eventAddTask() {
     itemListConcluded();
   });
 }
-clearTaskCompleted();
+recoverToDoList();
+createButtonClearCompleted();
 createClearButton();
+createSaveButton();
 eventAddTask();
 let clearButton = document.querySelector('#apaga-tudo');
 clearButton.addEventListener('click', clearListTask);
 let clearCompleted = document.querySelector('#remover-finalizados');
 clearCompleted.addEventListener('click', clearItemCompleted);
+let saveButton = document.querySelector('#salvar-tarefas');
+saveButton.addEventListener('click', saveToDoList);
