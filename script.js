@@ -1,4 +1,7 @@
 const taskList = 'lista-tarefas';
+const taskItem = '.item-tarefa';
+const up = 'mover-cima';
+const down = 'mover-baixo';
 
 function createButton(id, text, bgColor, parent) {
   const parentElement = document.getElementById(parent);
@@ -66,26 +69,43 @@ function eventClearItens(buttonId, classToClear) {
   });
 }
 
-// function eventClearCompleted() {
-//   const clearCompletedButton = document.getElementById('remover-finalizados');
+function moveUpItem(selectedItem) {
+  const parentElement = document.getElementById(taskList);
+  const previousElement = selectedItem.previousSibling;
 
-//   clearCompletedButton.addEventListener('click', () => {
-//     const listItens = document.querySelectorAll('.completed');
+  parentElement.insertBefore(selectedItem, previousElement);
+}
 
-//     for (let index = 0; index < listItens.length; index += 1) {
-//       const parentElement = document.getElementById(taskList);
-//       parentElement.removeChild(listItens[index]);
-//     }
-//   });
-// }
+function moveDownItem(selectedItem) {
+  const parentElement = document.getElementById(taskList);
+  const netxElement = selectedItem.nextSibling;
+
+  parentElement.insertBefore(selectedItem, netxElement.nextSibling);
+}
+
+function eventItemMove(direction) {
+  const upButton = document.getElementById(direction);
+
+  upButton.addEventListener('click', () => {
+    const selected = document.querySelector('.selected');
+    const siblings = document.querySelectorAll(taskItem);
+    if (direction === up && selected !== siblings[0]) {
+      moveUpItem(selected);
+    } else if (direction === down && selected !== siblings[siblings.length - 1]) {
+      moveDownItem(selected);
+    }
+  });
+}
 
 createButton('criar-tarefa', 'Adicionar', '#b1b2b5', 'input');
-createButton('remover-selecionado', 'X', '#E9967A', 'setup');
+createButton('remover-selecionado', '\u2716', '#E9967A', 'setup');
+createButton(up, '\u2191', '#FF8C00', 'setup');
+createButton(down, '\u2193', '#FF8C00', 'setup');
 createButton('remover-finalizados', 'Limpar Completos', '#F0E68C', 'setup');
 createButton('apaga-tudo', 'Limpar lista', '#E9967A', 'setup');
-
 eventAddTask();
-eventClearItens('apaga-tudo', '.item-tarefa');
+eventClearItens('apaga-tudo', taskItem);
 eventClearItens('remover-finalizados', '.completed');
 eventClearItens('remover-selecionado', '.selected');
-// eventClearCompleted();
+eventItemMove(up);
+eventItemMove(down);
