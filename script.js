@@ -28,9 +28,16 @@ function checkUnCheck(check) {
   }
 }
 
+function clearList() {
+  let father = document.getElementById('lista-tarefas');
+  while (father.firstChild) {
+    father.removeChild(father.firstChild);
+  }
+}
+
 window.onload = function main() {
-  let button = document.querySelector('#criar-tarefa');
-  button.addEventListener('click', addItenList);
+  let bt1 = document.querySelector('#criar-tarefa');
+  bt1.addEventListener('click', addItenList);
   document.addEventListener('click', function (event) {
     let exporto = event.target;
     if (exporto.className === 'itemSelecionado') {
@@ -41,6 +48,8 @@ window.onload = function main() {
     let work = event.target;
     if (work.classList[0] === 'itemSelecionado') {
       checkUnCheck(work);
-    }
+    } 
   });
+  let bt2 = document.querySelector('#apaga-tudo')
+  bt2.addEventListener('click', clearList)
 }
