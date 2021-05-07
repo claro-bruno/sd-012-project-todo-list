@@ -1,13 +1,14 @@
+const selectedColor = 'rgb(128, 128, 128)';
+const listElmnt = 'lista-tarefas';
 const createBtn = document.getElementById('criar-tarefa');
 const InputTask = document.getElementById('texto-tarefa');
-const taskList = document.getElementById('lista-tarefas');
+const taskList = document.getElementById(listElmnt);
 const clearCompleted = document.getElementById('remover-finalizados');
 const clearAlltasks = document.getElementById('apaga-tudo');
 const saveTasks = document.getElementById('salvar-tarefas');
 const moveUpBtn = document.getElementById('mover-cima');
 const moveDownBtn = document.getElementById('mover-baixo');
 const removeBtn = document.getElementById('remover-selecionado');
-const selectedColor = 'rgb(128, 128, 128)';
 
 // Acrescentar tarefa
 function createTask() {
@@ -21,7 +22,7 @@ createBtn.addEventListener('click', createTask);
 
 // Seleciona tarefa
 function selectTask(event) {
-  if (event.target.id != 'lista-tarefas') {
+  if (event.target.id !== listElmnt) {
     const tasks = document.getElementsByTagName('li');
     const selectedLi = event.target;
     for (let index = 0; index < tasks.length; index += 1) {
@@ -35,26 +36,23 @@ taskList.addEventListener('click', selectTask);
 
 // Marca tarefa como completa
 function taskCompleted(event) {
-  if (event.target.id != 'lista-tarefas') {
-    if (event.target.tagName = 'li') {
+  if (event.target.id !== listElmnt) {
     if (event.target.classList.contains('completed')) {
       event.target.classList.remove('completed');
     } else { event.target.classList.add('completed'); }
-    }
   }
 }
+
 
 taskList.addEventListener('dblclick', taskCompleted);
 
 // Limpa tarefas selecionadas
 function clearDone() {
-  if (event.target.tagName = 'li') {
-    const done = document.getElementsByTagName('li');
-    for (let index = 0; index < done.length; index += 1) {
-      if (done[index].classList.contains('completed')) {
-        done[index].remove();
-        index -= 1;
-      }
+  const done = document.getElementsByTagName('li');
+  for (let index = 0; index < done.length; index += 1) {
+    if (done[index].classList.contains('completed')) {
+      done[index].remove();
+      index -= 1;
     }
   }
 }
