@@ -5,6 +5,10 @@ const stateNormal = 'task';
 const stateSelected = 'task selected';
 const stateCompleted = 'task completed';
 const stateSelectedCompleted = 'task selected completed';
+const color = 'gray';
+const defaultColor = 'transparent';
+const decoration = 'line-through solid black';
+const defaultDecoratin = 'none currentcolor solid';
 
 let tasks = document.querySelector(taskListId).children;
 let taskList = document.querySelector(taskListId);
@@ -87,6 +91,13 @@ function createSelectedTaskButton() {
   optionContent.appendChild(removeSelectedTaskButton);
 }
 
+function createClearSelectionButton() {
+  const clearSelectionButton = document.createElement('button');
+  clearSelectionButton.id = 'limpar-selecao';
+  clearSelectionButton.innerText = 'Limpar Seleção';
+  optionContent.appendChild(clearSelectionButton);
+}
+
 function createOptionsMenu() {
   createAddTaskLabel();
   createAddTaskInput();
@@ -97,6 +108,7 @@ function createOptionsMenu() {
   createMoveUpButton();
   createMoveDownButton();
   createSelectedTaskButton();
+  createClearSelectionButton();
 }
 createOptionsMenu();
 
@@ -114,25 +126,29 @@ function clearPreviousSelected() {
   for (let index = 0; index < tasks.length; index += 1) {
     if (tasks[index].className === stateSelected) {
       tasks[index].className = stateNormal;
-      tasks[index].style.backgroundColor = '';
+      tasks[index].style.backgroundColor = defaultColor;
+      break;
     }
     if (tasks[index].className === stateSelectedCompleted) {
       tasks[index].className = stateCompleted;
-      tasks[index].style.backgroundColor = '';
+      tasks[index].style.backgroundColor = defaultColor;
+      break;
     }
   }
 }
 
 function selectTask(event) {
   const selectedTask = event.target;
-  clearPreviousSelected();
   if (selectedTask.className === stateNormal) {
+    clearPreviousSelected();
     selectedTask.className = stateSelected;
-    selectedTask.style.backgroundColor = 'gray';
+    selectedTask.style.backgroundColor = color;
+    return;
   }
   if (selectedTask.className === stateCompleted) {
+    clearPreviousSelected();
     selectedTask.className = stateSelectedCompleted;
-    selectedTask.style.backgroundColor = 'gray';
+    selectedTask.style.backgroundColor = color;
   }
 }
 
@@ -140,10 +156,10 @@ function finishTask(event) {
   const finishedTask = event.target;
   if (finishedTask.className === stateSelected) {
     finishedTask.className = stateSelectedCompleted;
-    finishedTask.style.textDecoration = 'line-through solid black';
+    finishedTask.style.textDecoration = decoration;
   } else if (finishedTask.className === stateSelectedCompleted) {
     finishedTask.className = stateSelected;
-    finishedTask.style.textDecoration = '';
+    finishedTask.style.textDecoration = defaultDecoratin;
   }
 }
 
@@ -255,6 +271,13 @@ function removeSelectedTask() {
 }
 removeSelectedTaskButtonsElement.addEventListener('click', removeSelectedTask);
 
+const clearSelectionButton = document.querySelector('#limpar-selecao');
+
+function clearSelection() {
+  clearPreviousSelected();
+}
+clearSelectionButton.addEventListener('click', clearSelection);
+
 const saveTasksButtonElement = document.querySelector('#salvar-tarefas');
 
 function saveTasks() {
@@ -276,6 +299,16 @@ function loadTasks(task, taskClass, index) {
   loadTask.id = `task-${(index)}`;
   loadTask.className = taskClass;
   loadTask.innerHTML = task;
+  if (taskClass === stateSelected) {
+    loadTask.style.backgroundColor = color;
+  }
+  if (taskClass === stateCompleted) {
+    loadTask.style.textDecoration = decoration;
+  }
+  if (taskClass === stateSelectedCompleted) {
+    loadTask.style.backgroundColor = color;
+    loadTask.style.textDecoration = decoration;
+  }
   taskList.appendChild(loadTask);
 }
 
