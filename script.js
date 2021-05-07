@@ -1,16 +1,15 @@
+const list = document.getElementById('lista-tarefas');
 function addTask() {
   const input = document.getElementById('texto-tarefa');
   const buttonAdd = document.getElementById('criar-tarefa');
-  const list = document.getElementById('lista-tarefas');
   buttonAdd.addEventListener('click', () => {
-    let taskLi = document.createElement('li');
+    const taskLi = document.createElement('li');
     taskLi.innerHTML = input.value;
     taskLi.classList.add('item-lista');
     input.value = '';
     list.appendChild(taskLi);
   });
 }
-addTask();
 
 function removeClassSelected() {
   const elementSelected = document.querySelector('.selected');
@@ -20,17 +19,14 @@ function removeClassSelected() {
 }
 
 function selectedItems() {
-  const list = document.querySelector('#lista-tarefas');
   list.addEventListener('click', (event) => {
     const evento = event;
     removeClassSelected();
     evento.target.classList.add('selected');
   });
 }
-selectedItems();
 
 function completedTask() {
-  const list = document.querySelector('#lista-tarefas');
   list.addEventListener('dblclick', (event) => {
     const evento = event;
     if (evento.target.classList.contains('completed')) {
@@ -40,19 +36,15 @@ function completedTask() {
     }
   });
 }
-completedTask();
 
 function clearList() {
-  const list = document.getElementById('lista-tarefas');
   const buttonClear = document.getElementById('apaga-tudo');
   buttonClear.addEventListener('click', () => {
     list.innerHTML = '';
   });
 }
-clearList();
 
 function clearCompleted() {
-  const list = document.getElementById('lista-tarefas');
   const buttonCompleted = document.getElementById('remover-finalizados');
   buttonCompleted.addEventListener('click', () => {
     const completedItems = document.querySelectorAll('.completed');
@@ -61,7 +53,6 @@ function clearCompleted() {
     }
   });
 }
-clearCompleted();
 
 function saveTasks() {
   const buttonSave = document.getElementById('salvar-tarefas');
@@ -70,20 +61,17 @@ function saveTasks() {
     localStorage.setItem('lista', listContent);
   });
 }
-saveTasks();
 
 function initialize() {
-  const list = document.getElementById('lista-tarefas');
   list.innerHTML = localStorage.getItem('lista');
 }
-initialize();
 
 function moveItemsUp() {
   const buttonMoveUp = document.getElementById('mover-cima');
   buttonMoveUp.addEventListener('click', () => {
     const selectedItem = document.querySelector('.selected');
-    if (selectedItem.previousElementSibling !== null || selectedItem !== null) {
-      let itemAntes = document.createElement('li');
+    if (selectedItem.previousElementSibling !== null && selectedItem !== null) {
+      const itemAntes = document.createElement('li');
       itemAntes.innerHTML = selectedItem.previousElementSibling.innerHTML;
       itemAntes.classList = selectedItem.previousElementSibling.classList;
       selectedItem.previousElementSibling.innerHTML = selectedItem.innerHTML;
@@ -93,13 +81,12 @@ function moveItemsUp() {
     }
   });
 }
-moveItemsUp();
 
 function moveItemsDown() {
   const buttonMoveDown = document.getElementById('mover-baixo');
   buttonMoveDown.addEventListener('click', () => {
     const selectedItem = document.querySelector('.selected');
-    if (selectedItem.nextElementSibling !== null || selectedItem !== null) {
+    if (selectedItem.nextElementSibling !== null && selectedItem !== null) {
       const itemDepois = document.createElement('li');
       itemDepois.innerHTML = selectedItem.nextElementSibling.innerHTML;
       itemDepois.classList = selectedItem.nextElementSibling.classList;
@@ -110,15 +97,25 @@ function moveItemsDown() {
     }
   });
 }
-moveItemsDown();
 
 function removeSelected() {
   const buttonRemoveSelected = document.getElementById('remover-selecionado');
-  const list = document.getElementById('lista-tarefas');
   buttonRemoveSelected.addEventListener('click', () => {
     const selectedItem = document.querySelector('.selected');
     console.log(selectedItem);
     list.removeChild(selectedItem);
   });
 }
-removeSelected();
+
+window.onload = () => {
+  initialize();
+  addTask();
+  selectedItems();
+  completedTask();
+  clearList();
+  clearCompleted();
+  saveTasks();
+  moveItemsUp();
+  moveItemsDown();
+  removeSelected();
+};
