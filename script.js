@@ -2,6 +2,7 @@ const input = document.querySelector('#texto-tarefa');
 const button = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
 const eraseAll = document.querySelector('#apaga-tudo');
+const eraseCompleted = document.querySelector('#remover-finalizados')
 
 function changeBgColor(event) {
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
@@ -22,7 +23,7 @@ function completedTasks(event) {
   if (event.target.className.includes('completed')) {
     event.target.classList.remove('completed');
   } else {
-  event.target.classList.add('completed');
+    event.target.classList.add('completed');
   }
 }
 
@@ -45,3 +46,13 @@ function eraseAllTasks() {
 }
 
 eraseAll.addEventListener('click', eraseAllTasks);
+
+function eraseCompletedTasks() {
+  for (let indexCompleted = list.children.length - 1; indexCompleted >= 0; indexCompleted -= 1) {
+    if (list.children[indexCompleted].className.includes('completed')) {
+      list.removeChild(list.children[indexCompleted]);
+    }
+  }
+}
+
+eraseCompleted.addEventListener('click', eraseCompletedTasks);
