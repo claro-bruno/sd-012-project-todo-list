@@ -10,38 +10,16 @@ function insertTask(value) {
 function receiveInput() {
   const contentInput = document.querySelector('#texto-tarefa').value;
   insertTask(contentInput);
-  setGreyItem();  
+  setGreyItem(); 
+  taskCompleted();
   document.querySelector('#texto-tarefa').value = '';
 }
 
-//req7 - RESOLVE USANDO CLASS, MAS NÃO RESOLVE NO AVALIADOR
-// function setGreyItem() {
-//   let orderList = document.querySelectorAll('.task-list');
-//     for (let index = 0; index < orderList.length; index += 1) {
-//     orderList[index].addEventListener('click', function(){
-//       orderList[index].id = ' selected';
-//     //   orderList[index].classList.add('selected');
-//     })
-//   }
-// }
-// setGreyItem();
-
-//req7 - RESOLVE NO AVALIADOR
-// function setGreyItem(){
-//   let orderList = document.querySelectorAll('.task-list')
-//   for (let index = 0; index < orderList.length; index += 1){
-//     orderList[index].style.backgroundColor = 'rgb(128, 128, 128)';
-//   }
-// }
-// setGreyItem();
-
-//req7 - ACHO QUE ESTA CERTO, MAS NÃO RESOLVE NO AVALIADOR
 function setGreyItem() {
   let orderList = document.querySelectorAll('.task-list');
   for (let index = 0; index < orderList.length; index += 1) {
     orderList[index].addEventListener('click', function () {
       setNoBackgroundColor(orderList);
-      // orderList[index].style.backgroundColor = 'rgb(128, 128, 128)';
       orderList[index].classList.add('selected');
     })
   }
@@ -53,3 +31,19 @@ function setNoBackgroundColor(orderList) {
   }
 }
 
+function taskCompleted() {
+  let orderList = document.querySelectorAll('.task-list'); 
+  for (let index = 0; index < orderList.length; index += 1) {
+    orderList[index].addEventListener('dblclick', function () {
+      if (orderList[index].className === 'task-list') {
+        orderList[index].classList.add('completed');
+      } else if (orderList[index].className === 'task-list selected') {
+        orderList[index].classList.add('completed');
+        orderList[index].classList.remove('selected');
+      } else if (orderList[index].className === 'task-list completed' || orderList[index].className === 'task-list completed selected') {
+        orderList[index].classList.remove('completed');
+        orderList[index].classList.remove('selected');
+      }
+    })
+  }
+}
