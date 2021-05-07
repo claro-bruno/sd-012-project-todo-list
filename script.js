@@ -37,7 +37,7 @@ window.onload = function() {
         if (!eventSource.target.classList.contains('completed')) {
             eventSource.target.classList.add('completed');
         } else {
-            eventSource.target.classList = 'list-item';
+            eventSource.target.classList.remove('completed');
         }        
     }
 }
