@@ -64,9 +64,6 @@ header, .tarefa {
 .completed {
     text-decoration: line-through solid rgb(0,0,0);
 }
-.lista-tarefas {
-    margin: auto;
-}
 
 #mover-cima, #mover-baixo {
     margin: 3px;

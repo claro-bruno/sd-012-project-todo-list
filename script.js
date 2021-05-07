@@ -7,6 +7,7 @@ window.onload = function () {
   let botaoSalvarLista = document.querySelector('#salvar-tarefas');
   let botaoMoveCima = document.querySelector('#mover-cima');
   let botaoMoveBaixo = document.querySelector('#mover-baixo');
+  let botaoRemove = document.querySelector('#remover-selecionado');
   getTarefas();
 
   botaoTarefa.addEventListener('click', function (event) {
@@ -49,8 +50,9 @@ window.onload = function () {
     localStorage.setItem('Classes', classes);
   });
 
-  botaoMoveCima.addEventListener('clicl', function () {
-
+  botaoRemove.addEventListener('click', function () {
+    let tarefaSelecionada = document.querySelector('.selecionada');
+    listaTarefas.removeChild(tarefaSelecionada);
   })
 
   function getTarefas() {
