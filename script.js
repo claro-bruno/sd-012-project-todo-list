@@ -81,7 +81,7 @@ function moveItemsDown() {
   buttonMoveDown.addEventListener('click', () => {
     const selectedItem = document.querySelector('.selected');
     if (selectedItem !== null && selectedItem.nextElementSibling !== null) {
-      list.insertBefore(selectedItem, selectedItem.nextElementSibling.nextElementSibling)
+      list.insertBefore(selectedItem, selectedItem.nextElementSibling.nextElementSibling);
     }
   });
 }
