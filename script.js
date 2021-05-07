@@ -18,13 +18,15 @@ const olIdListaTarefaCria = document.createElement('ol');
 olIdListaTarefaCria.id = 'lista-tarefas';
 bodyPagina.appendChild(olIdListaTarefaCria);
 
-function alteraCor(event) {
-  const liAlteraCorCinza = document.querySelector('li');
+function colocaFundo(event) {
   const liCorCinza = 'rgb(128, 128, 128)';
-  if (liAlteraCorCinza.style.backgroundColor !== liCorCinza) {
-    event.target.style.backgroundColor = liCorCinza;
-  } else if (liAlteraCorCinza.style.backgroundColor === liCorCinza) {
-    event.target.style.backgroundColor = null;
+  event.target.style.backgroundColor = liCorCinza;
+}
+
+function removeFundo() {
+  const LiLista = document.querySelectorAll('li');
+  for (let index = 0; index < LiLista.length; index += 1) {
+    LiLista[index].style.backgroundColor = null;
   }
 }
 
@@ -45,9 +47,9 @@ function adicionaTarefas() {
   botaoIdCriarTarefa.addEventListener('click', () => {
     const novaLi = document.createElement('li');
     novaLi.innerHTML = inputIdTextoTarefa.value;
-    novaLi.className = 'alteraCorCinza';
     novaLi.addEventListener('dblclick', riscaLi);
-    novaLi.addEventListener('click', alteraCor);
+    novaLi.addEventListener('click', removeFundo);
+    novaLi.addEventListener('click', colocaFundo);
     olIdListaTarefa.appendChild(novaLi);
     inputIdTextoTarefa.value = '';
   });
