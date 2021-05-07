@@ -89,22 +89,16 @@ apagaTudo();
 //função do botão que remove itens finalizados da lista//
 
 function removeFinalizados() {
-    let itensRiscados = document.getElementsByClassName('item-lista completed');
-    let botaoApagaFin = document.getElementById('remover-finalizados');
-    botaoApagaFin.addEventListener('click', function() {
-        if(itensRiscados.length === listaLis.length){
-            while (listaTarefas.firstChild) {
-                listaTarefas.removeChild(listaTarefas.firstChild);
-            };
-        }else{
-            let index3 = 0;
-            while(itensRiscados.length > 0) {
-                itensRiscados[index3].remove();
-                index3 += 1;
-            };
-
-        };
-    });
+  let botaoApagaFin = document.getElementById('remover-finalizados');
+  botaoApagaFin.addEventListener('click', function() {
+    let filhosListaTarefas = listaTarefas.children;
+    for (index3 = 0; index3 < filhosListaTarefas.length; index3 += 1){
+        if (filhosListaTarefas[index3].className === 'item-lista completed'){
+          filhosListaTarefas[index3].remove();
+          index3 -= 1;
+        }
+    };
+  });
 };
-
+                     
 removeFinalizados();
