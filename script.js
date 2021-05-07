@@ -66,24 +66,18 @@ function salvarTarefas() {
   buttonSalvaLista.addEventListener('click', () => {
     localStorage.clear();
     sessionStorage.clear();
-    const itensDalista = document.querySelectorAll('.item-lista');
-    for (let index = 0; index < itensDalista.length; index += 1) {
-      localStorage.setItem(`item${index}`, itensDalista[index].innerText);
-      sessionStorage.setItem(`class${index}`, itensDalista[index].className);
-    }
+    localStorage.setItem('lista', listaTarefas.innerHTML);
   });
 }
 
 salvarTarefas();
 
 window.onload = () => {
-  for (let index = 0; index < localStorage.length; index += 1) {
-    const novoItem = document.createElement('li');
-    novoItem.className = sessionStorage.getItem(`class${index}`);
-    novoItem.innerText = localStorage.getItem(`item${index}`);
-    listaTarefas.appendChild(novoItem);
-    mudaCorDeFundo(novoItem);
-    riscaItemDaLista(novoItem);
+  listaTarefas.innerHTML = localStorage.getItem('lista');
+  const itensCarregados = listaTarefas.querySelectorAll('li');
+  for (let index = 0; index < itensCarregados.length; index += 1) {
+    mudaCorDeFundo(itensCarregados[index]);
+    riscaItemDaLista(itensCarregados[index]);
   }
 };
 
