@@ -25,3 +25,14 @@ function backgroundColor() {
     });
   }
   backgroundColor();
+
+function lineThrough (){
+    listaTarefas.addEventListener('dblclick', (evt) => {
+        const completado = document.querySelector('.completed')
+        if (completado) {
+            completado.classList.remove('completed')
+        }
+        evt.target.classList.add('completed')
+    })
+}
+lineThrough();
