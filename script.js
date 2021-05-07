@@ -112,7 +112,7 @@ removeBtn.addEventListener('click', removeTask);
 function removeTask() {
   let tasks = document.getElementsByTagName('li');
   console.log('1');
-  for (let index = 0; index < (tasks.length-1); index += 1) {
+  for (let index = 0; index < (tasks.length); index += 1) {
     if (tasks[index].style.backgroundColor === 'rgb(128, 128, 128)') {
       tasks[index].remove();
     }
