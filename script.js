@@ -23,9 +23,10 @@ botao.addEventListener("click", (e) => {
   ol.appendChild(listaOrganizada);
   input.value = ""
 
-  botao1.addEventListener("click", () => {
-    let removerDaLista = document.querySelectorAll("li");
-    listaOrganizada.parentNode.removeChild(removerDaLista);
-  })
+})
 
+botao1.addEventListener("click", () => {
+  let removerDaLista = document.querySelectorAll("li");
+  for(index = 0; index < removerDaLista.length; index += 1);
+  ol.remove(removerDaLista);
 })
