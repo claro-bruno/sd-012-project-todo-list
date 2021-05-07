@@ -40,7 +40,7 @@ function addTask() {
 
 function localCompletedRule(items, index, completed) {
   if (items[index].innerHTML === localStorage[`completed${completed}`]) {
-    items[index].className += ' completed';
+    items[index].classList.toggle('completed');
   }
 }
 
@@ -51,7 +51,7 @@ function localCompleted() {
       localCompletedRule(items, index, completed);
     }
   }
- }
+}
 
 function changeData() {
   for (let index = 0; index < localStorage.length; index += 1) {
