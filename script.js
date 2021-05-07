@@ -5,7 +5,7 @@ let botaoCriarTarefa = document.getElementById('criar-tarefa');
 let botaoApagarTudo = document.getElementById('apaga-tudo');
 let botaoApagarFin = document.getElementById('remover-finalizados');
 let elementoInput = document.getElementById('texto-tarefa');
-const listaLis = document.getElementsByClassName('item-lista');
+let listaLis = document.getElementsByClassName('item-lista');
 
 //criando uma div para guardar texto do botao adicionar//
 let divBotao = document.createElement('div');
@@ -92,8 +92,17 @@ function removeFinalizados() {
     let itensRiscados = document.getElementsByClassName('item-lista completed');
     let botaoApagaFin = document.getElementById('remover-finalizados');
     botaoApagaFin.addEventListener('click', function() {
-        for(index2 = 0; index2 < itensRiscados.length; index2 += 1){
-            itensRiscados[index2].remove();
+        if(itensRiscados.length === listaLis.length){
+            while (listaTarefas.firstChild) {
+                listaTarefas.removeChild(listaTarefas.firstChild);
+            };
+        }else{
+            let index3 = 0;
+            while(itensRiscados.length > 0) {
+                itensRiscados[index3].remove();
+                index3 += 1;
+            };
+
         };
     });
 };
