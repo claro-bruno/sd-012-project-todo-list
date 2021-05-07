@@ -31,11 +31,10 @@ const completaTarefa = (event) => {
 // Apaga tudo
 const apagaTudo = () => {
   capturaOl.innerHTML = '';
-}
+};
 
 // Apaga tarefas completas
 const apagaTarefasCompletas = () => {
-  console.log('to aqui')
   const capturaTarefasCompletas = document.querySelectorAll('.completed');
   for (let index = 0; index < capturaTarefasCompletas.length; index += 1) {
     if (capturaTarefasCompletas[index].classList.contains('completed')) {
@@ -44,7 +43,18 @@ const apagaTarefasCompletas = () => {
   }
 };
 
+// Salva lista atual
+const salvaListaAtual = () => {
+  localStorage.setItem('list-item', capturaOl.innerHTML);
+};
+
 // Adiciona Eventos
+document.addEventListener('dblclick', (event) => {
+  if (event.target.classList.contains('tarefa')) {
+    completaTarefa(event);
+  }
+});
+
 document.addEventListener('click', (event) => {
   if (event.target.id === 'criar-tarefa') {
     adicionaTarefa();
@@ -58,11 +68,8 @@ document.addEventListener('click', (event) => {
   if (event.target.id === 'remover-finalizados') {
     apagaTarefasCompletas();
   }
-});
-
-document.addEventListener('dblclick', (event) => {
-  if (event.target.classList.contains('tarefa')) {
-    completaTarefa(event);
+  if (event.target.id === 'salvar-tarefas') {
+    salvaListaAtual(event);
   }
 });
 
@@ -71,3 +78,9 @@ capturaInput.addEventListener('keypress', (event) => {
     adicionaTarefa();
   }
 });
+
+// OnLoad
+window.onload = () => {
+  const listaSalva = localStorage.getItem('list-item');
+  capturaOl.innerHTML = listaSalva;
+};
