@@ -15,8 +15,17 @@ function addlist(){
     listarray.appendChild(cria)
     return cria
 };
-Adicionar.addEventListener('click',addlist);
-
+Adicionar.addEventListener('click',addlist)
+ 
+function limpalista(){
+    let criado = document.querySelectorAll('li');
+    criado = criado 
+    -=1
+    listarray.innerHTML = criado
+    
+    return licoroio
+}
+apagarGeralX.addEventListener('click', limpalista);
 /*Adicionar.addEventListener('click',function(){
     listarray.push(caixaInput)
     return listarray
