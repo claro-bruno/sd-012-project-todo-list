@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projeto To Do List</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header id="header">Minha Lista de Tarefas</header>
-    <section id="funcionamento-section">
-        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    </section>
-    <section id="adicionar-tarefa">
-        <input type="text" id="texto-tarefa">
-        <button id="criar-tarefa">Adicionar</button>
-    </section>
-    <section id="lista">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="content">
+      <header id="header">Minha Lista de Tarefas</header>
+      <section id="funcionamento-section">
+        <p id="funcionamento">
+          Clique duas vezes em um item para marcá-lo como completo
+        </p>
+      </section>
+      <section id="adicionar-tarefa">
+        <input type="text" id="texto-tarefa" />
+        <button id="criar-tarefa" class="buttons">Adicionar</button>
+      </section>
+      <section id="lista">
         <ol id="lista-tarefas"></ol>
-    </section>
-    <section id="buttons">
-        <button id="apaga-tudo">Limpar Lista</button>
-        <button id="remover-finalizados">Limpar Completos</button>
-        <button id="salvar-tarefas">Salvar Tarefas</button>
-        <button id="mover-cima">Mover para Cima</button>
-        <button id="mover-baixo">Mover para Baixo</button>
-        <button id="remover-selecionado">Remover Selecionado</button>
-    </section>
+      </section>
+      <section id="buttonsSection">
+        <button id="remover-selecionado" class="buttons">X</button>
+        <button id="mover-cima" class="buttons">&uarr;</button>
+        <button id="mover-baixo" class="buttons">&darr;</button>
+        <button id="remover-finalizados" class="buttons">
+          Limpar Completos
+        </button>
+        <button id="apaga-tudo" class="buttons">Limpar Lista</button>
+        <button id="salvar-tarefas" class="buttons">Salvar Tarefas</button>
+      </section>
+    </main>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
