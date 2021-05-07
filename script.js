@@ -1,5 +1,7 @@
 window.onload = () => {
-
+  if (localStorage.getItem('arrayOfTaskObjs')) {
+    loadtasks();
+  };
 };
 
 const newTaskButton = document.getElementById('criar-tarefa');
@@ -72,16 +74,9 @@ function makeArrayOfTaskObjs() {
       taskObj.completed = true;
     }
     arrayOfTaskObjs.push(taskObj)
-    console.log(taskObj); //
   }
   return arrayOfTaskObjs;
 };
-
-if (localStorage.getItem('arrayOfTaskObjs')) {
-  loadtasks();
-};
-
-let arrayOfTaskObjs = makeArrayOfTaskObjs();
 
 newTaskButton.addEventListener('click', () => {
   const li = document.querySelectorAll('li');
@@ -156,7 +151,7 @@ removeSelectedButton.addEventListener('click', () => {
   }
 });
 
-deselectButton.addEventListener('click', () => {
+deselectButton.addEventListener('click', () => { // substituir botão por clique no body => event bubbling
   deselectAll();
 });
 
