@@ -134,4 +134,4 @@ window.onload = function() {
     if (saved !== null) {
         listaDeTarefas.innerHTML = saved;
     }
-}
+};
