@@ -97,15 +97,52 @@ function eventItemMove(direction) {
   });
 }
 
+function eventSaveList() {
+  const saveButton = document.getElementById('salvar-tarefas');
+
+  saveButton.addEventListener('click', () => {
+    const listItens = document.querySelectorAll(taskItem);
+    localStorage.setItem('itens', listItens[0].innerHTML);
+    localStorage.setItem('classLists', listItens[0].classList);
+
+    for (let index = 1; index < listItens.length; index += 1) {
+      localStorage.setItem('itens', `${localStorage.getItem('itens')} | ${listItens[index].innerHTML}`);
+      localStorage.setItem('classLists', `${localStorage.getItem('classLists')} | ${listItens[index].classList}`);
+    }
+  });
+}
+
+function addSavedItens() {
+  const savedItens = localStorage.getItem('itens').split('|');
+  const savedClassLists = localStorage.getItem('classLists').split('|');
+  const parentElement = document.getElementById(taskList);
+
+  for (let index = 0; index < savedItens.length; index += 1) {
+    const listItem = document.createElement('li');
+    listItem.innerHTML = savedItens[index];
+    listItem.classList = savedClassLists[index];
+    parentElement.appendChild(listItem);
+  }
+}
+
+function checkLocalStorage() {
+  if (localStorage.getItem('itens')) {
+    addSavedItens();
+  }
+}
+
 createButton('criar-tarefa', 'Adicionar', '#b1b2b5', 'input');
 createButton('remover-selecionado', '\u2716', '#E9967A', 'setup');
 createButton(up, '\u2191', '#FF8C00', 'setup');
 createButton(down, '\u2193', '#FF8C00', 'setup');
 createButton('remover-finalizados', 'Limpar Completos', '#F0E68C', 'setup');
-createButton('apaga-tudo', 'Limpar lista', '#E9967A', 'setup');
+createButton('apaga-tudo', 'Limpar Lista', '#E9967A', 'setup');
+createButton('salvar-tarefas', 'Salvar Lista', '#3CB371', 'setup');
 eventAddTask();
 eventClearItens('apaga-tudo', taskItem);
 eventClearItens('remover-finalizados', '.completed');
 eventClearItens('remover-selecionado', '.selected');
 eventItemMove(up);
 eventItemMove(down);
+eventSaveList();
+checkLocalStorage();
