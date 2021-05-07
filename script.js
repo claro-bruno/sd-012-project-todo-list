@@ -35,33 +35,8 @@ function lineThrough (){
 }
 lineThrough();
 
-botaoLimpar.addEventListener('click', ()  =>{
-    for (let index = 0; index <= task.length; index += 1){
-        if (task[index] !== undefined){
-            task[index].remove();
-        }
-    }
-})
+function limparLista (){
+    listaTarefas.innerHTML = '';
+}
+botaoLimpar.addEventListener('click', limparLista);
 
-
-
-
-
-
-
-
-
-
-
-
-
-// function lineThrough (){
-//     listaTarefas.addEventListener('dblclick', (evt) => {
-//         const completado = document.querySelector('.completed')
-//         if (completado) {
-//             completado.classList.remove('completed')
-//         }
-//         evt.target.classList.add('completed')
-//     })
-// }
-// // lineThrough();
