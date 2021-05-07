@@ -1,9 +1,10 @@
 function criarItem(event) {
     const itemLista = document.createElement('li')
-    itemLista.className = 'lista'
     document.querySelector('#lista-tarefas').appendChild(itemLista)
     let valorList = document.getElementById('texto-tarefa').value
-
+    itemLista.addEventListener('click', function() {
+        itemLista.className = 'lista'
+    })
     itemLista.innerHTML = valorList
 
 }
