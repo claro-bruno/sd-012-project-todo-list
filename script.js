@@ -1,9 +1,15 @@
-// input id="texto-tarefa"
-// ol id="lista-tarefas"
-// button id="criar-tarefa"
-
 const criaTarefaButton = document.getElementById('criar-tarefa');
 const oderList = document.getElementById('lista-tarefas');
+
+
+
+
+
+
+
+
+
+
 
 document.addEventListener('click', (event) => {
   const alvo = event.target;
@@ -27,7 +33,7 @@ document.addEventListener('click', (event) => {
     oderList.innerHTML = '';
   }
   if (alvo.id === 'remover-finalizados') {
-    let selecionados = document.querySelectorAll('.completed')
+    let selecionados = document.querySelectorAll('.completed') // descobrir por que que com o querySelectorAll funciona e com o getElementsbyClassName Não
     for (let index = 0; index < selecionados.length; index += 1) {
         selecionados[index].remove()
     }
