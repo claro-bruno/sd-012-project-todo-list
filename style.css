@@ -16,6 +16,26 @@
   text-align: center;
 }
 
+#criar-tarefa {
+  width: 80px;
+  height: 50px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  border: 2px solid #4caf50;
+  border-radius: 30%;
+  transition-duration: 0.4s;
+}
+
+#criar-tarefa:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+#newTask {
+  margin-bottom: 15px;
+}
+
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
@@ -47,7 +67,7 @@ header {
 }
 
 input {
-  display: block;
+  display: inline-flex;
   width: 200px;
   height: 17px;
   margin: auto;

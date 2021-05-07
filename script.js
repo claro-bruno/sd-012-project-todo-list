@@ -1,13 +1,13 @@
-let botao = document.querySelector('#criar-tarefa');
-let botaoLimpa = document.querySelector('#apaga-tudo');
-let botaoLimpaCompletos = document.querySelector('#remover-finalizados');
-let li = document.querySelectorAll('ol');
-let lis = document.getElementsByTagName('li');
+const botao = document.querySelector('#criar-tarefa');
+const botaoLimpa = document.querySelector('#apaga-tudo');
+const botaoLimpaCompletos = document.querySelector('#remover-finalizados');
+const li = document.querySelectorAll('ol');
+const lis = document.getElementsByTagName('li');
 
 function adicionarTarefa() {
-  let caixaTexto = document.querySelector('#texto-tarefa');
-  let lista = document.getElementById('lista-tarefas');
-  let criarLi = document.createElement('li');
+  const caixaTexto = document.querySelector('#texto-tarefa');
+  const lista = document.getElementById('lista-tarefas');
+  const criarLi = document.createElement('li');
   criarLi.textContent = caixaTexto.value;
   criarLi.className = 'tasks';
   lista.appendChild(criarLi);
@@ -42,8 +42,8 @@ botaoLimpa.addEventListener('click', function () {
 });
 
 botaoLimpaCompletos.addEventListener('click', function () {
-  let riscados = document.getElementsByClassName('completed');
-  for (let i = riscados.length - 1; i >= 0; --i) {
+  const riscados = document.getElementsByClassName('completed');
+  for (let i = riscados.length - 1; i >= 0; i -= 1) {
     riscados[i].remove();
   }
 });
