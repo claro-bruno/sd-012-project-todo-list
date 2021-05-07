@@ -10,6 +10,9 @@
     .selected {
         background-color: rgb(128,128,128);
     }
+    .completed {
+        text-decoration: line-through;
+    }
     </style>
 </head>
 <body>
@@ -18,7 +21,7 @@
     <input value="" type="text" id="texto-tarefa">
     <ol id="lista-tarefas"></ol>
     <button id="criar-tarefa">Create</button>
-
+    <button id='apaga-tudo'>Clean</button>
     <script href='script.js'>
         function buttonClick () {
     let getButton = document.querySelector('#criar-tarefa');
@@ -33,7 +36,7 @@
         getUL.appendChild(newListItem);
 
         getInput.value = '';
-
+        riscaLista();
         highlightText();
     })
 }
@@ -49,7 +52,6 @@ let newBgColor = 'rgb(128,128,128)';
         if (event.target.style.backgroundColor !== newBgColor) {
             removeTudo();
             event.target.className = 'selected';
-
         }        
             })
           
@@ -64,9 +66,38 @@ function removeTudo() {
 
         aRemover.classList.remove('selected');
     }
-
 }
 
+function riscaLista () {
+    let getListItem = document.querySelectorAll('#list-item');
+    console.log(getListItem);
+
+    for (let index = 0; index < getListItem.length; index += 1) {
+        getListItem[index].addEventListener('dblclick', function(event) {
+            if (event.target.style.textDecoration !== 'line-through') {
+                event.target.classList.add('completed');
+                console.log(event.target.classList)
+            } else {
+                event.target.classList.remove('completed');
+            }
+        })
+    }
+}
+
+function cleanButton () {
+    let getCleanButton = document.querySelector('#apaga-tudo');
+    let getUL = document.querySelector('#lista-tarefas');
+    let getListItem = document.querySelectorAll('#list-item');
+
+    getCleanButton.addEventListener('click', function() {
+        for (let index = 0; index < getListItem.length; index += 1) {
+            if (getListItem.length > 0) {
+                getUL.removeChild(getListItem[index]);
+            }
+        }
+    })
+    
+}
 
     </script>
 </body>
