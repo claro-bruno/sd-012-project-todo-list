@@ -12,6 +12,7 @@ document.addEventListener('click', (event) => {
       selected.style.backgroundColor = 'white';
     }
     alvo.classList.add('selected');
+    alvo.style.backgroundColor = 'gray';
   }
 });
 
