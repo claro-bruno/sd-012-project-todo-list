@@ -49,6 +49,10 @@ window.onload = function () {
     localStorage.setItem('Classes', classes);
   });
 
+  botaoMoveCima.addEventListener('clicl', function () {
+    
+  })
+
   function getTarefas() {
     if (typeof localStorage.getItem('Lista') === 'object') {
       localStorage.setItem('Lista', []);
