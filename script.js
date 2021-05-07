@@ -60,7 +60,7 @@ function saveTasks() {
   localStorage.setItem('task', taskList.innerHTML);
 }
 btnSave.addEventListener('click', saveTasks);
-window.onload = function () {
+window.onload = () => {
   taskList.innerHTML = localStorage.getItem('task');
 }
 
@@ -86,7 +86,7 @@ function removeSelected() {
   const itemList = document.querySelectorAll('.item-list');
   for (let index = 0; index < itemList.length; index += 1) {
     let item = itemList[index];
-    if (item.style.backgroundColor === 'rgb(128, 128, 128)') {
+    if (item.classList.contains('selected')) {
       taskList.removeChild(item);
     }
   }
