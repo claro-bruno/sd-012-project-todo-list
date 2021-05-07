@@ -1,3 +1,59 @@
 .completed {
   text-decoration: line-through solid black;
 }
+
+body {
+  background-color: darkseagreen;
+}
+
+header {
+  font-family: 'New Tegomin', serif;
+  font-size: xxx-large;
+  font-weight: bolder;
+  margin-top: 100px;
+}
+
+p {
+  font-family: 'Indie Flower', cursive;
+  margin-top: 40px;
+  margin-left: 20px;
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+#container {
+  text-align: center;
+  /* background-color: aliceblue; */
+  width:800px;
+  height: 800px;
+  margin-left: 12%;
+  margin-top: 30%;
+  
+}
+
+#backgroundPic {
+  background-image:url(imagem2.png);
+  background-size:cover;
+  position: absolute;
+  top: -100px;;
+  left: 15%;
+}
+
+.list-item {
+  font-family: 'Indie Flower', cursive;
+  font-size: 25px;
+}
+
+#texto-tarefa {
+  background-color: antiquewhite;
+  width: 300px;
+  height: 30px;
+}
+
+#criar-tarefa {
+  background-color: antiquewhite;
+  font-family: 'New Tegomin', serif;
+  font-weight: bolder;
+  width: 150px;
+  height: 40px;
+}

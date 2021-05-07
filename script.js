@@ -1,9 +1,11 @@
-const buttonAdd = document.getElementById('criar-tarefa')
-const textInput = document.getElementById('texto-tarefa')
-const list  = document.getElementById('lista-tarefas')
+const buttonAdd = document.getElementById('criar-tarefa');
+const textInput = document.getElementById('texto-tarefa');
+const list  = document.getElementById('lista-tarefas');
 const inputValue = textInput.value 
 const listFirstItem = document.getElementsByTagName('ol')[0];
 const liListItems = document.getElementsByTagName('li');
+const buttonDel = document.getElementById('remover-finalizados');
+const buttonDelAll = document.getElementById('apaga-tudo');
 
 
 function createList () {
@@ -47,3 +49,25 @@ function lineThrough () {
   
 }
 lineThrough ()
+
+// Requerimento 10 
+ buttonDelAll.addEventListener('click', (event) => {
+    list.innerHTML = "";
+ })
+
+
+// Requerimento 11
+
+// function deleteCompleted () {
+  buttonDel.addEventListener('click', (event) => {
+    let completedItem = document.querySelector('.completed')
+      if (completedItem.classList.contains('completed'));
+        (completedItem.parentNode).removeChild(completedItem)
+  });
+
+
+  //     if (completedItem != null) {
+  //       (completedItem.parentNode).removeChild(completedItem)
+  //     }
+  // });
+// }
