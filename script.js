@@ -67,9 +67,7 @@ function removeTarefas() {
   const botaoIdApagaTudo = document.getElementById('apaga-tudo');
   const olIdListaTarefas = document.querySelector('ol');
   botaoIdApagaTudo.addEventListener('click', () => {
-    for (let index = 0; ; index += 1) {
-      olIdListaTarefas.firstElementChild.remove();
-    }
+    olIdListaTarefas.innerHTML = '';
   });
 }
 
