@@ -10,6 +10,7 @@ buttonAdicionar.addEventListener('click', () => {
   //listaTarefas.insertBefore(criarLi, listaTarefas.childNodes[0]);
   inputTarefas.value = '';
   marcarTarefa();
+  tarefaCompleta()
 })
 
 function marcarTarefa() {
@@ -20,6 +21,18 @@ function marcarTarefa() {
         element.classList.remove('selected');
       }
       event.target.classList.add('selected');
+    })
+  }
+}
+
+function tarefaCompleta() {
+  for (let n = 0; n < elementosDaLista.length; n += 1) {
+    elementosDaLista[n].addEventListener('dblclick', (event) => {
+      if (elementosDaLista[n].classList.contains('completed')) {
+        event.target.classList.remove('completed');
+      } else {
+        event.target.classList.add('completed');
+      }
     })
   }
 }
