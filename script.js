@@ -42,6 +42,7 @@ botao1.addEventListener('click', (e) => {
 botao2.addEventListener("click", (e) => {
   e.preventDefault();
   const toRemove = document.getElementsByClassName('completed');
-  for (let index = 0; index < toRemove.length; index += 1) {
-    toRemove[index].parentNode.removeChild(toRemove[index])};
-  });
+  while(toRemove.length > 0){
+    toRemove[0].parentNode.removeChild(toRemove[0]);
+}
+}) 
