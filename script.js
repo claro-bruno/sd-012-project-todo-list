@@ -2,17 +2,13 @@ const toDoList = [''];
 
 const textInput = document.querySelector('#texto-tarefa');
 
-textInput.addEventListener('input', function () {
-    
-})
-
 const buttonCreate = document.querySelector('.submit');
 
 buttonCreate.addEventListener('click',function () {
     let catOl = document.getElementById('lista de tarefa');
+    let text = textInput.value;
     let createLi = document.createElement('li');
     createLi.className = 'empty';
+    createLi.innerHTML = text;
     catOl.appendChild(createLi);
 } );
-
-
