@@ -62,4 +62,20 @@ function adicionaTarefas() {
     novaLi.innerHTML = inputIdTextoTarefa.value;
   });
 }
-adicionaTarefas();
+
+function removeTarefas() {
+  const botaoIdApagaTudo = document.getElementById('apaga-tudo');
+  const olIdListaTarefas = document.querySelector('ol');
+  botaoIdApagaTudo.addEventListener('click', () => {
+    for (let index = 0; ; index += 1) {
+      olIdListaTarefas.firstElementChild.remove();
+    }
+  });
+}
+
+function ordemTarefas() {
+  adicionaTarefas();
+  removeFundo();
+  removeTarefas();
+}
+ordemTarefas();
