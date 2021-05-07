@@ -96,14 +96,27 @@ function restoreSaveTasks() {
 
 function moveUp() {
   const selectedTask = document.querySelector('.selected');
-  if (selectedTask !== null && selectedTask.previousElementSibling !== null) {
-    const previousTask = selectedTask.previousElementSibling;
+  const previousTask = selectedTask.previousElementSibling;
+  if (selectedTask !== null && previousTask !== null) {
     const previousTaskText = previousTask.innerText;
     const previousTaskClass = previousTask.className;
     previousTask.innerText = selectedTask.innerText;
     previousTask.className = selectedTask.className;
     selectedTask.innerText = previousTaskText;
     selectedTask.className = previousTaskClass;
+  }
+}
+
+function moveDown() {
+  const selectedTask = document.querySelector('.selected');
+  const nextTask = selectedTask.nextElementSibling;
+  if (selectedTask !== null && nextTask !== null) {
+    const nextTaskText = nextTask.innerText;
+    const nextTaskClass = nextTask.className;
+    nextTask.innerText = selectedTask.innerText;
+    nextTask.className = selectedTask.className;
+    selectedTask.innerText = nextTaskText;
+    selectedTask.className = nextTaskClass;
   }
 }
 
@@ -114,6 +127,7 @@ window.onload = function page() {
   btnRemoveSelectedTask.addEventListener('click', removeSelectedTask);
   btnSaveTasks.addEventListener('click', saveTasks);
   btnMoveUpTask.addEventListener('click', moveUp);
+  btnMoveDownTask.addEventListener('click', moveDown);
   document.addEventListener('click', selectTask);
   document.addEventListener('dblclick', completeTask);
   restoreSaveTasks();
