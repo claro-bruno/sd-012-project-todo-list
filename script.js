@@ -12,31 +12,14 @@ function inputNewTask() {
   getTaskListLo.appendChild(newLi);
   getTextInput.value = '';
   });
-  }
-  inputNewTask();
-  // // Requisito 7 - Clicar em um item da lista deve alterar 
-  // // a cor de fundo do item para cinza rgb(128,128,128)
-function clickNoLi(event) {
-  const objetoAlvo = event.target.style.backgroundColor;
-  event.target.style.backgroundColor = 'rgb(128,128,128)';
-  console.log('Olá')
 }
-  
-  // function setDayColor() {
-  //   let selectedTask = document.getElementsByClassName('task selected');
-  //   let days = document.querySelector('#days');
-  //   let taskDiv = document.querySelector('.task');
-  //   let taskColor = taskDiv.style.backgroundColor;
-    
-  //   days.addEventListener('click', function(event){
-  //     let eventTargetColor = event.target.style.color;
-  //     if (selectedTask.length > 0 && eventTargetColor !== taskColor) {
-  //       let color = selectedTask[0].style.backgroundColor;
-  //       event.target.style.color = color;
-  //     } else if (eventTargetColor === taskColor && selectedTask.length !== 0) {
-  //       event.target.style.color = 'rgb(119,119,119)';
-  //     }
-  //   });
-  // };
-  
-  // setDayColor();
+inputNewTask();
+  // Requisito 7 e 8 - Clicar em um item da lista deve alterar 
+  // a cor de fundo do item para cinza rgb(128,128,128)
+function clickNoLi(event) {
+  const removerSelecao = document.querySelector('.selected');
+  if (removerSelecao !== null) {
+    removerSelecao.classList.remove('selected');
+  }
+  event.target.classList.add('selected');
+}
