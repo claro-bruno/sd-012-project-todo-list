@@ -3,6 +3,7 @@
 const catchAddButton = document.getElementById('criar-tarefa');
 const catchInput = document.getElementById('texto-tarefa');
 const catchOl = document.getElementById('lista-tarefas');
+const catchTasks = document.getElementsByClassName('task')
 
 function addTask () {
   if (catchInput.value.length === 0) {
@@ -10,14 +11,29 @@ function addTask () {
   } else {
     const newLi = document.createElement('li');
     newLi.innerHTML = catchInput.value;
+    newLi.classList.add('task')
     catchOl.appendChild(newLi);
   }
   catchInput.value = '';
 }
 
 catchAddButton.addEventListener('click', addTask);
-catchInput.addEventListener('keypress', function(event) {
-  if (event.key === 'Enter') {
+catchInput.addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
     addTask();
   }
 })
+
+function addSelected(e) {
+  if (e.target.classList.contains('selected')) {
+  e.target.classList.remove('selected');
+  } else {
+    e.target.classList.add('selected');
+  }
+}
+catchOl.addEventListener('click', addSelected);
+
+
+
+
+
