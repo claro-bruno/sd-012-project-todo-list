@@ -1,3 +1,22 @@
 body {
   background-color: rgb(103 ,177 ,226);
 }
+
+#list-box {
+  padding: 2%;
+  background-color: white;
+  margin-right: 20%;
+  margin-left: 20%;
+}
+
+.task{
+  background-color: white;
+}
+
+.task-selected {
+  background-color: rgb(128 ,128 ,128) ;
+}
+
+ol {
+  margin: 0%;
+}
