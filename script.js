@@ -1,9 +1,11 @@
 window.onload = function() {
     let addButton = document.getElementById('criar-tarefa');
+    let clearListBtn = document.getElementById('apaga-tudo');
     let taskInput = document.getElementById('texto-tarefa');
     let taskList = document.getElementById('lista-tarefas');    
 
     addButton.addEventListener('click', addTask);
+    clearListBtn.addEventListener('click', clearList);
 
     function addTask() {        
         let listItem = document.createElement('li');        
@@ -12,20 +14,9 @@ window.onload = function() {
         listItem.addEventListener('click', selectItem);
         listItem.addEventListener('dblclick', itemCompleted);
         taskInput.value = '';
-        taskList.appendChild(listItem);
+        taskList.appendChild(listItem);        
+    }
 
-        //getListItems();
-    }
-/*
-    function getListItems() {
-        listItems = document.querySelectorAll('.list-item');
-        console.log(listItems);
-        for (let index = 0; index < listItems.length; index += 1) {
-            listItems[index].addEventListener('click', selectItem); 
-            listItems[index].addEventListener('dblclick', itemCompleted);
-        }
-    }
-*/
     function selectItem(eventSource) {
         let listItems = document.querySelectorAll('.list-item');
 
@@ -39,5 +30,13 @@ window.onload = function() {
 
     function itemCompleted(event) {
         event.target.classList.toggle('completed');
+    }
+
+    function clearList() {
+        let listItems = document.querySelectorAll('.list-item');
+
+        for (let index = 0; index < listItems.length; index += 1) {
+            taskList.removeChild(listItems[index]);
+        }
     }
 }
