@@ -31,6 +31,6 @@ function clickdoble(event) {
   if (removeCliqueDuplo !== null) { // se houver esta classe específica (.completed)... 
     removeCliqueDuplo.classList.remove('completed'); // remova esta classe específica (.completed)...
   } else {
-    event.target.classList.add('completed'); // se não a classe específica (.completed), adicione esta classe específica.
+    event.target.classList.add('completed'); // se não houver a classe específica (.completed), adicione esta classe específica.
   } // somente o objeto clicado receberá a classe 'completed'.
 }
