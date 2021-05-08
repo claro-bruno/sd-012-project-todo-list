@@ -15,10 +15,15 @@ function criarItem(event) {
                 listaTodos[index].classList.remove('lista')
             }
 
-            event.target.classList.add('lista')
+            event.target.className = 'lista'
         }
 
     })
+
+    itemLista.addEventListener('dblclick', function(event) {
+        event.target.classList.toggle('completed')
+    })
+
     itemLista.innerHTML = valorList
     document.getElementById('texto-tarefa').value = ""
 
