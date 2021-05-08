@@ -26,4 +26,9 @@ document.addEventListener('click', (evento) => {
     }
     clica.classList.add('mudandoCor');
   }
+});
+
+listaTarefa.addEventListener('dblclick', (evento2) => {
+    const clicado = evento2.target;
+    clicado.classList.add('riscado');
 })
