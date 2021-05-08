@@ -16,3 +16,7 @@ body {
   text-decoration: line-through;
   user-select: none;
 }
+
+#button-box{
+  display: inline-block;
+}

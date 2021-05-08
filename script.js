@@ -58,4 +58,14 @@ function completeTask(event) {
     }
 }
 
+function clearList() {
+    const buttonClear = document.querySelector('#apaga-tudo');
+    const list = document.querySelector('#lista-tarefas');
 
+    buttonClear.addEventListener('click', function(){
+        while(list.firstChild) {
+            list.removeChild(list.firstChild);
+        }
+    })
+}
+clearList();
