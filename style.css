@@ -4,6 +4,7 @@ h1 {
     font-family: Roboto;
     font-weight: 400;
     margin: 10px;
+    font-size: 60px;
 }
 
 #funcionamento {
@@ -11,12 +12,14 @@ h1 {
     font-style: italic;
     color: #58555A;
     margin: 10px;
+    font-size: 20px;
 }
 
 #texto-tarefa {
     margin: 10px;
     font-family: Roboto;
     border-radius: 5px;
+    font-size: 20px;
 }
 
 .selected {
@@ -26,4 +29,71 @@ h1 {
 .completed {
     font-style: solid rgb(0, 0, 0);
     text-decoration: line-through;
+}
+
+#corpo {
+    background-color: aliceblue;
+    padding: 30px;
+    border: solid grey 10px;
+    border-radius: 50px;
+}
+
+body {
+    background-color: silver;
+}
+
+.tarefa {
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+#criar-tarefa {
+    font-size: 20px;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+#criar-tarefa:hover {
+    background-color: #5FDEF5;
+}
+
+#remover-finalizados {
+    font-size: 20px;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+#remover-finalizados:hover {
+    background-color: #5FDEF5;
+}
+
+#salvar-tarefas {
+    font-size: 20px;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+#salvar-tarefas:hover {
+    background-color: #5FDEF5;
+}
+
+#remover-selecionado {
+    font-size: 20px;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+#remover-selecionado:hover {
+    background-color: #5FDEF5;
+}
+
+#apaga-tudo {
+    font-size: 20px;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+#apaga-tudo:hover {
+    background-color: #5FDEF5;
 }
