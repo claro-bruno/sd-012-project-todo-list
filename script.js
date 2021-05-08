@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const addTask = document.getElementById('criar-tarefa');
 const inputContent = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
@@ -25,3 +26,13 @@ function selectedItem(event) {
 }
 
 taskList.addEventListener('click', selectedItem);
+
+function completedItem(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+taskList.addEventListener('dblclick', completedItem);
