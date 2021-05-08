@@ -3,9 +3,11 @@ let getOl = document.querySelector('#lista-tarefas');
 let list = document.querySelectorAll('li');
 let btnEraseAll = document.querySelector('#apaga-tudo');
 let btnAdc = document.querySelector('#criar-tarefa');
+let btnEraseCompleted = document.querySelector('#remover-finalizados');
 
 btnAdc.innerHTML = 'Adicionar';
-btnEraseAll.innerHTML = 'Apagar'
+btnEraseAll.innerHTML = 'Apagar';
+btnEraseCompleted.innerHTML = 'Remover concluidos';
 
 btnAdc.addEventListener('click', () => {
     let createList = document.createElement('li');
@@ -17,11 +19,13 @@ btnAdc.addEventListener('click', () => {
         if (input.value != '') {
             input.value = '';
         };
-        createList.addEventListener('click', changeBackColor)       
+        createList.addEventListener('click', changeBackColor);     
         
-        createList.addEventListener('dblclick', itemComplete)
+        createList.addEventListener('dblclick', itemComplete);
 
-       btnEraseAll.addEventListener('click', eraseAll)
+        btnEraseAll.addEventListener('click', eraseAll);
+
+        btnEraseCompleted.addEventListener('click', eraseCompleted);
 });
 
 function changeBackColor(event) {
@@ -40,12 +44,19 @@ function itemComplete(event) {
 };
 
 
-function eraseAll(event) {
+function eraseAll() {
     let olChildrens = document.querySelector('#lista-tarefas');
-    console.log(olChildrens)
     while (olChildrens.firstChild) {
         olChildrens.removeChild(olChildrens.firstChild)
-    }
+    };
 };
 
-
+function eraseCompleted() {
+    let olChildrens = document.querySelector('#lista-tarefas');
+    for(let index = 0; index < olChildrens.children.length; index += 1) {
+        if(olChildrens.children[index].classList.contains('completed')) {
+            olChildrens.removeChild(olChildrens.children[index])
+            index -= 1;
+        };
+    };
+};
