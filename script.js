@@ -9,16 +9,15 @@ function criarItem(event) {
 
     // criado o evento para colorir a li e descolorir
     itemLista.addEventListener('click', function(event) {
-        const listaTodos = document.querySelectorAll('li')
-        for (let index = 0; index < listaTodos.length; index += 1) {
-            if (listaTodos[index].classList.contains('lista')) {
-                listaTodos[index].classList.remove('lista')
+            let procura = document.querySelector('.lista')
+            if (procura) {
+                procura.classList.remove('lista')
             }
 
-            event.target.className = 'lista'
+            event.target.classList.add('lista')
         }
 
-    })
+    )
 
     itemLista.addEventListener('dblclick', function(event) {
         event.target.classList.toggle('completed')
