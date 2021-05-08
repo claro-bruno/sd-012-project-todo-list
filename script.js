@@ -142,7 +142,7 @@ function apagaTudo () {
     botao.id = 'apaga-tudo'
     botao.innerHTML = 'Apagar tudo'
     botao.addEventListener('click', function () {
-        while(list.hasChildNodes()){
+        while (list.hasChildNodes()) {
             list.lastElementChild.remove();
         }
     })
@@ -154,6 +154,21 @@ apagaTudo();
 O que será verificado:
 Será verificado que existe um elemento button com o id remover-finalizados
 Será verificado que, ao clicar no botão, todos os elementos marcados como feitos são removidos da lista */
+
+function removeFinalizados () {
+    let botao = document.createElement('button')
+    let list = document.getElementById('lista-tarefas')
+    document.body.insertBefore(botao, list)
+    botao.id = 'remover-finalizados'
+    botao.innerHTML = 'Remover finalizados'
+    botao.addEventListener('click', function () {
+       let completados = document.getElementsByClassName('completed');
+       while(completados.length > 0) {
+        completados[0].remove();
+       }
+    })
+}
+removeFinalizados();
 
 
 /* 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
