@@ -46,7 +46,7 @@ function changeColor(event) {
     } if (selected !== null) {
         selected.classList.remove('selected');
         event.target.classList.add ('selected');
-    } if (event.target.className = 'list-Item selected') {
+    } if (event.target.classList.contains('selected')) {
         selected.classList.remove('selected');
     }
 }
