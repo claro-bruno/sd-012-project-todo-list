@@ -28,6 +28,7 @@ function newTasks() {
             let listItem = document.createElement('li')
             listItem.innerHTML = input.value;
             listItem.className = 'list-Item';
+            listItem.addEventListener('dblclick', completeTask);
             listItem.addEventListener('click', changeColor);
             list.appendChild(listItem);
             input.value = "";
@@ -36,13 +37,26 @@ function newTasks() {
 }
 newTasks();
 
+/* Function chanceColor changes <li> backgroundColor highlighting the clicked line */
 function changeColor(event) {
     const selected = document.querySelector('.selected');
 
-    if (selected !== null){
+    if (selected === null) {
+        event.target.classList.add ('selected');
+    } if (selected !== null) {
+        selected.classList.remove('selected');
+        event.target.classList.add ('selected');
+    } if (event.target.className = 'list-Item selected') {
         selected.classList.remove('selected');
     }
-        event.target.classList.add ('selected');
 }
 
- 
+function completeTask(event) {
+    if (event.target.classList.contains('completed')) {
+        event.target.classList.remove('completed');
+    } else {
+        event.target.classList.add('completed');
+    }
+}
+
+

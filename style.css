@@ -4,8 +4,15 @@ body {
   li {
     cursor: pointer;
     width: 50%;
+    user-select: none;
   }
 
 .selected {
     background-color: rgb(128, 128, 128);
+    user-select: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  user-select: none;
 }
