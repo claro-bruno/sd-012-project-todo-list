@@ -9,16 +9,24 @@
     </head>
     <body>
         <header>Minha Lista de Tarefas</header>
+
         <div id="subtitulo">
             <div class="d-flex justify-content-center">
                 <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
             </div>
         </div>
-        <div class="input-group mb-3 div-input">
-            <input type="text" class="form-control" placeholder="Adicione uma nova tarefa" aria-label="Adicione uma nova tarefa" aria-describedby="button-addon2" id="texto-tarefa" >
-            <div class="input-group-append">
-              <button class="btn btn-warning" type="button" id="button-addon2">Botão</button>
+
+        <div>
+            <div>
+                <ol id="lista-tarefas">
+                </ol>
             </div>
-          </div>
+            <div class="input-group mb-3 div-input">
+                <input type="text" class="form-control" placeholder="Adicione uma nova tarefa" aria-label="Adicione uma nova tarefa" aria-describedby="button-addon2" id="texto-tarefa" >
+                <div class="input-group-append">
+                <button class="btn btn-warning" type="button" id="criar-tarefa">Botão</button>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
