@@ -30,6 +30,9 @@ window.onload = function () {
     if (event.target.id === 'remover-finalizados') {
       removeCompletedTasks();
     }
+    if (event.target.id === 'salvar-tarefas') {
+      saveTasksLS();
+    }
   })
 
   document.addEventListener('dblclick', function (event) {
@@ -37,6 +40,8 @@ window.onload = function () {
       completedTasks(event);
     }
   })
+
+
   //8
   function clickedTask(event) {
     const tasks = document.getElementsByClassName('task-item');
@@ -85,4 +90,20 @@ window.onload = function () {
       }
     }
   }
+  //12 
+  const saveTasks = document.createElement('button');
+  saveTasks.id = 'salvar-tarefas';
+  saveTasks.innerHTML = 'Salvar tarefas!';
+  document.body.appendChild(saveTasks);
+  
+  function saveTasksLS() {
+    let ol = document.querySelector('#lista-tarefas');
+    localStorage.setItem('tasks', ol.innerHTML);      
+  }
+  function inicialize() {
+    if (localStorage.getItem('tasks') != undefined) {
+      ol.innerHTML = localStorage.getItem('tasks');
+    }
+  }
+  inicialize();
 }
