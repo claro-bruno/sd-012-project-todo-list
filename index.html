@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Itim&family=Prompt&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>Lista de Tarefas</title>
 </head>
@@ -15,18 +17,25 @@
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
 
     <form id="form">
-      <label for="texto-tarefa">Nova tarefa:</label>
-      <input type="text" id="texto-tarefa">
+      <div class="input">
+        <label for="texto-tarefa">Nova tarefa:</label>
+        <input type="text" id="texto-tarefa">
+        <button type="button" id="criar-tarefa" class="btn">Adicionar</button>
+      </div>
       <div class="buttons">
-        <button type="button" id="criar-tarefa">Adicionar</button>
-        <button type="button" id="apaga-tudo">Apagar tarefas</button>
-        <button type="button" id="remover-finalizados">Apagar completas</button>
+        <button type="button" id="apaga-tudo" class="btn btn-alt">Apagar tarefas</button>
+        <button type="button" id="remover-finalizados" class="btn btn-alt">Apagar completas</button>
       </div>
     </form>
   </header>
 
   <main>
-    <ol id="lista-tarefas"></ol>
+    <ol id="lista-tarefas">
+      <li>Git</li>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ol>
   </main>
 
   <script src="script.js"></script>

@@ -2,28 +2,60 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Prompt', sans-serif;
+  font-size: 20px;
 }
 
 header {
-  height: 20vh;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 10px;
+}
+
+header h1 {
+  font-family: 'Itim', cursive;
+  font-size: 60px;
+  color: #1BBC9B;
+}
+
+#texto-tarefa {
+  padding: 0 10px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .buttons {
   margin-top: 10px;
+  text-align: center;
+}
+
+.btn {
+  background-color: #1BBC9B;
+  padding: 5px;
+  color: white;
+  font-family: 'Itim', cursive;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-alt {
+  background-color: #A41623;
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 600px;
+  margin: 0 auto;
 }
 
-ol {
-  display: inline-block;
+li {
+  margin-bottom: 5px;
+  background-color: lightgray;
+  border: 1px solid gray;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .selected {
