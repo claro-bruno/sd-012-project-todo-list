@@ -23,7 +23,7 @@ function addBackgroundColor() {
   listPlace.addEventListener('click', function(event) {
     const selected = event.target;
     selected.style.backgroundColor = 'rgb(128, 128, 128)';
-    listPlace.addEventListener('click', function(event) { 
+    listPlace.addEventListener('click', function(event) {
       const selected2 = event.target;
       selected2.style.backgroundColor = 'rgb(128, 128, 128)';
       selected.style.backgroundColor = 'white';
@@ -41,8 +41,12 @@ function deleteAll(){
   orderedList.innerHTML = "";
 }
 
-
-
+function deleteCompleted() {
+  const completedItens = document.getElementsByClassName('completed');
+  while (completedItens[0]) {
+    completedItens[0].parentNode.removeChild(completedItens[0]);
+  }
+}  
 
 
 
