@@ -1,4 +1,3 @@
-
 /* Function Title creates <h1> Title based on the string
 used as parameter */
 function title(string) {
@@ -28,7 +27,8 @@ function newTasks() {
         } else {
             let listItem = document.createElement('li')
             listItem.innerHTML = input.value;
-            listItem.className = 'listItem';
+            listItem.className = 'list-Item';
+            listItem.addEventListener('click', changeColor);
             list.appendChild(listItem);
             input.value = "";
         }
@@ -36,3 +36,14 @@ function newTasks() {
 }
 newTasks();
 
+function changeColor(event) {
+    const selected = document.querySelector('.selected');
+
+    if (selected !== null){
+        selected.classList.remove('selected');
+        return
+    }
+        event.target.classList.add ('selected');
+}
+
+ 

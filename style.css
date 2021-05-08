@@ -1,7 +1,10 @@
 body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: aquamarine;
-}
+    background: rgb(248, 253, 255);
+  }
+  li {
+    cursor: pointer;
+    width: 50%;
+  }
 
 .selected {
     background-color: rgb(128, 128, 128);
