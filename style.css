@@ -1,0 +1,36 @@
+#main {
+  background-color: green;
+  border: solid black 5px;
+  padding: 10px;
+  width: 60%;
+}
+
+#section-all {
+  background-color: white;
+  width: 90%;
+  margin: auto;
+}
+
+#cabecalho {
+  margin-left: 5px;
+}
+
+#section-input {
+  margin-left: 5px;
+}
+
+#section-ol {
+  cursor: pointer;
+}
+
+#section-button {
+  margin: 5px;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
