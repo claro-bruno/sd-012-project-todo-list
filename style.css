@@ -5,8 +5,8 @@ body {
 }
 
 #all {
-  position: relative;
-  background-color: rgba(255 , 255 , 255 , 0.5);
+  position: fixed;
+  background-color: rgba(255 , 255 , 255 , 0.733);
   left: 50px;
   top: 20px;
   padding: 20px;
@@ -18,7 +18,7 @@ body {
 header {
   font-size: xx-large;
   text-decoration: underline;
-  font-weight: 600;
+  font-weight: 700;
   color: rgb(53 , 35 , 11);
 }
 
@@ -26,12 +26,46 @@ header {
   font-style: oblique;
   font-size: 14px;
   color: rgb(53 , 35 , 11);
+  margin-bottom: 30px;
 }
 
 .marcador {
   background-color: gray;
+  color: rgb(53 , 35 , 11);
 }
 
 .completed {
   text-decoration: line-through solid black;
+  color: rgb(100 , 100 , 99);
+  font-style: italic;
+}
+
+input {
+  font-size: 14px;
+  padding: 3px 6px;
+  border-radius: 40px;
+}
+
+button {
+  font-size: 14px;
+  padding: 3px 6px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+input:hover {
+  box-shadow: 0 0 3px 3px rgb(101 , 147 , 180);
+}
+
+
+button:hover {
+  box-shadow: 0 0 3px 3px rgb(101 , 147 , 180);
+}
+
+.mover-selecionado {
+  padding: 2px 8px;
+  font-size: 17px;
+  font-weight: 600;
+  background: rgb(133 , 101 , 60);
+  border-radius: 40px;
 }

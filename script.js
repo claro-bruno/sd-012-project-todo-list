@@ -7,6 +7,27 @@ const botaoRemSelec = document.getElementById('remover-selecionado');
 const botaoSalvTaref = document.getElementById('salvar-tarefas');
 const botaoMovCima = document.getElementById('mover-cima');
 const botaoMovBaixo = document.getElementById('mover-baixo');
+const tarefas = document.getElementsByClassName('tarefa');
+// Função que seleciona tarefa ao clicar
+function tarefaSelecionada(_e) {
+  for (let index = 0; index < _e.length; index += 1) {
+    _e[index].addEventListener('click', (event) => {
+      const marcador = document.querySelector('.marcador');
+      if (marcador) {
+        marcador.classList.remove('marcador');
+      }
+      event.target.classList.add('marcador');
+    });
+  }
+}
+// Função que marca tarefa como completa
+function tarefaCompleta(_e) {
+  for (let index = 0; index < _e.length; index += 1) {
+    _e[index].addEventListener('dblclick', (event) => {
+      event.target.classList.toggle('completed');
+    });
+  }
+}
 // Adiciona tarefas a lista e aplica sistemas de marcação
 function sistemaDeTarefas() {
   botaoCriarTarefa.addEventListener('click', () => {
@@ -48,6 +69,8 @@ window.onload = () => {
   const tarefasSalvas = localStorage.getItem('tarefas');
   if (tarefasSalvas !== null) {
     listaTarefas.innerHTML = tarefasSalvas;
+    tarefaSelecionada(tarefas);
+    tarefaCompleta(tarefas);
   }
 };
 // Configura botão Mover para Cima
