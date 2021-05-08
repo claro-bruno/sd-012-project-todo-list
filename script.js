@@ -5,6 +5,7 @@ const eraseAll = document.querySelector('#apaga-tudo');
 const eraseCompleted = document.querySelector('#remover-finalizados');
 const saveButton = document.querySelector('#salvar-tarefas');
 const lastList = JSON.parse(localStorage.getItem('taskList'));
+const lastStyle = JSON.parse(localStorage.getItem('taskListStyle'));
 
 function rememberList() {
   if (lastList !== null) { 
@@ -14,6 +15,7 @@ function rememberList() {
       rememberItem.addEventListener('click', changeSelected);
       rememberItem.addEventListener('click', changeBgColor);
       rememberItem.addEventListener('dblclick', completedTasks);
+      rememberItem.className = lastStyle[indexRemember];
       list.appendChild(rememberItem);
     }
   }
@@ -23,7 +25,6 @@ rememberList();
 
 function changeBgColor(event) {
   let target = event.target;
-  target.style.backgroundColor = 'rgb(128, 128, 128)';
   event.target.classList.add('selected');
 }
 
@@ -83,4 +84,13 @@ function saveTasks() {
   localStorage.setItem('taskList', JSON.stringify(arrayList));
 }
 
+function saveStyle() {
+  const arrayStyle = [];
+  for (let indexStyle = 0; indexStyle < list.children.length; indexStyle += 1) {
+    arrayStyle.push(list.children[indexStyle].className);
+  }
+  localStorage.setItem('taskListStyle', JSON.stringify(arrayStyle));
+}
+
 saveButton.addEventListener('click', saveTasks);
+saveButton.addEventListener('click', saveStyle);
