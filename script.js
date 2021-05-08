@@ -30,5 +30,5 @@ document.addEventListener('click', (evento) => {
 
 listaTarefa.addEventListener('dblclick', (evento2) => {
     const clicado = evento2.target;
-    clicado.classList.add('riscado');
+    clicado.classList.add('completed');
 })
