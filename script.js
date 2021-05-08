@@ -33,10 +33,13 @@ function addBackgroundColor() {
 function completed() {
   listPlace.addEventListener('dblclick', function(event) {
     const itemCompleted = event.target;
-    itemCompleted.classList.toggle('completed');     
+    itemCompleted.classList.toggle('completed');
   });
 }
 
+function deleteAll(){
+  orderedList.innerHTML = "";
+}
 
 
 
