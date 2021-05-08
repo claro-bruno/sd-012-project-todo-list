@@ -103,7 +103,7 @@ window.onload = function () {
   function inicialize() {
     if (localStorage.getItem('tasks') != undefined) {
       let ol = document.querySelector('#lista-tarefas');
-      ol.innerHTML = localStorage.getItem(JSON.stringify('tasks'));
+      ol.innerHTML = localStorage.getItem('tasks');
     }
   }
   inicialize();
