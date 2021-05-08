@@ -1,7 +1,17 @@
+body {
+  font-family: sans-serif;
+  background-color: lightgreen;
+}
+
+#funcionamento {
+  font-style: italic;
+  color: gray;
+}
+
 .mudandoCor {
   background-color: gray;
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through;
 }
