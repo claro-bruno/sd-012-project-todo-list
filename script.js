@@ -13,11 +13,15 @@ window.onload = function() {
                 }
                 event.target.classList.add('itemLista');
             })
+            listItem.addEventListener('dblclick', function(event) {
+                event.target.classList.toggle('completed');
+            })
             let tarefa = entrada.value;
             listaTarefas.appendChild(listItem);
             listItem.innerHTML = tarefa;
             entrada.value = '';
         });
     }
+    
     criaTarefa();
 }
