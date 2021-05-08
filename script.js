@@ -46,11 +46,10 @@ function changeColor(event) {
     } if (selected !== null) {
         selected.classList.remove('selected');
         event.target.classList.add ('selected');
-    } if (event.target.classList.contains('selected')) {
-        selected.classList.remove('selected');
     }
 }
 
+/* Function completeTask makes a line-through the tasks text assigning it as complete */
 function completeTask(event) {
     if (event.target.classList.contains('completed')) {
         event.target.classList.remove('completed');
