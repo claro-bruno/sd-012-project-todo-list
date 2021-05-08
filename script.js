@@ -41,7 +41,6 @@ function changeColor(event) {
 
     if (selected !== null){
         selected.classList.remove('selected');
-        return
     }
         event.target.classList.add ('selected');
 }
