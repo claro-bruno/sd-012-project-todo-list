@@ -9,12 +9,12 @@ const downButton = document.getElementById('mover-baixo');
 const rmSelected = document.getElementById('remover-selecionado');
 // faz o botao criar uma tarefa
 function criarTarefa(texto) {
-  if (texto.value !== '') {
+  //if (texto.value !== '') {
     let listItem = document.createElement('li');
     listItem.innerHTML = texto.value;
     orderedList.appendChild(listItem);
     texto.value = '';
-  } else { alert('Nenhuma tarefa adicionada!') }
+  //} else { alert('Nenhuma tarefa adicionada!') }
 }
 
 createButton.addEventListener('click', () => criarTarefa(input));
