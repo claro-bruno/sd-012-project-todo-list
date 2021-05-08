@@ -100,7 +100,7 @@ function moveUp() {
     const selectedItem = document.getElementsByClassName('selected')[0];
     const selectedClass = document.getElementsByClassName('selected');
 
-    if (selectedItem !== selectedItem.parentElement.firstElementChild && selectedClass.length > 0) {
+    if (selectedClass.length > 0 && selectedItem !== selectedItem.parentElement.firstElementChild) {
       sessionStorage.moveUpCacheInner = selectedItem.previousElementSibling.innerHTML;
       sessionStorage.moveUpCacheClass = selectedItem.previousElementSibling.className;
 
@@ -121,7 +121,7 @@ function moveDown() {
     const selectedItem = document.getElementsByClassName('selected')[0];
     const selectedClass = document.getElementsByClassName('selected');
 
-    if (selectedItem !== selectedItem.parentElement.lastElementChild && selectedClass.length > 0) {
+    if (selectedClass.length > 0 && selectedItem !== selectedItem.parentElement.lastElementChild) {
       sessionStorage.moveDownCacheInner = selectedItem.nextElementSibling.innerHTML;
       sessionStorage.moveDownCacheClass = selectedItem.nextElementSibling.className;
 
