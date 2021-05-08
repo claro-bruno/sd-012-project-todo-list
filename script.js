@@ -58,14 +58,21 @@ function completeTask(event) {
     }
 }
 
+/* Function clearList deletes all <ul> child nodes cleaning the task list */
 function clearList() {
     const buttonClear = document.querySelector('#apaga-tudo');
     const list = document.querySelector('#lista-tarefas');
+    const itemList = document.getElementsByTagName('li');
 
-    buttonClear.addEventListener('click', function(){
-        while(list.firstChild) {
-            list.removeChild(list.firstChild);
+    buttonClear.addEventListener('click', function() {
+        if (itemList.length > 0) {
+            while(list.firstChild) {
+                list.removeChild(list.firstChild);
+            }
+        } else {
+            alert ('A lista esta vazia!');
         }
     })
 }
 clearList();
+
