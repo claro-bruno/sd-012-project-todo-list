@@ -14,13 +14,7 @@ function addNewTask() {
     };
     addInputButton.addEventListener('click', addNewTask);
 
-let buttonClear = document.getElementById('apaga');
-function clearAll() {
-    orderList.innerHTML = '';
-}
-buttonClear.addEventListener('click', clearAll); 
-
-//requisito 7 parecido com exercicio 10 JavaScript - Eventos do site da trybe
+//requisito 7 e 8 . O requisito 7 é parecido com exercicio 10 JavaScript - Eventos do site da trybe e também consultei o repositorio do caio-takeshi-todo-list
    
     document.addEventListener('click',(event) =>{
       if (event.target.className === 'item-list') {
@@ -34,4 +28,11 @@ buttonClear.addEventListener('click', clearAll);
     
       }
     });
+    
+//requisito 10
+    let buttonClear = document.getElementById('apaga-tudo');
+function clearAll() {
+    orderList.innerHTML = '';
+}
+buttonClear.addEventListener('click', clearAll); 
   
