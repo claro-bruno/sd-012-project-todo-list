@@ -42,12 +42,6 @@ function apagaCompletas() {
   }
 }
 
-const tarefa = document.getElementsByTagName('li');
-for (let index = 0; index < tarefa.length; index += 1) {
-  tarefa[index].addEventListener('click', select);
-  tarefa[index].addEventListener('dblclick', complete);
-}
-
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', adicionaTarefa);
 const buttonDel = document.getElementById('apaga-tudo');
