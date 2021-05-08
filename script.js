@@ -70,9 +70,20 @@ function clearList() {
                 list.removeChild(list.firstChild);
             }
         } else {
-            alert ('A lista esta vazia!');
+            alert ('A lista está vazia!');
         }
     })
 }
 clearList();
 
+function clearCompleted() {
+    const completed = document.getElementsByClassName('completed');
+    const buttonClearComleted = document.querySelector('#remover-finalizados');
+
+    buttonClearComleted.addEventListener('click', function() {
+        while (completed.length > 0) {
+            completed[0].parentNode.removeChild(completed[0]);
+        }
+    })
+}
+clearCompleted();
