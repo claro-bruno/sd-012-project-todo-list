@@ -1,6 +1,3 @@
-
-
-
 const criarTarefa = document.querySelector('#criar-tarefa');
 criarTarefa.addEventListener('click', newAssignment)
 
@@ -11,8 +8,8 @@ function newAssignment(){
         addLi.innerHTML = textoTarefa;
         addLi.classList.add('listItem');
         document.querySelector('#lista-tarefas').appendChild(addLi);
+        document.querySelector('#texto-tarefa').value = '';
     } else {
         alert('Adicione uma tarefa')
     };
 };
-
