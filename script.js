@@ -1,7 +1,7 @@
 const btnCriaTarefa = document.getElementById('criar-tarefa');
 btnCriaTarefa.innerHTML = 'Adiciona Tarefa';
 const inputField = document.getElementById('texto-tarefa');
-const ordList = document.getElementById('lista-tarefas');
+let ordList = document.getElementById('lista-tarefas');
 
 btnCriaTarefa.addEventListener('click', () => {
   const lista = document.createElement('li');
@@ -119,18 +119,17 @@ function removerSelecionado() {
 
 btnRemoverSelecionado.addEventListener('click', removerSelecionado);
 
-
 const btnSalvaTarefas = document.querySelector('#salvar-tarefas');
 btnSalvaTarefas.innerHTML = 'salvar tarefas';
 
 function salvaTarefas() {
-  let tarefas = document.getElementById('lista-tarefas').innerHTML;
+  const tarefas = document.getElementById('lista-tarefas').innerHTML;
   localStorage.setItem('tarefas', tarefas);
 }
 btnSalvaTarefas.addEventListener('click', salvaTarefas);
 
 function initialize() {
-  let tarefas = document.getElementById('lista-tarefas');
+  const tarefas = document.getElementById('lista-tarefas');
   tarefas.innerHTML = localStorage.getItem('tarefas');
 }
 
