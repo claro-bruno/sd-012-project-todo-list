@@ -1,0 +1,40 @@
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+p, header, .container {
+  font-family: monospace;
+  margin: 10px 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: limegreen;
+}
+
+#todo-list {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: center;
+  /* min-height: 400px; */
+  padding: 30px 20px;
+  border-radius: 20px;
+  border: 2px solid red;
+  background-color: white;
+}
+
+#lista-tarefas {
+  min-height: 50px;
+  min-width: 50%;
+  border: 2px solid red;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
