@@ -21,7 +21,7 @@ section {
   font-size: 25px;
   font-style: italic;
   font-weight: lighter;
-  color: rgb(46, 46, 31);
+  color: rgb(46 , 46 , 31);
   margin-bottom: 20px;
 }
 
@@ -49,7 +49,7 @@ button:hover {
 #texto-tarefa {
   padding: 10px;
   margin-right: 25px;
-  border: rgb(88, 88, 62) 1px solid;
+  border: rgb(88 , 88 , 62) 1px solid;
   border-radius: 5px;
   width: 250px;
 }
@@ -59,31 +59,31 @@ button:hover {
 }
 
 #criar-tarefa {
-  background-color: rgb(0, 153, 255);
+  background-color: rgb(0 , 153 , 255);
   color: white;
 }
 
 #apaga-tudo {
-  background-color: rgb(153, 0, 0);
+  background-color: rgb(153 , 0 , 0);
   color: white;
 }
 
 #remover-finalizados {
-  background-color: rgb(204, 122, 0);
+  background-color: rgb(204 , 122 , 0);
   color: white;
 }
 
 #mover-cima, #mover-baixo {
-  background-color: rgb(101, 187, 67);
+  background-color: rgb(101 , 187 , 67);
   color: white;
 }
 
 #salvar-tarefas {
-  background-color: rgb(0, 153, 255);
+  background-color: rgb(0 , 153 , 255);
   color: white;
 }
 
 #remover-selecionado {
-  background-color: rgb(153, 0, 0);
+  background-color: rgb(153 , 0 , 0);
   color: white;
 }
