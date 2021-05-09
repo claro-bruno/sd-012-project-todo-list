@@ -37,3 +37,13 @@ function addSelected(event) {
 }
 
 catchOl.addEventListener('click', addSelected);
+
+function addCompleted(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+catchOl.addEventListener('dblclick', addCompleted);
