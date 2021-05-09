@@ -9,15 +9,21 @@ function createTask() {
     console.log(input.value)
     input.value =''
 
-    function done(event) {
+    function grey(event) {
         event.target.style.backgroundColor = 'rgb(128,128,128)';
+    }
+    function done(event) {
         event.target.style.textDecoration = "line-through";
     }
 
     const task = document.querySelectorAll(".tarefa")
 
     for (let i = 0; i < task.length; i += 1) {
-        task[i].addEventListener('click', done);
+        task[i].addEventListener('click', grey);
+      }
+
+    for (let i = 0; i < task.length; i += 1) {
+        task[i].addEventListener('dblclick', done);
       }
     
 }
