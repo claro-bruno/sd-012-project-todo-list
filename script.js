@@ -1,16 +1,14 @@
 window.onload = function() {
-    //Estava tendo mta dificuldade fiz e refiz de várias maneiras. Até que achei esse vídeo no youtube: https://www.youtube.com/watch?v=Ttf3CEsEwMQ
+    //Tentando entender esse vídeo https://www.youtube.com/watch?v=Ttf3CEsEwMQ p ver se consigo aplicar algo aqui.
 
-
-    //Selectors
+   
     const inputTask = document.querySelector('#texto-tarefa');
     const creatTaskButton = document.querySelector('#criar-tarefa');
     const taskList = document.querySelector('#lista-tarefas');
 
-    //EventListeners
     creatTaskButton.addEventListener('click', addTask);
 
-    //Functions
+    
     function addTask(event) {
         const newTask = document.createElement('li');
         newTask.className = 'tarefa';
