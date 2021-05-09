@@ -60,14 +60,14 @@ window.onload = function adicionaTarefasSalvas() {
 
 function moveCima() {
   const tarefa = document.querySelector('.selected');
-  if (tarefa !== tarefa.parentElement.firstChild) {
+  if (tarefa !== null && tarefa !== tarefa.parentElement.firstChild) {
     tarefa.parentNode.insertBefore(tarefa, tarefa.previousSibling);
   }
 }
 
 function moveBaixo() {
   const tarefa = document.querySelector('.selected');
-  if (tarefa !== tarefa.parentElement.lastChild) {
+  if (tarefa !== null && tarefa !== tarefa.parentElement.lastChild) {
     tarefa.parentNode.insertBefore(tarefa, tarefa.nextSibling.nextSibling);
   }
 }
