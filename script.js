@@ -24,3 +24,10 @@ function boxText(){
     paiBody.appendChild(box);
 }
 boxText();
+
+function listOrdened(){
+    let list = document.createElement("ol");
+    list.id = "lista-tarefas";
+    paiBody.appendChild(list);
+}
+listOrdened();
