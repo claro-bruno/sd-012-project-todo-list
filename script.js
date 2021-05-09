@@ -22,7 +22,7 @@ function createTask() {
         }
     }
 
-    const task = document.querySelectorAll(".tarefa")
+    const task = document.querySelectorAll("li")
 
     for (let i = 0; i < task.length; i += 1) {
         task[i].addEventListener('click', grey);
