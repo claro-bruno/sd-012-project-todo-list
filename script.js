@@ -10,7 +10,7 @@ function done(event) {
     event.target.style.textDecoration = 'none'
     } else {
     event.target.classList.add('completed')
-    event.target.style.textDecoration = 'line-through'
+    event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)'
     }
 }
 
