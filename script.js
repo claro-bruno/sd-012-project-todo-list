@@ -39,6 +39,9 @@ window.onload = function () {
     if (event.target.id === 'mover-baixo') {
       downer();
     }
+    if (event.target.id === 'remover-selecionado') {
+      removeTaskSelected();
+    }
   })
 
   document.addEventListener('dblclick', function (event) {
@@ -99,6 +102,7 @@ window.onload = function () {
       }
     }
   }
+  //BONUS
   //12 
   const saveTasks = document.createElement('button');
   saveTasks.id = 'salvar-tarefas';
@@ -146,5 +150,15 @@ window.onload = function () {
     } else { 
       ol.insertBefore(taskDown.nextElementSibling, taskDown);
     }
+  }
+  //14
+  const removeTask = document.createElement('button');
+  removeTask.id = 'remover-selecionado';
+  removeTask.innerHTML = 'Remover tarefa!';
+  document.body.appendChild(removeTask);
+
+  function removeTaskSelected () {
+    let task = document.querySelector('.selected');
+    task.remove();
   }
 }
