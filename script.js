@@ -43,9 +43,9 @@ function greyClassSelection() {
     const itemListTarefa = document.querySelectorAll('.itemTarefa');
     for (let index = 0; index < itemListTarefa.length; index += 1) {
       if (itemListTarefa[index] === event.target) {
-        itemListTarefa[index].classList.add('greySelection');
+        itemListTarefa[index].classList.add('graySelection');
       } else {
-        itemListTarefa[index].classList.remove('greySelection');
+        itemListTarefa[index].classList.remove('graySelection');
       }
     }
   });
