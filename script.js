@@ -13,7 +13,7 @@ let btnSaveList      = document.getElementById('btn-save-list');
 
 // EVENT LISTENERS
 btnAdicionar.    addEventListener('click', addTask);
-// btnDelete.       addEventListener('click', deleteTask);
+btnDelete.       addEventListener('click', deleteTask);
 // btnUp.           addEventListener('click', upTask);
 // btnDown.         addEventListener('click', downTask);
 // btnClearComplete.addEventListener('click', clearCompleteTasks);
@@ -32,16 +32,32 @@ function addTask(){
 }
 
 function selectTask(event){
-  for (let i = 0; i < list.children.length; i++){
-    list.children[0].style.backgroundColor = '';
-    console.log(i);
+  if (event.target.classList.contains('selected')){
+    removeClass();
+  }else{
+    removeClass();
+    event.target.classList.add('selected');
   }
-  let caller = event.target;
-  console.log(caller);
 }
 
-function markTaskAsDone(){
-  console.log('masAsDone');
+function removeClass(){
+  for (let i = 0; i < document.querySelectorAll('.selected').length; i++){
+    document.querySelectorAll('.selected')[i].classList.remove('selected')
+  }
+}
+  
+function markTaskAsDone(event){
+  if (event.target.classList.contains('done')){
+    event.target.classList.remove('done');
+  }else{
+    event.target.classList.add('done');
+  }
+}
+
+function deleteTask(){
+  if (document.getElementsByClassName('selected').length > 0){
+    document.getElementsByClassName('selected')[0].remove();
+  }
 }
 
 
@@ -49,3 +65,31 @@ function markTaskAsDone(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let y = document.getElementsByTagName('body')[0];
+// y.addEventListener('click', clickk);
+
+// function clickk(){
+
+  
+//   let x = document.body.style;
+//   x = JSON.stringify(x);
+  
+//   localStorage.setItem('body', x);
+// }
+
+// let recover = localStorage.getItem('body');
+
+// recover = JSON.parse(recover);

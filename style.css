@@ -39,3 +39,7 @@ body {
 .selected {
   background-color: rgb(128, 128, 128);
 }
+
+.done{
+  color: red;
+}
