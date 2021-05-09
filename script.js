@@ -58,6 +58,20 @@ window.onload = function adicionaTarefasSalvas() {
   }
 };
 
+function moveCima() {
+  const tarefa = document.querySelector('.selected');
+  if (tarefa !== tarefa.parentElement.firstChild) {
+    tarefa.parentNode.insertBefore(tarefa, tarefa.previousSibling);
+  }
+}
+
+function moveBaixo() {
+  const tarefa = document.querySelector('.selected');
+  if (tarefa !== tarefa.parentElement.lastChild) {
+    tarefa.parentNode.insertBefore(tarefa, tarefa.nextSibling.nextSibling);
+  }
+}
+
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', adicionaTarefa);
 const buttonDel = document.getElementById('apaga-tudo');
@@ -66,3 +80,7 @@ const buttonCompl = document.getElementById('remover-finalizados');
 buttonCompl.addEventListener('click', apagaCompletas);
 const buttonSave = document.getElementById('salvar-tarefas');
 buttonSave.addEventListener('click', salvaTarefas);
+const buttonMoveUp = document.getElementById('mover-cima');
+buttonMoveUp.addEventListener('click', moveCima);
+const buttonMoveDown = document.getElementById('mover-baixo');
+buttonMoveDown.addEventListener('click', moveBaixo);
