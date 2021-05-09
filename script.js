@@ -7,6 +7,7 @@ botao.innerHTML = 'Criar tarefa';
 
 let inputSelect = document.getElementById('texto-tarefa');
 let selectOl = document.getElementById('lista-tarefas');
+let selectClear = document.getElementById('apaga-tudo');
 
 
 function capturar () {
@@ -20,7 +21,7 @@ function capturar () {
             event.target.classList.add('selected');
         });
         createList.addEventListener('dblclick', function (event) { // Exercício 9
-            event.target.classList.toggle('completed');
+            event.target.classList.toggle('completed'); // função toggle ai adicionar a classe caso ela não exista e tirar caso exista
             // if (event.target.classList.contains('completed')) {
             //     event.target.classList.remove('completed');
             // } else {
@@ -39,8 +40,14 @@ function capturar () {
             };
         };
         clearInput ();
+
+        //Exercício 10:
+        function clearList () {
+            selectClear.addEventListener('click', function() {
+            })
+        }
+        clearList ();
     });
-     
 };
 
 capturar ();
