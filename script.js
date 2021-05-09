@@ -13,7 +13,8 @@ function createTask() {
         event.target.style.backgroundColor = 'rgb(128,128,128)';
     }
     function done(event) {
-        event.target.style.textDecoration = "line-through";
+        event.target.style.textDecoration = "line-through solid rgb(0, 0, 0)";
+        event.target.classList.add('completed')
     }
 
     const task = document.querySelectorAll(".tarefa")
