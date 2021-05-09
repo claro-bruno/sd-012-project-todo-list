@@ -131,7 +131,7 @@ window.onload = function () {
     let ol = document.querySelector('#lista-tarefas');
     let taskUp = document.querySelector('.selected');
     if (ol.firstChild != taskUp && ol != null) {
-      ol.insertBefore(taskUp, taskUp.previousElementSibling); // insertBefore ---> https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+      ol.insertBefore(taskUp, taskUp.previousSibling); // insertBefore ---> https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
     }
   }
 
@@ -144,7 +144,7 @@ window.onload = function () {
     let ol = document.querySelector('#lista-tarefas');
     let taskDown = document.querySelector('.selected');
     if (ol.lastChild != taskDown && ol != null) {
-      ol.insertBefore(taskDown.nextElementSibling, taskDown);
+      ol.insertBefore(taskDown.nextSibling, taskDown);
     }
   }
   //14
