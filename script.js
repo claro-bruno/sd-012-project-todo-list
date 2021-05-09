@@ -3,8 +3,17 @@ function inputNewTask() {
   const getTextInput = document.getElementById('texto-tarefa');
   const clickButton = document.getElementById('criar-tarefa');
   const getTaskListLo = document.getElementById('lista-tarefas');
+  const clickButtonErase = document.getElementById('apaga-tudo'); // requisito 10
+
+  clickButtonErase.addEventListener ('click', function eraseButton(event) { // requisito 10
+    const listItems = document.querySelectorAll('.li-estilo');
+    for (let index = 0; index < listItems.length; index += 1) {
+      let element = listItems[index];
+      getTaskListLo.removeChild(element);
+    }
+  });
   
-  clickButton.addEventListener ('click', function () {
+  clickButton.addEventListener ('click', function eventosParaLi() {
     const newLi = document.createElement('li');
     newLi.innerText = getTextInput.value;
     newLi.addEventListener('click', clickNoLi); // evento de clique no li //
