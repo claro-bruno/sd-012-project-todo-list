@@ -175,6 +175,48 @@ removeFinalizados();
 O que será verificado:
 Será verificado que existe um elemento button com o id salvar-tarefas
 Será verificado que, quando a lista tiver vários elementos, alguns dos quais marcados como finalizados, um recarregamento da página mantém a lista exatamente como está. */
+/* Credito: https://stackoverflow.com/questions/20180251/when-to-use-window-onload */
+/* Credito: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String */
+
+function salvarTarefas () {
+    let botao = document.createElement('button')
+    let list = document.getElementById('lista-tarefas')
+    document.body.insertBefore(botao, list)
+    botao.id = 'salvar-tarefas'
+    botao.innerHTML = 'Salvar tarefas'
+    botao.addEventListener('click', function () {
+        localStorage.clear
+        let tarefas = document.getElementsByClassName('tarefa')
+        localStorage.setItem('tarefas.length', tarefas.length);
+        for (let index = 0; index < tarefas.length; index += 1) {
+            localStorage.setItem(index, tarefas[index].innerHTML)
+            if (tarefas[index].classList.contains('completed')) {
+                localStorage.setItem(index + tarefas.length, 'completed')
+            } else {
+            localStorage.setItem(index + tarefas.length, '')
+            }
+        }
+    })
+}
+salvarTarefas();
+
+function carregarTarefas () {
+    let numeroTarefas = parseInt(localStorage.getItem('tarefas.length'))
+    let lista = document.getElementById('lista-tarefas');
+    for (let index = 0; index < numeroTarefas; index += 1) {
+        let item = document.createElement('li');
+        lista.appendChild(item);
+        item.innerHTML = localStorage.getItem(index)
+        item.className = 'tarefa'
+        console.log(localStorage.getItem(index + numeroTarefas))
+        if (localStorage.getItem(index + numeroTarefas).includes('completed')){
+            item.classList.add('completed')
+        }
+        item.addEventListener('click', alteraFundoItem);
+        item.addEventListener('dblclick', riscaTarefa);
+    }
+}
+carregarTarefas();
 
 
 /* 13 - Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
