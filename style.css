@@ -64,3 +64,7 @@ ol {
   float: right;
   width: 700px;
 }
+
+.completed {
+  text-decoration: line-through;
+}
