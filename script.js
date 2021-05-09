@@ -25,13 +25,16 @@ catchInput.addEventListener('keypress', function(e) {
 })
 
 function addSelected(e) {
-  if (e.target.classList.contains('selected')) {
-  e.target.classList.remove('selected');
-  } else {
-    e.target.classList.add('selected');
+  for (let index = 0; index < catchTasks.length; index += 1) {
+    catchTasks[index].classList.remove('selected');
+    if (e.target.classlist.contains('selected'))
   }
+  e.target.classList.add('selected');
 }
+
 catchOl.addEventListener('click', addSelected);
+
+
 
 
 
