@@ -4,12 +4,12 @@
 let btnAdicionar     = document.getElementById('criar-tarefa');
 let input            = document.getElementById('texto-tarefa');
 let list             = document.getElementById('lista-tarefas');
-let btnDelete        = document.getElementById('btn-delete');
-let btnUp            = document.getElementById('btn-up');
-let btnDown          = document.getElementById('btn-down');
-let btnClearComplete = document.getElementById('btn-clear-complete');
-let btnClearAll      = document.getElementById('btn-clear-all');
-let btnSaveList      = document.getElementById('btn-save-list');
+let btnDelete        = document.getElementById('remover-selecionado');
+let btnUp            = document.getElementById('mover-cima');
+let btnDown          = document.getElementById('mover-baixo');
+let btnClearComplete = document.getElementById('remover-finalizados');
+let btnClearAll      = document.getElementById('apaga-tudo');
+let btnSaveList      = document.getElementById('salvar-tarefas');
 
 // EVENT LISTENERS
 btnAdicionar.    addEventListener('click', addTask);
@@ -19,7 +19,6 @@ btnDown.         addEventListener('click', downTask);
 btnClearComplete.addEventListener('click', clearCompleteTasks);
 btnClearAll.     addEventListener('click', clearAllTasks);
 // btnSaveList.     addEventListener('click', saveList);
-// document.body.   addEventListener('click', removeClass);
 
 
 
@@ -48,10 +47,10 @@ function removeClass(){
 }
   
 function markTaskAsDone(event){
-  if (event.target.classList.contains('done')){
-    event.target.classList.remove('done');
+  if (event.target.classList.contains('completed')){
+    event.target.classList.remove('completed');
   }else{
-    event.target.classList.add('done');
+    event.target.classList.add('completed');
   }
 }
 
@@ -62,7 +61,7 @@ function deleteTask(){
 }
 
 function clearCompleteTasks(){
-  let list = document.getElementsByClassName('done');
+  let list = document.getElementsByClassName('completed');
   let len  = list.length;
   for (let i = len-1; i >=0; i--){
     list[i].remove();
