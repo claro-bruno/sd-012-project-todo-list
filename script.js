@@ -33,6 +33,12 @@ window.onload = function () {
     if (event.target.id === 'salvar-tarefas') {
       saveTasksLS();
     }
+    if (event.target.id === 'mover-cima') {
+      upper();
+    }
+    if (event.target.id === 'mover-baixo') {
+      downer();
+    }
   })
 
   document.addEventListener('dblclick', function (event) {
@@ -46,12 +52,15 @@ window.onload = function () {
   function clickedTask(event) {
     const tasks = document.getElementsByClassName('task-item');
     const greyTask = event.target;
-    for (let i = 0; i < tasks.length; i += 1) {
-      tasks[i].classList.remove('selected');    
-    }
     if (greyTask.classList.contains('selected')) {
-      greyTask.classList.add('selected');
+      for (let i = 0; i < tasks.length; i += 1) {
+        tasks[i].classList.remove('selected');    
+      }
+      greyTask.classList.remove('selected');
     } else {
+      for (let i = 0; i < tasks.length; i += 1) {
+        tasks[i].classList.remove('selected');    
+      }
       greyTask.classList.add('selected');
     }
   }
@@ -107,4 +116,35 @@ window.onload = function () {
     }
   }
   inicialize();
+
+  //13
+  const upButton = document.createElement('button');
+  upButton.id = 'mover-cima';
+  upButton.innerHTML = 'Mover para cima!';
+  document.body.appendChild(upButton);
+  
+  function upper() {
+    let ol = document.querySelector('#lista-tarefas');
+    let taskUp = document.querySelector('.selected');
+    if (ol.firstChild === taskUp && ol != null) {
+      alert('A tarefa já está no topo!');
+    } else { // insertBefore ---> https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+      ol.insertBefore(taskUp, taskUp.previousElementSibling);
+    }
+  }
+
+  const downButton = document.createElement('button');
+  downButton.id = 'mover-baixo';
+  downButton.innerHTML = 'Mover para baixo!';
+  document.body.appendChild(downButton);
+
+  function downer() {
+    let ol = document.querySelector('#lista-tarefas');
+    let taskDown = document.querySelector('.selected');
+    if (ol.lastChild === taskDown && ol != null) {
+      alert('A tarefa já está por último!');
+    } else { 
+      ol.insertBefore(taskDown.nextElementSibling, taskDown);
+    }
+  }
 }
