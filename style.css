@@ -1,12 +1,12 @@
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: rgb(102, 255, 102);
+  background-color: rgb(102 , 255 , 102);
 }
 
 header {
   margin-top: 50px;
   font-size: 25px;
-  color: rgb(46, 46, 31);
+  color: rgb(46 , 46 , 31);
 }
 
 section {
