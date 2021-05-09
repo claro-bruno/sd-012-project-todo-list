@@ -65,9 +65,6 @@ function apagaFinalizados() { // FORMA MAIS SIMPLES DE APAGAR
 }
 btnApagaFinalizados.addEventListener('click', apagaFinalizados);
 
-const btnSalvaTarefas = document.querySelector('#salvar-tarefas');
-btnSalvaTarefas.innerHTML = 'salvar tarefas';
-
 const btnMoveUp = document.querySelector('#mover-cima');
 btnMoveUp.innerHTML = 'subir item';
 
@@ -122,13 +119,19 @@ function removerSelecionado() {
 
 btnRemoverSelecionado.addEventListener('click', removerSelecionado);
 
-// function salvaTarefas() {
-//   const tarefas = document.querySelectorAll('li');
-//   localStorage.setItem('tarefas', tarefas);
-//   localStorage.getItem('tarefas');
-// }
-// btnSalvaTarefas.addEventListener('click', salvaTarefas);
 
-// window.onload() = function () {
-//   salvaTarefas();
-// }
+const btnSalvaTarefas = document.querySelector('#salvar-tarefas');
+btnSalvaTarefas.innerHTML = 'salvar tarefas';
+
+function salvaTarefas() {
+  let tarefas = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.setItem('tarefas', tarefas);
+}
+btnSalvaTarefas.addEventListener('click', salvaTarefas);
+
+function initialize() {
+  let tarefas = document.getElementById('lista-tarefas');
+  tarefas.innerHTML = localStorage.getItem('tarefas');
+}
+
+initialize();
