@@ -11,8 +11,9 @@ function addTitle(){
 addTitle();
 
 function addDiscretP(){
-    let p = document.createElement("p");
-    p.innerHTML = "Clique duas vezes em um item para marcá-lo como completo";
-    p.id = "funcionamento";
-    paiBody.appendChild(p);
+    let paragraf = document.createElement("p");
+    paragraf.innerHTML = "Clique duas vezes em um item para marcá-lo como completo";
+    paragraf.id = "funcionamento";
+    paiBody.appendChild(paragraf);
 }
+addDiscretP();
