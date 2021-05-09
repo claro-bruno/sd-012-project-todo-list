@@ -72,6 +72,13 @@ function moveBaixo() {
   }
 }
 
+function apagaSelecionada() {
+  const tarefa = document.querySelector('.selected');
+  if (tarefa !== null) {
+    tarefa.remove();
+  }
+}
+
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', adicionaTarefa);
 const buttonDel = document.getElementById('apaga-tudo');
@@ -84,3 +91,5 @@ const buttonMoveUp = document.getElementById('mover-cima');
 buttonMoveUp.addEventListener('click', moveCima);
 const buttonMoveDown = document.getElementById('mover-baixo');
 buttonMoveDown.addEventListener('click', moveBaixo);
+const buttonDelSelected = document.getElementById('remover-selecionado');
+buttonDelSelected.addEventListener('click', apagaSelecionada);
