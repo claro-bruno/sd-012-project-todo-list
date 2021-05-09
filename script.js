@@ -13,7 +13,7 @@ function createTask() {
         event.target.style.backgroundColor = 'rgb(128,128,128)';
     }
     function done(event) {
-        if(event.target.style.textDecoration != "line-through solid rgb(0, 0, 0)"){
+        if(event.target.style.textDecoration !== "line-through solid rgb(0, 0, 0)"){
         event.target.style.textDecoration = "line-through solid rgb(0, 0, 0)";
         event.target.classList.add('completed')
         } else {
