@@ -1,4 +1,4 @@
-let listaDeItem = document.getElementById("lista-tarefa");
+let listaDeItem = document.getElementById("lista-tarefas");
 let botaoAdicionarTarefa = document.getElementById("criar-tarefa");
 
 function createTask() {
