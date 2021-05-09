@@ -49,11 +49,11 @@ deleteSelect.addEventListener('click', function ()  {
 // ==> Marca selecionado
 document.addEventListener('click', function clickedTask(event)
 {
-  const tasks = document.getElementsByClassName('task-item');
+  const selecionados = document.getElementsByClassName('task-item');
   const greyTask = event.target;
-  for (let i = 0; i < tasks.length; i += 1)
+  for (let index = 0; index < selecionados.length; index += 1)
   {
-    tasks[i].classList.remove('selected');
+    selecionados[index].classList.remove('selected');
   }
   if (greyTask.classList.contains('selected'))
   {
