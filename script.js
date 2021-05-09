@@ -4,7 +4,7 @@ const catchAddButton = document.getElementById('criar-tarefa');
 const catchInput = document.getElementById('texto-tarefa');
 const catchOl = document.getElementById('lista-tarefas');
 const catchTasks = document.getElementsByClassName('task');
-const catchSelected = document.querySelector('.selected');
+const catchApagaTudoButton = document.getElementById('apaga-tudo');
 
 function addTask () {
   if (catchInput.value.length === 0) {
@@ -47,3 +47,9 @@ function addCompleted(event) {
 }
 
 catchOl.addEventListener('dblclick', addCompleted);
+
+function addApagarTudo() {
+  catchOl.innerHTML = '';
+}
+
+catchApagaTudoButton.addEventListener('click', addApagarTudo);
