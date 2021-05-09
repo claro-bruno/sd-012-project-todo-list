@@ -5,21 +5,32 @@ const typedTextInput = document.getElementById('texto-tarefa');
 const allItemList = document.getElementsByTagName('li');
 const eraserButton = document.getElementById('apaga-tudo');
 const removeDoneButton = document.getElementById('remover-finalizados');
+const moveUpButton = document.getElementById('mover-cima');
 
-// Event that gets what is typed on the input and puts on an ordered list.
-addToListButton.addEventListener('click', () => {
-  const textAsListItem = document.createElement('li');
-  textAsListItem.innerHTML = typedTextInput.value;
-  taskList.appendChild(textAsListItem);
-  // Each 'li' that was created gets an event by the time of its creation that changes the bgColor.
-  textAsListItem.addEventListener('click', (event) => {
-    const evt = event.target;
-    for (let index = 0; index < allItemList.length; index += 1) {
-      allItemList[index].style.backgroundColor = '';
-    }
-    evt.style.backgroundColor = 'rgb(128, 128, 128)';
+// Recover the lista-tarefas when reload the page
+window.onload = () => {
+  taskList.innerHTML = localStorage.getItem('TList');
+};
+
+function listItemCreation() {
+  addToListButton.addEventListener('click', () => {
+    const textAsListItem = document.createElement('li');
+    textAsListItem.innerText = typedTextInput.value;
+    taskList.appendChild(textAsListItem);
   });
-});
+}
+listItemCreation();
+
+function selectedItem() {
+  const eachListItem = document.getElementsByTagName('li');
+  taskList.addEventListener('click', (event) => {
+    for (let index = 0; index < eachListItem.length; index += 1) {
+      eachListItem[index].classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
+}
+selectedItem();
 
 function cleanTheImput() {
   addToListButton.addEventListener('click', () => {
@@ -31,12 +42,14 @@ cleanTheImput();
 function completedTask() {
   taskList.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed');
+    localStorage.setItem('TList', taskList.innerHTML);
   });
 }
 completedTask();
 
 eraserButton.addEventListener('click', () => {
   taskList.innerHTML = '';
+  localStorage.removeItem('TList');
 });
 
 function removeAllDone() {
@@ -46,6 +59,15 @@ function removeAllDone() {
     allDone.forEach((a) => {
       a.remove();
     });
+    localStorage.setItem('TList', taskList.innerHTML);
   });
 }
 removeAllDone();
+
+function movingUp() {
+  let allDone = document.getElementsByClassName('.completed');
+  moveUpButton.addEventListener('click', () => {
+    [taskList[allDone - 1], allDone] = [allDone, taskList[allDone - 1]];
+  });
+}
+movingUp();
