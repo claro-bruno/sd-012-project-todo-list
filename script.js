@@ -3,7 +3,8 @@
 const catchAddButton = document.getElementById('criar-tarefa');
 const catchInput = document.getElementById('texto-tarefa');
 const catchOl = document.getElementById('lista-tarefas');
-const catchTasks = document.getElementsByClassName('task')
+const catchTasks = document.getElementsByClassName('task');
+const catchSelected = document.querySelector('.selected');
 
 function addTask () {
   if (catchInput.value.length === 0) {
@@ -25,21 +26,14 @@ catchInput.addEventListener('keypress', function(e) {
 })
 
 function addSelected(event) {
-    if (document.querySelector('.selected') === null) {
-      console.log(document.querySelector('.selected'));
-      event.target.classList.add('selected');
-    } else {
-      document.querySelector('.selected').classList.remove('selected');
-      event.target.classList.add('selected');
+  if (event.target.classList.contains('selected')) {
+    event.target.classList.remove('selected');
+  } else {
+    for (let index = 0; index < catchTasks.length; index += 1) {
+      catchTasks[index].classList.remove('selected');
     }
+    event.target.classList.add('selected');
+  }
 }
 
 catchOl.addEventListener('click', addSelected);
-
-
-
-
-
-
-
-
