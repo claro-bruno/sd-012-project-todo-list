@@ -12,6 +12,4 @@ function createTask() {
 
 }
 
-
-
 botaoAdicionarTarefa.addEventListener("click", createTask)
