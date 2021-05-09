@@ -24,15 +24,18 @@ catchInput.addEventListener('keypress', function(e) {
   }
 })
 
-function addSelected(e) {
-  for (let index = 0; index < catchTasks.length; index += 1) {
-    catchTasks[index].classList.remove('selected');
-    if (e.target.classlist.contains('selected'))
-  }
-  e.target.classList.add('selected');
+function addSelected(event) {
+    if (document.querySelector('.selected') === null) {
+      console.log(document.querySelector('.selected'));
+      event.target.classList.add('selected');
+    } else {
+      document.querySelector('.selected').classList.remove('selected');
+      event.target.classList.add('selected');
+    }
 }
 
 catchOl.addEventListener('click', addSelected);
+
 
 
 
