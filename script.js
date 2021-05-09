@@ -14,6 +14,19 @@ function createButton(id, text, bgColor, parent) {
   parentElement.appendChild(button);
 }
 
+function modifiedTag() {
+  const parentElement = document.getElementById('input');
+  if (document.getElementById('isSaved')) {
+    const tag = document.getElementById('isSaved');
+    parentElement.removeChild(tag);
+  }
+
+  const changeTag = document.createElement('span');
+  changeTag.id = 'isSaved';
+  changeTag.innerHTML = '\u2717 Modificações não salvas na Lista';
+  parentElement.appendChild(changeTag);
+}
+
 function createListItem(text) {
   const listParent = document.getElementById(taskList);
   const listItem = document.createElement('li');
@@ -41,6 +54,7 @@ function eventCompleteTask() {
 
   lastAddedItem.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed');
+    modifiedTag();
   });
 }
 
@@ -53,6 +67,7 @@ function eventAddTask() {
     inputContent.value = '';
     eventSelectItem();
     eventCompleteTask();
+    modifiedTag();
   });
 }
 
@@ -66,6 +81,7 @@ function eventClearItens(buttonId, classToClear) {
       const parentElement = document.getElementById(taskList);
       parentElement.removeChild(listItens[index]);
     }
+    modifiedTag();
   });
 }
 
@@ -74,6 +90,7 @@ function moveUpItem(selectedItem) {
     const parentElement = document.getElementById(taskList);
     const previousElement = selectedItem.previousSibling;
     parentElement.insertBefore(selectedItem, previousElement);
+    modifiedTag();
   }
 }
 
@@ -82,6 +99,7 @@ function moveDownItem(selectedItem) {
     const parentElement = document.getElementById(taskList);
     const netxElement = selectedItem.nextSibling;
     parentElement.insertBefore(selectedItem, netxElement.nextSibling);
+    modifiedTag();
   }
 }
 
@@ -97,20 +115,37 @@ function eventItemMove(direction) {
   });
 }
 
+function addSavedTag() {
+  const parentElement = document.getElementById('input');
+  if (document.getElementById('isSaved')) {
+    const tag = document.getElementById('isSaved');
+    parentElement.removeChild(tag);
+  }
+
+  const savedTag = document.createElement('span');
+  savedTag.id = 'isSaved';
+  savedTag.innerHTML = 'Lista Salva \u2714';
+  parentElement.appendChild(savedTag);
+}
+
 function eventSaveList() {
   const saveButton = document.getElementById('salvar-tarefas');
 
   saveButton.addEventListener('click', () => {
-    const listItens = document.querySelectorAll(taskItem);
-    localStorage.setItem('itens', listItens[0].innerHTML);
-    localStorage.setItem('classLists', listItens[0].classList);
-
-    for (let index = 1; index < listItens.length; index += 1) {
-      localStorage.setItem('itens',
-        `${localStorage.getItem('itens')}|${listItens[index].innerHTML}`);
-      localStorage.setItem('classLists',
-        `${localStorage.getItem('classLists')}|${listItens[index].classList}`);
+    localStorage.clear();
+    if (document.querySelector('.item-tarefa') !== null) {
+      const listItens = document.querySelectorAll(taskItem);
+      localStorage.setItem('itens', listItens[0].innerHTML);
+      localStorage.setItem('classLists', listItens[0].classList);
+      console.log(localStorage);
+      for (let index = 1; index < listItens.length; index += 1) {
+        localStorage.setItem('itens',
+          `${localStorage.getItem('itens')}|${listItens[index].innerHTML}`);
+        localStorage.setItem('classLists',
+          `${localStorage.getItem('classLists')}|${listItens[index].classList}`);
+      }
     }
+    addSavedTag();
   });
 }
 
@@ -124,6 +159,8 @@ function addSavedItens() {
     listItem.innerHTML = savedItens[index];
     listItem.classList = savedClassLists[index];
     parentElement.appendChild(listItem);
+    eventSelectItem();
+    eventCompleteTask();
   }
 }
 

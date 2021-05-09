@@ -35,6 +35,17 @@ button {
   margin-right: 5px;
 }
 
+#isSaved {
+  font-style: italic;
+  font-size: 80%;
+  color: rgb(186 , 186 , 186);
+  margin-left: 10px;
+}
+
+li {
+  width: fit-content;
+}
+
 .selected {
   background-color: gray;
 }
