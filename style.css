@@ -33,6 +33,7 @@ body {
   min-height: 50px;
   min-width: 50%;
   border: 2px solid red;
+  /* background-color: yellow; */
 }
 
 .selected {
