@@ -1,6 +1,6 @@
+//CRIA TAREFA
 const criarTarefa = document.querySelector('#criar-tarefa');
-criarTarefa.addEventListener('click', newAssignment)
-
+criarTarefa.addEventListener('click', newAssignment);
 function newAssignment(){
     const textoTarefa = document.querySelector('#texto-tarefa').value;
     if (textoTarefa !== '') {
@@ -12,4 +12,13 @@ function newAssignment(){
     } else {
         alert('Adicione uma tarefa')
     };
+};
+
+
+//APAGA TUDO
+const deleteAll = document.querySelector('#apaga-tudo');
+deleteAll.addEventListener('click', limpaTarefa);
+function limpaTarefa (){
+    const itensList = document.querySelector('#lista-tarefas');
+    itensList.innerText = '';
 };
