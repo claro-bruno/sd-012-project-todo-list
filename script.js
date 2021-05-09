@@ -17,3 +17,10 @@ function addDiscretP(){
     paiBody.appendChild(paragraf);
 }
 addDiscretP();
+
+function boxText(){
+    let box = document.createElement("input");
+    box.id = "texto-tarefa";
+    paiBody.appendChild(box);
+}
+boxText();
