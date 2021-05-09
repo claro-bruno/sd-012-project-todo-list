@@ -26,24 +26,23 @@ finish.addEventListener('dblclick', (evento) => {
 
 // ==> Seleciona a lista ordenada
 
-/*
-const clikColor = document.getElementById('li');
-clikColor.addEventListener('click', clicar)
-
-function clicar()
-{
-  clikColor.style.backgroundColor = 'red';
-
-}
-*/
 
 taskList.addEventListener('click', clikColor);
+
 function clikColor(event) {
   const clikCollor = document.querySelector('.selected');
   if (clikCollor !== null) {
-    clikCollor.classList.remove('selected')
+    clikCollor.classList.remove('selected');
   } else {
     event.target.classList.add('selected');
   }
 };
+// ==> Apaga tudo!!!
+
+const deleteAll = document.querySelector('#apaga-tudo');
+
+deleteAll.addEventListener('click', function () {
+  let itensLista = document.querySelector('#lista-tarefas');
+  itensLista.innerText = '';
+});
 
