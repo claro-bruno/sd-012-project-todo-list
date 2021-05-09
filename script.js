@@ -8,10 +8,10 @@ function createTask() {
     if (tarefa.value !== null) {
         listaDeItem.appendChild(itemDaLista);
     }
-    inputText = "";
+    tarefa.value = '';
 
 }
 
 
 
-botaoAdicionarTarefa.addEventListener("click", createTask);
+botaoAdicionarTarefa.addEventListener("click", createTask)
