@@ -23,17 +23,7 @@ finish.addEventListener('dblclick', (event) => {
 });
 // <==
 
-// ==> Seleciona a lista ordenada
 
-function clikColor(event) {
-  const liTaskItem = document.querySelector('.selected');
-  if (liTaskItem !== null) {
-    liTaskItem.classList.remove('selected');
-  } else {
-    event.target.classList.add('selected');
-  }
-}
-taskList.addEventListener('click', clikColor);
 
 // ==> Apaga tudo!!!
 
@@ -42,31 +32,35 @@ deleteAll.addEventListener('click', function ()  {
   let itensLista = document.querySelector('#lista-tarefas');
   itensLista.innerText = '';
 });
-
-
-
-/* última atualização
-    const deleteSelect = document.querySelector('#remover-finalizados');
-
-    deleteSelect.addEventListener('click', function () {
-      const deletarLista = document.querySelector('.task-item');
-      if (deletarLista == 'selected') {
-        taskList.removeChild(selected);
-        errorMessage.innerText = '';
-      } else {
-        errorMessage.innerText = 'Nenhuma tarefa selecionada';
-      }
-    });
-*/
-
-
+// <==
+// ==> Apaga selecionado
 const deleteSelect = document.querySelector('#remover-finalizados');
 deleteSelect.addEventListener('click', function ()  {
-  let deletar = document.querySelectorAll('.task-item');
-
-  for (let i = 0; i < deletar.length; i += 1) {
-    if (deletar[i].classList.contains('completed')) {
-      deletar[i].remove();
+  const deletar = document.querySelectorAll('.task-item');
+  for (let index = 0; index < deletar.length; index += 1) {
+    if (deletar[index].classList.contains('completed')) {
+      deletar[index].remove();
     }
   }
 });
+// <==
+
+
+// ==> Marca selecionado
+document.addEventListener('click', function clickedTask(event)
+{
+  const tasks = document.getElementsByClassName('task-item');
+  const greyTask = event.target;
+  for (let i = 0; i < tasks.length; i += 1)
+  {
+    tasks[i].classList.remove('selected');
+  }
+  if (greyTask.classList.contains('selected'))
+  {
+    greyTask.classList.add('selected');
+  } else
+  {
+    greyTask.classList.add('selected');
+  }
+});
+// <==
