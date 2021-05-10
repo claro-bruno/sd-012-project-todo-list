@@ -17,4 +17,19 @@ window.onload = function () {
   lista.id = "lista-tarefas";
   document.body.appendChild(lista);
 
+  let botao = document.createElement("button")
+  botao.type = "submit";
+  botao.id = "criar-tarefa";
+  document.body.appendChild(botao);
+
+  document.body.addEventListener("click", function (event) {
+    let tarefa = document.querySelector("#texto-tarefa").value;
+    if (event.target.id === "criar-tarefa") {
+      let item = document.createElement("li");
+      item.innerText = tarefa
+      lista.appendChild(item);
+      document.querySelector("#texto-tarefa").value = " ";
+    }
+  })
+
 };
