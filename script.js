@@ -4,6 +4,7 @@ const criarTarefa = document.getElementById('criar-tarefa');
 // const task = document.getElementsByTagName('li');
 const botaoLimpar = document.getElementById('apaga-tudo');
 const removerFinalizados = document.querySelector('#remover-finalizados');
+const removerSelecionado = document.querySelector('#remover-selecionado');
 
 function createLi() {
   criarTarefa.addEventListener('click', () => {
@@ -49,6 +50,14 @@ function limparComplete() {
   });
 }
 limparComplete();
+
+function limparSelected() {
+    removerSelecionado.addEventListener('click', () => {
+      const selecionado = document.querySelector('.selected');
+      selecionado.remove(selecionado);
+      });
+}
+limparSelected();
 
 // function limparComplete (){
 //     const finalizados = document.getElementsByClassName('completed');
