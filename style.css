@@ -15,7 +15,6 @@ header {
 }
 
 ol {
-  text-align: center;
   margin: 20px;
   font-weight: 800;
 }
@@ -53,18 +52,25 @@ ol {
   border: solid 1px white;
 }
 
-.container-lista{
-  float: left;
+.container-lista {
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
   background-color: yellow;
   min-width: 200px;
+  max-width: 400px;
   border-radius: 50px;
 }
 
 .container-edit {
-  float: right;
+  justify-content: center;
   width: 700px;
 }
 
+.gray {
+  background-color: gray;
+}
+
 .completed {
-  text-decoration: line-through;
+  text-decoration: line-through solid black;
 }
