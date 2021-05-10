@@ -46,6 +46,13 @@ button#remover-finalizados {
     margin-left: 30px;
 }
 
+button#remover-selecionado {
+    display: inline-block;
+    width: 150px;
+    height: 30px;
+    margin-left: 30px;
+}
+
 button#salvar-tarefas {
     display: inline-block;
     width: 140px;
@@ -104,6 +111,11 @@ button#salvar-tarefas {
 }
 
 #texto-mover-cima {
+    text-align: center;
+    line-height: 10px;
+}
+
+#texto-botao-remover-sel {
     text-align: center;
     line-height: 10px;
 }

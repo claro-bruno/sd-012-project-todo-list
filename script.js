@@ -4,6 +4,7 @@ let listaTarefas = document.getElementById('lista-tarefas');
 let botaoCriarTarefa = document.getElementById('criar-tarefa');
 let botaoApagarTudo = document.getElementById('apaga-tudo');
 let botaoApagarFin = document.getElementById('remover-finalizados');
+let botaoRemoverSel = document.getElementById('remover-selecionado');
 let botaoSalvar = document.getElementById('salvar-tarefas');
 let botaoMoverCima = document.getElementById('mover-cima');
 let botaoMoverBaixo = document.getElementById('mover-baixo');
@@ -45,6 +46,12 @@ let divBotaoSalvar = document.createElement('div');
 botaoSalvar.appendChild(divBotaoSalvar);
 divBotaoSalvar.id = 'texto-botao-salvar';
 divBotaoSalvar.innerHTML = 'Salvar tarefas';
+
+//criando uma div para guardar texto do botao remover selecionado//
+let divBotaoRemoverSel = document.createElement('div');
+botaoRemoverSel.appendChild(divBotaoRemoverSel);
+divBotaoRemoverSel.id = 'texto-botao-remover-sel';
+divBotaoRemoverSel.innerHTML = 'Remover selecionado';
 
 //REQUISITO 5 e 6//
 //função que cria event listener no botao, adiciona value na lista e limpa input//
@@ -143,7 +150,7 @@ window.onload = function () {
   listaTarefas.innerHTML = storageListaString;
 };
 
-//REQUISITO 13 - adicionar botoes mover cima e mover baixo//
+//REQUISITO 13 - adicionar event listeners aos botoes de mover e fazer funções especificas para cada um deles//
 
 function adicionaEventoMoverCima () {
   botaoMoverCima.addEventListener('click', moverCima);
@@ -176,3 +183,16 @@ function moverBaixo() {
   };
 };
 
+//REQUISITO 14
+
+function adicionaEventoRemoverSel () {
+  botaoRemoverSel.addEventListener('click', function () {
+    for (index6 = 0; index6 < listaLis.length; index6 += 1){
+      if (listaLis[index6].style.backgroundColor === 'rgb(128, 128, 128)'){
+        listaLis[index6].remove();
+      };
+    };
+  });
+};
+
+adicionaEventoRemoverSel();
