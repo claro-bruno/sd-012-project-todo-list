@@ -1,49 +1,61 @@
 .selected {
-    background-color: rgb(128, 128, 128);
+  background-color: rgb(128 , 128 , 128);
 }
+
 .completed {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
+
 body {
-    margin-top: 100px;
-    text-align: center;
-    background-image: url(https://www.wallpapers4u.org/wp-content/uploads/notebook_texture_fields_lines_stripes_75767_1920x1080.jpg);
-    font-size: large;
+  margin-top: 100px;
+  text-align: center;
+  background-image: url("https://www.wallpapers4u.org/wp-content/uploads  notebook_texture_fields_lines_stripes_75767_1920x1080.jpg");
+  font-size: large;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,  'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 h1 {
-    text-align: center;
+  text-align: center;
 }
+
 .informacoes {
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 }
+
  body .botoes {
-    text-align: center;
-    align-items: center;
-    display: inline;
+  text-align: center;
+  align-items: center;
+  display: inline;
 }
+
 content ol {
-    text-align: center;
-    list-style-type:circle;
-    list-style-position:inside ;
-    font-family: cursive;
+  margin-right: 18%;
+  margin-left: 14%;
+  text-align: center;
+  list-style-type:circle;
+  list-style-position:inside;
 }
-li {
-    font-family: cursive;
-}
+
 .vqv  {
-background-color: green;
-border-radius: 30%;
-font-weight: 900;
+  background-color: green;
+  border-radius: 30%;
+  font-weight: 900;
 }
+
 .limpar {
-background-color: red;
-border-radius: 30%;
-font-weight: 900;
+  background-color: red;
+  border-radius: 30%;
+  font-weight: 900;
 }
 
 .removerFinalizados {
-background-color: orange;
-border-radius: 30%;
-font-weight: 900;
+  background-color: orange;
+  border-radius: 30%;
+  font-weight: 900;
+}
+
+content ol li {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,  sans-serif;
+  font-weight:bolder;
 }
