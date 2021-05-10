@@ -6,7 +6,22 @@ function createList() {
   let inputTex = inputTarefaText.value;
 
   createList.innerHTML = inputTex;
+  createList.className = 'itemlist';
   inputTarefa.appendChild(createList);
   inputTarefaText.value = '';
 }
 clickButton.addEventListener('click', createList);
+
+let getLi = document.querySelector('li');
+
+function selectedList(event) {
+  let selectedTaskElement = document.querySelector('.selected');
+  if (event.target.className === 'itemlist') {
+    if (selectedTaskElement !== null) {
+      selectedTaskElement.classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  }
+}
+
+document.addEventListener('click', selectedList);
