@@ -17,12 +17,26 @@ window.onload = function() {
             taskList.appendChild(newTask);
             inputTask.value = '';
         }
+
+        //7
+        let taskElement = document.querySelectorAll('.tarefa');
+        for (let index = 0; index < taskElement.length; index += 1) {
+            taskElement[index].addEventListener('click', (event) => {
+                //pesquisar sobre o método contains junto com classList
+                if (event.target.className !== 'task-background-color') {
+                    event.target.classList.add('task-background-color');
+                } 
+            })
+            
+                
+        };
+
     }
     creatTaskButton.addEventListener('click', addTask);
 
-    //7
     
-   
+    
+
 
 
 }

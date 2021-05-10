@@ -6,3 +6,7 @@ body {
     justify-content: center;
     align-items: center; */
 }
+
+.task-background-color {
+    background-color: rgb(128, 128, 128);
+}
