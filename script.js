@@ -2,6 +2,7 @@ const button = document.querySelector('#criar-tarefa');
 const input = document.querySelector('#texto-tarefa');
 const list = document.querySelector('#lista-tarefas');
 const buttonClear = document.querySelector('#apaga-tudo');
+const buttonClearDone = document.querySelector('#remover-finalizados');
 // Adiciona tarefas
 function makeJob() {
   const newJob = document.createElement('li');
@@ -39,3 +40,15 @@ function clearButton() {
   console.log(buttonClear);
 }
 buttonClear.addEventListener('click', clearButton);
+
+// Botão que apaga tarefas concluidas
+function clearDone() {
+  const completed = document.querySelectorAll('.completed');
+  for (let erase = 0; erase < completed.length; erase += 1) {
+    if (completed[erase].classList.contains('completed')) {
+      completed[erase].remove();
+    }
+    console.log (completed);
+  }
+}
+buttonClearDone.addEventListener('click', clearDone);
