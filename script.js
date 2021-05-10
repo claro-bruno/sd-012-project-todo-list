@@ -9,6 +9,11 @@ window.onload = function () {
   document.body.appendChild(text);
 
   let textBox = document.createElement("input");
-  textBox.id= "texto-tarefa";
+  textBox.id = "texto-tarefa";
   document.body.appendChild(textBox);
+
+  let lista = document.createElement("ol");
+  lista.id = "lista-tarefas";
+  document.body.appendChild(lista);
+
 };
