@@ -24,3 +24,12 @@ function catchInput() {
       });
     }
   }
+
+  function markAsCompleted(event) {
+    if (event.target.classList.contains('completed') !== true) {
+      event.target.classList.add('completed');
+    } else {
+      event.target.classList.remove('completed');
+    }
+  }
+  taskList.addEventListener('dblclick', markAsCompleted);
