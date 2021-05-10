@@ -1,8 +1,9 @@
 const input = document.getElementById('texto-tarefa');
-const botaoAdd = document.getElementById('criar-tarefa');
+const btnAdd = document.getElementById('criar-tarefa');
+const btnX = document.getElementById('apaga-tudo');
 
 function catchInput() {
-    botaoAdd.addEventListener('click', () => {
+    btnAdd.addEventListener('click', () => {
       const createLi = document.createElement('li');
       createLi.className = 'item-list';
       createLi.innerHTML = input.value;
@@ -10,4 +11,16 @@ function catchInput() {
       input.value = '';
       selectItem();
     });
+  }
+  catchInput();
+  function selectItem() {
+    const itemList = document.querySelectorAll('.item-list');
+    for (const item of itemList) {
+      item.addEventListener('click', () => {
+        for (const item2 of itemList) {
+          item2.classList.remove('selected');
+        }
+        item.classList.add('selected');
+      });
+    }
   }
