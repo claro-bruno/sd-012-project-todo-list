@@ -41,13 +41,17 @@ function capturar () {
         };
         clearInput ();
 
-        //Exercício 10:
-        function clearList () {
-            selectClear.addEventListener('click', function() {
-            })
-        }
-        clearList ();
+       
     });
 };
 
 capturar ();
+
+ //Exercício 10:
+ function clearList () {
+    selectClear.addEventListener('click', function() {
+        while (selectOl.firstElementChild)
+        selectOl.removeChild(selectOl.firstElementChild);
+    })
+}
+clearList ();
