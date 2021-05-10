@@ -1,5 +1,8 @@
 const input = document.getElementById('texto-tarefa');
 const listaTarefa = document.getElementById('lista-tarefas');
+let selectedTask = '';
+let previusTask = '';
+let postTask = ''
 
 function gray(event) {
   const li = document.querySelectorAll('.tarefa');
@@ -34,8 +37,6 @@ function deleteDone() {
 
 function moverCima() {
   const task = document.getElementsByClassName('tarefa');
-  let selectedTask = '';
-  let previusTask = '';
   for (let i = 0; i < task.length; i += 1) {
     if (task[i].classList.contains('gray')) {
       if (i !== 0) {
@@ -54,19 +55,20 @@ function moverCima() {
 
 function moverBaixo() {
   const task = document.getElementsByClassName('tarefa');
-  let selectedTask = '';
-  let previusTask = '';
-  for (let i = 0; i < task.length; i += 1) {
+  //task = task.reverse();
+  for (let i = 0; i < task.length-1; i += 1) {
     if (task[i].classList.contains('gray')) {
-      if (i !== task.length - 1) {
-        selectedTask = task[i].innerHTML;
-        previusTask = task[i + 1].innerHTML;
-        task[i].innerHTML = previusTask;
-        task[i + 1].innerHTML = selectedTask;
+      if (i !== task.length-1) {
+        selectedTask = task[i -1].innerHTML;
+        previusTask = task[i].innerHTML;
+        task[i - 1].innerHTML = previusTask;
+        task[i].innerHTML = selectedTask;
         task[i].classList.remove('gray');
-        task[i + 1].classList.add('gray');
+        task[i - 1].classList.add('gray');
+       // task = task.reverse();
       } else {
-        alert('O elemento já está no fundo da lista');
+        alert('O elemento já está no final da lista');
+        //task = task.reverse();
       }
     }
   }
@@ -93,4 +95,3 @@ document.getElementById('remover-selecionado').addEventListener('click', deleteG
 document.getElementById('remover-finalizados').addEventListener('click', deleteDone);
 document.getElementById('mover-cima').addEventListener('click', moverCima);
 document.getElementById('mover-baixo').addEventListener('click', moverBaixo);
-console.log(document.getElementsByClassName('tarefa'));
