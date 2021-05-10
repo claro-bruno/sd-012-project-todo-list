@@ -18,18 +18,17 @@ function createNewListItem() {
 
 addTask.addEventListener('click', createNewListItem);
 
-function selectedItem(event) {
-  if (event.target.className === 'item-tarefa') {
-    const selected = document.querySelector('.seleciona');
-    if (selected !== null) {
-      selected.classList.remove('seleciona');
-    } else {
-      event.target.classList.add('seleciona');
-    }
-  }
-}
+document.addEventListener('click', (event) => {
+  const eventTarget = event.target;
 
-taskList.addEventListener('click', selectedItem);
+  if (eventTarget.className === 'item-tarefa') {
+    const selected = document.querySelector('.selected');
+    if (selected !== null) {
+      selected.classList.remove('selected');
+    }
+    eventTarget.classList.add('selected');
+  }
+});
 
 function completedItem(event) {
   if (event.target.classList.contains('completed')) {
@@ -57,7 +56,7 @@ function removeCompletedTasks() {
   const completedTask = document.querySelectorAll('.completed');
 
   for (index = 0; index < completedTask.length; index += 1) {
-    taskList[index].remove();
+    completedTask[index].remove();
   }
 }
 deleteAllCompletedTasks.addEventListener('click', removeCompletedTasks);
