@@ -16,7 +16,7 @@ function clickNoLi(event) {
 
 // Requisito 9: necessário para o Requisito 5, logo deve estar antes dele.
 function clickdoble(event) {
-  if (event.target.classList.contains('completed')) { // se esta classe específica (.completed) existir no item/evento que for clicado... 
+  if (event.target.classList.contains('completed')) { // se esta classe específica (.completed) existir no item/evento que for clicado...
     event.target.classList.remove('completed'); // remova esta classe específica (.completed)...
   } else {
     event.target.classList.add('completed'); // se não houver a classe específica (.completed), adicione esta classe específica.
@@ -36,10 +36,11 @@ function inputNewTask() {
 }
 inputNewTask();
 
+// Requisito 10: botão que apaga tudo
 function eventEraseButton() {
   const clickButtonErase = document.getElementById('apaga-tudo'); // requisito 10
 
-  clickButtonErase.addEventListener('click', function eraseButton(event) { // requisito 10
+  clickButtonErase.addEventListener('click', function eraseButton() { // requisito 10
     const listItems = document.querySelectorAll('.li-estilo');
     for (let index = 0; index < listItems.length; index += 1) {
       const element = listItems[index];
@@ -49,6 +50,18 @@ function eventEraseButton() {
 }
 eventEraseButton();
 
+// Requisito 11: apagar somente os elementos marcados
+// como completos.
+// EraseCompletedTask
+function buttonEraseCompleted() {
+  const clickEraseCompleted = document.getElementById('remover-finalizados');
 
-
-// Requisito 10: botão que apaga tudo
+  clickEraseCompleted.addEventListener('click', function EraseCompletedTask() {
+    const listCompletedTask = document.getElementById('lista-tarefas').querySelectorAll('.completed');
+    for (let index = 0; index < listCompletedTask.length; index += 1) {
+      const element = listCompletedTask[index];
+      getTaskListLo.removeChild(element);
+    }
+  });
+}
+buttonEraseCompleted();

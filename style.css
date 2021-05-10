@@ -9,3 +9,7 @@
 .completed {
   text-decoration: line-through solid black;
 }
+
+#texto-tarefa #criar-tarefa {
+  display: inline-block;
+}
