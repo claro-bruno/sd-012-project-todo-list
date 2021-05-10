@@ -56,9 +56,9 @@ content ol {
 }
 
 .removerSelecionado {
-    background-color: orangered;
-    border-radius: 30%;
-    font-weight: 900;
+  background-color: orangered;
+  border-radius: 30%;
+  font-weight: 900;
 }
 
 content ol li {

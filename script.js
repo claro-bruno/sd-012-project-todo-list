@@ -52,10 +52,10 @@ function limparComplete() {
 limparComplete();
 
 function limparSelected() {
-    removerSelecionado.addEventListener('click', () => {
-      const selecionado = document.querySelector('.selected');
-      selecionado.remove(selecionado);
-      });
+  removerSelecionado.addEventListener('click', () => {
+    const selecionado = document.querySelector('.selected');
+    selecionado.remove(selecionado);
+  });
 }
 limparSelected();
 
