@@ -37,14 +37,18 @@ function moverCima() {
  let selectedTask = ''
  let previusTask = ''
  for (let i = 0; i < task.length; i += 1){
- if (task[i].classList.contains('gray')){
-   selectedTask = task[i].innerHTML
-   previusTask = task[i-1].innerHTML
-   task[i].innerHTML = previusTask
-   task[i-1].innerHTML = selectedTask
-   console.log(task[i])
-   console.log(task[i-1])
- }
+  if (task[i].classList.contains('gray')){
+    if ( i != 0){
+      selectedTask = task[i].innerHTML
+      previusTask = task[i-1].innerHTML
+      task[i].innerHTML = previusTask
+      task[i-1].innerHTML = selectedTask
+      console.log(task[i])
+      console.log(task[i-1])
+    } else {
+      alert('O elemento já está no topo da lista')
+    }
+  } 
 }
 }
 
@@ -54,12 +58,16 @@ function moverBaixo() {
   let previusTask = ''
   for (let i = 0; i < task.length; i += 1){
   if (task[i].classList.contains('gray')){
+    if ( i != task.length - 1){
    selectedTask = task[i].innerHTML
    previusTask = task[i+1].innerHTML
    task[i].innerHTML = previusTask
    task[i+1].innerHTML = selectedTask
    console.log(task[i])
    console.log(task[i-1])
+    } else {
+      alert('O elemento já está no fundo da lista')
+    }
  }
 }
 }
