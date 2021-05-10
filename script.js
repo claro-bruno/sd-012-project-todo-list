@@ -25,9 +25,17 @@ window.onload = function () {
     let tarefa = document.querySelector("#texto-tarefa").value;
     if ((event.target.id === "criar-tarefa") && (tarefa != "")) {
       let item = document.createElement("li");
-      item.innerText = tarefa
+      item.className = "item";
+      item.innerText = tarefa;
       lista.appendChild(item);
       document.querySelector("#texto-tarefa").value = "";
+    }
+  })
+
+  document.body.addEventListener("click", function (event) {
+    if (event.target.className === "item") {
+      let changeColor = event.target;
+      changeColor.style.backgroundColor = "rgb(128, 128, 128)";
     }
   })
 
