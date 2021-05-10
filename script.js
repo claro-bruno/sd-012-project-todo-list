@@ -18,13 +18,12 @@ window.onload = function () {
   document.body.appendChild(lista);
 
   let botao = document.createElement("button")
-  botao.type = "submit";
   botao.id = "criar-tarefa";
   document.body.appendChild(botao);
 
   document.body.addEventListener("click", function (event) {
     let tarefa = document.querySelector("#texto-tarefa").value;
-    if (event.target.id === "criar-tarefa") {
+    if ((event.target.id === "criar-tarefa") && (tarefa != " ")) {
       let item = document.createElement("li");
       item.innerText = tarefa
       lista.appendChild(item);
