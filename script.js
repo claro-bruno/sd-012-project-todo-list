@@ -2,7 +2,7 @@
 O que será verificado:
 Será verificado se sua página possui uma tag header com o conteúdo Minha Lista de Tarefas */
 
-function adicionaTitulo () {
+function adicionaTitulo() {
     let header = document.createElement('header');
     document.body.appendChild(header);
     let h1 = document.createElement('h1');
@@ -16,7 +16,7 @@ adicionaTitulo();
 O que será verificado:
 Será verificado que existe na sua página um elemento com o id funcionamento com o conteúdo Clique duas vezes em um item para marcá-lo como completo */
 
-function adicionaParagrafoFuncionamento () {
+function adicionaParagrafoFuncionamento() {
     let paragrafo = document.createElement('p');
     document.body.appendChild(paragrafo);
     paragrafo.id = 'funcionamento';
@@ -29,7 +29,7 @@ adicionaParagrafoFuncionamento();
 O que será verificado:
 Será verificada a existência de um elemento do tipo input com o id texto-tarefa. */
 
-function inputTextoTarefa () {
+function inputTextoTarefa() {
     let input = document.createElement('input');
     input.id = 'texto-tarefa';
     document.body.appendChild(input);
@@ -41,7 +41,7 @@ inputTextoTarefa();
 O que será verificado:
 Será verificada a existência de um elemento ol com o id lista-tarefas. */
 
-function adicionaListaTarefas () {
+function adicionaListaTarefas() {
     let lista = document.createElement('ol');
     lista.id = 'lista-tarefas';
     document.body.appendChild(lista);
@@ -61,7 +61,7 @@ A adição de elementos na lista será feita algumas vezes, e será checado se t
 O que será verificado:
 Três itens serão criados na lista e será checado se eles estão ordenados por ordem de criação - ou seja, primeiro o primeiro item criado, depois o segundo, e assim por diante. */
 
-function botaoCriarTarefa () {
+function botaoCriarTarefa() {
     let lista = document.getElementById('lista-tarefas');
     let input = document.getElementById('texto-tarefa');
     let botao = document.createElement('button');
@@ -95,7 +95,7 @@ Será verificado que, ao se clicar em um item da lista, ele passa a ter o estilo
 O que será verificado:
 Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo background-color: rgb(128, 128, 128) no elemento. */
 
-function alteraFundoItem (event) {
+function alteraFundoItem(event) {
     let tarefas = document.getElementsByClassName('tarefa');
     for (let tarefa of tarefas) {
         tarefa.classList.remove('selected')
@@ -119,7 +119,7 @@ Será verificado que, com um segundo duplo clique, um elemento completo deixa de
 /* Credito: https://developer.mozilla.org/en-US/docs/Web/API/Element/dblclick_event */
 /* https://codetogo.io/how-to-check-if-element-has-class-in-javascript/ */
 
-function riscaTarefa (event) {
+function riscaTarefa(event) {
     if (event.target.classList.contains('completed') === false) {
         event.target.classList.add('completed');
     } else {
@@ -134,7 +134,7 @@ Será verificado que existe um elemento button com o id apaga-tudo
 Será verificado que, dado que uma lista possui tarefas, um clique no botão a deixa vazia */
 /* Credito: https://stackoverflow.com/questions/2161634/how-to-check-if-element-has-any-children-in-javascript */
 
-function apagaTudo () {
+function apagaTudo() {
     let botao = document.createElement('button')
     let list = document.getElementById('lista-tarefas')
     document.body.insertBefore(botao, list)
@@ -154,7 +154,7 @@ O que será verificado:
 Será verificado que existe um elemento button com o id remover-finalizados
 Será verificado que, ao clicar no botão, todos os elementos marcados como feitos são removidos da lista */
 
-function removeFinalizados () {
+function removeFinalizados() {
     let botao = document.createElement('button')
     let list = document.getElementById('lista-tarefas')
     document.body.insertBefore(botao, list)
@@ -177,7 +177,7 @@ Será verificado que, quando a lista tiver vários elementos, alguns dos quais m
 /* Credito: https://stackoverflow.com/questions/20180251/when-to-use-window-onload */
 /* Credito: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String */
 
-function salvarTarefas () {
+function salvarTarefas() {
     let botao = document.createElement('button')
     let list = document.getElementById('lista-tarefas')
     document.body.insertBefore(botao, list)
@@ -199,7 +199,7 @@ function salvarTarefas () {
 }
 salvarTarefas();
 
-function carregarTarefas () {
+function carregarTarefas() {
     let numeroTarefas = parseInt(localStorage.getItem('tarefas.length'))
     let lista = document.getElementById('lista-tarefas');
     for (let index = 0; index < numeroTarefas; index += 1) {
@@ -230,7 +230,7 @@ Será verificado que, caso nenhum elemento esteja selecionado, clicar nos botõe
 Será verificado que um elemento que esteja selecionado deve se manter selecionado mesmo depois de movido
 Caso especial! Será verificado que, caso se tente subir o elemento no topo da lista ou, caso se tente descer o último elemento da lista, esta não deve ser alterada */
 
-function moveCima () {
+function moveCima() {
     let tarefas = document.getElementsByClassName('tarefa');
     for (let index = 1; index < tarefas.length; index += 1) {
         if (tarefas[index].classList.contains('selected') === true) {
@@ -242,7 +242,7 @@ function moveCima () {
         } 
     }
 }
-function moveBaixo () {
+function moveBaixo() {
     let tarefas = document.getElementsByClassName('tarefa');
     for (let index = tarefas.length-2; index >= 0; index -= 1) {
         if (tarefas[index].classList.contains('selected') === true) {
@@ -254,7 +254,7 @@ function moveBaixo () {
         } 
     }
 }
-function botoesMovemTarefas () {
+function botoesMovemTarefas() {
     let botaoMoverCima = document.createElement('button')
     let botaoMoverBaixo = document.createElement('button')
     let list = document.getElementById('lista-tarefas')
@@ -274,7 +274,7 @@ O que será verificado:
 Será verificada a presença de um elemento button com um id remover-selecionado
 Será verificado que, no clicar no botão, somente o elemento selecionado é removido */
 
-function removeSelecionado () {
+function removeSelecionado() {
     let botao = document.createElement('button')
     let list = document.getElementById('lista-tarefas')
     document.body.insertBefore(botao, list)
