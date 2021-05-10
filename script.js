@@ -6,7 +6,10 @@ const catchOl = document.getElementById('lista-tarefas');
 const catchTasks = document.getElementsByClassName('task');
 const catchApagaTudoButton = document.getElementById('apaga-tudo');
 const catchApagaFinalizados = document.getElementById('remover-finalizados');
-
+const catchSalvarButton = document.getElementById('salvar-tarefas');
+const catchUpButton = document.getElementById('mover-cima');
+const catchDownButton = document.getElementById('mover-baixo');
+const catchRemoveSelectedButton = document.getElementById('remover-selecionado');
 
 function addTask () {
   if (catchInput.value.length === 0) {
@@ -28,14 +31,10 @@ catchInput.addEventListener('keypress', function(e) {
 })
 
 function addSelected(event) {
-  if (event.target.classList.contains('selected')) {
-    event.target.classList.remove('selected');
-  } else {
-    for (let index = 0; index < catchTasks.length; index += 1) {
-      catchTasks[index].classList.remove('selected');
-    }
-    event.target.classList.add('selected');
+  for (let index = 0; index < catchTasks.length; index += 1) {
+    catchTasks[index].classList.remove('selected');
   }
+  event.target.classList.add('selected');
 }
 
 catchOl.addEventListener('click', addSelected);
@@ -65,3 +64,50 @@ function apagarFinalizados() {
 }
 
 catchApagaFinalizados.addEventListener('click', apagarFinalizados);
+
+function salvarTarefas() {
+  localStorage.setItem('Lista de tarefas', catchOl.innerHTML);
+}
+
+catchSalvarButton.addEventListener('click', salvarTarefas);
+
+window.onload = function() {
+  const saved = localStorage.getItem('Lista de tarefas');
+  catchOl.innerHTML = saved;
+}
+
+function capturaSelected() {
+  const taskSelected = document.querySelector('.selected');
+  return taskSelected;
+}
+
+
+function moverParaCima() {
+  if (capturaSelected() === null) {
+    console.log('Erro: Nenhuma tarefa criada');
+  } else if (capturaSelected().previousElementSibling !== null) {
+    capturaSelected().after(capturaSelected().previousElementSibling);
+  }
+}
+
+catchUpButton.addEventListener('click', moverParaCima);
+
+
+function moverParaBaixo() {
+  if (capturaSelected() === null) {
+    console.log('Erro: Nenhuma tareda criada');
+  } else if (capturaSelected().nextElementSibling !== null) {
+    capturaSelected().after(capturaSelected().nextElementSibling, capturaSelected());
+  }
+}
+
+catchDownButton.addEventListener('click', moverParaBaixo);
+
+function removeSelecionado() {
+  const taskSelected = document.querySelector('.selected');
+  taskSelected.remove();
+}
+
+catchRemoveSelectedButton.addEventListener('click', removeSelecionado);
+
+
