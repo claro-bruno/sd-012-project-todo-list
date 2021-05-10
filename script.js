@@ -8,7 +8,6 @@ function addTarefa(){
         addLi.innerHTML = textoTarefa;
         addLi.classList.add('listIten');
         addLi.addEventListener('click', selected);
-       
         document.querySelector('#lista-tarefas').appendChild(addLi);
         document.querySelector('#texto-tarefa').value = '';
     } else {
@@ -21,15 +20,20 @@ function selected(event) {
     event.target.classList.add('selected');
 };
 
-// clearSelected = document.querySelector('.selected');
-// if (event.target.classList === clearSelected.classList) {
-//     clearSelected.classList.remove('selected');
+// function changeSelected(event){
+//     selectedChange = document.querySelector('.selected');
+//     selectedChange.classList.remove('selected');
+//     event.target.classList.add('selected');
 // };
+// changeSelected();  
     
-    
-
-
-
+//REMOVE ITEM DA LISTA
+const removeSelecionado = document.querySelector('#remover-selecionado');
+removeSelecionado.addEventListener('click', removeTarefa);
+function removeTarefa() {
+    const tarefa = document.querySelector('.selected');
+    tarefa.innerHTML = '';
+};
 
 //APAGA TUDO
 const deleteAll = document.querySelector('#apaga-tudo');
