@@ -10,6 +10,7 @@ window.onload = function () {
 
   let textBox = document.createElement("input");
   textBox.id = "texto-tarefa";
+  textBox.type = "text";
   document.body.appendChild(textBox);
 
   let lista = document.createElement("ol");
