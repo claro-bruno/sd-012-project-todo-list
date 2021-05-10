@@ -1,7 +1,7 @@
 const listaTarefas = document.getElementById('lista-tarefas');
 const inputTexto = document.getElementById('texto-tarefa');
 const criarTarefa = document.getElementById('criar-tarefa');
-const task = document.getElementsByTagName('li');
+// const task = document.getElementsByTagName('li');
 const botaoLimpar = document.getElementById('apaga-tudo');
 const removerFinalizados = document.querySelector('#remover-finalizados');
 
@@ -27,21 +27,20 @@ function backgroundColor() {
 }
 backgroundColor();
 
-function lineThrough () {
+function lineThrough() {
   listaTarefas.addEventListener('dblclick', (evt) => {
-    const completado = document.querySelector('.completed')
-    evt.target.classList.toggle('completed')
-  })
+    evt.target.classList.toggle('completed');
+  });
 }
 lineThrough();
 
-function limparLista () {
+function limparLista() {
   listaTarefas.innerHTML = '';
 }
 botaoLimpar.addEventListener('click', limparLista);
 
-//exercicio feito com ajuda do meu colega caio morato
-function limparComplete () {
+//  exercicio feito com ajuda do meu colega caio morato
+function limparComplete() {
   removerFinalizados.addEventListener('click', () => {
     const finalizados = document.querySelectorAll('.completed');
     finalizados.forEach((evt) => {
@@ -57,7 +56,6 @@ limparComplete();
 //             finalizados[index].remove();
 //     }
 // }
-
 // function limparComplete (){
 // for (let index = 0; index < listaTarefas.children.length; index += 1){
 //     if (listaTarefas.children[index].className === "task completed"){
