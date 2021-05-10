@@ -60,16 +60,16 @@ window.onload = function adicionaTarefasSalvas() {
 
 function moveCima() {
   const tarefa = document.querySelector('.selected');
-  const tarefaAnterior = tarefa.previousElementSibling;
   if (tarefa !== null && tarefa !== tarefa.parentElement.firstChild) {
+    const tarefaAnterior = tarefa.previousElementSibling;
     lista.insertBefore(tarefa, tarefaAnterior);
   }
 }
 
 function moveBaixo() {
   const tarefa = document.querySelector('.selected');
-  const proximaTarefa = tarefa.nextElementSibling;
   if (tarefa !== null && tarefa !== tarefa.parentElement.lastChild) {
+    const proximaTarefa = tarefa.nextElementSibling;
     lista.insertBefore(tarefa, proximaTarefa.nextElementSibling);
   }
 }
