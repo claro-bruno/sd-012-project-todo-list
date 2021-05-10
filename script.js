@@ -6,6 +6,7 @@ const inputContent = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const deleteAllTasks = document.getElementById('apaga-tudo');
 const deleteAllCompletedTasks = document.getElementById('remover-finalizados');
+const saveTasksList = document.getElementById('salvar-tarefas');
 
 function createNewListItem() {
   const listItem = document.createElement('li');
@@ -60,3 +61,14 @@ function removeCompletedTasks() {
   }
 }
 deleteAllCompletedTasks.addEventListener('click', removeCompletedTasks);
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'salvar-tarefas') {
+    localStorage.setItem('key', taskList.innerHTML);
+  }
+});
+window.onload = function initialID() {
+  if (localStorage.getItem('key') !== null) {
+    taskList.innerHTML += localStorage.getItem('key');
+  }
+};
