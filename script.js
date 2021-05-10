@@ -72,3 +72,7 @@ function removeCompleted() {
       taskList.insertBefore(selected, selected.previousElementSibling);
     }
   }
+
+  btnUP.addEventListener('click', moveUp);
+
+}
