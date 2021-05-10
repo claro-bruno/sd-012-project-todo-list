@@ -85,3 +85,14 @@ function moveDown() {
     }
   }
   btnDown.addEventListener('click', moveDown);
+
+  function removeSelected() {
+    const itemList = document.querySelectorAll('.item-list');
+    for (let index = 0; index < itemList.length; index += 1) {
+      let item = itemList[index];
+      if (item.classList.contains('selected')) {
+        taskList.removeChild(item);
+      }
+    }
+  }
+  btnRemoveSelected.addEventListener('click', removeSelected);
