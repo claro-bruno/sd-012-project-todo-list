@@ -230,15 +230,29 @@ Será verificado que, caso nenhum elemento esteja selecionado, clicar nos botõe
 Será verificado que um elemento que esteja selecionado deve se manter selecionado mesmo depois de movido
 Caso especial! Será verificado que, caso se tente subir o elemento no topo da lista ou, caso se tente descer o último elemento da lista, esta não deve ser alterada */
 
-function moveCima (event) {
-    //testa se eh o primeiro
-    // testa se selecionado
-
+function moveCima () {
+    let tarefas = document.getElementsByClassName('tarefa');
+    for (let index = 1; index < tarefas.length; index += 1) {
+        if (tarefas[index].classList.contains('selected') === true) {
+            let tmp = tarefas[index - 1].innerHTML 
+            tarefas[index - 1].innerHTML = tarefas[index].innerHTML;
+            tarefas[index].innerHTML = tmp;
+            tarefas[index - 1].classList.add('selected')
+            tarefas[index].classList.remove('selected')
+        } 
+    }
 }
-function moveBaixo (event) {
-    //testa se eh o ultimo
-    // testa se selecionado
-
+function moveBaixo () {
+    let tarefas = document.getElementsByClassName('tarefa');
+    for (let index = tarefas.length-2; index >= 0; index -= 1) {
+        if (tarefas[index].classList.contains('selected') === true) {
+            let tmp = tarefas[index + 1].innerHTML 
+            tarefas[index + 1].innerHTML = tarefas[index].innerHTML;
+            tarefas[index].innerHTML = tmp;
+            tarefas[index].classList.remove('selected')
+            tarefas[index + 1].classList.add('selected')
+        } 
+    }
 }
 function botoesMovemTarefas () {
     let botaoMoverCima = document.createElement('button')
@@ -251,7 +265,7 @@ function botoesMovemTarefas () {
     botaoMoverCima.innerHTML = 'Mover Cima'
     botaoMoverBaixo.innerHTML = 'Mover Baixo'
     botaoMoverCima.addEventListener('click', moveCima)
-    botaoMoverCima.addEventListener('click', moveBaixo)
+    botaoMoverBaixo.addEventListener('click', moveBaixo)
 }
 botoesMovemTarefas();
 
