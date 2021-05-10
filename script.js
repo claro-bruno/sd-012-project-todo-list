@@ -64,3 +64,11 @@ function removeCompleted() {
   window.onload = () => {
     taskList.innerHTML = localStorage.getItem('task');
   }
+
+  function moveUp() {
+    const selected = document.querySelector('.selected');
+    const taskList = document.getElementById('lista-tarefas');
+    if(selected !== null && selected.previousElementSibling !== null) {
+      taskList.insertBefore(selected, selected.previousElementSibling);
+    }
+  }
