@@ -27,7 +27,7 @@ window.onload = function () {
       let item = document.createElement("li");
       item.innerText = tarefa
       lista.appendChild(item);
-      document.querySelector("#texto-tarefa").value = " ";
+      document.querySelector("#texto-tarefa").value = "";
     }
   })
 
