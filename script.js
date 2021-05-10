@@ -23,7 +23,7 @@ window.onload = function () {
 
   document.body.addEventListener("click", function (event) {
     let tarefa = document.querySelector("#texto-tarefa").value;
-    if ((event.target.id === "criar-tarefa") && (tarefa != " ")) {
+    if ((event.target.id === "criar-tarefa") && (tarefa != "")) {
       let item = document.createElement("li");
       item.innerText = tarefa
       lista.appendChild(item);
