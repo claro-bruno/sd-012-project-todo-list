@@ -8,26 +8,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>Minha Lista de Tarefas</header>
-    <h1 id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</h1>
-    
-    <input id="texto-tarefa"
-    class="texto-tarefa"
-    placeholder="Coloque sua tarefa">
-    
-
-    <div>
-        <ol id="lista-tarefas">
-
-        </ol>
-    </div>
-    <button id="criar-tarefa">Adicionar</button>
-    <button id="apaga-tudo">Apaga!</button>
-    <button id="remover-finalizados">Remove Finalizados</button>
-    <button id="salvar-tarefas">Salva Tarefa</button>
-    <button id="mover-cima">Para Cima</button>
-    <button id="mover-baixo">Para Baixo</button>
-    <button id="remover-selecionado">Remove Selecionado</button>
+    <header>
+        <h1 id="title">Minha Lista de Tarefas</h1>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+      </header>
+      <section id="tarefas">
+        <input type="text" id="texto-tarefa">
+        <button id="criar-tarefa">Adicionar</button>
+        <ol id="lista-tarefas"></ol>
+      </section>
+      <section class="button-conteiner">
+      <button id="apaga-tudo">Limpar</button>
+      <button id="remover-finalizados">Limpar Concluidos</button>
+      <button id="salvar-tarefas">Salvar</button>
+      <button id="mover-cima">Anterior</button>
+      <button id="mover-baixo">Próximo</button>
+      <button id="remover-selecionado">Remove Selecionado</button>
+      </section>
 
     <script src="script.js"></script>
 </body>
