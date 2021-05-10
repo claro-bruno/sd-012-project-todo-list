@@ -53,15 +53,18 @@ eventEraseButton();
 // Requisito 11: apagar somente os elementos marcados
 // como completos.
 // EraseCompletedTask
+function EraseCompletedTask() {
+  const accessFather = document.getElementById('lista-tarefas');
+  const accessChild = accessFather.document.querySelectorAll('.completed');
+  for (let index = 0; index < accessChild.length; index += 1) {
+    const element = accessChild[index];
+    getTaskListLo.removeChild(element);
+  }
+}
+
 function buttonEraseCompleted() {
   const clickEraseCompleted = document.getElementById('remover-finalizados');
 
-  clickEraseCompleted.addEventListener('click', function EraseCompletedTask() {
-    const listCompletedTask = document.getElementById('lista-tarefas').querySelectorAll('.completed');
-    for (let index = 0; index < listCompletedTask.length; index += 1) {
-      const element = listCompletedTask[index];
-      getTaskListLo.removeChild(element);
-    }
-  });
+  clickEraseCompleted.addEventListener('click', EraseCompletedTask);
 }
 buttonEraseCompleted();
