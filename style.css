@@ -1,5 +1,5 @@
 .selected {
-  background-color: rgb(128 , 128 , 128);
+  background-color: grey;
 }
 
 .completed {
@@ -9,7 +9,7 @@
 body {
   margin-top: 100px;
   text-align: center;
-  background-image: url('https://www.wallpapers4u.org/wp-content/uploads  notebook_texture_fields_lines_stripes_75767_1920x1080.jpg');
+  background-image: url(https://www.wallpapers4u.org/wp-content/uploads/notebook_texture_fields_lines_stripes_75767_1920x1080.jpg);
   font-size: large;
   font-family: -apple-system, Segoe UI, Helvetica Neue, sans-serif;
 }
