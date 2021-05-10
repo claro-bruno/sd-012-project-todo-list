@@ -1,5 +1,10 @@
 
-// onclick, add class selected
+// BUSCA LISTA SALVA E RENDERIZA NO DOM
+let temp =  JSON.parse(localStorage.getItem('saved list'));
+if (temp != null){
+  document.getElementById('lista-tarefas').outerHTML = temp;
+}
+
 // INICIO
 let btnAdicionar     = document.getElementById('criar-tarefa');
 let input            = document.getElementById('texto-tarefa');
@@ -18,10 +23,13 @@ btnUp.           addEventListener('click', upTask);
 btnDown.         addEventListener('click', downTask);
 btnClearComplete.addEventListener('click', clearCompleteTasks);
 btnClearAll.     addEventListener('click', clearAllTasks);
-// btnSaveList.     addEventListener('click', saveList);
+btnSaveList.     addEventListener('click', saveList);
+for (let i = 0; i < list.children.length; i++){
+  list.children[i].addEventListener('click', selectTask);
+  list.children[i].addEventListener('dblclick', markTaskAsDone);
+}
 
-
-
+// FUNCAO QUE ADICIONA TASK
 function addTask(){
   let task = document.createElement('li');
   task.innerText = input.value;
@@ -31,21 +39,20 @@ function addTask(){
   list.appendChild(task);
 }
 
+// FUNCAO QUE SELECIONA COM FUNDO CINZA
 function selectTask(event){
-  // if (event.target.classList.contains('selected')){
-  //   removeClass();
-  // }else{
-  // }
   removeClass();
   event.target.classList.add('selected');
 }
 
+// FUNCAO AUXILIAR QUE REMOVE A CLASSE .selected
 function removeClass(){
   for (let i = 0; i < document.querySelectorAll('.selected').length; i++){
     document.querySelectorAll('.selected')[i].classList.remove('selected');
   }
 }
   
+// FUNCAO QUE MARCA A TAREFA COMO CONCLUIDA
 function markTaskAsDone(event){
   if (event.target.classList.contains('completed')){
     event.target.classList.remove('completed');
@@ -54,12 +61,14 @@ function markTaskAsDone(event){
   }
 }
 
+// FUNCAO QUE DELETA A TAREFA SELECIONADA
 function deleteTask(){
   if (document.getElementsByClassName('selected').length > 0){
     document.getElementsByClassName('selected')[0].remove();
   }
 }
 
+// FUNCAO QUE DELETA AS TAREFAS COMPLETAS
 function clearCompleteTasks(){
   let list = document.getElementsByClassName('completed');
   let len  = list.length;
@@ -68,10 +77,12 @@ function clearCompleteTasks(){
   }
 }
 
+// FUNCAO QUE DELETA TODAS AS TAREFAS
 function clearAllTasks(){
   list.innerHTML = '';
 }
 
+// FUNCAO QUE MOVE A TAREFA SELECIONADA PARA BAIXO
 function downTask(){
   try{
     let task = document.getElementsByClassName('selected')[0];
@@ -79,11 +90,13 @@ function downTask(){
     let temp = nextTask.innerHTML;
     nextTask.innerHTML = task.innerHTML;
     task.innerHTML = temp;
-    removeClass();
-    nextTask.classList.add('selected');
+    temp = nextTask.className;
+    nextTask.className = task.className;
+    task.className = temp;
   }catch(e){}
 }
 
+// FUNCAO QUE MOVE A TAREFA SELECIONADA PARA CIMA
 function upTask(){
   try{
     let task = document.getElementsByClassName('selected')[0];
@@ -91,41 +104,14 @@ function upTask(){
     let temp = previousTask.innerHTML;
     previousTask.innerHTML = task.innerHTML;
     task.innerHTML = temp;
-    removeClass();
-    previousTask.classList.add('selected');
+    temp = previousTask.className;
+    previousTask.className = task.className;
+    task.className = temp;
   }catch(e){}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let y = document.getElementsByTagName('body')[0];
-// y.addEventListener('click', clickk);
-
-// function clickk(){
-
-  
-//   let x = document.body.style;
-//   x = JSON.stringify(x);
-  
-//   localStorage.setItem('body', x);
-// }
-
-// let recover = localStorage.getItem('body');
-
-// recover = JSON.parse(recover);
+// FUNCAO QUE SALVA O ESTADO ATUAL DA LISTA
+function saveList(){
+  let temp = JSON.stringify(list.outerHTML);
+  localStorage.setItem('saved list', temp);
+}
