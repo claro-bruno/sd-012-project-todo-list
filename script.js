@@ -18,65 +18,61 @@ function done(event) {
 }
 
 function deleteAll() {
-  const tarefas = document.getElementsByClassName('tarefa')
+  const tarefas = document.getElementsByClassName('tarefa');
   while (tarefas.length > 0) tarefas[0].remove();
 }
 
-function deleteGray(){
-  const gray = document.getElementsByClassName('gray')
-  gray[0].remove();
+function deleteGray() {
+  const selected = document.getElementsByClassName('gray');
+  selected[0].remove();
 }
 
-function deleteDone(){
-  const completed = document.getElementsByClassName('completed')
+function deleteDone() {
+  const completed = document.getElementsByClassName('completed');
   while (completed.length > 0) completed[0].remove();
 }
 
 function moverCima() {
- const task = document.getElementsByClassName('tarefa')
- let selectedTask = ''
- let previusTask = ''
- for (let i = 0; i < task.length; i += 1){
-  if (task[i].classList.contains('gray')){
-    if ( i != 0){
-      selectedTask = task[i].innerHTML
-      previusTask = task[i-1].innerHTML
-      task[i].innerHTML = previusTask
-      task[i-1].innerHTML = selectedTask
-      task[i].classList.remove('gray')
-      task[i-1].classList.add('gray')
-      console.log(task[i])
-      console.log(task[i-1])
-    } else {
-      alert('O elemento já está no topo da lista')
+  const task = document.getElementsByClassName('tarefa');
+  let selectedTask = '';
+  let previusTask = '';
+  for (let i = 0; i < task.length; i += 1) {
+    if (task[i].classList.contains('gray')) {
+      if (i !== 0) {
+        selectedTask = task[i].innerHTML;
+        previusTask = task[i - 1].innerHTML;
+        task[i].innerHTML = previusTask;
+        task[i - 1].innerHTML = selectedTask;
+        task[i].classList.remove('gray');
+        task[i - 1].classList.add('gray');
+      } else {
+        alert('O elemento já está no topo da lista');
+      }
     }
-  } 
-}
+  }
 }
 
 function moverBaixo() {
-  const task = document.getElementsByClassName('tarefa')
-  let selectedTask = ''
-  let previusTask = ''
-  for (let i = 0; i < task.length; i += 1){
-  if (task[i].classList.contains('gray')){
-    if ( i != task.length - 1){
-   selectedTask = task[i].innerHTML
-   previusTask = task[i+1].innerHTML
-   task[i].innerHTML = previusTask
-   task[i+1].innerHTML = selectedTask
-   task[i].classList.remove('gray')
-   task[i+11].classList.add('gray')
-   console.log(task[i])
-   console.log(task[i-1])
-    } else {
-      alert('O elemento já está no fundo da lista')
+  const task = document.getElementsByClassName('tarefa');
+  let selectedTask = '';
+  let previusTask = '';
+  for (let i = 0; i < task.length; i += 1) {
+    if (task[i].classList.contains('gray')) {
+      if (i !== task.length - 1) {
+        selectedTask = task[i].innerHTML;
+        previusTask = task[i + 1].innerHTML;
+        task[i].innerHTML = previusTask;
+        task[i + 1].innerHTML = selectedTask;
+        task[i].classList.remove('gray');
+        task[i + 1].classList.add('gray');
+      } else {
+        alert('O elemento já está no fundo da lista');
+      }
     }
- }
-}
+  }
 }
 
-function salvrLista(){
+function salvrLista() {
 
 }
 
@@ -97,4 +93,4 @@ document.getElementById('remover-selecionado').addEventListener('click', deleteG
 document.getElementById('remover-finalizados').addEventListener('click', deleteDone);
 document.getElementById('mover-cima').addEventListener('click', moverCima);
 document.getElementById('mover-baixo').addEventListener('click', moverBaixo);
-console.log(document.getElementsByClassName('tarefa'))
+console.log(document.getElementsByClassName('tarefa'));
