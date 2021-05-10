@@ -5,6 +5,8 @@ const catchInput = document.getElementById('texto-tarefa');
 const catchOl = document.getElementById('lista-tarefas');
 const catchTasks = document.getElementsByClassName('task');
 const catchApagaTudoButton = document.getElementById('apaga-tudo');
+const catchApagaFinalizados = document.getElementById('remover-finalizados');
+
 
 function addTask () {
   if (catchInput.value.length === 0) {
@@ -48,8 +50,18 @@ function addCompleted(event) {
 
 catchOl.addEventListener('dblclick', addCompleted);
 
-function addApagarTudo() {
+function apagarTudo() {
   catchOl.innerHTML = '';
 }
 
-catchApagaTudoButton.addEventListener('click', addApagarTudo);
+catchApagaTudoButton.addEventListener('click', apagarTudo);
+
+
+function apagarFinalizados() {
+  const catchCompleted = document.querySelectorAll('.completed');
+  for (let index = 0; index < catchCompleted.length; index += 1) {
+    catchCompleted[index].remove();
+  }
+}
+
+catchApagaFinalizados.addEventListener('click', apagarFinalizados);
