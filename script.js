@@ -43,6 +43,8 @@ function moverCima() {
       previusTask = task[i-1].innerHTML
       task[i].innerHTML = previusTask
       task[i-1].innerHTML = selectedTask
+      task[i].classList.remove('gray')
+      task[i-1].classList.add('gray')
       console.log(task[i])
       console.log(task[i-1])
     } else {
@@ -63,6 +65,8 @@ function moverBaixo() {
    previusTask = task[i+1].innerHTML
    task[i].innerHTML = previusTask
    task[i+1].innerHTML = selectedTask
+   task[i].classList.remove('gray')
+   task[i+11].classList.add('gray')
    console.log(task[i])
    console.log(task[i-1])
     } else {
