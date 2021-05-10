@@ -39,7 +39,7 @@ function catchInput() {
   }
   taskList.addEventListener('dblclick', markAsCompleted);
 
-  taskList.addEventListener('dblclick', markAsCompleted);
+  
 
 btnX.addEventListener('click', removeAll);
 function removeAll() {
@@ -48,3 +48,11 @@ function removeAll() {
       taskList.removeChild(item);
     }
 }
+
+btnXX.addEventListener('click', removeCompleted);
+function removeCompleted() {
+  const completed = document.querySelectorAll('.completed');
+  for (const item of completed) {
+    taskList.removeChild(item);
+  }
+ }
