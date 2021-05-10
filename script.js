@@ -1,6 +1,7 @@
 const input = document.getElementById('texto-tarefa');
 const btnAdd = document.getElementById('criar-tarefa');
 const btnX = document.getElementById('apaga-tudo');
+const btnXX = document.getElementById('remover-finalizados');
 
 function catchInput() {
     btnAdd.addEventListener('click', () => {
