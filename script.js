@@ -16,6 +16,11 @@ function done(event) {
   }
 }
 
+function deleteAll() {
+  const tarefas = document.getElementsByClassName('tarefa')
+  while (tarefas.length > 0) tarefas[0].remove();
+}
+
 function createTask() {
   const tarefa = document.createElement('li');
   tarefa.classList.add('tarefa');
@@ -25,6 +30,10 @@ function createTask() {
   input.value = '';
   tarefa.addEventListener('click', gray);
   tarefa.addEventListener('dblclick', done);
+
+  document.getElementById('apaga-tudo').addEventListener('click', deleteAll);
+
 }
 
 document.getElementById('criar-tarefa').addEventListener('click', createTask);
+//document.getElementById('apaga-tudo').addEventListener('click', deleteAll);
