@@ -267,7 +267,12 @@ function removeSelecionado () {
     botao.id = 'remover-selecionado'
     botao.innerHTML = 'Remover selecionado'
     botao.addEventListener('click', (event) => {
-
+        let tarefas = document.getElementsByClassName('tarefa');
+        for (let tarefa of tarefas) {
+            if (tarefa.classList.contains('selected') === true) {
+                tarefa.remove();
+            } 
+        }
     })
 }
 removeSelecionado();
