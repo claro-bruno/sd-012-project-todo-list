@@ -8,25 +8,33 @@
     <title>Minha Lista de Tarefas</title>
 </head>
 <body>
-    <header>
-        <h1>Minha Lista de Tarefas</h1>
-        <p id="funcionamento"><em>Clique duas vezes em um item para marcá-lo como completo</em></p>
-    </header>
-    <main>
-        <section>
-            <input id="texto-tarefa" type="text">
-            <button id="criar-tarefa">Adicionar</button>
-            <div>
-                <ol id="lista-tarefas">
-                </ol>
+    <main id="main-container">
+        <header>
+            <h1>Minha Lista de Tarefas</h1>
+            <p id="funcionamento"><em>Clique duas vezes em um item para marcá-lo como completo</em></p>
+        </header>
+        <section id="input-container">
+            <div class="input-field">
+                <input id="texto-tarefa" type="text" placeholder="Insira uma tarefa">
+                <button id="criar-tarefa">Adicionar</button>
+                <div class="underline"></div>
+                <div id="list-container">
+                    <ol id="lista-tarefas">
+                    </ol>
+                </div>
+                <div id="buttons">
+                    <button id="remover-selecionado">X</button>
+                    <button id="mover-cima" class="up-down"></button>
+                     <button id="mover-baixo" class="up-down"></button>
+                     <button id="apaga-tudo" class="clean">Limpar Lista</button>
+                     <button id="remover-finalizados">Limpar Completos</button>
+                     <button id="salvar-tarefas">Salvar Lista</button>
+                 </div>
             </div>
         </section>
-        <section id="buttons">
-            <div>
-                <button id="apaga-tudo">Limpar Lista</button>
-                <button id="remover-finalizados">Limpar Completos</button>
-            </div>
-        </section>
+        <footer id="footer">
+            <span>Desenvolvido por Thiago Prado - Turma 12/Trybe 2021</span>
+        </footer>
     </main>
     <script src="script.js"></script>
 </body>

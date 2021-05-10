@@ -1,4 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: 0;
+    font-family: "Poppies", sans-serif;
+
+}
+body {
+    background: linear-gradient(85deg,#289663,#1c621a );
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#main-container {
+    background-color: white;
+    min-width: 25vw;
+    min-height: 30vh;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#main-container header {
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+#main-container header h1, p {
+    text-align: center;
+    padding-bottom: 10px;
+    color: rgba(29, 28, 28, 0.9)
+}
+
+#input-container {
+    display: flex;
+    margin-left: 20%;
+}
+.input-field {
+    position: relative;
+}
+
+.input-field input {
+    outline: none;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.7);
+}
+.input-field input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.input-field .underline::before {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 60%;
+    background: rgba(0, 0, 0, 0.2);
+
+}
+.input-field .underline::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 60%;
+    background: linear-gradient(85deg,#289663,#1c621a );
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+    transform-origin: left;
+
+}
+.input-field input:focus ~ .underline::after{
+    transform: scaleX(1);
+}
+button#criar-tarefa {
+    
+    background: linear-gradient(to left,#289663,#1c621a);
+    cursor: pointer;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 300;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-top: 1vh;
+    margin-left: 3vw;
+}
+button#salvar-tarefas {
+    
+    background: linear-gradient(to left,#b3b44c,#c1ca5b);
+    cursor: pointer;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 300;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-top: 1vh;
+    margin-left: 0.5vw;
+}
+
+button#criar-tarefa:hover {
+    
+ letter-spacing: 0.5px;
+ padding: 5px;
+ margin-left: 3vw;;
+ background: linear-gradient(to right,#289663,#1a9e16);
+}
+button#salvar-tarefas:hover {
+    
+    letter-spacing: 0.5px;
+    padding: 5px 15px;
+    margin-left: 0.5vw;
+    background: linear-gradient(to left,#dadd23,#a5ad45);
+}
 .completed {
     text-decoration: line-through;
 }
 
+div#list-container {
+    margin: 1vh 1vh 1vh 3vh;
+    
+}
+
+footer#footer {
+    margin-top: 3vh;
+    text-align: center;
+    color: rgb(231, 231, 231);
+    font-size: 0.7rem;
+    background: linear-gradient(to right,#289663,#1c621a);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+div#buttons {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#mover-cima:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0 auto;
+  
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid rgb(255, 255, 255);
+  }
+  
+  #mover-baixo:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0 auto;
+  
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid rgb(255, 255, 255);
+    
+  }
+
+  button#remover-selecionado, #apaga-tudo {
+    background: linear-gradient(to left,#88251e,#cc5858);
+    cursor: pointer;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 300;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-top: 1vh;
+    margin-left: 0.5vw;
+  }
+  button#remover-selecionado:hover, #apaga-tudo:hover {
+    
+    letter-spacing: 0.5px;
+    padding: 5px 15px;
+    margin-left: 0.5vw;
+    background: linear-gradient(to left,#92322b,#e41919);
+   }
+
+  button.up-down {
+    background: linear-gradient(to left,#1e2088,#7158cc);
+    cursor: pointer;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 300;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-top: 1vh;
+    margin-left: 0.5vw;
+}
+button.up-down:hover {
+    letter-spacing: 0.5px;
+    padding: 5px 15px;
+    margin-left: 0.5vw;
+    background: linear-gradient(to left,#3436b9,#7450f8);
+}
+button#remover-finalizados {
+    background: linear-gradient(to left,#0899fa,#7857ee);
+    cursor: pointer;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 300;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-top: 1vh;
+    margin-left: 0.5vw;
+}
+button#remover-finalizados:hover {
+    letter-spacing: 0.5px;
+    padding: 5px 15px;
+    margin-left: 0.5vw;
+    background: linear-gradient(to left,#0982d3,#653ff1);
+}
