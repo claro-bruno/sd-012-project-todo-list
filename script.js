@@ -5,6 +5,7 @@ const btnXX = document.getElementById('remover-finalizados');
 const itemList = document.querySelectorAll('.item-list');
 const taskList = document.getElementById('lista-tarefas');
 const btnSave = document.getElementById('salvar-tarefas');
+const btnUP = document.getElementById('mover-cima');
 
 function catchInput() {
     btnAdd.addEventListener('click', () => {
@@ -37,3 +38,13 @@ function catchInput() {
     }
   }
   taskList.addEventListener('dblclick', markAsCompleted);
+
+  taskList.addEventListener('dblclick', markAsCompleted);
+
+btnX.addEventListener('click', removeAll);
+function removeAll() {
+  const itemList = document.querySelectorAll('.item-list');
+    for (const item of itemList) {
+      taskList.removeChild(item);
+    }
+}
