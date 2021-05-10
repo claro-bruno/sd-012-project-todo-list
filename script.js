@@ -76,3 +76,12 @@ function removeCompleted() {
   btnUP.addEventListener('click', moveUp);
 
 }
+
+function moveDown() {
+    const selected = document.querySelector('.selected');
+    const taskList = document.getElementById('lista-tarefas');
+    if (selected !== null && selected.nextElementSibling !== null) {
+      taskList.insertBefore(selected, selected.nextElementSibling.nextElementSibling);
+    }
+  }
+  btnDown.addEventListener('click', moveDown);
