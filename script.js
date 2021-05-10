@@ -56,3 +56,11 @@ function removeCompleted() {
     taskList.removeChild(item);
   }
  }
+
+ function saveTasks() {
+    localStorage.setItem('task', taskList.innerHTML);
+  }
+  btnSave.addEventListener('click', saveTasks);
+  window.onload = () => {
+    taskList.innerHTML = localStorage.getItem('task');
+  }
