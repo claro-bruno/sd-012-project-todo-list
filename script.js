@@ -1,8 +1,6 @@
 const paiBody = document.getElementsByTagName("body")[0];
 
 
-
-
 function addTitle(){
     let title = document.createElement("header");
     title.innerHTML = "Minha Lista de Tarefas";
@@ -10,13 +8,13 @@ function addTitle(){
 }
 addTitle();
 
-function addDiscretP(){
+function addP(){
     let paragraf = document.createElement("p");
     paragraf.innerHTML = "Clique duas vezes em um item para marcá-lo como completo";
     paragraf.id = "funcionamento";
     paiBody.appendChild(paragraf);
 }
-addDiscretP();
+addP();
 
 function boxText(){
     let box = document.createElement("input");
@@ -25,20 +23,13 @@ function boxText(){
 }
 boxText();
 
-function listOrdened(){
-    let list = document.createElement("ol");
-    list.id = "lista-tarefas";
-    paiBody.appendChild(list);
-}
-listOrdened();
-
 function buttonCriarTarefea(){
-    let buttone = document.createElement("button");
-    buttone.id = "criar-tarefa";
-    paiBody.appendChild(buttone);
-    buttone.innerHTML = "Criar-Tarefa";
+    let buttonCriar = document.createElement("button");
+    buttonCriar.id = "criar-tarefa";
+    paiBody.appendChild(buttonCriar);
+    buttonCriar.innerHTML = "Criar-Tarefa";
 
-    buttone.addEventListener("click", function createTarefa(event){
+    buttonCriar.addEventListener("click", function createTarefa(event){
         let selecOl = document.getElementById("lista-tarefas");
         let criarli = document.createElement("li")
         criarli.addEventListener("click", clickLi);
@@ -49,14 +40,40 @@ function buttonCriarTarefea(){
         boxTexto.value = "";
     })
 
-    buttone.addEventListener("mouseenter", function(event){
+    function listOrdened(){
+        let list = document.createElement("ol");
+        list.id = "lista-tarefas";
+        paiBody.appendChild(list);
+    }
+    listOrdened();
+
+    buttonCriar.addEventListener("mouseenter", function(event){
         event.target.style.backgroundColor = "orange";
     });
-    buttone.addEventListener("mouseout", function (event){
+    buttonCriar.addEventListener("mouseout", function (event){
         event.target.style.backgroundColor = "";
     })
 }
 buttonCriarTarefea();
+
+
+
+
+// function clearAllLi(){
+//     let buttonClear = document.createElement("button");
+//     buttonClear.innerHTML = "Limpar Tarefas";
+//     buttonClear.id = "apaga-tudo";
+//     paiBody.appendChild(buttonClear);
+//     let liS = document.getElementsByTagName("li");
+//     for(index = 0; index < liS.length; index++){
+   
+// }
+// clearAllLi();
+
+
+
+
+
 
 function clickLi(event){
     let listUls = document.getElementsByTagName("li");
