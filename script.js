@@ -12,3 +12,9 @@ botao.addEventListener("click", function(){
     lista.appendChild(linha);
     input.value = "";
 })
+
+document.body.addEventListener("click", function(event){
+    if(event.target.className === "linha"){
+        event.target.classList.add("selected");
+    }
+})
