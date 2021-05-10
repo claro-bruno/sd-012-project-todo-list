@@ -10,4 +10,5 @@ botao.addEventListener("click", function(){
     linha.innerHTML = texto;
 
     lista.appendChild(linha);
+    input.value = "";
 })
