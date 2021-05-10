@@ -13,7 +13,7 @@ function createLi() {
     listaTarefas.appendChild(criarLista);
     inputTexto.value = '';
   });
-};
+}
 createLi();
 
 function backgroundColor() {
@@ -24,31 +24,31 @@ function backgroundColor() {
     }
     event.target.classList.add('selected');
   });
-};
+}
 backgroundColor();
 
-function lineThrough (){
+function lineThrough () {
   listaTarefas.addEventListener('dblclick', (evt) => {
     const completado = document.querySelector('.completed')
     evt.target.classList.toggle('completed')
   })
-};
+}
 lineThrough();
 
-function limparLista (){
+function limparLista () {
   listaTarefas.innerHTML = '';
-};
+}
 botaoLimpar.addEventListener('click', limparLista);
 
 //exercicio feito com ajuda do meu colega caio morato
-function limparComplete (){
-  removerFinalizados.addEventListener('click', () =>{
-  const finalizados = document.querySelectorAll('.completed');
-  finalizados.forEach((a) =>{
-    a.remove();
+function limparComplete () {
+  removerFinalizados.addEventListener('click', () => {
+    const finalizados = document.querySelectorAll('.completed');
+    finalizados.forEach((evt) => {
+      evt.remove();
     });
   });
-};
+}
 limparComplete();
 
 // function limparComplete (){
