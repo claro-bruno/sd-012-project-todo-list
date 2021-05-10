@@ -41,11 +41,12 @@ function buttonCriarTarefea(){
     buttone.addEventListener("click", function createTarefa(event){
         let selecOl = document.getElementById("lista-tarefas");
         let criarli = document.createElement("li")
-        criarli.addEventListener("click", dbClickLi);
+        criarli.addEventListener("click", clickLi);
+        criarli.addEventListener("dblclick", completed);
         selecOl.appendChild(criarli);
         let boxTexto =  document.getElementsByTagName("input")[0];
         criarli.innerHTML = boxTexto.value;
-        boxTexto.value = "";   
+        boxTexto.value = "";
     })
 
     buttone.addEventListener("mouseenter", function(event){
@@ -57,10 +58,18 @@ function buttonCriarTarefea(){
 }
 buttonCriarTarefea();
 
-function dbClickLi(event){
+function clickLi(event){
     let listUls = document.getElementsByTagName("li");
     for(let index = 0; index < listUls.length; index++){
         listUls[index].style.backgroundColor = "";
     }
      event.target.style.backgroundColor = "rgb(128, 128, 128)";
+}
+
+function completed(event){
+    if(event.target.classList == "completed"){
+        event.target.classList.remove("completed");
+    }else{
+        event.target.classList.add("completed");
+    }
 }
