@@ -14,9 +14,9 @@ function capturar () {
     botao.addEventListener('click', function (event) {
         let createList = document.createElement('li');
         createList.addEventListener('click', function(event) { // Exercício 7 e 8
-            let teste = document.querySelector('.selected');
-            if (teste) {
-                teste.classList.remove('selected');
+            let selectSelected = document.querySelector('.selected');
+            if (selectSelected) {
+                selectSelected.classList.remove('selected');
             } 
             event.target.classList.add('selected');
         });
@@ -44,20 +44,19 @@ function capturar () {
        
     });
 };
-    function clearDone () { //Exercício 11
-        
-    }
-    clearDone ();
+    
 
 capturar ();
 
- //Exercício 10:
- function clearList () {
-    selectRemove.addEventListener('click', function() {
-        if(selectRemove.className === 'selected completed');{
-            while (selectOl.firstElementChild)
-            selectOl.removeChild(selectOl.firstElementChild);
-        }
-    })
-}
-clearList ();
+ //Exercício 10 e 11:
+
+ document.addEventListener('click', function(event) {
+     if(event.target.id === 'apaga-tudo') {
+        while (selectOl.firstElementChild)
+        selectOl.removeChild(selectOl.firstElementChild);
+     }
+     if (event.target.id === 'remover-finalizados') {
+        let completedList = document.getElementsByClassName('completed');
+        console.log('Verificando lista completa de completed:', completedList)
+     }
+ })
