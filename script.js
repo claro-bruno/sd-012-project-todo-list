@@ -48,9 +48,9 @@ function salvaTarefas() {
 }
 
 window.onload = function adicionaTarefasSalvas() {
-  const tarefas = localStorage.getItem('lista');
+  const tarefasSalvas = localStorage.getItem('lista');
   if (localStorage.length > 0) {
-    lista.innerHTML = tarefas;
+    lista.innerHTML = tarefasSalvas;
   }
   for (let index = 0; index < lista.children.length; index += 1) {
     lista.children[index].addEventListener('click', select);
@@ -60,15 +60,17 @@ window.onload = function adicionaTarefasSalvas() {
 
 function moveCima() {
   const tarefa = document.querySelector('.selected');
+  const tarefaAnterior = tarefa.previousElementSibling;
   if (tarefa !== null && tarefa !== tarefa.parentElement.firstChild) {
-    tarefa.parentNode.insertBefore(tarefa, tarefa.previousSibling);
+    lista.insertBefore(tarefa, tarefaAnterior);
   }
 }
 
 function moveBaixo() {
   const tarefa = document.querySelector('.selected');
+  const proximaTarefa = tarefa.nextElementSibling;
   if (tarefa !== null && tarefa !== tarefa.parentElement.lastChild) {
-    tarefa.parentNode.insertBefore(tarefa, tarefa.nextSibling.nextSibling);
+    lista.insertBefore(tarefa, proximaTarefa.nextElementSibling);
   }
 }
 
