@@ -17,22 +17,19 @@ function addTarefa(){
 
 //SELECIONA ITEM DA LISTA
 function selected(event) {
-    event.target.classList.add('selected');
+    const selectedChange = document.querySelector('.selected');
+    if (selectedChange){
+        selectedChange.classList.remove('selected');
+    };
+    event.target.classList.add('selected');    
 };
-
-// function changeSelected(event){
-//     selectedChange = document.querySelector('.selected');
-//     selectedChange.classList.remove('selected');
-//     event.target.classList.add('selected');
-// };
-// changeSelected();  
-    
+        
 //REMOVE ITEM DA LISTA
 const removeSelecionado = document.querySelector('#remover-selecionado');
 removeSelecionado.addEventListener('click', removeTarefa);
 function removeTarefa() {
     const tarefa = document.querySelector('.selected');
-    tarefa.innerHTML = '';
+    tarefa.innerText = '';
 };
 
 //APAGA TUDO
@@ -42,5 +39,3 @@ function limpaTarefa (){
     const itensList = document.querySelector('#lista-tarefas');
     itensList.innerText = '';
 };
-
-
