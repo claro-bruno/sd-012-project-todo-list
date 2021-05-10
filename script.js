@@ -4,6 +4,7 @@ const btnX = document.getElementById('apaga-tudo');
 const btnXX = document.getElementById('remover-finalizados');
 const itemList = document.querySelectorAll('.item-list');
 const taskList = document.getElementById('lista-tarefas');
+const btnSave = document.getElementById('salvar-tarefas');
 
 function catchInput() {
     btnAdd.addEventListener('click', () => {
