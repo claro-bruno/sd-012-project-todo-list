@@ -5,14 +5,28 @@ let botaoCriarTarefa = document.getElementById('criar-tarefa');
 let botaoApagarTudo = document.getElementById('apaga-tudo');
 let botaoApagarFin = document.getElementById('remover-finalizados');
 let botaoSalvar = document.getElementById('salvar-tarefas');
+let botaoMoverCima = document.getElementById('mover-cima');
+let botaoMoverBaixo = document.getElementById('mover-baixo');
 let elementoInput = document.getElementById('texto-tarefa');
 let listaLis = document.getElementsByClassName('item-lista');
+
+//criando uma div para guardar texto do botao mover cima//
+let divBotaoMoverCima = document.createElement('div');
+botaoMoverCima.appendChild(divBotaoMoverCima);
+divBotaoMoverCima.id = 'texto-mover-cima';
+divBotaoMoverCima.innerHTML = 'Subir tarefa';
+
+//criando uma div para guardar texto do botao mover cima//
+let divBotaoMoverBaixo = document.createElement('div');
+botaoMoverBaixo.appendChild(divBotaoMoverBaixo);
+divBotaoMoverBaixo.id = 'texto-mover-baixo';
+divBotaoMoverBaixo.innerHTML = 'Descer tarefa';
 
 //criando uma div para guardar texto do botao adicionar//
 let divBotao = document.createElement('div');
 botaoCriarTarefa.appendChild(divBotao);
-divBotao.id = 'texto-botao'
-divBotao.innerHTML = 'Adicionar'
+divBotao.id = 'texto-botao';
+divBotao.innerHTML = 'Adicionar';
 
 //criando uma div para guardar texto do botao apagar tudo//
 let divBotaoApagar = document.createElement('div');
@@ -20,7 +34,7 @@ botaoApagarTudo.appendChild(divBotaoApagar);
 divBotaoApagar.id = 'texto-botao-apagar';
 divBotaoApagar.innerHTML = 'Apagar tudo';
 
-//criando uma div para guardar texto do botao apagar tudo//
+//criando uma div para guardar texto do botao apagar finalizados//
 let divBotaoApagarFin = document.createElement('div');
 botaoApagarFin.appendChild(divBotaoApagarFin);
 divBotaoApagarFin.id = 'texto-botao-apagar-finalizados';
@@ -50,13 +64,13 @@ criaEventoBotao();
 //REQUISITO 7 e 8//
 
 function mudaCorItem() {
-    let listaTarefas = document.getElementById('lista-tarefas');
-    listaTarefas.addEventListener('click', function(event) {
-        for (index = 0; index < listaLis.length; index += 1){
-            listaLis[index].style.backgroundColor = '';
-        }
-        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    });
+  let listaTarefas = document.getElementById('lista-tarefas');
+  listaTarefas.addEventListener('click', function(event) {
+    for (index = 0; index < listaLis.length; index += 1){
+      listaLis[index].style.backgroundColor = '';
+    }
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  });
 };
 
 mudaCorItem();
@@ -86,7 +100,7 @@ function apagaTudo() {
     botaoApagador.addEventListener('click', function() {
       while (listaTarefas.firstChild) {
         listaTarefas.removeChild(listaTarefas.firstChild);
-        };
+      };
     });
 };
 
@@ -114,18 +128,51 @@ removeFinalizados();
 
 //1-transformar a listaTarefas que é um objeto em uma string e armazenar no local storage//
 
-function salvarLista () {
+function salvarLista() {
   localStorage.setItem('listaDeTarefas', listaTarefas.innerHTML);
-}
+};
 
-function adicionaEventoSalvar () {
-    let botaoSalvar = document.getElementById('salvar-tarefas');
-    botaoSalvar.addEventListener('click', salvarLista);
-}
+function adicionaEventoSalvar() {
+  botaoSalvar.addEventListener('click', salvarLista);
+};
 
 adicionaEventoSalvar();
 
 window.onload = function () {
-    let storageListaString = localStorage.getItem('listaDeTarefas') //recupera lista como string//
-    listaTarefas.innerHTML = storageListaString;
-}
+  let storageListaString = localStorage.getItem('listaDeTarefas'); //recupera lista como string//
+  listaTarefas.innerHTML = storageListaString;
+};
+
+//REQUISITO 13 - adicionar botoes mover cima e mover baixo//
+
+function adicionaEventoMoverCima () {
+  botaoMoverCima.addEventListener('click', moverCima);
+};
+
+adicionaEventoMoverCima();
+
+
+function moverCima() {
+  const listaEstLis = document.querySelectorAll('.item-lista');
+  for (index4 = 1; index4 < listaEstLis.length; index4 += 1){
+    if (listaEstLis[index4].style.backgroundColor === 'rgb(128, 128, 128)') {
+      listaTarefas.insertBefore(listaEstLis[index4], listaEstLis[index4].previousSibling);
+    };
+  };
+};
+
+function adicionaEventoMoverBaixo () {
+  botaoMoverBaixo.addEventListener('click', moverBaixo);
+};
+
+adicionaEventoMoverBaixo();
+
+function moverBaixo() {
+  const listaEstLis = document.querySelectorAll('.item-lista');
+  for (index5 = 0; index5 < listaEstLis.length - 1; index5 += 1){
+    if (listaEstLis[index5].style.backgroundColor === 'rgb(128, 128, 128)') {
+      listaTarefas.insertBefore(listaEstLis[index5], listaEstLis[index5].nextSibling.nextSibling);
+    };
+  };
+};
+

@@ -25,6 +25,20 @@ button {
     border-radius: 5px;
 }
 
+button#mover-cima {
+    display: inline-block;
+    width: 140px;
+    height: 30px;
+    margin-left: 30px;
+}
+
+button#mover-baixo {
+    display: inline-block;
+    width: 140px;
+    height: 30px;
+    margin-left: 30px;
+}
+
 button#remover-finalizados {
     display: inline-block;
     width: 140px;
@@ -80,6 +94,16 @@ button#salvar-tarefas {
 }
 
 #texto-botao-salvar {
+    text-align: center;
+    line-height: 10px;
+}
+
+#texto-mover-baixo {
+    text-align: center;
+    line-height: 10px;
+}
+
+#texto-mover-cima {
     text-align: center;
     line-height: 10px;
 }
