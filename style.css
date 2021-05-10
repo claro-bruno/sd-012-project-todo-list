@@ -46,10 +46,10 @@ ol {
 }
 
 .board {
-  width: 70%;
+  width: 50%;
   height: 800px;
   margin: auto;
-  border: solid 1px white;
+  /*border: solid 1px white;*/
 }
 
 .container-lista {

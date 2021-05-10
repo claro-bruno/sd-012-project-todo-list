@@ -32,6 +32,42 @@ function deleteDone(){
   while (completed.length > 0) completed[0].remove();
 }
 
+function moverCima() {
+ const task = document.getElementsByClassName('tarefa')
+ let selectedTask = ''
+ let previusTask = ''
+ for (let i = 0; i < task.length; i += 1){
+ if (task[i].classList.contains('gray')){
+   selectedTask = task[i].innerHTML
+   previusTask = task[i-1].innerHTML
+   task[i].innerHTML = previusTask
+   task[i-1].innerHTML = selectedTask
+   console.log(task[i])
+   console.log(task[i-1])
+ }
+}
+}
+
+function moverBaixo() {
+  const task = document.getElementsByClassName('tarefa')
+  let selectedTask = ''
+  let previusTask = ''
+  for (let i = 0; i < task.length; i += 1){
+  if (task[i].classList.contains('gray')){
+   selectedTask = task[i].innerHTML
+   previusTask = task[i+1].innerHTML
+   task[i].innerHTML = previusTask
+   task[i+1].innerHTML = selectedTask
+   console.log(task[i])
+   console.log(task[i-1])
+ }
+}
+}
+
+function salvrLista(){
+
+}
+
 function createTask() {
   const tarefa = document.createElement('li');
   tarefa.classList.add('tarefa');
@@ -43,9 +79,10 @@ function createTask() {
   tarefa.addEventListener('dblclick', done);
 }
 
-//tarefa.addEventListener('click', gray);
-//tarefa.addEventListener('dblclick', done);
 document.getElementById('criar-tarefa').addEventListener('click', createTask);
 document.getElementById('apaga-tudo').addEventListener('click', deleteAll);
 document.getElementById('remover-selecionado').addEventListener('click', deleteGray);
 document.getElementById('remover-finalizados').addEventListener('click', deleteDone);
+document.getElementById('mover-cima').addEventListener('click', moverCima);
+document.getElementById('mover-baixo').addEventListener('click', moverBaixo);
+console.log(document.getElementsByClassName('tarefa'))
