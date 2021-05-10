@@ -41,6 +41,7 @@ function buttonCriarTarefea(){
     buttone.addEventListener("click", function createTarefa(event){
         let selecOl = document.getElementById("lista-tarefas");
         let criarli = document.createElement("li")
+        criarli.addEventListener("click", dbClickLi);
         selecOl.appendChild(criarli);
         let boxTexto =  document.getElementsByTagName("input")[0];
         criarli.innerHTML = boxTexto.value;
@@ -56,5 +57,10 @@ function buttonCriarTarefea(){
 }
 buttonCriarTarefea();
 
-
-
+function dbClickLi(event){
+    let listUls = document.getElementsByTagName("li");
+    for(let index = 0; index < listUls.length; index++){
+        listUls[index].style.backgroundColor = "";
+    }
+     event.target.style.backgroundColor = "rgb(128, 128, 128)";
+}
