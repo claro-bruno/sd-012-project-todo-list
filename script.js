@@ -3,6 +3,7 @@
 let botao = document.getElementById('criar-tarefa');
 botao.addEventListener('click', criaLista);
 //Criando a lista de tarefas
+
 function criaLista(event){
     event.preventDefault();
     let item = document.createElement('li');
