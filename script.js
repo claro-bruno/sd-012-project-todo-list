@@ -8,6 +8,7 @@ function gray(event) {
   }
   event.target.classList.add('gray');
 }
+
 function done(event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
@@ -21,6 +22,16 @@ function deleteAll() {
   while (tarefas.length > 0) tarefas[0].remove();
 }
 
+function deleteGray(){
+  const gray = document.getElementsByClassName('gray')
+  gray[0].remove();
+}
+
+function deleteDone(){
+  const completed = document.getElementsByClassName('completed')
+  while (completed.length > 0) completed[0].remove();
+}
+
 function createTask() {
   const tarefa = document.createElement('li');
   tarefa.classList.add('tarefa');
@@ -30,10 +41,11 @@ function createTask() {
   input.value = '';
   tarefa.addEventListener('click', gray);
   tarefa.addEventListener('dblclick', done);
-
-  document.getElementById('apaga-tudo').addEventListener('click', deleteAll);
-
 }
 
+//tarefa.addEventListener('click', gray);
+//tarefa.addEventListener('dblclick', done);
 document.getElementById('criar-tarefa').addEventListener('click', createTask);
-//document.getElementById('apaga-tudo').addEventListener('click', deleteAll);
+document.getElementById('apaga-tudo').addEventListener('click', deleteAll);
+document.getElementById('remover-selecionado').addEventListener('click', deleteGray);
+document.getElementById('remover-finalizados').addEventListener('click', deleteDone);
