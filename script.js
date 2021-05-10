@@ -95,16 +95,15 @@ Será verificado que, ao se clicar em um item da lista, ele passa a ter o estilo
 O que será verificado:
 Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo background-color: rgb(128, 128, 128) no elemento. */
 
-
 function alteraFundoItem (event) {
     let tarefas = document.getElementsByClassName('tarefa');
     for (let tarefa of tarefas) {
-        tarefa.style.backgroundColor = 'white';
+        tarefa.classList.remove('selected')
     }
-    if (event.target.style.backgroundColor !== 'rgb(128, 128, 128)') {
-        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    if (event.target.classList.contains('selected') === false) {
+        event.target.classList.add('selected');
     } else {
-        event.target.style.backgroundColor = 'white';
+        event.target.classList.remove('selected');
     }
 }
 
@@ -231,9 +230,44 @@ Será verificado que, caso nenhum elemento esteja selecionado, clicar nos botõe
 Será verificado que um elemento que esteja selecionado deve se manter selecionado mesmo depois de movido
 Caso especial! Será verificado que, caso se tente subir o elemento no topo da lista ou, caso se tente descer o último elemento da lista, esta não deve ser alterada */
 
+function moveCima (event) {
+    //testa se eh o primeiro
+    // testa se selecionado
+
+}
+function moveBaixo (event) {
+    //testa se eh o ultimo
+    // testa se selecionado
+
+}
+function botoesMovemTarefas () {
+    let botaoMoverCima = document.createElement('button')
+    let botaoMoverBaixo = document.createElement('button')
+    let list = document.getElementById('lista-tarefas')
+    document.body.insertBefore(botaoMoverCima, list)
+    document.body.insertBefore(botaoMoverBaixo, list)
+    botaoMoverCima.id = 'mover-cima'
+    botaoMoverBaixo.id = 'mover-baixo'
+    botaoMoverCima.innerHTML = 'Mover Cima'
+    botaoMoverBaixo.innerHTML = 'Mover Baixo'
+    botaoMoverCima.addEventListener('click', moveCima)
+    botaoMoverCima.addEventListener('click', moveBaixo)
+}
+botoesMovemTarefas();
 
 /* 14 - Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado
 O que será verificado:
 Será verificada a presença de um elemento button com um id remover-selecionado
 Será verificado que, no clicar no botão, somente o elemento selecionado é removido */
 
+function removeSelecionado () {
+    let botao = document.createElement('button')
+    let list = document.getElementById('lista-tarefas')
+    document.body.insertBefore(botao, list)
+    botao.id = 'remover-selecionado'
+    botao.innerHTML = 'Remover selecionado'
+    botao.addEventListener('click', (event) => {
+
+    })
+}
+removeSelecionado();
