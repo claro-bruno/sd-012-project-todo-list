@@ -2,14 +2,17 @@
 const addToListButton = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const typedTextInput = document.getElementById('texto-tarefa');
-const allItemList = document.getElementsByTagName('li');
 const eraserButton = document.getElementById('apaga-tudo');
 const removeDoneButton = document.getElementById('remover-finalizados');
+const saveListButton = document.getElementById('salvar-tarefas');
+const clearStoredListButton = document.getElementById('limpar-lista');
 const moveUpButton = document.getElementById('mover-cima');
+const moveDownButton = document.getElementById('mover-baixo');
+const removeSelectedButton = document.getElementById('remover-selecionado');
 
 // Recover the lista-tarefas when reload the page
 window.onload = () => {
-  taskList.innerHTML = localStorage.getItem('TList');
+  taskList.innerHTML = localStorage.getItem('tarefas-salvas');
 };
 
 function listItemCreation() {
@@ -42,15 +45,30 @@ cleanTheImput();
 function completedTask() {
   taskList.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed');
-    localStorage.setItem('TList', taskList.innerHTML);
   });
 }
 completedTask();
 
-eraserButton.addEventListener('click', () => {
-  taskList.innerHTML = '';
-  localStorage.removeItem('TList');
-});
+function clearList() {
+  eraserButton.addEventListener('click', () => {
+    taskList.innerHTML = '';
+  });
+}
+clearList();
+
+function saveList() {
+  saveListButton.addEventListener('click', () => {
+    localStorage.setItem('tarefas-salvas', taskList.innerHTML);
+  });
+}
+saveList();
+
+function clearStoredList() {
+  clearStoredListButton.addEventListener('click', () => {
+    localStorage.removeItem('tarefas-salvas');
+  });
+}
+clearStoredList();
 
 function removeAllDone() {
   removeDoneButton.addEventListener('click', () => {
@@ -59,15 +77,58 @@ function removeAllDone() {
     allDone.forEach((a) => {
       a.remove();
     });
-    localStorage.setItem('TList', taskList.innerHTML);
   });
 }
 removeAllDone();
 
 function movingUp() {
-  let allDone = document.getElementsByClassName('.completed');
   moveUpButton.addEventListener('click', () => {
-    [taskList[allDone - 1], allDone] = [allDone, taskList[allDone - 1]];
+    const selected = document.getElementsByClassName('selected')[0];
+    if (selected !== taskList.firstElementChild) {
+      const previous = selected.previousElementSibling;
+      const x = previous.innerHTML;
+      previous.innerHTML = selected.innerHTML;
+      selected.innerHTML = x;
+      selected.classList.remove('selected');
+      previous.classList.add('selected');
+    } else {
+      const previous = taskList.lastElementChild;
+      const x = previous.innerHTML;
+      previous.innerHTML = selected.innerHTML;
+      selected.innerHTML = x;
+      selected.classList.remove('selected');
+      previous.classList.add('selected');
+    }
   });
 }
 movingUp();
+
+function moveDown() {
+  moveDownButton.addEventListener('click', () => {
+    const selected = document.getElementsByClassName('selected')[0];
+    if (selected !== taskList.lastElementChild) {
+      const next = selected.nextElementSibling;
+      const x = next.innerHTML;
+      next.innerHTML = selected.innerHTML;
+      selected.innerHTML = x;
+      selected.classList.remove('selected');
+      next.classList.add('selected');
+    } else {
+      const next = taskList.firstElementChild;
+      const x = next.innerHTML;
+      next.innerHTML = selected.innerHTML;
+      selected.innerHTML = x;
+      selected.classList.remove('selected');
+      next.classList.add('selected');
+    }
+  });
+}
+moveDown();
+
+function removeSelected() {
+  removeSelectedButton.addEventListener('click', () => {
+    let selected = document.getElementsByClassName('selected')[0];
+    selected.remove();
+  });
+}
+removeSelected();
