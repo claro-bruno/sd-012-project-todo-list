@@ -1,6 +1,7 @@
 const button = document.querySelector('#criar-tarefa');
 const input = document.querySelector('#texto-tarefa');
 const list = document.querySelector('#lista-tarefas');
+const buttonClear = document.querySelector('#apaga-tudo');
 // Adiciona tarefas
 function makeJob() {
   const newJob = document.createElement('li');
@@ -30,3 +31,11 @@ function completeTask(event) {
 }
 
 list.addEventListener('dblclick', completeTask);
+
+// Botão que apaga geral
+function clearButton() {
+  list.innerHTML = '';
+  console.log(list);
+  console.log(buttonClear);
+}
+buttonClear.addEventListener('click', clearButton);
