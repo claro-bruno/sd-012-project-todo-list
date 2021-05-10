@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable no-param-reassign */
 const addTask = document.getElementById('criar-tarefa');
@@ -19,12 +20,12 @@ addTask.addEventListener('click', createNewListItem);
 
 function selectedItem(event) {
   if (event.target.className === 'item-tarefa') {
-    const selected = document.getElementsByClassName('seleciona');
-    for (let index = 0; index < selected.length; index += 1) {
-      selected[index].className = 'item-tarefa';
+    const selected = document.querySelector('.seleciona');
+    if (selected !== null) {
+      selected.classList.remove('seleciona');
+    } else {
+      event.target.classList.add('seleciona');
     }
-    // eslint-disable-next-line no-param-reassign
-    event.target.className = 'item-tarefa seleciona';
   }
 }
 
@@ -52,11 +53,11 @@ function deleteAll() {
 
 deleteAllTasks.addEventListener('click', deleteAll);
 
-function removeCompletedTasks(event) {
-  if (event.target.classList.contains('completo')) {
-    for (index = 0; index < taskList.length; index += 1) {
-      taskList[index].removeChild('item-tarefa completo');
-    }
+function removeCompletedTasks() {
+  const completedTask = document.querySelectorAll('.completed');
+
+  for (index = 0; index < completedTask.length; index += 1) {
+    taskList[index].remove();
   }
 }
 deleteAllCompletedTasks.addEventListener('click', removeCompletedTasks);
