@@ -2,6 +2,7 @@ const input = document.getElementById('texto-tarefa');
 const btnAdd = document.getElementById('criar-tarefa');
 const btnX = document.getElementById('apaga-tudo');
 const btnXX = document.getElementById('remover-finalizados');
+const itemList = document.querySelectorAll('.item-list');
 
 function catchInput() {
     btnAdd.addEventListener('click', () => {
