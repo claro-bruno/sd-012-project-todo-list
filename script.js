@@ -7,5 +7,8 @@ window.onload = function () {
   text.innerHTML = "Clique duas vezes em um item para marcá-lo como completo";
   text.id = "funcionamento";
   document.body.appendChild(text);
-  
+
+  let textBox = document.createElement("input");
+  textBox.id= "texto-tarefa";
+  document.body.appendChild(textBox);
 };
