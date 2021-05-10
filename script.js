@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable no-param-reassign */
@@ -7,6 +8,8 @@ const taskList = document.getElementById('lista-tarefas');
 const deleteAllTasks = document.getElementById('apaga-tudo');
 const deleteAllCompletedTasks = document.getElementById('remover-finalizados');
 const saveTasksList = document.getElementById('salvar-tarefas');
+const moveUp = document.getElementById('mover-cima');
+const moveDown = document.getElementById('mover-baixo');
 
 function createNewListItem() {
   const listItem = document.createElement('li');
@@ -72,3 +75,31 @@ window.onload = function initialID() {
     taskList.innerHTML += localStorage.getItem('key');
   }
 };
+
+// function nextSiblingItem() {
+//   let siblings = [];
+//   const currentItem = document.querySelector('.selected');
+//   const nextSibling = currentItem.nextElementSibling;
+
+//   while(nextSibling) {
+
+//   }
+// }
+
+function nextSiblingItem() {
+  const selected = document.querySelector('.selected');
+  if (selected !== null && selected !== taskList.lastElementChild) {
+    taskList.insertBefore(selected.nextElementSibling, selected);
+  }
+}
+
+moveDown.addEventListener('click', nextSiblingItem);
+
+function previousSiblingItem() {
+  const selected = document.querySelector('.selected');
+  if (selected !== null && selected !== taskList.firstElementChild) {
+    taskList.insertBefore(selected, selected.previousSibling);
+  }
+}
+
+moveUp.addEventListener('click', previousSiblingItem);
