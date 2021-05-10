@@ -5,23 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>To do list!</title>
 </head>
 <body>
     <header><h1>Minha Lista de Tarefas</h1></header>
-<p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-<form method="GET" id="form1">
-    <input id="texto-tarefa" type="text" >
-</form>
-<button id="criar-tarefa" >VQV</button>
-<button id="apaga-tudo"> Limpar</button>
-<button id="remover-finalizados">Limpar finalizados</button>
-<ol id="lista-tarefas">
+<p class="informacoes" id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    <content>
+        <form class="informacoes" method="GET" id="form1">
+    <input class="input" id="texto-tarefa" type="text" >
+        </form>
+        <div class="botoes">
+            <button class="vqv" id="criar-tarefa" >VQV</button>
+            <button class="limpar" id="apaga-tudo"> Limpar</button>
+            <button class="removerFinalizados" id="remover-finalizados">Limpar finalizados</button>
+        </div>
+        <ol class="listaOrdenada" id="lista-tarefas">
 
-</ol>
-
-
-
+        </ol>
+    </content>
 <script src="script.js"></script>
 </body>
 </html>
