@@ -30,7 +30,7 @@ function adicionaTarefa() {
 }
 
 function apagaTarefas() {
-  while (lista.firstChild) {
+  while (lista.firstChild != null) {
     lista.firstChild.remove();
   }
 }
@@ -49,7 +49,7 @@ function salvaTarefas() {
 
 window.onload = function adicionaTarefasSalvas() {
   const tarefasSalvas = localStorage.getItem('lista');
-  if (localStorage.length > 0) {
+  if (tarefasSalvas != null) {
     lista.innerHTML = tarefasSalvas;
   }
   for (let index = 0; index < lista.children.length; index += 1) {
@@ -60,7 +60,7 @@ window.onload = function adicionaTarefasSalvas() {
 
 function moveCima() {
   const tarefa = document.querySelector('.selected');
-  if (tarefa !== null && tarefa !== tarefa.parentElement.firstChild) {
+  if (tarefa != null && tarefa !== lista.firstChild) {
     const tarefaAnterior = tarefa.previousElementSibling;
     lista.insertBefore(tarefa, tarefaAnterior);
   }
@@ -68,7 +68,7 @@ function moveCima() {
 
 function moveBaixo() {
   const tarefa = document.querySelector('.selected');
-  if (tarefa !== null && tarefa !== tarefa.parentElement.lastChild) {
+  if (tarefa != null && tarefa !== lista.lastChild) {
     const proximaTarefa = tarefa.nextElementSibling;
     lista.insertBefore(tarefa, proximaTarefa.nextElementSibling);
   }
@@ -76,7 +76,7 @@ function moveBaixo() {
 
 function apagaSelecionada() {
   const tarefa = document.querySelector('.selected');
-  if (tarefa !== null) {
+  if (tarefa != null) {
     tarefa.remove();
   }
 }
