@@ -9,5 +9,9 @@ function adicionaTarefa() {
 }
 
 function changeColor(event) {
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+  const getLiGray = document.querySelector('.gray');
+  if(getLiGray !== null){
+    getLiGray.classList.remove('gray');
+  }
+  event.target.classList.add('gray');
 }
