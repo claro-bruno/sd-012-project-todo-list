@@ -1,5 +1,6 @@
 let clickButton = document.querySelector('#criar-tarefa');
 let inputTarefaText = document.querySelector('#texto-tarefa');
+
 function createList() {
   let createList = document.createElement('li');
   let inputTarefa = document.querySelector('#lista-tarefas');
@@ -9,6 +10,7 @@ function createList() {
   createList.className = 'itemlist';
   inputTarefa.appendChild(createList);
   inputTarefaText.value = '';
+  createList.addEventListener('dblclick', inputLineThrough);
 }
 clickButton.addEventListener('click', createList);
 
@@ -25,3 +27,16 @@ function selectedList(event) {
 }
 
 document.addEventListener('click', selectedList);
+
+function inputLineThrough(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+// function apagaTudo(event){
+// if (event.target.classList.)
+// }
+// addEventListener('click', apagaTudo)
