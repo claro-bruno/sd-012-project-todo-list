@@ -27,4 +27,12 @@ function adicionaTarefa() {
 const criarTarefa = document.querySelector('#criar-tarefa');
 criarTarefa.addEventListener('click', adicionaTarefa);
 
+function clearList() {
+  let taskList = document.querySelector('#lista-tarefas');
+  while (taskList.firstChild !== null) {
+    taskList.firstChild.remove();
+  } 
+}
 
+const clearButton = document.querySelector('#apaga-tudo');
+clearButton.addEventListener('click', clearList);
