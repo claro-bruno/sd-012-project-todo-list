@@ -1,11 +1,16 @@
+let botaoClicado = document.getElementById('#criar-tarefa');
+botaoClicado.addEventListener('click', acrescentaLista);
 
-let n = 5;
-let symbol = '*';
-let inputLine = '';
+function acrescentaLista(event) {
+    let novaTarefa = document.createElement('li');
+    event.preventDefault();
+    novaTarefa.className='lista';
+    document.querySelector('#lista-tarefas').appendChild(novaTarefa);
+    let retornoLista = document.getElementById('texto-tarefa');
+    novaTarefa.innerHTML = retornoLista.value;
+    retornoLista.value = '';
 
-for (let lineIndex = 0; lineIndex < n; lineIndex += 1) {
-  inputLine = inputLine + symbol;
-};
-for (let lineIndex = 0; lineIndex < n; lineIndex += 1) {
-  console.log(inputLine);
-};
+    }
+
+/* window.onload = function () { */
+ 
