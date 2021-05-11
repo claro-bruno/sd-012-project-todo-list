@@ -1,3 +1,14 @@
+const addToListButton = document.getElementById('criar-tarefa');
+const taskList = document.getElementById('lista-tarefas');
+const typedTextInput = document.getElementById('texto-tarefa');
+const eraserButton = document.getElementById('apaga-tudo');
+const removeDoneButton = document.getElementById('remover-finalizados');
+const saveListButton = document.getElementById('salvar-tarefas');
+const clearStoredListButton = document.getElementById('limpar-lista');
+const moveUpButton = document.getElementById('mover-cima');
+const moveDownButton = document.getElementById('mover-baixo');
+const removeSelectedButton = document.getElementById('remover-selecionado');
+
 window.onload = () => {
   taskList.innerHTML = localStorage.getItem('tarefas-salvas');
 };
@@ -105,13 +116,10 @@ function clearStoredList() {
 }
 clearStoredList();
 
-const addToListButton = document.getElementById('criar-tarefa');
-const taskList = document.getElementById('lista-tarefas');
-const typedTextInput = document.getElementById('texto-tarefa');
-const eraserButton = document.getElementById('apaga-tudo');
-const removeDoneButton = document.getElementById('remover-finalizados');
-const saveListButton = document.getElementById('salvar-tarefas');
-const clearStoredListButton = document.getElementById('limpar-lista');
-const moveUpButton = document.getElementById('mover-cima');
-const moveDownButton = document.getElementById('mover-baixo');
-const removeSelectedButton = document.getElementById('remover-selecionado');
+function removeSelected() {
+  removeSelectedButton.addEventListener('click', () => {
+    const selected = document.getElementsByClassName('selected')[0];
+    selected.remove();
+  });
+}
+removeSelected();
