@@ -25,3 +25,7 @@
     width: 150px;
     height: auto;
 }
+
+.completed {
+    text-decoration: line-through;
+}

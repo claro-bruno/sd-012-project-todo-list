@@ -22,6 +22,17 @@ button.addEventListener('click', () => {
             };
         event.target.classList.add('selected');
    
+    }) 
+
+    itemDaLista.addEventListener('dblclick', (event) => {
+       event.target.classList.add('completed');
+       itemDaLista.addEventListener('dblclick', (event) => {
+        event.target.classList.remove('completed');
+    
+       })   
+   
     })   
 
 })
+
+
