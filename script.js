@@ -1,6 +1,7 @@
 let listaDeItem = document.getElementById("lista-tarefas");
 let botaoAdicionarTarefa = document.getElementById("criar-tarefa");
 let apagaTudo = document.getElementById("apaga-tudo");
+let apagaFinalizadas = document.getElementById('remover-finalizados');
 
 
 function createTask() {
@@ -11,13 +12,13 @@ function createTask() {
         listaDeItem.appendChild(itemDaLista);
     }
     tarefa.value = '';
-}
+};
 
 function completeTask() {
     if (event.target.id != 'lista-tarefas' && event.target.id != 'items-tarefa') {
         event.target.classList.contains('completed') ? event.target.classList.remove('completed') : event.target.classList.add("completed");
     }
-}
+};
 
 function limpaLista() {
     while (listaDeItem.firstChild) {
@@ -25,13 +26,7 @@ function limpaLista() {
     };
 };
 
-botaoAdicionarTarefa.addEventListener("click", createTask)
-
-
-listaDeItem.addEventListener('dblclick', completeTask);
-
-listaDeItem.addEventListener("click", () => {
-
+function selecionarItem() {
     let tarefas = document.getElementsByTagName('li');
 
     if (event.target.id != 'lista-tarefas' && event.target.id != "itens-tarefa") {
@@ -42,7 +37,24 @@ listaDeItem.addEventListener("click", () => {
         };
 
         event.target.classList.add('selected');
-    }
-});
+    };
+};
+
+function apagaFinalizados() {
+
+    for (let i = 0; i < listaDeItem.children.length; i++) {
+        if (listaDeItem.children[i].classList.contains('completed')) {
+            listaDeItem.removeChild(listaDeItem.children[i]);
+        };
+    };
+};
+
+botaoAdicionarTarefa.addEventListener('click', createTask);
+
+listaDeItem.addEventListener('dblclick', completeTask);
+
+listaDeItem.addEventListener('click', selecionarItem);
 
 apagaTudo.addEventListener('click', limpaLista);
+
+apagaFinalizadas.addEventListener('click', apagaFinalizados);
