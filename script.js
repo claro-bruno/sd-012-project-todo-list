@@ -93,34 +93,40 @@ const removerFinalizados = () => {
 const moverAcima = () => {
   const todasAsTarefas = document.querySelectorAll('.tarefa');
   const tarefaSelecionada = document.querySelector('#selecionado');
-  let indiceDaTarefaSelecionada = '';
+  
+  if (tarefaSelecionada !== null) {
+    let indiceDaTarefaSelecionada = '';
 
-  // pegar posição atual da tarefa selecionada
-  for (let index = 0; index < todasAsTarefas.length; index += 1) {
-    if (tarefaSelecionada === todasAsTarefas[index]) {
-      indiceDaTarefaSelecionada = index;
+    // pegar posição atual da tarefa selecionada
+    for (let index = 0; index < todasAsTarefas.length; index += 1) {
+      if (tarefaSelecionada === todasAsTarefas[index]) {
+        indiceDaTarefaSelecionada = index;
+      }
     }
-  }
 
-  // recriar a lista com todas as tarefas
-  if (indiceDaTarefaSelecionada !== 0) {
-    let novaListaDeTarefas = [...todasAsTarefas];
-    const tarefaAnterior = novaListaDeTarefas[indiceDaTarefaSelecionada - 1];
-    novaListaDeTarefas[indiceDaTarefaSelecionada] = tarefaAnterior;
-    novaListaDeTarefas[indiceDaTarefaSelecionada - 1] = tarefaSelecionada;
+    // recriar a lista com todas as tarefas
+    if (indiceDaTarefaSelecionada !== 0) {
+      let novaListaDeTarefas = [...todasAsTarefas];
+      const tarefaAnterior = novaListaDeTarefas[indiceDaTarefaSelecionada - 1];
+      novaListaDeTarefas[indiceDaTarefaSelecionada] = tarefaAnterior;
+      novaListaDeTarefas[indiceDaTarefaSelecionada - 1] = tarefaSelecionada;
 
-    // renderizar nova lista
-    apagarTodasAsTarefas()
-    for (let index = 0; index < novaListaDeTarefas.length; index += 1) {
-      const listaDeTarefas = document.querySelector('#lista-tarefas');
+      // renderizar nova lista
+      apagarTodasAsTarefas()
+      for (let index = 0; index < novaListaDeTarefas.length; index += 1) {
+        const listaDeTarefas = document.querySelector('#lista-tarefas');
 
-      const novaTarefa = document.createElement('li');
-      novaTarefa.innerText = novaListaDeTarefas[index].innerText;
-      novaTarefa.classList = novaListaDeTarefas[index].classList;
-      listaDeTarefas.appendChild(novaTarefa);
+        const novaTarefa = document.createElement('li');
+        novaTarefa.innerText = novaListaDeTarefas[index].innerText;
+        novaTarefa.classList = novaListaDeTarefas[index].classList;
+        if (novaListaDeTarefas[index].id !== '') {
+          novaTarefa.id = novaListaDeTarefas[index].id
+        }
+        listaDeTarefas.appendChild(novaTarefa);
 
-      selecionarTarefa();
-      marcarConcluida(novaTarefa);
+        selecionarTarefa();
+        marcarConcluida(novaTarefa);
+      }
     }
   }
 };
@@ -128,34 +134,40 @@ const moverAcima = () => {
 const moverAbaixo = () => {
   const todasAsTarefas = document.querySelectorAll('.tarefa');
   const tarefaSelecionada = document.querySelector('#selecionado');
-  let indiceDaTarefaSelecionada = '';
+  
+  if (tarefaSelecionada !== null) {
+    let indiceDaTarefaSelecionada = '';
 
-  // pegar posição atual da tarefa selecionada
-  for (let index = 0; index < todasAsTarefas.length; index += 1) {
-    if (tarefaSelecionada === todasAsTarefas[index]) {
-      indiceDaTarefaSelecionada = index;
+    // pegar posição atual da tarefa selecionada
+    for (let index = 0; index < todasAsTarefas.length; index += 1) {
+      if (tarefaSelecionada === todasAsTarefas[index]) {
+        indiceDaTarefaSelecionada = index;
+      }
     }
-  }
 
-  // recriar a lista com todas as tarefas
-  if (indiceDaTarefaSelecionada < todasAsTarefas.length - 1) {
-    let novaListaDeTarefas = [...todasAsTarefas];
-    const proximaTarefa = novaListaDeTarefas[indiceDaTarefaSelecionada + 1];
-    novaListaDeTarefas[indiceDaTarefaSelecionada] = proximaTarefa;
-    novaListaDeTarefas[indiceDaTarefaSelecionada + 1] = tarefaSelecionada;
+    // recriar a lista com todas as tarefas
+    if (indiceDaTarefaSelecionada < todasAsTarefas.length - 1) {
+      let novaListaDeTarefas = [...todasAsTarefas];
+      const proximaTarefa = novaListaDeTarefas[indiceDaTarefaSelecionada + 1];
+      novaListaDeTarefas[indiceDaTarefaSelecionada] = proximaTarefa;
+      novaListaDeTarefas[indiceDaTarefaSelecionada + 1] = tarefaSelecionada;
 
-    // renderizar nova lista
-    apagarTodasAsTarefas()
-    for (let index = 0; index < novaListaDeTarefas.length; index += 1) {
-      const listaDeTarefas = document.querySelector('#lista-tarefas');
+      // renderizar nova lista
+      apagarTodasAsTarefas()
+      for (let index = 0; index < novaListaDeTarefas.length; index += 1) {
+        const listaDeTarefas = document.querySelector('#lista-tarefas');
 
-      const novaTarefa = document.createElement('li');
-      novaTarefa.innerText = novaListaDeTarefas[index].innerText;
-      novaTarefa.classList = novaListaDeTarefas[index].classList;
-      listaDeTarefas.appendChild(novaTarefa);
+        const novaTarefa = document.createElement('li');
+        novaTarefa.innerText = novaListaDeTarefas[index].innerText;
+        novaTarefa.classList = novaListaDeTarefas[index].classList;
+        if (novaListaDeTarefas[index].id !== '') {
+          novaTarefa.id = novaListaDeTarefas[index].id
+        }
+        listaDeTarefas.appendChild(novaTarefa);
 
-      selecionarTarefa();
-      marcarConcluida(novaTarefa);
+        selecionarTarefa();
+        marcarConcluida(novaTarefa);
+      }
     }
   }
 };
