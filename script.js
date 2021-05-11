@@ -43,8 +43,8 @@ for (let index = 0; index < ordenedList.length; index += 1) {
       }
       event.target.id = "changeColor";
     }
-  })
-};
+  });
+}
 
 
 let listOrdened = document.querySelectorAll("#lista-tarefas");
@@ -57,11 +57,11 @@ for (let index = 0; index < listOrdened.length; index += 1) {
     } else {
         event.target.className = "tasks";
     }
-  })
-};
+  });
+}
 
 
-let apagar = document.querySelector("#apaga-tudo")
+let apagar = document.querySelector("#apaga-tudo");
 
 apagar.addEventListener('click', function () {
 
@@ -74,7 +74,7 @@ let apagarFinalizados = document.querySelector("#remover-finalizados")
 apagarFinalizados.addEventListener("click", function(){
 
 let tasksCompletas = document.getElementsByClassName("completed");
-for(let i = tasksCompletas.length -1; i < tasksCompletas.length ; i -= 1 ){
+for(let i = tasksCompletas.length -1; i >= 0 ; i -= 1 ){
   tasksCompletas[i].remove();
   
 }
