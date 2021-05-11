@@ -23,3 +23,17 @@ function selectedItem() {
   });
 }
 selectedItem();
+
+function completedTask() {
+  taskList.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
+}
+completedTask();
+
+function clearList() {
+  eraserButton.addEventListener('click', () => {
+    taskList.innerHTML = '';
+  });
+}
+clearList();
