@@ -68,11 +68,19 @@ function returnsTask() {
 }
 
 function moveUp() {
-  
+  const tasks = document.querySelector('#lista-tarefas');
+  const taskUp = document.querySelector('.selected');
+  if (tasks.firstChild != taskUp && taskUp != null) {
+    tasks.insertBefore(taskUp, taskUp.previousSibling);
+  }
 }
 
 function moveDown() {
-  
+  const tasks = document.querySelector('#lista-tarefas');
+  const taskDown = document.querySelector('.selected');
+  if (tasks.lastChild != taskDown && taskDown != null) {
+    tasks.insertBefore(taskDown.nextSibling, taskDown);
+  }
 }
 
 function clearTaskSelected() {
