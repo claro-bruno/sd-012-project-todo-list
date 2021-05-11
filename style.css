@@ -18,3 +18,7 @@ header{
     padding-top: 50px;
     padding-bottom: 40px;
 }
+
+.selected{
+    background-color: rgb(128, 128, 128);
+}

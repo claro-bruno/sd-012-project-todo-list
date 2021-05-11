@@ -15,7 +15,16 @@ function createTask() {
 botaoAdicionarTarefa.addEventListener("click", createTask)
 
 listaDeItem.addEventListener("click", () => {
+
+    let tarefas = document.getElementsByTagName('li');
+
     if (event.target.id != 'lista-tarefas' && event.target.id != "itens-tarefa") {
-        event.target.style.backgroundColor = "rgb(128, 128, 128)";
+        for (let index = 0; index < tarefas.length; index++) {
+            if (tarefas[index].classList.contains('selected')) {
+                tarefas[index].classList.remove('selected');
+            };
+        };
+
+        event.target.classList.add('selected');
     }
 });
