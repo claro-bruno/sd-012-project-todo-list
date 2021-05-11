@@ -30,6 +30,11 @@ textInput.addEventListener('keypress', function (e) {
   }
 })
 
+let buttonRemoveFinished = document.getElementById('apaga-tudo')
+let removeFinished = document.getElementById('lista-tarefas');
+buttonRemoveFinished.addEventListener('click', function() {
+    removeFinished.innerHTML = '';
+})
 
 let buttonRemove = document.getElementById('apaga-tudo')
 let removeAll = document.getElementById('lista-tarefas');
@@ -40,10 +45,19 @@ buttonRemove.addEventListener('click', function() {
 let selecteIten = document.getElementById('lista-tarefas');
 
 selecteIten.addEventListener('click', function (event) {
-  let itenColor = document.getElementsByTagName('li');
-  for (let key in itenColor){
-    itenColor[key].className = 'task';
-    event.target.className = 'task-selected';
+  let taskIten = document.getElementsByClassName('task');
+  for ( let index = 0; index < taskIten.length; index +=1){
+    taskIten[index].classList.remove('task-selected');
+  }
+  event.target.classList.add('task-selected');
+});
+
+selecteIten.addEventListener('dblclick', function (event) {
+  let  doubleClick = document.getElementsByTagName('li');
+  for (let key in doubleClick){
+    event.target.classList.add('completed');
   }
 });
+
+
 

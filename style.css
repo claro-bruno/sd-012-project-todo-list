@@ -18,11 +18,18 @@ body {
   background-color: rgb(128 ,128 ,128) ;
 }
 
+.completed {
+  background-color: white;
+  text-decoration: line-through;
+}
+
 ol {
   padding: 0%;
   margin-left: 10%;
   background-color: white;
 }
+
+
 
 #buttons-box {
   margin-top: 3%;
