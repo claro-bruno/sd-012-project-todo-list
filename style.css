@@ -1,0 +1,39 @@
+body {
+    background-color: green;
+  }
+  
+  h1 {
+    text-align: center;
+    color: thistle;
+  }
+  section {
+    background-color: white;
+    border-radius: 50px;
+    text-align:center;
+    padding: 10px;
+    color: black;
+  }
+  
+  #texto-tarefa {
+    width: 300px;
+		background-color: rgb(233, 220, 220);
+		border-style: inset;
+  }
+
+	li {
+		align-items: center;
+		text-align:center;
+	}
+
+  .completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+  }
+  
+  .selected {
+    background-color: rgb(128, 128, 128);
+  }
+
+  #limpar-lista {
+      background-color: rgb(216, 39, 39);
+      color: white;
+  }
