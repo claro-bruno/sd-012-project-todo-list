@@ -61,16 +61,15 @@ function limparSelected() {
 }
 limparSelected();
 
-function saveTasks(){
 salvarTarefas.onclick = function() {
-  localStorage.setItem('tarefas', listaTarefas.innerText); 
+  localStorage.setItem('tarefas', listaTarefas.innerHTML); 
 }
 const pegaSave = localStorage.getItem('tarefas');
 if (pegaSave){
-  listaTarefas.innerText = pegaSave;
-  };
-}
-saveTasks();
+  listaTarefas.innerHTML = pegaSave;
+};
+
+
 
 
 // function limparComplete (){
