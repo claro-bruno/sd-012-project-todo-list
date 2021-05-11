@@ -13,3 +13,46 @@
 #texto-tarefa #criar-tarefa {
   display: inline-block;
 }
+
+.seta-cima:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0px;
+  width: 0; 
+  height: 0; 
+
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid black;
+}
+
+.seta-baixo:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0px;
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #f00;
+}
+
+.estilo-botoes {
+  background: #B9DFFF;
+  color: #fff;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px #eee;
+  text-shadow:none;
+}
+
+.estilo-botoes:hover {
+  background: #016ABC;
+  color: #fff;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px #eee;
+  text-shadow:none;
+}

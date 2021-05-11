@@ -23,30 +23,34 @@ function clickdoble(event) {
   }
 }
 
+function eventosParaLi() {
+  const newLi = document.createElement('li');
+  newLi.innerText = getTextInput.value;
+  newLi.addEventListener('click', clickNoLi); // evento de clique no li //
+  newLi.addEventListener('dblclick', clickdoble); // Requisito 8
+  newLi.classList.add('li-estilo');
+  getTaskListLo.appendChild(newLi);
+  getTextInput.value = '';
+}
+
 function inputNewTask() {
-  clickButton.addEventListener('click', function eventosParaLi() {
-    const newLi = document.createElement('li');
-    newLi.innerText = getTextInput.value;
-    newLi.addEventListener('click', clickNoLi); // evento de clique no li //
-    newLi.addEventListener('dblclick', clickdoble); // Requisito 8
-    newLi.classList.add('li-estilo');
-    getTaskListLo.appendChild(newLi);
-    getTextInput.value = '';
-  });
+  clickButton.addEventListener('click', eventosParaLi);
 }
 inputNewTask();
 
 // Requisito 10: botão que apaga tudo
+function eraseButton() { // requisito 10
+  const listItems = document.querySelectorAll('.li-estilo');
+  for (let index = 0; index < listItems.length; index += 1) {
+    const element = listItems[index];
+    getTaskListLo.removeChild(element);
+  }
+}
+
 function eventEraseButton() {
   const clickButtonErase = document.getElementById('apaga-tudo'); // requisito 10
 
-  clickButtonErase.addEventListener('click', function eraseButton() { // requisito 10
-    const listItems = document.querySelectorAll('.li-estilo');
-    for (let index = 0; index < listItems.length; index += 1) {
-      const element = listItems[index];
-      getTaskListLo.removeChild(element);
-    }
-  });
+  clickButtonErase.addEventListener('click', eraseButton);
 }
 eventEraseButton();
 
@@ -55,7 +59,7 @@ eventEraseButton();
 // EraseCompletedTask
 function EraseCompletedTask() {
   const accessFather = document.getElementById('lista-tarefas');
-  const accessChild = accessFather.document.querySelectorAll('.completed');
+  const accessChild = accessFather.querySelectorAll('.completed');
   for (let index = 0; index < accessChild.length; index += 1) {
     const element = accessChild[index];
     getTaskListLo.removeChild(element);
@@ -68,3 +72,8 @@ function buttonEraseCompleted() {
   clickEraseCompleted.addEventListener('click', EraseCompletedTask);
 }
 buttonEraseCompleted();
+
+const arrayButton = document.getElementsByTagName('button');
+for (let index = 0; index < arrayButton.length; index += 1) {
+  arrayButton[index].className = 'estilo-botoes';
+}
