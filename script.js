@@ -31,7 +31,19 @@ button.addEventListener('click', () => {
     
        })   
    
-    })   
+    })
+    /** Consultei o site JavaScript Tutorial.
+    Link do site: https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
+    */
+    let buttonEraser = document.getElementById('apaga-tudo');  
+    buttonEraser.addEventListener('click', (event) => {
+        while (ListaTarefas.firstChild){
+            ListaTarefas.removeChild(ListaTarefas.firstChild);
+        }
+
+ })   
+
+   
 
 })
 
