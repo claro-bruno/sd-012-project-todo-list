@@ -1,5 +1,6 @@
 let listaDeItem = document.getElementById("lista-tarefas");
 let botaoAdicionarTarefa = document.getElementById("criar-tarefa");
+let apagaTudo = document.getElementById("apaga-tudo");
 
 
 function createTask() {
@@ -17,6 +18,12 @@ function completeTask() {
         event.target.classList.contains('completed') ? event.target.classList.remove('completed') : event.target.classList.add("completed");
     }
 }
+
+function limpaLista() {
+    while (listaDeItem.firstChild) {
+        listaDeItem.removeChild(listaDeItem.firstChild);
+    };
+};
 
 botaoAdicionarTarefa.addEventListener("click", createTask)
 
@@ -38,3 +45,4 @@ listaDeItem.addEventListener("click", () => {
     }
 });
 
+apagaTudo.addEventListener('click', limpaLista);
