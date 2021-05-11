@@ -13,6 +13,7 @@ let listarray = document.getElementById('lista-tarefas');
 function addlist() {
   let cria = document.createElement('li')
   cria.innerHTML = caixaInput.value;
+  cria.className = 'cria'
   listarray.appendChild(cria) // elemento_pai.appendchild(elemento_filho)
   return cria
   //aqui criamos uma variavel 'cria' para criamos as tags <li> dentro das nossas ul
@@ -32,12 +33,27 @@ function trocaofundico() {
   for (let posicaoDoarray = 0; posicaoDoarray < listItem.length; posicaoDoarray += 1) {// enquanto o posição do array for menor que o tamanho  do meu arrey  index recebe o antigo valor dele +1
     listItem[posicaoDoarray].addEventListener('click', (clicaste) => { //-------------// aqui a variavel (lis[posição do array])  recebe um evento cujo um click seguido de um parametro 
       let xablau = (clicaste).target; //---------------------------------------------// aqui é onde nasce o xablau que entra como alvo do paramentro da nossa função
-      xablau.style.backgroundColor = 'rgb(128, 128, 128)'; //-----------------------// adicionamos um backgroud diferenciado para xablau 
+      xablau.                   //----------------------// adicionamos um backgroud diferenciado para xablau 
       xablau.style.borderradius = '10px' //----------------------------------------//aqui damos um trato na bordinha do xablau (viva ao xablau )
     });
   }
-  return listItem
 };
 //----------------------------------------------------------------------------// oprigado por ler a fanfique do xablau ̣:roket:
 
-listarray.addEventListener('click', trocaofundico)
+
+/*function removecolor() {
+  for (let index = 0; index < listItem.length; index++) {
+    if (listItem[index] == style.css.backgroundColor('rgb(128,128,128)')) {
+      listItem[index] = listItem.style.backgroundColor = 'white'
+    } 
+  }
+}
+listarray.addEventListener('click', trocaofundico, removecolor)*/
+ 
+apagarGeralX.addEventListener('click',apagaTudo);{
+  function apagaTudo(){
+    while (listarray.firstChild) {
+      listarray.removeChild(listarray.firstChild)
+    }
+  }
+};
