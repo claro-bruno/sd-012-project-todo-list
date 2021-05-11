@@ -36,15 +36,15 @@ if(event.target.classList.contains('completed') === true){
 }
 listaTarefas.addEventListener('dblclick', completedTask);
 
-//Requisito 10
-let botaoApagar = getElementById('apaga-tudo');
-botãoApagar.addEventListener('click', apagaItem);
-function apagaItem(event){
-    if (target.classList.contains('selected')||target.classList.contains('completed')){
-       event.target.classList.remove.target; 
+// //Requisito 10
+// let botaoApagar = getElementById('apaga-tudo');
+// botãoApagar.addEventListener('click', apagaItem);
+// function apagaItem(event){
+//     if (target.classList.contains('selected')||target.classList.contains('completed')){
+//        event.target.classList.remove.target; 
 
-    }
-}
+//     }
+// }
 
  
     
