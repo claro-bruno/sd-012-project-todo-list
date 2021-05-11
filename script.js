@@ -53,15 +53,18 @@ window.onload = function () {
 
   //8
   function clickedTask(event) {
-    const tasks = document.querySelector('.selected');
+    const tasks = document.getElementsByClassName('task-item');
     const greyTask = event.target;
+    for (let i = 0; i < tasks.length; i += 1) {
+      tasks[i].classList.remove('selected');    
+    }
     if (greyTask.classList.contains('selected')) {
-      greyTask.classList.remove('selected');
+      greyTask.classList.add('selected');
     } else {
       greyTask.classList.add('selected');
-      tasks.classList.remove('selected');
     }
   }
+
   //9
   function completedTasks(event) {
     const completedTask = event.target;
