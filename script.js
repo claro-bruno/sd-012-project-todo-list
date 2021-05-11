@@ -59,3 +59,24 @@ for (let index = 0; index < listOrdened.length; index += 1) {
     }
   })
 };
+
+
+let apagar = document.querySelector("#apaga-tudo")
+
+apagar.addEventListener('click', function () {
+
+  document.querySelector('#lista-tarefas').innerHTML = '';
+
+});
+
+let apagarFinalizados = document.querySelector("#remover-finalizados")
+
+apagarFinalizados.addEventListener("click", function(){
+
+let tasksCompletas = document.getElementsByClassName("completed");
+for(let i = tasksCompletas.length -1; i < tasksCompletas.length ; i -= 1 ){
+  tasksCompletas[i].remove();
+  
+}
+
+});
