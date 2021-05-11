@@ -61,6 +61,12 @@ content ol {
   font-weight: 900;
 }
 
+.salvarTarefas {
+    background-color: yellow;
+    border-radius: 30%;
+    font-weight: 900;
+}
+
 content ol li {
   font-family: Trebuchet MS, Lucida Sans, Arial, sans-serif;
   font-weight: 700;

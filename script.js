@@ -1,10 +1,12 @@
 const listaTarefas = document.getElementById('lista-tarefas');
 const inputTexto = document.getElementById('texto-tarefa');
 const criarTarefa = document.getElementById('criar-tarefa');
-// const task = document.getElementsByTagName('li');
+const task = document.getElementsByTagName('li');
 const botaoLimpar = document.getElementById('apaga-tudo');
 const removerFinalizados = document.querySelector('#remover-finalizados');
 const removerSelecionado = document.querySelector('#remover-selecionado');
+const salvarTarefas = document.querySelector('#salvar-tarefas');
+const inputValue = document.getElementById('texto-tarefa');
 
 function createLi() {
   criarTarefa.addEventListener('click', () => {
@@ -58,6 +60,18 @@ function limparSelected() {
   });
 }
 limparSelected();
+
+function saveTasks(){
+salvarTarefas.onclick = function() {
+  localStorage.setItem('tarefas', listaTarefas.innerText); 
+}
+const pegaSave = localStorage.getItem('tarefas');
+if (pegaSave){
+  listaTarefas.innerText = pegaSave;
+  };
+}
+saveTasks();
+
 
 // function limparComplete (){
 //     const finalizados = document.getElementsByClassName('completed');
