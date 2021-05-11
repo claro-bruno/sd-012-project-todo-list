@@ -1,25 +1,25 @@
 const addButton = document.getElementById('criar-tarefa');
-let textoTarefa = document.getElementById('texto-tarefa');
+const textoTarefa = document.getElementById('texto-tarefa');
+let list = document.getElementById('lista-tarefas');
 
 
-
-
-
- 
 function bottonAdd () {
   addButton.addEventListener('click', function() {
-    let newTask = document.createElement('li');
-    let list = document.getElementById('lista-tarefas');
-     newTask.innerHTML = textoTarefa.value;
-     list.appendChild(newTask);
-    
-     textoTarefa.value = " ";
-      
-  });
+  let newTask = document.createElement('li');
   
-
+  newTask.innerHTML = textoTarefa.value;
+  list.appendChild(newTask);
+    
+  textoTarefa.value  = " ";
+      
+});
 
 }
 bottonAdd ();
 
 
+
+list.addEventListener('click', function(event) {
+  let target = event.target;
+  target.classList.toggle('selected');
+});  
