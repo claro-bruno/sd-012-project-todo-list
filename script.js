@@ -61,25 +61,13 @@ function limparSelected() {
 }
 limparSelected();
 
-salvarTarefas.onclick = function () {
+function salvarItem () {
+salvarTarefas.addEventListener = () =>{
   localStorage.setItem('tarefas', listaTarefas.innerHTML); 
-  }
-const pegaSave = localStorage.getItem('tarefas');
-if (pegaSave) {
-  listaTarefas.innerHTML = pegaSave;
+  };
+  const pegaSave = localStorage.getItem('tarefas');
+  if (pegaSave) {
+    listaTarefas.innerHTML = pegaSave;
+  };
 }
-
-// function limparComplete (){
-//     const finalizados = document.getElementsByClassName('completed');
-//     for (let index = 0; index < finalizados.length; index += 1){
-//             finalizados[index].remove();
-//     }
-// }
-// function limparComplete (){
-// for (let index = 0; index < listaTarefas.children.length; index += 1){
-//     if (listaTarefas.children[index].className === "task completed"){
-//         listaTarefas.children[index].remove();
-//         }
-//     }
-// }
-// removerFinalizados.addEventListener('click', limparComplete)
+salvarItem();
