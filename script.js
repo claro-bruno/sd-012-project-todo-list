@@ -14,13 +14,13 @@ window.onload = function () {
 };
 
 document.addEventListener('click', (event) => {
-  const alvo = event.target;
-  if (alvo.className === 'tarefa') {
-    const selected = document.querySelector('.tarefaSelecionada');
-    if (selected !== null) {
-      selected.classList.remove('tarefaSelecionada');
-      selected.style.backgroundColor = '#245,245,211';
+  const item = event.target;
+  const tarefaSelecionada = document.querySelector('.tarefaSelecionada');
+  if (item.className === 'tarefa') {
+    if (tarefaSelecionada !== null) {
+      tarefaSelecionada.classList.remove('tarefaSelecionada');
+      tarefaSelecionada.style.backgroundColor = '#245,245,211';
     }
-    alvo.classList.add('tarefaSelecionada');
+    item.classList.add('tarefaSelecionada');
   }
 });
