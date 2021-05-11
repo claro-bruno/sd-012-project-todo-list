@@ -46,13 +46,23 @@ window.onload = function() {
     let apagaTudoButton = document.querySelector('#apaga-tudo');
 
     function clearAll() {
-        while (taskList.firstChild) {  //tudo dentro do parentes ele já checa se é true
+        while (taskList.firstChild) {  //tudo dentro do parentes ele já checa se é true e entra para realizar os comandos.
            taskList.removeChild(taskList.firstChild);
         } 
     }
     apagaTudoButton.addEventListener('click', clearAll); 
     
-    
+    //11
+    const removeFinalizadosButton = document.querySelector('#remover-finalizados');
+
+    function removeFinalizados(event) {
+        const completed = document.querySelectorAll('.completed');
+
+        for (let index = 0; index < completed.length; index += 1){
+            completed[index].remove();
+        };
+    }
+    removeFinalizadosButton.addEventListener('click', removeFinalizados);
 
 
 
