@@ -32,13 +32,14 @@ window.onload = function() {
         event.target.classList.add('task-background-color');
     } 
 
-    // function addLineThrough(event){
-    //     let taskElement = document.querySelectorAll('.tarefa');
-    //     for (let index = 0; index < taskElement.length; index += 1) {
-    //         taskElement[index].classList.remove('completed');    
-    //     };
-    //     event.target.classList.add('completed');
-    // }
+    //9
+    function addLineThrough(event){
+        let taskElement = document.querySelectorAll('.tarefa');
+        for (let index = 0; index < taskElement.length; index += 1) {
+            taskElement[index].classList.remove('completed');    
+        };
+        event.target.classList.add('completed');
+    }
     
         
     
