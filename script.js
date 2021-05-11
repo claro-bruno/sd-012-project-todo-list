@@ -58,8 +58,6 @@ selecteIten.addEventListener('dblclick', function (event) {
   }
 });
 
-
-
 buttonRmvSelected.addEventListener('click', function () {
   for (let index = 0; index < selecteIten.children.length; index += 1) {
     if(selecteIten.children[index].classList.contains('completed')) {
