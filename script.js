@@ -24,12 +24,12 @@ function selected(event) {
     event.target.classList.add('selected');    
 };
         
-//REMOVE ITEM DA LISTA
+//REMOVE ITEM SELECIONADO
 const removeSelecionado = document.querySelector('#remover-selecionado');
 removeSelecionado.addEventListener('click', removeTarefa);
 function removeTarefa() {
     const tarefa = document.querySelector('.selected');
-    tarefa.innerText = '';
+    tarefa.remove()
 };
 
 //APAGA TUDO
