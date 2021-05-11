@@ -1,9 +1,18 @@
-const inputButton = document.getElementById("texto-tarefa");
+const inputTask = document.getElementById("texto-tarefa");
 const taskList = document.getElementById("lista-tarefas");
-const input = document.getElementById("criar-tarefa");
-const itemList = document.querySelectorAll('.item-list');
+const buttonCreateTask = document.getElementById("criar-tarefa");
+const completedTask = document.getElementById("funcionamento");
+const buttonDeleteAll = document.getElementById("apaga-tudo");
+const buttonRemoveComplet = document.getElementById("remover-finalizados");
 
-input.addEventListener('click', () => {
+
+
+
+
+
+
+
+/*input.addEventListener('click', () => {
     const taskBoard = document.createElement("li");
     taskBoard.innerHTML = inputButton.value;
     inputButton.value = '';
@@ -32,8 +41,7 @@ function changeBackgroundColor () {
         selectText.addEventListener('click', backgroundColor);
     };
 };
-changeBackgroundColor()
+changeBackgroundColor()*/
 
 
 
-// item 7 e 8 - tentativa de implemento de soluçao através do repositorio da colega Juliane Marques (https://github.com/tryber/sd-012-project-todo-list/pull/119/files#)
