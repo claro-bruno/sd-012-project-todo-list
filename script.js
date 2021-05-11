@@ -36,3 +36,13 @@ function clearList() {
 
 const clearButton = document.querySelector('#apaga-tudo');
 clearButton.addEventListener('click', clearList);
+
+function clearCompleted() {
+  let completedTask = document.querySelectorAll('.completed');
+  for (let index = 0; index < completedTask.length; index += 1) {
+    completedTask[index].remove();
+  }
+}
+
+const completedButton = document.querySelector('#remover-finalizados');
+completedButton.addEventListener('click', clearCompleted);
