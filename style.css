@@ -103,7 +103,8 @@ ol li {
 }
 
 body {
-  background-image: url('papiro.jpg');
+  background-image: url('quadro.jpg');
+  background-size: 100%;
   text-align: center;
 }
 
