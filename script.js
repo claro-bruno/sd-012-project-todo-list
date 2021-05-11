@@ -63,7 +63,7 @@ limparSelected();
 
 function salvarItem() {
   salvarTarefas.addEventListener = () => {
-    localStorage.setItem('tarefas', listaTarefas.innerHTML); 
+    localStorage.setItem('tarefas', listaTarefas.innerHTML);
   };
   const pegaSave = localStorage.getItem('tarefas');
   if (pegaSave) {
