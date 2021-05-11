@@ -12,14 +12,16 @@ function createTask() {
     tarefa.value = '';
 }
 
+function completeTask() {
+    if (event.target.id != 'lista-tarefas' && event.target.id != 'items-tarefa') {
+        event.target.classList.contains('completed') ? event.target.classList.remove('completed') : event.target.classList.add("completed");
+    }
+}
+
 botaoAdicionarTarefa.addEventListener("click", createTask)
 
 
-listaDeItem.addEventListener('dblclick', () => {
-    if (event.target.id != 'lista-tarefas' && event.target.id != 'items-tarefa') {
-        event.target.classList.add('completed');
-    }
-});
+listaDeItem.addEventListener('dblclick', completeTask);
 
 listaDeItem.addEventListener("click", () => {
 
@@ -35,3 +37,4 @@ listaDeItem.addEventListener("click", () => {
         event.target.classList.add('selected');
     }
 });
+
