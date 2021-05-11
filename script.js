@@ -1,17 +1,22 @@
 const toDoList = [''];
 
+const selecteIten = document.getElementById('lista-tarefas');
+
 const textInput = document.querySelector('#texto-tarefa');
 
 const buttonCreate = document.querySelector('.submit');
 
+const buttonRmvSelected = document.getElementById('remover-finalizados')
+
+const buttonRemoveAll = document.getElementById('apaga-tudo')
+
 buttonCreate.addEventListener('click', function (e) {
   if (textInput.value !== ''){
-    let catOl = document.getElementById('lista-tarefas');
     const text = textInput.value;
     const createLi = document.createElement('li');
     createLi.className = 'task';
     createLi.innerHTML = text;
-    catOl.appendChild(createLi);
+    selecteIten.appendChild(createLi);
     document.getElementById('texto-tarefa').value = null;
   } else {
     alert('Adicione alguma tarefa!')
@@ -20,29 +25,20 @@ buttonCreate.addEventListener('click', function (e) {
 
 textInput.addEventListener('keypress', function (e) {
   if (e.key === 'Enter'){
-    let catOl = document.getElementById('lista-tarefas');
+    let selecteIten = document.getElementById('lista-tarefas');
     const text = textInput.value;
     const createLi = document.createElement('li');
     createLi.className = 'task';
     createLi.innerHTML = text;
-    catOl.appendChild(createLi);
+    selecteIten.appendChild(createLi);
     document.getElementById('texto-tarefa').value = null;
   }
 })
 
-let buttonRemoveFinished = document.getElementById('apaga-tudo')
-let removeFinished = document.getElementById('lista-tarefas');
-buttonRemoveFinished.addEventListener('click', function() {
-    removeFinished.innerHTML = '';
+buttonRemoveAll.addEventListener('click', function() {
+    selecteIten.innerHTML = '';
 })
 
-let buttonRemove = document.getElementById('apaga-tudo')
-let removeAll = document.getElementById('lista-tarefas');
-buttonRemove.addEventListener('click', function() {
-    removeAll.innerHTML = '';
-})
-
-let selecteIten = document.getElementById('lista-tarefas');
 
 selecteIten.addEventListener('click', function (event) {
   let taskIten = document.getElementsByClassName('task');
@@ -53,8 +49,7 @@ selecteIten.addEventListener('click', function (event) {
 });
 
 selecteIten.addEventListener('dblclick', function (event) {
-  let  doubleClick = document.getElementsByTagName('li');
-  for (let key in doubleClick){
+  for (let key in selecteIten){
     if(event.target.classList.value.includes('completed')){
       event.target.classList.remove('completed');
     } else {
@@ -65,3 +60,11 @@ selecteIten.addEventListener('dblclick', function (event) {
 
 
 
+buttonRmvSelected.addEventListener('click', function () {
+  for (let index = 0; index < selecteIten.children.length; index += 1) {
+    if(selecteIten.children[index].classList.contains('completed')) {
+      selecteIten.removeChild(selecteIten.children[index])
+      index -= 1;
+   };
+  }
+});
