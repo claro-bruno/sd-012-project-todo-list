@@ -3,6 +3,8 @@ const textoTarefa = document.getElementById('texto-tarefa');
 let list = document.getElementById('lista-tarefas');
 
 
+
+
 function bottonAdd () {
   addButton.addEventListener('click', function() {
   let newTask = document.createElement('li');
@@ -13,13 +15,15 @@ function bottonAdd () {
   textoTarefa.value  = " ";
       
 });
-
 }
 bottonAdd ();
 
 
+  list.addEventListener('click', function(event) {
+    let target = event.target;
+    target.classList.toggle('selected');
+ });
 
-list.addEventListener('click', function(event) {
-  let target = event.target;
-  target.classList.toggle('selected');
-});  
+  
+ 
+ 
