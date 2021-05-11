@@ -2,22 +2,14 @@ const inputButton = document.getElementById("texto-tarefa");
 const taskList = document.getElementById("lista-tarefas");
 const input = document.getElementById("criar-tarefa");
 
-function createTask() {
-    let taskBoard = document.createElement("li");
-    taskBoard.className = "task";
+input.addEventListener('click', () => {
+    const taskBoard = document.createElement("li");
     taskBoard.innerHTML = inputButton.value;
-    taskList.appendChild(taskBoard);
-}   
-
-function clearInput () {
-    inputButton.innerText = '';
-}
-
-input.addEventListener('click', (event)=> {
+    inputButton.value = '';
     event.preventDefault();
-    createTask();
-    clearInput();
-});
+    taskList.appendChild(taskBoard);
+});   
+
 
 // Em pesquisa foi localizada a função preventDefault(), evitando que o envio da tarefa resete o formulário, gravando seu conteúdo; acessado em (https://www.w3schools.com/jsref/event_preventdefault.asp)
 
