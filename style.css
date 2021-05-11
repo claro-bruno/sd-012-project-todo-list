@@ -4,3 +4,7 @@
     background-color: #2892d7;
     color: white;
 }
+
+.selected {
+    background-color: rgb(128, 128, 128);
+}

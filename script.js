@@ -4,7 +4,6 @@ let input = document.getElementById('texto-tarefa');
 
 
 
-
 function addTarefa() {
     let toDoListItems = document.createElement('li');
     toDoListItems.className = 'tasks';
@@ -12,8 +11,9 @@ function addTarefa() {
     input.value = '';
     toDoList.appendChild(toDoListItems);
     if (toDoListItems !== null) {
-        toDoListItems.addEventListener('click', function(event) {
-            event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+        toDoList.addEventListener('click', function(event) {
+            toDoListItems.classList.remove('selected');
+            event.target.classList.add('selected');
         })
     }
 }
