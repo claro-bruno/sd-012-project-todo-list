@@ -9,9 +9,9 @@ function criaLista(event){
     let item = document.createElement('li');
     item.className = 'lista';
     document.querySelector('#lista-tarefas').appendChild(item);
-    let returnList = document.getElementById('texto-tarefa').value;
-    item.innerHTML = returnList;
-    document.getElementById('texto-tarefa').value = '';
+    let returnList = document.getElementById('texto-tarefa');
+    item.innerHTML = returnList.value;
+    returnList.value = '';
 
 }
 
@@ -26,6 +26,15 @@ function alteraCor(event){
     event.target.classList.add('selected');
 }
 
-//}   
+function completedTask(event){
+
+if(event.target.classList.contains('completed') === true){
+    event.target.classList.remove('completed')
+}else{
+    event.target.classList.add('completed')
+}
+}
+listaTarefas.addEventListener('dblclick', completedTask);
+ 
     
 
