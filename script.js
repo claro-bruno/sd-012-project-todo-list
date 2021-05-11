@@ -1,6 +1,6 @@
 
 //Requisito 05
-let botao = document.getElementById('criar-tarefa');
+const botao = document.getElementById('criar-tarefa');
 botao.addEventListener('click', criaLista);
 //Criando a lista de tarefas
 
@@ -36,15 +36,24 @@ if(event.target.classList.contains('completed') === true){
 }
 listaTarefas.addEventListener('dblclick', completedTask);
 
-// //Requisito 10
-// let botaoApagar = getElementById('apaga-tudo');
-// botãoApagar.addEventListener('click', apagaItem);
-// function apagaItem(event){
-//     if (target.classList.contains('selected')||target.classList.contains('completed')){
-//        event.target.classList.remove.target; 
+//Requisito 10
+const botaoApagar = document.getElementById('apaga-tudo');
 
-//     }
+function apagaItem(event) {
+    event.preventDefault();
+    listaTarefas.innerHTML = '';
+    //localStorage.clear();
+    console.log('oi');
+   
+}
+ botaoApagar.addEventListener('click', apagaItem);
+// function apagaItem(event){
+    
+//     listaTarefas.innerHTML = '';
+//     localStorage.clear();
+//     event.preventDefault();
 // }
+// botaoApagar.addEventListener('click', apagaItem);
 
  
     
