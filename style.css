@@ -7,9 +7,21 @@
 }
 
 #lista-tarefas {
+    width: 150px;
+    height: auto;
+    background-color:LightSkyBlue;
 
 }
 
 #criar-tarefa {
 
+}
+
+.selected {
+    background-color: rgb(128, 128, 128);
+}
+
+.blankSpace {
+    width: 150px;
+    height: auto;
 }
