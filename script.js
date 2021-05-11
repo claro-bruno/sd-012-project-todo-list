@@ -5,7 +5,7 @@ function addList() {
     var createLi = document.createElement("LI");
     var userInput = document.createTextNode(textInput.value);
     createLi.appendChild(userInput);
-    document.getElementById("myList").appendChild(createLi);
+    document.getElementById('lista-tarefas').appendChild(createLi);
 }
 
 addButton.addEventListener("click", function(){
