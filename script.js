@@ -66,7 +66,8 @@ function moverBaixo() {
         task[i].classList.remove('gray');
         task[i - 1].classList.add('gray');
        // task = task.reverse();
-      } else {
+      }
+      {
         alert('O elemento já está no final da lista');
         //task = task.reverse();
       }
@@ -74,8 +75,8 @@ function moverBaixo() {
   }
 }
 
-function salvrLista() {
-
+function salvarLista() {
+  localStorage.setItem('item', listaTarefa.innerHTML);
 }
 
 function createTask() {
@@ -95,3 +96,9 @@ document.getElementById('remover-selecionado').addEventListener('click', deleteG
 document.getElementById('remover-finalizados').addEventListener('click', deleteDone);
 document.getElementById('mover-cima').addEventListener('click', moverCima);
 document.getElementById('mover-baixo').addEventListener('click', moverBaixo);
+document.getElementById('salvar-tarefas').addEventListener('click', salvarLista);
+
+window.onload = () => {
+  const listaSalva = localStorage.getItem('item');
+  listaTarefa.innerHTML = listaSalva;
+};
