@@ -1,12 +1,4 @@
 
-header,
-body {
-    /* min-height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center; */
-}
-
 .task-background-color {
     background-color: rgb(128, 128, 128);
 }

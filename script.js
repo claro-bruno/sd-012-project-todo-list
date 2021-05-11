@@ -42,7 +42,15 @@ window.onload = function() {
         }
     }
     
-    
+    //10
+    let apagaTudoButton = document.querySelector('#apaga-tudo');
+
+    function clearAll() {
+        while (taskList.firstChild) {  //tudo dentro do parentes ele já checa se é true
+           taskList.removeChild(taskList.firstChild);
+        } 
+    }
+    apagaTudoButton.addEventListener('click', clearAll); 
     
     
 
