@@ -1,0 +1,33 @@
+
+header {
+    background-color: white;
+    margin-left: 40px;
+    margin-top: 60px;
+    border-radius: 30px;
+    padding: 40px;
+}
+
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 10px;
+}
+
+p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: darkgrey;
+    margin-left: 10px;
+}
+
+body {
+    background-color: teal;
+}
+
+#criar-tarefa {
+    margin-top: 40px;
+    background-color: orange; 
+    border-radius: 30px;
+    padding: 5px;
+}
+
+
+
