@@ -51,3 +51,13 @@ function saveList() {
   });
 }
 saveList();
+
+function removeAllDone() {
+  removeDoneButton.addEventListener('click', () => {
+    const allDone = document.querySelectorAll('.completed');
+    allDone.forEach((a) => {
+      a.remove();
+    });
+  });
+}
+removeAllDone();
