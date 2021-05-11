@@ -53,18 +53,13 @@ window.onload = function () {
 
   //8
   function clickedTask(event) {
-    const tasks = document.getElementsByClassName('task-item');
+    const tasks = document.querySelector('.selected');
     const greyTask = event.target;
     if (greyTask.classList.contains('selected')) {
-      for (let i = 0; i < tasks.length; i += 1) {
-        tasks[i].classList.remove('selected');    
-      }
       greyTask.classList.remove('selected');
     } else {
-      for (let i = 0; i < tasks.length; i += 1) {
-        tasks[i].classList.remove('selected');    
-      }
       greyTask.classList.add('selected');
+      tasks.classList.remove('selected');
     }
   }
   //9
@@ -130,7 +125,7 @@ window.onload = function () {
   function upper() {
     let ol = document.querySelector('#lista-tarefas');
     let taskUp = document.querySelector('.selected');
-    if (ol.firstChild != taskUp && ol != null && taskUp != null) {
+    if (ol.firstChild != taskUp && taskUp != null) {
       ol.insertBefore(taskUp, taskUp.previousSibling); // insertBefore ---> https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
     }
   }
@@ -143,7 +138,7 @@ window.onload = function () {
   function downer() {
     let ol = document.querySelector('#lista-tarefas');
     let taskDown = document.querySelector('.selected');
-    if (ol.lastChild != taskDown && ol != null && taskDown != null) {
+    if (ol.lastChild != taskDown && taskDown != null) {
       ol.insertBefore(taskDown.nextSibling, taskDown);
     }
   }
