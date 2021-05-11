@@ -37,3 +37,17 @@ function clearList() {
   });
 }
 clearList();
+
+function cleanTheImput() {
+  addToListButton.addEventListener('click', () => {
+    typedTextInput.value = '';
+  });
+}
+cleanTheImput();
+
+function saveList() {
+  saveListButton.addEventListener('click', () => {
+    localStorage.setItem('tarefas-salvas', taskList.innerHTML);
+  });
+}
+saveList();
