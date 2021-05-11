@@ -72,6 +72,22 @@ function buttonClearAll(){
     }
 }
 
+function clearCompleted(){
+    let btnCompleted = document.createElement("button");
+    btnCompleted.innerHTML = "Limpar Completas";
+    btnCompleted.id = "remover-finalizados";
+    paiBody.appendChild(btnCompleted);
+    btnCompleted.addEventListener("click",btnCompletedClear);
+}
+clearCompleted();
+
+function btnCompletedClear(){
+    let completedS = document.querySelectorAll(".completed");
+    for(index = 0; index < completedS.length; index++){
+        completedS[index].remove();
+    }
+}
+
 function clickLi(event){
     let listUls = document.getElementsByTagName("li");
     for(let index = 0; index < listUls.length; index++){
