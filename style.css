@@ -1,3 +1,81 @@
+body {
+  background-image:  url(./todo.png);
+}
+
+#root {
+  width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  margin-top: 48px;
+}
+
+header {
+  display: flex;
+  font-family: 'Itim', cursive;
+  font-size: 48px;
+  border-bottom: 1px solid rgb(89, 180, 3);
+  justify-content: center;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  font-family: 'Itim', cursive;
+  font-size: 20px;
+}
+
+#input-container {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  font-family: 'Itim', cursive;
+  padding: 6px;
+  font-size: 20px;
+  margin-right: 16px;
+}
+
+#lista-tarefas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  margin: 4px 0;
+  font-family: 'Itim', cursive;
+  font-size: 20px;
+  border-bottom: 2px dashed rgb(39, 73, 7);
+}
+
+#buttons-container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin: 0 8px;
+  padding: 6px;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  font-family: 'Itim', cursive;
+  font-size: 18px;
+}
+
+#criar-tarefa {
+  background-color: rgb(121, 243, 7);
+}
+
+#apaga-tudo {
+  background-color:rgb(245, 94, 94);
+}
+
+#remover-finalizados {
+  background-color:rgb(238, 144, 37);
+}
+
 .selected {
   background-color: rgb(128,128,128);
 }
