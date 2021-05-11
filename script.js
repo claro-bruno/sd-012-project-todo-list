@@ -16,23 +16,33 @@ window.onload = function() {
             newTask.innerHTML =  inputTask.value;
             taskList.appendChild(newTask);
             inputTask.value = '';
+            newTask.addEventListener('click', changeToGrey);
+            newTask.addEventListener('dblclick', addLineThrough);
         }
-
-        //7
-        let taskElement = document.querySelectorAll('.tarefa');
-        for (let index = 0; index < taskElement.length; index += 1) {
-            taskElement[index].addEventListener('click', (event) => {
-                //pesquisar sobre o método contains junto com classList
-                if (event.target.className !== 'task-background-color') {
-                    event.target.classList.add('task-background-color');
-                } 
-            })
-            
-                
-        };
 
     }
     creatTaskButton.addEventListener('click', addTask);
+
+    //7 e 8
+    function changeToGrey(event) {
+        let taskElement = document.querySelectorAll('.tarefa');
+        for (let index = 0; index < taskElement.length; index += 1) {
+            taskElement[index].classList.remove('task-background-color');    
+        };
+        event.target.classList.add('task-background-color');
+    } 
+
+    // function addLineThrough(event){
+    //     let taskElement = document.querySelectorAll('.tarefa');
+    //     for (let index = 0; index < taskElement.length; index += 1) {
+    //         taskElement[index].classList.remove('completed');    
+    //     };
+    //     event.target.classList.add('completed');
+    // }
+    
+        
+    
+    
 
     
     
