@@ -56,24 +56,21 @@ function buttonCriarTarefea(){
 }
 buttonCriarTarefea();
 
+function clearAllLi(){
+    let buttonClear = document.createElement("button");
+    buttonClear.innerHTML = "Limpar Tarefas";
+    buttonClear.id = "apaga-tudo";
+    paiBody.appendChild(buttonClear);
+    buttonClear.addEventListener("click",buttonClearAll);
+}
+clearAllLi();
 
-
-
-// function clearAllLi(){
-//     let buttonClear = document.createElement("button");
-//     buttonClear.innerHTML = "Limpar Tarefas";
-//     buttonClear.id = "apaga-tudo";
-//     paiBody.appendChild(buttonClear);
-//     let liS = document.getElementsByTagName("li");
-//     for(index = 0; index < liS.length; index++){
-   
-// }
-// clearAllLi();
-
-
-
-
-
+function buttonClearAll(){
+    let liS = document.querySelectorAll("li");
+    for(index = 0; index < liS.length; index++){
+        liS[index].remove();
+    }
+}
 
 function clickLi(event){
     let listUls = document.getElementsByTagName("li");
