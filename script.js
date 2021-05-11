@@ -14,6 +14,13 @@ function createTask() {
 
 botaoAdicionarTarefa.addEventListener("click", createTask)
 
+
+listaDeItem.addEventListener('dblclick', () => {
+    if (event.target.id != 'lista-tarefas' && event.target.id != 'items-tarefa') {
+        event.target.classList.add('completed');
+    }
+});
+
 listaDeItem.addEventListener("click", () => {
 
     let tarefas = document.getElementsByTagName('li');
