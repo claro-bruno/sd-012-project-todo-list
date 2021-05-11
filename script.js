@@ -6,6 +6,7 @@ function insertTask(value) {
   const taskList = document.querySelector('#lista-tarefas');
   taskList.appendChild(orderList);
   taskCompleted(orderList);
+  saveTasks()
 }
 
 function receiveInput() {
@@ -24,7 +25,7 @@ function setNoBackgroundColor(orderList) {
 function setGreyItem() {
   const orderList = document.querySelectorAll('.task-list');
   for (let index = 0; index < orderList.length; index += 1) {
-    orderList[index].addEventListener('click', function() {
+    orderList[index].addEventListener('click', function () {
       setNoBackgroundColor(orderList);
       orderList[index].classList.add('selected');
     });
@@ -32,9 +33,9 @@ function setGreyItem() {
 }
 
 function taskCompleted(value) {
-  value.addEventListener('dblclick', function(value) {
-    value.target.classList.toggle('completed')
-  })
+  value.addEventListener('dblclick', function (value) {
+    value.target.classList.toggle('completed');
+  });
 }
 
 function clearTasks() {
@@ -52,7 +53,8 @@ function clearTaskCompleted() {
 }
 
 function saveTasks() {
-
+  const tasks = document.querySelector('#lista-tarefas');
+  localStorage.setItem('tasks', tasks.innerHTML)
 }
 
 function moveUp() {
