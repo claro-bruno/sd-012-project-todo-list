@@ -55,7 +55,11 @@ selecteIten.addEventListener('click', function (event) {
 selecteIten.addEventListener('dblclick', function (event) {
   let  doubleClick = document.getElementsByTagName('li');
   for (let key in doubleClick){
-    event.target.classList.add('completed');
+    if(event.target.classList.value.includes('completed')){
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
   }
 });
 
