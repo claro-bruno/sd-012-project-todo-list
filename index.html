@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projeto To-do List</title>
   <script src="https://kit.fontawesome.com/b1efb4aa58.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
@@ -28,11 +29,13 @@
       Tarefas
     </h2>
 
-    <section id="input-section">
-      <input type="text" id="texto-tarefa" placeholder="Adicionar Tarefa">
-      <button id="criar-tarefa">
-        <span class="fas fa-plus"></span>
-      </button>
+    <section id="input-section" class="input-group">
+      <input type="text" id="texto-tarefa" class="form-control" placeholder="Adicionar Tarefa">
+      <section class="input-group-append">
+        <button id="criar-tarefa" class="btn">
+          <span class="fas fa-plus"></span>
+        </button>
+      </section>
     </section>
 
     <section id="buttons-section">
@@ -42,14 +45,14 @@
       <button id="mover-cima">
         <span class="fas fa-chevron-up chevron"></spa>
       </button>
-      <button id="mover-baixo">
+      <button id="mover-baixo"> 
         <span class="fas fa-chevron-down chevron"></span>
       </button>
       <button id="apaga-tudo">
         <span class="fas fa-undo"></span>
         Resetar
       </button>
-      <button id="remover-finalizados" class="button1">
+      <button id="remover-finalizados">
         <span class="far fas fa-trash"></span>
         Completas
       </button>
@@ -67,5 +70,4 @@
   </main>
   <script src="script.js"></script>
 </body>
-
 </html>

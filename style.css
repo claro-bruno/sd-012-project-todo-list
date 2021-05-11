@@ -54,10 +54,13 @@ button , button:after {
   background-color: transparent;
 }
 
+button:focus {
+  outline: none;
+}
+
 button:active {
-  box-shadow: 0 0;
   transform: translateY(2px) translateX(1px);
-  transition: all 0s;
+  transition: all 0.1s;
 }
 
 button:before , button:after {
@@ -142,33 +145,23 @@ h2 {
 
 #texto-tarefa {
   padding: 3px;
-  height: 20px;
-  width: 300px;
-  border-radius: 10px;
-  border: 0;
+  border-radius: 10px 0 0 10px;
   text-align: center;
   font-size: 1rem;
-  margin: auto;
 }
 
-#texto-tarefa:focus {
-  outline: 0;
-  box-shadow: 1px 1px 2px black;
+.form-control:focus {
+  box-shadow: none;
 }
+
 
 .completed {
-  text-decoration: line-through;
+  text-decoration: line-through solid rgb(0 , 0 , 0);
 }
 
 #buttons-section {
   margin: 10px;
   cursor: default;
-}
-
-#input-section {
-  cursor: default;
-  display: flex;
-  flex-flow: column wrap;
 }
 
 .fa-undo {
@@ -194,12 +187,45 @@ h2 {
 }
 
 #criar-tarefa {
+  display: inline-block;
   background-color: var(--blue-color);
   color: white;
-  width: 50%;
-  margin: 5px auto;
+  border-radius: 0 10px 10px 0;
+  box-shadow: none;
 }
 
 #criar-tarefa:hover {
   color: var(--blue-color);
+}
+
+#criar-tarefa:hover span , #apaga-tudo:hover span {
+  transform: rotate(-360deg);
+  transition: all 0.3s;
+}
+
+#criar-tarefa:before , #criar-tarefa:after {
+  background-color: var(--white-translucent);
+}
+
+#criar-tarefa:after {
+  border-radius: 0 10px 10px 0;
+}
+
+#criar-tarefa:active {
+  transform: none;
+}
+
+#criar-tarefa:active span {
+  transform: translateX(10px);
+  transition: all 0.1s;
+}
+
+#mover-cima:hover span {
+  transform: translateY(-2px);
+  transition: all 0.3s;
+}
+
+#mover-baixo:hover span {
+  transform: translateY(2px);
+  transition: all 0.3s;
 }
