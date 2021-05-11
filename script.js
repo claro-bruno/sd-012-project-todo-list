@@ -13,8 +13,22 @@ botao.addEventListener("click", function(){
     input.value = "";
 })
 
-document.body.addEventListener("click", function(event){
-    if(event.target.className === "linha"){
+lista.addEventListener("click", function(event){
+    let tamanhoLista = document.getElementsByTagName("li").length;
+    if(event.target.classList.contains("linha")){
+        for(let i = 0; i < tamanhoLista; i++){
+            document.getElementsByTagName("li")[i].classList.remove("selected");
+        }
         event.target.classList.add("selected");
+    }
+})
+
+
+lista.addEventListener("dblclick", function(event){
+    if(event.target.classList.contains("linha")){
+        event.target.classList.toggle("completed");
+    }
+    else if(event.target.classList.contains("completed")){
+        event.target.classList.toggle("completed");
     }
 })
