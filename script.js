@@ -1,8 +1,3 @@
-const addToListButton = document.getElementById('criar-tarefa');
-const taskList = document.getElementById('lista-tarefas');
-const typedTextInput = document.getElementById('texto-tarefa');
-const allItemList = document.getElementsByTagName('li');
-const eraserButton = document.getElementById('apaga-tudo');
 
 function listItemCreation() {
   addToListButton.addEventListener('click', () => {
@@ -61,3 +56,41 @@ function removeAllDone() {
   });
 }
 removeAllDone();
+
+function movingUp() {
+  moveUpButton.addEventListener('click', () => {
+    const selected = document.getElementsByClassName('selected')[0];
+    if (selected) {
+      if (selected !== taskList.firstElementChild) {
+        const previous = selected.previousElementSibling;
+        const x = previous.innerHTML;
+        previous.innerHTML = selected.innerHTML;
+        selected.innerHTML = x;
+        selected.classList.remove('selected');
+        previous.classList.add('selected');
+      } else {
+        window.alert('Este elemento ja é o primeiro');
+      }
+    }
+  });
+}
+movingUp();
+
+function movingDown() {
+  moveDownButton.addEventListener('click', () => {
+    const selected = document.getElementsByClassName('selected')[0];
+    if (selected) {
+      if (selected !== taskList.lastElementChild) {
+        const next = selected.nextElementSibling;
+        const x = next.innerHTML;
+        next.innerHTML = selected.innerHTML;
+        selected.innerHTML = x;
+        selected.classList.remove('selected');
+        next.classList.add('selected');
+      } else {
+        window.alert('Este elemento ja é o último');
+      }
+    }
+  });
+}
+movingDown();
