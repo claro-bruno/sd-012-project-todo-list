@@ -3,6 +3,7 @@
 let temp =  JSON.parse(localStorage.getItem('saved list'));
 if (temp != null){
   document.getElementById('lista-tarefas').outerHTML = temp;
+  removeClass();
 }
 
 // INICIO

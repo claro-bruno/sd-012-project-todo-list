@@ -4,8 +4,9 @@
   margin: 0;
 }
 
-p, header, .container {
+p, header, li, .container {
   font-family: monospace;
+  color: white;
   margin: 10px 0;
 }
 
@@ -14,26 +15,26 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: limegreen;
+  background-color: rgb(54, 102, 54);
 }
 
 #todo-list {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-items: center;
-  /* min-height: 400px; */
   padding: 30px 20px;
   border-radius: 20px;
-  border: 2px solid red;
-  background-color: white;
+  /* border: 2px solid red; */
+  background-color: rgb(61, 61, 61);
 }
 
 #lista-tarefas {
-  min-height: 50px;
   min-width: 50%;
-  border: 2px solid red;
-  /* background-color: yellow; */
+  margin: 50px 0;
+}
+
+li{
+  cursor: pointer;
 }
 
 .selected {
@@ -42,4 +43,29 @@ body {
 
 .completed{
   text-decoration: line-through solid rgb(0, 0, 0);
+  color: #aaa;
+}
+
+button {
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin: 0 5px;
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(182, 23, 155);
+  border: none;
+  cursor: pointer;
+}
+button:active {
+  background-color: rgb(206, 40, 178);
+}
+
+input{
+  border: solid rgb(182, 23, 155) 4px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+
 }
