@@ -83,3 +83,9 @@ const carregarTarefasSalvas = () => {
     selecionarTarefa();
   }
 };
+
+const removerFinalizados = () => {
+  const listaDeTarefas = document.querySelector('#lista-tarefas')
+  const selecionado = document.querySelector('#selecionado')
+  listaDeTarefas.removeChild(selecionado)
+}
