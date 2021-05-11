@@ -10,6 +10,7 @@ const deleteAllCompletedTasks = document.getElementById('remover-finalizados');
 const saveTasksList = document.getElementById('salvar-tarefas');
 const moveUp = document.getElementById('mover-cima');
 const moveDown = document.getElementById('mover-baixo');
+const removeSelectedTask = document.getElementById('remover-selecionado');
 
 function createNewListItem() {
   const listItem = document.createElement('li');
@@ -103,3 +104,13 @@ function previousSiblingItem() {
 }
 
 moveUp.addEventListener('click', previousSiblingItem);
+
+function removeSelected() {
+  const selected = document.getElementsByClassName('selected');
+
+  for (index = 0; index < selected.length;) {
+    selected[index].remove();
+  }
+}
+
+removeSelectedTask.addEventListener('click', removeSelected);
