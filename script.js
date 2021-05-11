@@ -16,6 +16,13 @@ function LiClass(){
 }
 
 
+function clearBackground(){
+    for (let index = 0; index < listItem.length; index+= 1) {
+        listItem[index].style.backgroundColor = 'white'
+    }
+}
+
+
 addButton.addEventListener("click", function(){
     addList()
     LiClass()
@@ -24,7 +31,7 @@ addButton.addEventListener("click", function(){
 
 document.body.addEventListener("click", function(event){
     if(event.target.className === "listItem"){
-      event.target.style.backgroundColor = 'white'
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)'  
+        clearBackground()
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)'  
     }
   })
