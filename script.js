@@ -1,3 +1,6 @@
+window.onload = () => {
+  taskList.innerHTML = localStorage.getItem('tarefas-salvas');
+};
 
 function listItemCreation() {
   addToListButton.addEventListener('click', () => {
@@ -88,9 +91,27 @@ function movingDown() {
         selected.classList.remove('selected');
         next.classList.add('selected');
       } else {
-        window.alert('Este elemento ja é o último');
+        window.alert('Este elemento é último');
       }
     }
   });
 }
 movingDown();
+
+function clearStoredList() {
+  clearStoredListButton.addEventListener('click', () => {
+    localStorage.removeItem('tarefas-salvas');
+  });
+}
+clearStoredList();
+
+const addToListButton = document.getElementById('criar-tarefa');
+const taskList = document.getElementById('lista-tarefas');
+const typedTextInput = document.getElementById('texto-tarefa');
+const eraserButton = document.getElementById('apaga-tudo');
+const removeDoneButton = document.getElementById('remover-finalizados');
+const saveListButton = document.getElementById('salvar-tarefas');
+const clearStoredListButton = document.getElementById('limpar-lista');
+const moveUpButton = document.getElementById('mover-cima');
+const moveDownButton = document.getElementById('mover-baixo');
+const removeSelectedButton = document.getElementById('remover-selecionado');
