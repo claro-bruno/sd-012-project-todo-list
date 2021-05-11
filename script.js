@@ -48,15 +48,27 @@ function capturar () {
 
 capturar ();
 
- //Exercício 10 e 11:
+ //Exercício 10:
 
- document.addEventListener('click', function(event) {
-     if(event.target.id === 'apaga-tudo') {
-        while (selectOl.firstElementChild)
-        selectOl.removeChild(selectOl.firstElementChild);
-     }
-     if (event.target.id === 'remover-finalizados') {
-        let completedList = document.getElementsByClassName('completed');
-        console.log('Verificando lista completa de completed:', completedList)
-     }
- })
+ function clear () {
+     document.addEventListener('click', function (event) {
+         if(event.target.id === 'apaga-tudo') {
+             while (selectOl.firstElementChild)
+             selectOl.removeChild(selectOl.firstElementChild)
+         }
+     })
+ }
+
+ clear ();
+
+  //Exercício 11:
+
+function clearCompleted () {
+    document.addEventListener('click', (event) => {
+        if(event.target.id === 'remover-finalizados' && selectOl.firstElementChild.contains('completed')) {
+            while(selectOl.firstElementChild)
+            selectOl.removeChild(selectOl.firstElementChild)
+        }
+    }) 
+}
+clearCompleted ();
