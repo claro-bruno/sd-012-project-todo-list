@@ -3,9 +3,18 @@
     margin: auto;
     width: 70%;
     border: 1px solid black;
-    height: 200px;
+    height: 70;
+    margin-top:10%;
 }
 
 header{
     padding-top: 30px;
+}
+
+#lista-tarefas{
+    margin: auto;
+    text-align: center;
+    width:10%;
+    padding-top: 50px;
+    padding-bottom: 40px;
 }
