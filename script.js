@@ -1,7 +1,5 @@
 let section = document.querySelector('#tarefas');
 let button = document.querySelector('#criar-tarefa');
-let inputT = document.querySelector('#texto-tarefa')
-let olTarefa = document.querySelector('#lista-tarefas');
 
 
 function lista() {
@@ -11,15 +9,22 @@ function lista() {
 }
 lista()
 
-function addTarefa(event) {
+let olTarefa = document.querySelector('#lista-tarefas')
+
+document.body.addEventListener('click', function () {
+  
+  let inputT = document.querySelector('#texto-tarefa');
   let li = document.createElement('li');
+  olTarefa.appendChild(li);
   li.innerText = inputT.value;
   inputT.value = '';
-  olTarefa.appendChild(li);
-}
+})
 
- addTarefa()
-function listButton() {
-    button.addEventListener('click', addTarefa);
-  }
-  
+
+
+
+function addTarefa(event) {
+
+
+
+}
