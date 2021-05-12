@@ -2,7 +2,8 @@ const input = document.getElementById('texto-tarefa');
 const list = document.getElementById('lista-tarefas');
 const addTask = document.getElementById('criar-tarefa');
 const listElement = document.getElementsByClassName('list-item');
-
+const removeList = document.getElementById('apaga-tudo');
+const removeCompleted = document.getElementById('remover-finalizados');
 
 addTask.addEventListener('click', addListItem);
 
@@ -36,3 +37,18 @@ function addLineThrough(event) {
     event.target.classList.add('completed');
   }
 }
+
+removeList.addEventListener('click', eraseList);
+function eraseList (){
+    list.innerHTML = ''
+}
+
+function eraseCompleted() {
+    const selectedItens = document.querySelectorAll('.completed');
+    for (let index = 0; index < selectedItens.length; index += 1) {
+      if (selectedItens[index].classList.contains('completed')) {
+        list.removeChild(selectedItens[index]);
+      }
+    }
+  }
+ removeCompleted.addEventListener('click', eraseCompleted);
