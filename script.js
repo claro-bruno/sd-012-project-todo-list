@@ -1,9 +1,9 @@
 const inputTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const buttonCreateTask = document.getElementById('criar-tarefa');
-const completedTask = document.getElementById('funcionamento');
-const buttonDeleteAll = document.getElementById('apaga-tudo');
-const buttonRemoveComplet = document.getElementById('remover-finalizados');
+// const completedTask = document.getElementById('funcionamento');
+// const buttonDeleteAll = document.getElementById('apaga-tudo');
+// const buttonRemoveComplet = document.getElementById('remover-finalizados');
 
 // funçao para mostrar as tarefas adicionadas
 // atribuir o conteudo digitado na caixa ao elementTask, assim, quando o conteúdo da caixa for diferente de vazio, o contéudo será adicionado em forma de lista ordenada pela hierarquica da TASKLIST e após, o element task é limpo. Assim, ao acionar o botao, a função é executada.
@@ -32,7 +32,7 @@ function changeBackgroundColor(event) {
     local.classList.remove('selected');
   }
   if (event.target.localName === 'li') {
-  event.target.classList.add('selected');
+    event.target.classList.add('selected');
   }
 }
 
@@ -48,3 +48,5 @@ function completedTaskClass(event) {
   }
 }
 taskCompleted.addEventListener('dblclick', completedTaskClass);
+
+// Foi possível compreender e estruturar as funções após analisar todos os requisitos e separar no papel as funçoes que deveriam ser criadas, bem como o auxilio na compreensão das duas últimas funçoes se deu através do projeto do colega Carlos Sá da turma 10 A (https://github.com/tryber/sd-010-a-project-todo-list/pull/121/files) , principalmente por despertar a curiosidade pela utilização da propriedade localName, que acabou facilitando o desenvolvimento da função com a lógica que havia pensado.
