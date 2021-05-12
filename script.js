@@ -23,9 +23,9 @@ function selecTask(event){
         event.target.classList.add('selected'); //adiciona a classe selected ao elemento do evento atual
         
     }else{
-        select.backgroundColor = 'white';
+       
         select.classList.remove('selected');
-
+        event.target.classList.add('selected');
 
     }
 
