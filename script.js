@@ -9,13 +9,21 @@ function addTarefa() {
     toDoListItems.className = 'tasks';
     toDoListItems.innerHTML = input.value;
     input.value = '';
-    toDoList.appendChild(toDoListItems);
-    if (toDoListItems !== null) {
-        toDoList.addEventListener('click', function(event) {
-            toDoListItems.classList.remove('selected');
-            event.target.classList.add('selected');
-        })
-    }
+    return toDoList.appendChild(toDoListItems);
 }
 
+function selectListItem(event) {
+    const selected = document.querySelector('.selected');
+    if (selected) {
+        selected.classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+}
+
+function completedTask(event) {
+    event.target.classList.toggle('completed');
+}
+
+toDoList.addEventListener('dblclick', completedTask);
+toDoList.addEventListener('click', selectListItem);
 button.addEventListener('click', addTarefa);
