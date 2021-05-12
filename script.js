@@ -19,7 +19,16 @@ function criandoLi() {
 };
 criandoLi();
 
+// Remove a classe » selected «
+function removeSelected() {
+  let pegaLi = document.querySelectorAll('li');
+  for (let index = 0; index < pegaLi.length; index += 1) {
+    pegaLi[index].classList.remove('selected');
+  }
+}
+
 // Seleciona um ítem da lista
 function selecionaLi(event) {
+  removeSelected();
   event.target.className = 'selected';
 }
