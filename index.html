@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Todo list</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
     <header><h1>Minha Lista de Tarefas</h1></header>
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo </p>
     <form action="" method="get">
         <input type="text" name="texttodo" id="texto-tarefa" placeholder="Escreva sua lista aqui">
-    <button id="criar-tarefa" type="submit">Add Todo list</button>
-    <ol id="lista-tarefas"></ol>
+    <button id="criar-tarefa" type="submit" >Add Todo list</button>
+    <button id="apaga-tudo">Reset</button>
+    <ol id="lista-tarefas" ></ol>
+    <script src="script.js"></script>
 </form>
 </body>
 </html>
