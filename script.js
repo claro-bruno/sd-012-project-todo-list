@@ -33,6 +33,22 @@ function selecTask(event){
 listaTarefa.addEventListener('click', selecTask);
 
 
+function selectLineThrough(event){
+    
+    if(event.target.classList.contains('completed') !== true){
+        event.target.classList.add('completed'); 
+        event.target.style.textDecoration = 'line-through';
+        
+    }else{
+       
+        event.target.classList.remove('completed');               
+        event.target.style.textDecoration = 'none';
+
+    }
+
+}
+listaTarefa.addEventListener('dblclick', selectLineThrough);
+
 
 
 
