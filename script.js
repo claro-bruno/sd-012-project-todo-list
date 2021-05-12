@@ -21,11 +21,13 @@ function addTarefa() {
                 select.classList.remove('select');
             }
             itens[i].className += ' select';
+        }
 
+    }
+    for (let i = 0; i < itens.length; i += 1) {
+        itens[i].addEventListener('dblclick', riscaTarefa);
+        function riscaTarefa() {
+            itens[i].classList.toggle('completed');
         }
     }
-
-
 }
-
- 
