@@ -1,17 +1,16 @@
-let buttonAdicionar = document.getElementById('criar-tarefa');
-let listaTarefas = document.getElementById('lista-tarefas');
-let inputTarefas = document.getElementById('texto-tarefa');
-let buttonApagar = document.getElementById('apaga-tudo');
-let removeFinalizados = document.getElementById('remover-finalizados');
-let elementosDaLista = listaTarefas.childNodes;
-let salvarLista = document.getElementById('salvar-tarefa');
+const buttonAdicionar = document.getElementById('criar-tarefa');
+const listaTarefas = document.getElementById('lista-tarefas');
+const inputTarefas = document.getElementById('texto-tarefa');
+const buttonApagar = document.getElementById('apaga-tudo');
+const removeFinalizados = document.getElementById('remover-finalizados');
+const salvarLista = document.getElementById('salvar-tarefa');
  
 buttonAdicionar.addEventListener('click', () => {
   let criarLi = document.createElement('li');
   criarLi.innerHTML = inputTarefas.value;
   listaTarefas.appendChild(criarLi);
   inputTarefas.value = '';
-})
+});
 
 listaTarefas.addEventListener('click', (event) => {
   let element = document.querySelector('.selected');
@@ -19,7 +18,7 @@ listaTarefas.addEventListener('click', (event) => {
     element.classList.remove('selected');
   }
   event.target.classList.add('selected');
-})
+});
 
 listaTarefas.addEventListener('dblclick', (event) => {
   if (event.target.classList.contains('completed')) {
@@ -27,11 +26,11 @@ listaTarefas.addEventListener('dblclick', (event) => {
   } else {
     event.target.classList.add('completed');
   }
-})
+});
 
 buttonApagar.addEventListener('click', () => {
   listaTarefas.innerHTML = '';
-})
+});
 
 removeFinalizados.addEventListener('click', () => {
   let completos = document.querySelectorAll('.completed');
@@ -40,19 +39,19 @@ removeFinalizados.addEventListener('click', () => {
       completos[n].remove();
     }
   }
-})
+});
 
 document.addEventListener('click', (event) => {
   if(event.target.id === 'salvar-tarefas') {
     localStorage.setItem('key', listaTarefas.innerHTML);
   }
-})
+});
 
 window.onload = function() {
   if (localStorage.getItem('key') !== null) {
   listaTarefas.innerHTML += localStorage.getItem('key');
   }
-}
+};
 
 document.addEventListener('click', (event) => {
   if (event.target.id === 'mover-cima') {
@@ -61,7 +60,7 @@ document.addEventListener('click', (event) => {
       listaTarefas.insertBefore(selected, selected.previousSibling);
     }
   }
-})
+});
 
 document.addEventListener('click', (event) => {
   if (event.target.id === 'mover-baixo') {
@@ -70,11 +69,11 @@ document.addEventListener('click', (event) => {
       listaTarefas.insertBefore(selected.nextElementSibling, selected);
     }
   }
-})
+});
 
 document.addEventListener('click', (event) => {
   if (event.target.id === 'remover-selecionado'){
     let selecionado = document.querySelector('.selected');
     selecionado.remove();
   }
-})
+});
