@@ -53,3 +53,10 @@ window.onload = function() {
   listaTarefas.innerHTML += localStorage.getItem('key');
   }
 }
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'remover-selecionado'){
+    let selecionado = document.querySelector('.selected');
+    selecionado.remove();
+  }
+})
