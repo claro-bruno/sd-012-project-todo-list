@@ -1,23 +1,31 @@
-//window.load = function() {
-    //const cabeçalho = document.querySelector//('#titulo');
-    //const title = document.createElement('h1');
-    //cabeçalho.appendChild(title);
-    //title.innerText = 'Minha Lista de Tarefas';
- 
-    //const lista = document.createElement('ol');
-    //const section = document.getElementsByTagName//(section);
-    //section.appendChild(lista);
 
 const botao = document.querySelector('#criar-tarefa');
-        botao.addEventListener('click', addTarefa);
+botao.addEventListener('click', addTarefa);
         
-        function addTarefa() {
-            const input = document.querySelector('#texto-tarefa');
-            const lista = document.querySelector('#lista-tarefas');
-            let item = document.createElement('li');           
-            lista.appendChild(item);
-            item.innerText = input.value;
-            input.value = "";
+function addTarefa() {
+    const input = document.querySelector('#texto-tarefa');
+    const lista = document.querySelector('#lista-tarefas');
+    let item = document.createElement('li');
+    item.className = 'tarefa';  
+    lista.appendChild(item);
+    item.innerText = input.value;
+    input.value = "";
             
+    const itens = document.querySelectorAll('.tarefa');
+    for (let i = 0; i < itens.length; i += 1) {
+        itens[i].addEventListener('click', addCinza);
+        
+        function addCinza() {
+            const select = document.querySelector('.select');
+            if (select) {
+                select.classList.remove('select');
+            }
+            itens[i].className += ' select';
+
         }
-//    }
+    }
+
+
+}
+
+ 
