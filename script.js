@@ -25,5 +25,15 @@ function selectItem() {
         event.target.classList.add("selected");
     });
 };
-
 selectItem();
+
+function completeItem() {
+    taskList.addEventListener("dblclick", function(event) {
+        const itemList = document.querySelector(".selected");
+        event.target.classList.add("completed");
+        if (itemList.className = "completed") {
+            itemList.classList.remove('completed');
+        }
+    });
+};
+completeItem();
