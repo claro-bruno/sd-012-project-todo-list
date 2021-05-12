@@ -49,18 +49,16 @@ selecteIten.addEventListener('click', function (event) {
 });
 
 selecteIten.addEventListener('dblclick', function (event) {
-  for (let key in selecteIten){
-    if(event.target.classList.value.includes('completed')){
-      event.target.classList.remove('completed');
-    } else {
-      event.target.classList.add('completed');
-    }
+  if(event.target.classList.value.includes('completed')){
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
   }
 });
 
-// buttonRmvSelected.addEventListener('click', function() {
-//   const taskCompleted = document.querySelectorAll('.completed');
-//   for (let index = 0; index < taskCompleted.length; index += 1){
-//   taskCompleted[index].remove();
-//   };
-// });
+buttonRmvSelected.addEventListener('click', function () {
+  let taskCompleted = document.querySelectorAll('.completed');
+  for (let index = 0; index < taskCompleted.length; index += 1) {
+    selecteIten.removeChild(taskCompleted[index]);
+  }
+});
