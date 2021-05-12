@@ -64,10 +64,12 @@ capturar ();
   //Exercício 11:
 
 function clearCompleted () {
-    document.addEventListener('click', (event) => {
-        if(event.target.id === 'remover-finalizados' && selectOl.firstElementChild.contains('completed')) {
-            while(selectOl.firstElementChild)
-            selectOl.removeChild(selectOl.firstElementChild)
+    let buttonSelect = document.getElementById('remover-finalizados');
+    buttonSelect.addEventListener('click', (event) => {
+        let listContent = document.querySelectorAll('.completed');
+        for(index = 0; index < listContent.length; index += 1) {
+            console.log(listContent[index]);
+            selectOl.removeChild(listContent[index]);
         }
     }) 
 }
