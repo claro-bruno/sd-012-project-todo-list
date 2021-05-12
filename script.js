@@ -36,7 +36,7 @@ if(event.target.classList.contains('completed') === true){
 }
 listaTarefas.addEventListener('dblclick', completedTask);
 
-//Requisito 10
+//Requisito 10 - Função apaga
 const botaoApagar = document.getElementById('apaga-tudo');
 
 function apagaItem(event) {
@@ -47,14 +47,24 @@ function apagaItem(event) {
    
 }
  botaoApagar.addEventListener('click', apagaItem);
-// function apagaItem(event){
-    
-//     listaTarefas.innerHTML = '';
-//     localStorage.clear();
-//     event.preventDefault();
-// }
-// botaoApagar.addEventListener('click', apagaItem);
 
- 
+
+//Requisito 11 - Função apaga finalizados
+const botaoExcluiFinalizados = document.getElementById('remover-finalizados');
+function removerFinalizados(event){
+event.preventDefault();
+let conteudoLista = document.querySelectorAll('.completed');
+        for(let index = 0; index < conteudoLista.length; index += 1){
+            if(conteudoLista[index].classList.contains('completed') === true){
+                conteudoLista[index].remove()
+            }
+        
+        
+       
+        }   
+    
+}
+botaoExcluiFinalizados.addEventListener('click', removerFinalizados);
+
     
 
