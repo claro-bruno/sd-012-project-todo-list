@@ -10,6 +10,7 @@ function checarBotao() {
     novaTarefa.innerHTML = retornoLista.value;
     retornoLista.value = '';
     checarTarefaSelecionada();
+    marcarTarefaCumprida();
   })
 }
 
@@ -25,6 +26,20 @@ function checarTarefaSelecionada() {
   }
 }
 
+function marcarTarefaCumprida() {
+  console.log("passando aqui");
+  let listaTarefas = document.getElementsByClassName("tarefas");
+  for (let indice = 0; indice < listaTarefas.length; indice += 1) {
+    listaTarefas[indice].addEventListener('dblclick', function (event) {
+      if (event.target.className !== 'completed') {
+        event.target.classList.add('completed');
+      } else {
+        event.target.classList.remove('elected');
+      }
+    });
+  }
+
+}
 /* window.onload = function () { */
 checarBotao();
 
