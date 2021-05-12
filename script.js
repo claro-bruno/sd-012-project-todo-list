@@ -9,12 +9,23 @@ function CreateTask() {//cria a tarefa
   selectTask();
 }
 document.getElementById('apaga-tudo').addEventListener('click', removeTasks);
-function removeTasks() {//feito com ajuda do forum: https://qastack.com.br/programming/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+function removeTasks() {//referencia: https://qastack.com.br/programming/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
   const task = document.getElementById("lista-tarefas");
   while (task.firstChild) {//enquanto houver filho do nó pai irá excluir o último nó filho(li).
     task.removeChild(task.lastChild);
   }
-} 
+}
+document.getElementById('remover-finalizados').addEventListener('click', removeFinished);
+function removeFinished(){//referencia: https://www.w3schools.com/jsref/met_node_removechild.asp
+  const task = document.getElementsByTagName('li');
+  const taskpai = document.getElementById('lista-tarefas');
+  for (let index=0; index < task.length; index += 1) {
+    if(task[index].classList.contains('completed')){
+      taskpai.removeChild(taskpai.childNodes[index]);
+    }
+  } 
+}
+
 function removeSelectedClass() {//remove a classe selected
   const task = document.getElementsByTagName('li');
   for (let index=0; index < task.length; index += 1) {
