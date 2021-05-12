@@ -1,11 +1,12 @@
-const buttonAdd = document.querySelector('#criar-tarefa');
+const btAdd = document.querySelector('#criar-tarefa');
 const listItems = document.querySelector('#lista-tarefas');
 const inputTask = document.querySelector('#texto-tarefa');
 const ol = document.querySelector('#lista-tarefas');
-const buttonClear = document.querySelector('#apaga-tudo');
+const btClear = document.querySelector('#apaga-tudo');
+const btClearDone = document.querySelector('#remover-finalizados');
 
 function addTaskList() {
-  buttonAdd.addEventListener('click', () => {
+  btAdd.addEventListener('click', () => {
     if (inputTask.value !== '') {
       const newItem = document.createElement('li');
       newItem.innerHTML = inputTask.value;
@@ -43,13 +44,12 @@ selectItem();
 function strikethroughItem() {
   ol.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed');
-    console.log(event.target);
   });
 }
 strikethroughItem();
 
 function clearTaskList() {
-  buttonClear.addEventListener('click', () => {
+  btClear.addEventListener('click', () => {
     const olChildrens = document.querySelector('#lista-tarefas');
     while (olChildrens.hasChildNodes()) {
       olChildrens.removeChild(olChildrens.firstChild);
@@ -57,3 +57,13 @@ function clearTaskList() {
   });
 }
 clearTaskList();
+
+// Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista
+btClearDone.addEventListener('click', () => {
+  const completedList = document.querySelectorAll('.completed');
+
+  for (let index = 0; index < completedList.length; index += 1) {
+    completedList[index].parentNode.removeChild(completedList[index]);
+    console.log('olá');
+  }
+})
