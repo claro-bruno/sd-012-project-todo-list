@@ -1,6 +1,7 @@
 let input = document.getElementById('texto-tarefa');
 let listaTarefas = document.getElementById('lista-tarefas');
 let button = document.getElementById('criar-tarefa');
+let buttonLimpa = document.getElementById('apaga-tudo');
 
 function criaLista() {
     let funcao = document.createElement('li');
@@ -23,10 +24,10 @@ button.addEventListener('click', botaoAdd);
 
 function pintaFundoItem(event) {
 
-    let listaSelecionada = document.querySelector('.selected')
-    if (listaSelecionada) { 
-        listaSelecionada.classList.remove('selected');
-        listaSelecionada.style.backgroundColor = '';
+    let itemEscolhido = document.querySelector('.selected')
+    if (itemEscolhido) { 
+        itemEscolhido.classList.remove('selected');
+        itemEscolhido.style.backgroundColor = '';
     };   
 
     event.target.classList.add('selected');
@@ -37,4 +38,17 @@ function corFundoItem() {
     pintaFundoItem();
 };
 
-listaTarefas.addEventListener("click", pintaFundoItem);
+listaTarefas.addEventListener('click', pintaFundoItem);
+
+function limpaLista() {
+    let lista = document.getElementById('lista-tarefas');
+    while (lista.firstChild){
+        lista.removeChild(lista.firstChild);
+    };
+};
+
+function botaoLimpaLista() {
+    limpaLista();
+};
+
+buttonLimpa.addEventListener('click', botaoLimpaLista);
