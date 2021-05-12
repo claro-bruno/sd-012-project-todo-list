@@ -58,12 +58,9 @@ selecteIten.addEventListener('dblclick', function (event) {
   }
 });
 
-
-
-
-buttonRmvSelected.addEventListener('click', function() {
-  const taskCompleted = document.querySelectorAll('.completed');
-  for (let index = 0; index < taskCompleted.length; index += 1){
-  taskCompleted[index].remove();
-  };
-});
+// buttonRmvSelected.addEventListener('click', function() {
+//   const taskCompleted = document.querySelectorAll('.completed');
+//   for (let index = 0; index < taskCompleted.length; index += 1){
+//   taskCompleted[index].remove();
+//   };
+// });
