@@ -1,4 +1,5 @@
-document.getElementById('criar-tarefa').addEventListener('click', CreateTask);
+window.onload = function () {//só irá execultar depois que a página carregar
+  document.getElementById('criar-tarefa').addEventListener('click', CreateTask);
 function CreateTask() {//cria a tarefa
   const text = document.getElementById('texto-tarefa');
   const task = document.createElement('li');
@@ -7,6 +8,13 @@ function CreateTask() {//cria a tarefa
   text.value = null;
   selectTask();
 }
+document.getElementById('apaga-tudo').addEventListener('click', removeTasks);
+function removeTasks() {//feito com ajuda do forum: https://qastack.com.br/programming/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+  const task = document.getElementById("lista-tarefas");
+  while (task.firstChild) {//enquanto houver filho do nó pai irá excluir o último nó filho(li).
+    task.removeChild(task.lastChild);
+  }
+} 
 function removeSelectedClass() {//remove a classe selected
   const task = document.getElementsByTagName('li');
   for (let index=0; index < task.length; index += 1) {
@@ -14,8 +22,8 @@ function removeSelectedClass() {//remove a classe selected
       task[index].classList.remove('selected');
     }
   }
-}
-function completedLineThrough(event){//add a classe completed que risca a tarefa quando der dois cliques.
+} 
+function completedLineThrough(event){//add a classe completed que risca a tarefa quando der dois cliques e remove se já estiver riscada.
   const task = event.target.classList;
   if(task.contains('completed')){
     task.remove('completed');
@@ -24,7 +32,7 @@ function completedLineThrough(event){//add a classe completed que risca a tarefa
   }
 }
 function coloringbackground (event) {//atribui a class selected que contém o background cinza.
-  removeSelectedClass();//remove a classe selected se houver
+  removeSelectedClass(event);//remove a classe selected se houver
   event.target.classList.add('selected');
 }
 function selectTask() {//captura o clique na tarefa
@@ -34,5 +42,5 @@ function selectTask() {//captura o clique na tarefa
     task[index].addEventListener('dblclick', completedLineThrough);
   }
 }
-   
-  
+}   
+
