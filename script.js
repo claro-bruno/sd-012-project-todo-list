@@ -42,11 +42,12 @@ function selecionarItem() {
 
 function apagaFinalizados() {
 
-    for (let i = 0; i < listaDeItem.children.length; i++) {
-        if (listaDeItem.children[i].classList.contains('completed')) {
-            listaDeItem.removeChild(listaDeItem.children[i]);
-        };
-    };
+    let tarefasFinalizadas = document.querySelectorAll(".completed");
+
+    tarefasFinalizadas.forEach(element => {
+        element.parentNode.removeChild(element);
+    })
+
 };
 
 botaoAdicionarTarefa.addEventListener('click', createTask);
