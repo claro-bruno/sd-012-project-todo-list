@@ -1,10 +1,11 @@
-const button = document.querySelector('#criar-tarefa');
+const buttonAdd = document.querySelector('#criar-tarefa');
 const listItems = document.querySelector('#lista-tarefas');
 const inputTask = document.querySelector('#texto-tarefa');
 const ol = document.querySelector('#lista-tarefas');
+const buttonClear = document.querySelector('#apaga-tudo');
 
 function addTaskList() {
-  button.addEventListener('click', () => {
+  buttonAdd.addEventListener('click', () => {
     if (inputTask.value !== '') {
       const newItem = document.createElement('li');
       newItem.innerHTML = inputTask.value;
@@ -46,3 +47,17 @@ function strikethroughItem() {
   });
 }
 strikethroughItem();
+
+// Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
+
+// Criar um botão no html e atribuir o id "apaga-tudo" - ok
+// Adicionar um evento de click ao botão
+buttonClear.addEventListener('click', (event) => {
+  // Capturar todos os filhos da lista ordenada através de um array
+  const olChildrens = document.querySelector('#lista-tarefas');
+  while (olChildrens.hasChildNodes()) {
+    olChildrens.removeChild(olChildrens.firstChild);
+  }
+});
+
+  // remover os filhos da lista ordenada usando um for
