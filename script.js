@@ -39,12 +39,10 @@ function selectItem() {
 }
 selectItem();
 
-//  Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item
-
-// Escutador de eventos com dois cliques na lista ordenada (ol)
-ol.addEventListener('dblclick', (event) => {
-  // Capturar o target do click e adicionar a classe 'completed' ao nosso target
-  event.target.classList.toggle('completed');
-  // usar o classList.toggle para exibir/ocultar a classe completed
-  console.log(event.target);
-});
+function strikethroughItem() {
+  ol.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+    console.log(event.target);
+  });
+}
+strikethroughItem();
