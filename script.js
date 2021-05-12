@@ -13,6 +13,7 @@ function criandoLi() {
     criaLi.innerText = pegaTextoTarefa;
     criaLi.style.cursor = 'pointer';
     criaLi.addEventListener('click', selecionaLi);
+    criaLi.addEventListener('dblclick', addCompleted);
     
     pegaTextoTarefa = document.querySelector('#texto-tarefa').value = '';
   });
@@ -24,11 +25,27 @@ function removeSelected() {
   let pegaLi = document.querySelectorAll('li');
   for (let index = 0; index < pegaLi.length; index += 1) {
     pegaLi[index].classList.remove('selected');
-  }
-}
+  };
+};
 
 // Seleciona um ítem da lista
 function selecionaLi(event) {
   removeSelected();
-  event.target.className = 'selected';
+  event.target.className += ' selected';
+};
+
+// Remove classe Completed.
+function removeCompleted() {
+  pegaLi = document.querySelectorAll('li');
+  for (let index = 0; index < pegaLi.length; index += 1) {
+    pegaLi[index].addEventListener('dblclick', function(event) {
+      event.target.classList.remove('completed');
+    });
+  };
+};
+
+// Adiciona classe Completed
+function addCompleted(event) {
+  removeCompleted();
+  event.target.className += ' completed';
 }
