@@ -1,35 +1,35 @@
 body {
-background-color: green;
+	background-color: green;
 }
 
 h1 {
-text-align: center;
-color: thistle;
+	text-align: center;
+	color: thistle;
 }
 
 section {
-background-color: white;
-border-radius: 50px;
-text-align:center;
-padding: 10px;
-color: black;
+	background-color: white;
+	border-radius: 50px;
+	text-align: center;
+	padding: 10px;
+	color: black;
 }
 
 #texto-tarefa {
-width: 300px;
-background-color: rgb(233, 220, 220);
-border-style: inset;
+  width: 300px;
+	background-color: rgb(233, 220, 220);
+	border-style: inset;
 }
 
 .completed {
-text-decoration: line-through solid rgb(0, 0, 0);
+	text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 .selected {
-background-color: rgb(128, 128, 128);
+	background-color: rgb(128, 128, 128);
 }
 
 #limpar-lista {
-background-color: rgb(216, 39, 39);
-color: white;
+	background-color: rgb(216, 39, 39);
+	color: white;
 }
