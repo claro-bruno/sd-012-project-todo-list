@@ -1,4 +1,4 @@
-window.onload = function () {//só irá execultar depois que a página carregar
+window.onload = function () { // só irá execultar depois que a página carregar
   document.getElementById('criar-tarefa').addEventListener('click', CreateTask);
 function CreateTask() {//cria a tarefa
   const text = document.getElementById('texto-tarefa');
