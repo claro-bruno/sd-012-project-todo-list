@@ -11,13 +11,15 @@ function addList() {
 
 function LiClass(){
     for (let index = 0; index < listItem.length; index+= 1) {
-        listItem[index].setAttribute('class', 'listItem')
+        listItem[index].classList.add('listItem');
     }
 }
 
-function removeSelected(){
-    for (let index = 0; index < listItem.length; index+= 1) {
-        listItem[index].classList.remove('selected')
+function itemCompleted(event){
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
     }
 }
 
@@ -36,15 +38,14 @@ addButton.addEventListener("click", function(){
 })
 
 document.body.addEventListener("click", function(event){
-    if(event.target.className === "listItem"){
-        clearBackground()
-        event.target.style.backgroundColor = 'rgb(128, 128, 128)'  
-    }
-  })
-  
-  document.body.addEventListener("dblclick", function(event){
-    if(event.target.className === "listItem"){
-        removeSelected()
-        event.target.classList.add('selected')
+  if(event.target.classList.contains('listItem')){
+    clearBackground()
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+  }
+})
+
+document.body.addEventListener("dblclick", function(event){
+    if(event.target.classList.contains('listItem')){
+     itemCompleted(event)
     }
   })
