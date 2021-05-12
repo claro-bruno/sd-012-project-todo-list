@@ -25,16 +25,12 @@ document.addEventListener('click', (event) => {
   }
 });
 
-//9
-//Criar um evento double click na OL
-document.addEventListener('dblclick', (event) => {
-
-//O target (item clicado) deve receber a classe completed
-// event.target.classList.add('completed');
-
-//Ao clicar duas vezes novamente ele deve retirar a classe completed (usando o toggle)
-event.target.classList.toggle('completed');
-});
+function riskList() {
+  document.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
+}
+riskList();
 
 //10
 // document.addEventListener('click', (event) => {  
