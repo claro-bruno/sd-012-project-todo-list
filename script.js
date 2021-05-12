@@ -19,6 +19,7 @@ window.onload = function () {
 
   let botao = document.createElement("button")
   botao.id = "criar-tarefa";
+  botao.innerHTML = "Criar tarefa";
   document.body.appendChild(botao);
 
   document.body.addEventListener("click", function (event) {
@@ -30,13 +31,15 @@ window.onload = function () {
       lista.appendChild(item);
       document.querySelector("#texto-tarefa").value = "";
     }
-  })
+  });
 
   document.body.addEventListener("click", function (event) {
     if (event.target.className === "item") {
-      let changeColor = event.target;
-      changeColor.style.backgroundColor = "rgb(128, 128, 128)";
-    }
+      let itens = document.querySelector(".selected");
+      if (itens !== null) {
+        itens.classList.remove("selected");
+      }
+      event.target.classList.add("selected");
+    };
   })
-
 };
