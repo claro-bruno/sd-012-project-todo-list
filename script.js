@@ -16,11 +16,10 @@ function checarBotao() {
 function checarTarefaSelecionada() {
   let listaClicada = document.getElementsByClassName("tarefas");
   for (let indice = 0; indice < listaClicada.length; indice += 1) {
-
-
     listaClicada[indice].addEventListener('click', function (event) {
-     /*  listaClicada[indice].style.background = "red"; */
-      
+      for (let indice2 = 0; indice2 < listaClicada.length; indice2 += 1) {
+        listaClicada[indice2].style.background = "";
+      }
       event.target.style.backgroundColor = "rgb(128, 128, 128)";
     });
   }
