@@ -62,4 +62,14 @@ function excluir(){
 botaoApaga.addEventListener('click', excluir);
 
 
+let botaoFinal = document.querySelector('#remover-finalizados');
 
+function excluirFinalizados(){
+    let apagarFinalizados = document.querySelectorAll('.completed');
+
+    for(let apaga of apagarFinalizados)
+    listaTarefa.removeChild(apaga);
+
+}
+
+botaoFinal.addEventListener('click', excluirFinalizados);
