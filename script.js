@@ -23,7 +23,7 @@ document.addEventListener('click', (event) => {
     const selected = document.querySelector('.selected');
     if (selected !== null) {
       selected.classList.remove('selected');
-      selected.style.backgroundColor = '#212121';
+      // selected.style.backgroundColor = '#212121';
     }
     alvo.classList.add('selected');
   }
