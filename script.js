@@ -62,9 +62,25 @@ let conteudoLista = document.querySelectorAll('.completed');
         
        
         }   
-    
 }
 botaoExcluiFinalizados.addEventListener('click', removerFinalizados);
 
-    
 
+//Requisito 12 -Função salvar tarefa
+
+const botaoSalvar = document.getElementById('salvar-tarefas');
+function salvarTarefa(event){
+
+
+event.preventDefault();
+localStorage.setItem('tarefas-salvas', listaTarefas.innerHTML);//local storage deve salvar um objeto
+alert('A lista foi salva');    
+
+}
+botaoSalvar.addEventListener('click', salvarTarefa);
+    
+window.onload = () => {
+    let tarefasSalvas = localStorage.getItem('tarefas-salvas');
+    listaTarefas.innerHTML = tarefasSalvas;//o conteúdo interno da lista de tarefas será atualizado com o conteúdo de tarefas-salvas.
+    
+}
