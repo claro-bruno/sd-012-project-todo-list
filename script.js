@@ -8,6 +8,7 @@ function addTarefa(){
         addLi.innerHTML = textoTarefa;
         addLi.classList.add('listIten');
         addLi.addEventListener('click', selected);
+        addLi.addEventListener('dblclick', concluded);
         document.querySelector('#lista-tarefas').appendChild(addLi);
         document.querySelector('#texto-tarefa').value = '';
     } else {
@@ -17,11 +18,25 @@ function addTarefa(){
 
 //SELECIONA ITEM DA LISTA
 function selected(event) {
-    const selectedChange = document.querySelector('.selected');
-    if (selectedChange){
-        selectedChange.classList.remove('selected');
-    };
+  const selectedChange = document.querySelector('.selected');
+  if (selectedChange){
+    selectedChange.classList.remove('selected');
+  };
     event.target.classList.add('selected');    
+};
+
+//ITEM 9 RISCAR TAREFA COM DOUBLE CLICK
+function concluded (event){
+  if(event.target.classList !== '.completed'){
+    event.target.classList.toggle('completed')
+    //     event.target.classList.add('completed');
+    //     console.log('add');
+    // } else {
+    //     event.target.classList.remove('completed');
+    //     console.log('remove')
+        
+  };
+    
 };
         
 //REMOVE ITEM SELECIONADO
@@ -39,3 +54,4 @@ function limpaTarefa (){
     const itensList = document.querySelector('#lista-tarefas');
     itensList.innerText = '';
 };
+
