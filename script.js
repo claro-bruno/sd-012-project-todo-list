@@ -2,9 +2,15 @@ const botao = document.querySelector('#criar-tarefa');
 const botaoLimpa = document.querySelector('#apaga-tudo');
 const botaoLimpaCompletos = document.querySelector('#remover-finalizados');
 const botaoSalva = document.querySelector('#salvar-tarefas');
+const ol = document.querySelector('#lista-tarefas');
 const li = document.querySelectorAll('ol');
 const lis = document.getElementsByTagName('li');
 let array = [];
+
+window.onload = () => {
+  const listaSalva = localStorage.getItem('tasks');
+  ol.innerHTML = listaSalva;
+};
 
 //ADICIONA TAREFA
 function adicionarTarefa() {
@@ -16,7 +22,7 @@ function adicionarTarefa() {
   lista.appendChild(criarLi);
 
   array.push(criarLi.textContent);
-
+  console.log(array);
   caixaTexto.value = '';
 }
 
@@ -24,7 +30,9 @@ botao.addEventListener('click', adicionarTarefa);
 
 //SALVAR TASKS
 botaoSalva.addEventListener('click', function () {
-  localStorage.setItem('tasks', JSON.stringify(array));
+  for (let i = 0; i < array.length; i += 1) {
+    localStorage.setItem('tasks', JSON.stringify(array[i]));
+  }
 });
 
 //TASK SELECIONADA
@@ -58,7 +66,5 @@ botaoLimpa.addEventListener('click', function () {
 //LIMPAR TASKS COMPLETAS
 botaoLimpaCompletos.addEventListener('click', function () {
   const riscados = document.getElementsByClassName('completed');
-  for (let i = riscados.length - 1; i >= 0; i -= 1) {
-    riscados[i].remove();
-  }
+  while (riscados.length > 0) riscados[0].remove();
 });
