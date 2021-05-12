@@ -37,3 +37,14 @@ function changeBackgroundColor (event) {
 }
 
 colorChange.addEventListener('click', changeBackgroundColor)
+
+// cria função para adicionar classe completed com click duplo, fazendo com que o elemento receba um risco e possibilitando que a classe seja retirada, também, com o duplo click (lembrando que para isso, foi declarada a estilização da palavra com risco para classe completed no css, igual ocorreu com a classe selected)
+
+const taskCompleted = document.getElementById('lista-tarefas');
+
+function completedTaskClass (event) {
+    if (event.target.localName === 'li'){
+        event.target.classList.toggle('completed');
+    };
+}
+taskCompleted.addEventListener('dblclick', completedTaskClass);
