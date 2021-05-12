@@ -1,7 +1,15 @@
 body {
-    font-family: 'Roboto Slab', serif;
+  font-family: 'Roboto Slab', serif;
 }
 
-.buttons{
-    font-weight: bolder;
+.buttons {
+  font-weight: bolder;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through;
 }
