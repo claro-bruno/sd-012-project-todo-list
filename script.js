@@ -3,7 +3,7 @@ const containerSubTitle = document.querySelector('#funcionamento'); //Criando a 
 const listItem = document.querySelector('#lista-tarefas');
 const button = document.querySelector('#criar-tarefa');
 const inputList = document.querySelector('#texto-tarefa');
-
+const getColorCinza = 'rgb(128,128,128)';
 
 //Questao 1
 
@@ -19,14 +19,22 @@ let addSubTitle = document.createElement('p');
 addSubTitle.innerHTML = getSubTitle;
 containerSubTitle.appendChild(addSubTitle)
 
+
 //questao 5 && 6
 
-button.addEventListener('click', addInput);
+  button.addEventListener('click', addInput);
 
-function addInput(){
-    let listConteiner = document.createElement('li');
-    listConteiner.innerText = inputList.value;
-    listConteiner.addEventListener('click', addInput);
-    inputList.value = '';
-    listItem.appendChild(listConteiner);
+  function addInput(){
+      let listConteiner = document.createElement('li');
+      listConteiner.innerText = inputList.value;
+      listConteiner.addEventListener('click', addInput);
+      inputList.value = '';
+      listItem.appendChild(listConteiner);
+    }
+  
+// questao 7
+    
+listItem.addEventListener('click', changeCinza); 
+function changeCinza(eventColor){
+    eventColor.target.style.backgroundColor = getColorCinza
   }
