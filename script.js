@@ -34,7 +34,7 @@ listaTarefa.addEventListener('click', selecTask);
 
 
 function selectLineThrough(event){
-    
+    //contains verifica se a classe especifica contém no elemento
     if(event.target.classList.contains('completed') !== true){
         event.target.classList.add('completed'); 
         event.target.style.textDecoration = 'line-through';
@@ -49,8 +49,17 @@ function selectLineThrough(event){
 }
 listaTarefa.addEventListener('dblclick', selectLineThrough);
 
+let botaoApaga = document.querySelector('#apaga-tudo');
 
+function excluir(){
+    let apagarLi = document.querySelectorAll('li');
 
+    for(let apaga of apagarLi)
+    listaTarefa.removeChild(apaga);
+
+}
+
+botaoApaga.addEventListener('click', excluir);
 
 
 
