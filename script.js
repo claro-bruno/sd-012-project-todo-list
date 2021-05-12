@@ -20,3 +20,11 @@ ol.addEventListener('click', selectColor);
     event.target.classList.add('selected');
     
 }
+
+ol.addEventListener('dblclick', function(event) {
+  if (event.target.classList.contains('completed')) {
+  event.target.classList.remove('completed')
+  } else {
+  event.target.classList.add('completed')
+  }
+});
