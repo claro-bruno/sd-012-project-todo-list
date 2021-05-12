@@ -55,6 +55,24 @@ window.onload = function() {
 }
 
 document.addEventListener('click', (event) => {
+  if (event.target.id === 'mover-cima') {
+    let selected = document.querySelector('.selected');
+    if (selected !== null && selected !== listaTarefas.firstElementChild) {
+      listaTarefas.insertBefore(selected, selected.previousSibling);
+    }
+  }
+})
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'mover-baixo') {
+    let selected = document.querySelector('.selected')
+    if (selected !== null && selected !== listaTarefas.lastElementChild) {
+      listaTarefas.insertBefore(selected.nextElementSibling, selected);
+    }
+  }
+})
+
+document.addEventListener('click', (event) => {
   if (event.target.id === 'remover-selecionado'){
     let selecionado = document.querySelector('.selected');
     selecionado.remove();
