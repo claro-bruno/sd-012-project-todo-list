@@ -13,7 +13,7 @@ header {
     width: 70%;
     margin: 50px auto 0px auto;
     font-size: 50px;
-
+    text-align: center;
 }
 #div1 li {
     width: 80%;
@@ -27,6 +27,7 @@ header {
     margin: auto auto;
     font-size: small;
     margin-top: 0px;
+    text-align: left;
 }
 #texto-tarefa {
    margin-left: 10%;
