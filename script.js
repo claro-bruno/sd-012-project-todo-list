@@ -16,16 +16,16 @@ function removeTasks() {//referencia: https://qastack.com.br/programming/3955229
   }
 }
 document.getElementById('remover-finalizados').addEventListener('click', removeFinished);
+
 function removeFinished(){//referencia: https://www.w3schools.com/jsref/met_node_removechild.asp
-  const task = document.getElementsByTagName('li');
+  const task = document.querySelectorAll('li');
   const taskpai = document.getElementById('lista-tarefas');
   for (let index=0; index < task.length; index += 1) {
     if(task[index].classList.contains('completed')){
-      taskpai.removeChild(taskpai.childNodes[index]);
+      taskpai.removeChild(task[index]);
     }
   } 
 }
-
 function removeSelectedClass() {//remove a classe selected
   const task = document.getElementsByTagName('li');
   for (let index=0; index < task.length; index += 1) {
