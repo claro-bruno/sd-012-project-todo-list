@@ -8,12 +8,28 @@ function addTaskList() {
     if (inputTask.value !== '') {
       const newItem = document.createElement('li');
       newItem.innerHTML = inputTask.value;
+      newItem.classList.add('tasks');
       listItems.appendChild(newItem);
       inputTask.value = '';
     }
   });
 }
 addTaskList();
+
+function paintTask() {
+  // capture todos os elementos da lista em forma de array
+  const itemSelected = document.querySelectorAll('.tasks');
+
+  for (let index = 0; index < itemSelected.length; index += 1) {
+    // se o elemento tiver a classe selected pinte de vermelho
+    if (itemSelected[index].classList.contains('selected')) {
+      itemSelected[index].style.backgroundColor = 'rgb(128, 128, 128)';
+      // se não tiver a classe selected pint de azul
+    } else {
+      itemSelected[index].style.backgroundColor = 'white';
+    }
+  }
+}
 
 ol.addEventListener('click', (event) => {
   // Capture o elemento que tenha a classe selected
@@ -25,17 +41,5 @@ ol.addEventListener('click', (event) => {
   }
   // Se o elemento com a classe selected não existir, adione a classe selected ao elemento clicado.
   event.target.classList.add('selected');
+  paintTask();
 });
-
-function paintTask() {
-  ol.addEventListener('click', (event) => {
-    console.log(event.target.className === 'selected');
-    if (event.target.className === 'selected') {
-      const clickedList = event.target;
-      clickedList.style.backgroundColor = 'rgb(128,128,128)';
-    }
-  });
-}
-paintTask();
-
-// devo pintar só quem tem a classe selected
