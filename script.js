@@ -8,6 +8,7 @@ function checarBotao() {
     document.querySelector('#lista-tarefas').appendChild(novaTarefa);
     let retornoLista = document.getElementById('texto-tarefa');
     novaTarefa.innerHTML = retornoLista.value;
+    retornoLista.value = '';
     checarTarefaSelecionada();
   })
 }
@@ -15,8 +16,12 @@ function checarBotao() {
 function checarTarefaSelecionada() {
   let listaClicada = document.getElementsByClassName("tarefas");
   for (let indice = 0; indice < listaClicada.length; indice += 1) {
+
+
     listaClicada[indice].addEventListener('click', function (event) {
-      event.target.style.background = "rgb(128, 128, 128)";
+     /*  listaClicada[indice].style.background = "red"; */
+      
+      event.target.style.backgroundColor = "rgb(128, 128, 128)";
     });
   }
 }
