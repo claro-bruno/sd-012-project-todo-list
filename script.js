@@ -4,6 +4,7 @@ let inputTarefas = document.getElementById('texto-tarefa');
 let buttonApagar = document.getElementById('apaga-tudo');
 let removeFinalizados = document.getElementById('remover-finalizados');
 let elementosDaLista = listaTarefas.childNodes;
+let salvarLista = document.getElementById('salvar-tarefa');
  
 buttonAdicionar.addEventListener('click', () => {
   let criarLi = document.createElement('li');
@@ -40,3 +41,15 @@ removeFinalizados.addEventListener('click', () => {
     }
   }
 })
+
+document.addEventListener('click', (event) => {
+  if(event.target.id === 'salvar-tarefas') {
+    localStorage.setItem('key', listaTarefas.innerHTML);
+  }
+})
+
+window.onload = function() {
+  if (localStorage.getItem('key') !== null) {
+  listaTarefas.innerHTML += localStorage.getItem('key');
+  }
+}
