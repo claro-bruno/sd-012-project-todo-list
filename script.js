@@ -2,6 +2,7 @@ let listaDeItem = document.getElementById("lista-tarefas");
 let botaoAdicionarTarefa = document.getElementById("criar-tarefa");
 let apagaTudo = document.getElementById("apaga-tudo");
 let apagaFinalizadas = document.getElementById('remover-finalizados');
+let botaoRemoverSelecionado = document.getElementById('remover-selecionado');
 
 
 function createTask() {
@@ -50,6 +51,11 @@ function apagaFinalizados() {
 
 };
 
+function apagaSelecionado() {
+    let selected = document.querySelector('.selected');
+    selected.parentNode.removeChild(selected);
+}
+
 botaoAdicionarTarefa.addEventListener('click', createTask);
 
 listaDeItem.addEventListener('dblclick', completeTask);
@@ -59,3 +65,5 @@ listaDeItem.addEventListener('click', selecionarItem);
 apagaTudo.addEventListener('click', limpaLista);
 
 apagaFinalizadas.addEventListener('click', apagaFinalizados);
+
+botaoRemoverSelecionado.addEventListener('click', apagaSelecionado);
