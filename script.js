@@ -15,8 +15,13 @@ function removeSelectedClass() {//remove a classe selected
     }
   }
 }
-function completedLineThrough(event){
-  event.target.classList.add('completed');
+function completedLineThrough(event){//add a classe completed que risca a tarefa quando der dois cliques.
+  const task = event.target.classList;
+  if(task.contains('completed')){
+    task.remove('completed');
+  }else{
+  task.add('completed');
+  }
 }
 function coloringbackground (event) {//atribui a class selected que contém o background cinza.
   removeSelectedClass();//remove a classe selected se houver
