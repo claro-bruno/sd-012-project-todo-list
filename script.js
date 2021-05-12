@@ -2,7 +2,7 @@ const input = document.getElementById('texto-tarefa');
 const listaTarefa = document.getElementById('lista-tarefas');
 let selectedTask = '';
 let previusTask = '';
-let postTask = ''
+let nextTask = '';
 
 function gray(event) {
   const li = document.querySelectorAll('.tarefa');
@@ -37,15 +37,13 @@ function deleteDone() {
 
 function moverCima() {
   const task = document.getElementsByClassName('tarefa');
+  if (document.getElementsByClassName('gray').length < 1){
+    alert('Nenhum elemento selecionado')
+  }
   for (let i = 0; i < task.length; i += 1) {
     if (task[i].classList.contains('gray')) {
       if (i !== 0) {
-        selectedTask = task[i].innerHTML;
-        previusTask = task[i - 1].innerHTML;
-        task[i].innerHTML = previusTask;
-        task[i - 1].innerHTML = selectedTask;
-        task[i].classList.remove('gray');
-        task[i - 1].classList.add('gray');
+        listaTarefa.insertBefore(task[i], task[i].previousSibling )
       } else {
         alert('O elemento já está no topo da lista');
       }
@@ -55,21 +53,16 @@ function moverCima() {
 
 function moverBaixo() {
   const task = document.getElementsByClassName('tarefa');
-  //task = task.reverse();
-  for (let i = 0; i < task.length-1; i += 1) {
+
+  if (document.getElementsByClassName('gray').length < 1){
+    alert('Nenhum elemento selecionado')
+  }
+  for (let i = 0; i < task.length; i += 1) {
     if (task[i].classList.contains('gray')) {
-      if (i !== task.length-1) {
-        selectedTask = task[i -1].innerHTML;
-        previusTask = task[i].innerHTML;
-        task[i - 1].innerHTML = previusTask;
-        task[i].innerHTML = selectedTask;
-        task[i].classList.remove('gray');
-        task[i - 1].classList.add('gray');
-       // task = task.reverse();
-      }
-      {
+      if (i !== task.length - 1) {
+        listaTarefa.insertBefore(task[i].nextSibling, task[i])
+      } else {
         alert('O elemento já está no final da lista');
-        //task = task.reverse();
       }
     }
   }
@@ -84,7 +77,6 @@ function createTask() {
   tarefa.classList.add('tarefa');
   tarefa.innerHTML = input.value;
   listaTarefa.appendChild(tarefa);
-  console.log(input.value);
   input.value = '';
   tarefa.addEventListener('click', gray);
   tarefa.addEventListener('dblclick', done);
