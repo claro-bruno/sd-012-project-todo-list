@@ -1,6 +1,6 @@
 window.onload = function () {
   const addTarefa = document.getElementById('criar-tarefa');
-  addTarefa.addEventListener('click', function () {
+  addTarefa.addEventListener('click', (event) => {
     const input = document.getElementById('texto-tarefa');
     console.log(input.value);
     const li = document.createElement('li');
@@ -10,7 +10,7 @@ window.onload = function () {
     li.innerHTML = input.value;
     ol.appendChild(li);
     input.value = '';
-  }); 
+  });
 };
 
 document.addEventListener('click', (event) => {
@@ -24,3 +24,22 @@ document.addEventListener('click', (event) => {
     item.classList.add('tarefaSelecionada');
   }
 });
+
+//9
+//Criar um evento double click na OL
+document.addEventListener('dblclick', (event) => {
+
+//O target (item clicado) deve receber a classe completed
+// event.target.classList.add('completed');
+
+//Ao clicar duas vezes novamente ele deve retirar a classe completed (usando o toggle)
+event.target.classList.toggle('completed');
+});
+
+//10
+// document.addEventListener('click', (event) => {  
+//   const limparTarefas = document.getElementById('apaga-tudo');
+//     if(li !== '') {
+//       console.log(li === '')
+//     }
+// });
