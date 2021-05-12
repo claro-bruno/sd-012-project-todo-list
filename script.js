@@ -15,6 +15,12 @@ function LiClass(){
     }
 }
 
+function removeSelected(){
+    for (let index = 0; index < listItem.length; index+= 1) {
+        listItem[index].classList.remove('selected')
+    }
+}
+
 
 function clearBackground(){
     for (let index = 0; index < listItem.length; index+= 1) {
@@ -33,5 +39,12 @@ document.body.addEventListener("click", function(event){
     if(event.target.className === "listItem"){
         clearBackground()
         event.target.style.backgroundColor = 'rgb(128, 128, 128)'  
+    }
+  })
+  
+  document.body.addEventListener("dblclick", function(event){
+    if(event.target.className === "listItem"){
+        removeSelected()
+        event.target.classList.add('selected')
     }
   })
