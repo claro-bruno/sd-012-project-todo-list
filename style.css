@@ -1,3 +1,46 @@
+body{
+    background-color: black;
+}
+#div1{
+    background-color: red;
+    width: 70%;
+    margin: auto auto;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    
+}
+#div1 header {
+    font-size: 50px;
+    width: 80%;
+    margin: auto auto;
+}
+#div1 li {
+    width: 80%;
+    margin: auto auto;
+    font-family: monospace;
+    margin-bottom: 3px;
+    font-size: 18px;
+}
+#funcionamento {
+    width: 80%;
+    margin: auto auto;
+    font-size: small;
+    margin-top: 0px;
+    margin-bottom: 25px;
+}
+#texto-tarefa {
+   margin-left: 10%;
+   padding: 3px;
+   border: solid 1px aqua;
+}
+#criar-tarefa {
+    background-color: aqua;
+}
 .trocaCor{
     background-color: rgb(128, 128, 128);
+}
+.selecionaCor {
+    background-color: red;
 }
