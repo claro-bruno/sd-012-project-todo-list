@@ -1,7 +1,7 @@
 .tarefaSelecionada {
-    background-color: rgb(128, 128, 128);
+  background-color: rgb(128, 128, 128);
 }
 
 .completed {
-    text-decoration: line-through solid black;
+  text-decoration: line-through solid black;
 }
