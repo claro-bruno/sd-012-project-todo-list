@@ -57,3 +57,24 @@ document.addEventListener('click', function (event) {
       greyTask.classList.add('selected');
     }
   }
+
+  function completedTasks(event) {
+    const completedTask = event.target;
+    if (completedTask.classList.contains('completed')) {
+      completedTask.classList.remove('completed');
+    } else {
+      completedTask.classList.add('completed');
+    }
+  }
+
+  const cleanButton = document.createElement('button');
+  cleanButton.id = 'apaga-tudo';
+  cleanButton.innerHTML = 'Apagar tudo!';
+  document.body.appendChild(cleanButton); 
+
+  function deleteTasks() {
+    const tasks = document.querySelectorAll('.task-item');
+    for (let i = 0; i < tasks.length; i += 1) {
+      tasks[i].remove();
+    } 
+  }
