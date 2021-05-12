@@ -10,12 +10,20 @@ function tarefa(){
    listaTarefa.innerHTML = '';
    for (lista of listas) {
       let criaLista = document.createElement('li');
-      let adicionaLista = document.createTextNode(lista)
+      let adicionaLista = document.createTextNode(lista);
+      criaLista.addEventListener('click', mudacor)
+      function mudacor(){
+         criaLista.className = 'trocaCor' ;
+         console.log(this.classList.value)
+      }
       criaLista.appendChild(adicionaLista);
       listaTarefa.appendChild(criaLista);
-      
+      console.log(criaLista)
    };
+   
 };
+
+//resolve requesito 6
 function criaTarefa(){
    let minhaListaTarefa = meuInput.value;
    listas.push(minhaListaTarefa);
@@ -23,3 +31,4 @@ function criaTarefa(){
    console.log(listas)
    tarefa()
 }
+
