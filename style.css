@@ -1,0 +1,12 @@
+#criar-tarefa{
+    background-color:crimson;
+    color: black;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+#texto-tarefa{
+    background-color:whitesmoke ;
+}
+.selected {
+    background-color: rgb(128,128,128);
+  }
