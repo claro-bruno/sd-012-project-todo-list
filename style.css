@@ -9,3 +9,10 @@
 #funcionamento {
     margin-top: 0px;
 }
+.create-task {
+    text-align: center;
+}
+.list {
+    margin-top: 20px;
+    text-align: center;
+}
