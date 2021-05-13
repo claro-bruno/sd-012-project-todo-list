@@ -1,5 +1,4 @@
 /* eslint-disable prefer-arrow-callback */
-const listPlace = document.querySelector('#list-place');
 let orderedList = document.querySelector('#lista-tarefas');
 
 function makeList() {
@@ -16,20 +15,19 @@ function makeList() {
 }
 
 function addBackgroundColor() {
-  listPlace.addEventListener('click', function (event) {
+  orderedList.addEventListener('click', function (event) {
     const selected = event.target;
     selected.classList.add('selected');
-    listPlace.addEventListener('click', function (event) {
+    orderedList.addEventListener('click', function (event) {
       const selected2 = event.target;
       selected2.classList.add('selected');
       selected.classList.remove('selected');
     });
-
   });
 }
 
 function completed() {
-  listPlace.addEventListener('dblclick', function (event) {
+  orderedList.addEventListener('dblclick', function (event) {
     const itemCompleted = event.target;
     itemCompleted.classList.toggle('completed');
   });
@@ -52,27 +50,19 @@ function saveUserList() {
 
 function upList() {
   const itemSelected = document.querySelector('.selected');
-  const previousSibling = itemSelected.previousElementSibling;  
-  const firstChild = orderedList.firstElementChild;
-  if (itemSelected === null || itemSelected === firstChild) {
-    orderedList = document.getElementById('lista-tarefas');
-  } else {
+  const previousSibling = itemSelected.previousElementSibling;
+  if (itemSelected != null && previousSibling != null) {
     orderedList.insertBefore(itemSelected, previousSibling);
-  } 
+  }
 }
 
 function downList() {
   const itemSelected = document.querySelector('.selected');
   const nextSibling = itemSelected.nextElementSibling;
-  const lastChild = orderedList.lastElementChild;
-  if (itemSelected === null || itemSelected === lastChild) {
-    orderedList = document.getElementById('lista-tarefas');
-  } else {
+  if (itemSelected != null && nextSibling != null) {
     nextSibling.insertAdjacentElement('afterend', itemSelected);
   }
 }
-
-
 
 window.onload = function () {
   const savedList = localStorage.getItem('userList');
