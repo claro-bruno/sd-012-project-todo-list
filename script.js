@@ -63,7 +63,7 @@ saveList();
 
 function removeAllDone() {
   removeDoneButton.addEventListener('click', () => {
-    const allDone = document.querySelectorAll('.completed');
+    const allDone = document.querySelectorAll('.completed');//come from https://stackoverflow.com/questions/44984867/javascript-remove-elements-by-class-name/44984940
     allDone.forEach((a) => {
       a.remove();
     });
