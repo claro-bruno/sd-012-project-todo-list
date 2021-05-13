@@ -14,7 +14,7 @@ butAdd.addEventListener('click', createList);
 
 const eraseList = () => {
   list.innerHTML = '';
-};
+}
 
 butRemo.addEventListener('click', eraseList);
 
@@ -29,12 +29,7 @@ const colorChange = () => {
 
 list.addEventListener('click', colorChange);
 
-const handleChangeSelected = () => {
-  const SelectedOriginal = document.querySelector('.selected');
-  SelectedOriginal.classList.remove('selected');
-  event.target..add('selected');
-}
-list.addEventListener('click', handleChangeSelected);
+
 
 
 
