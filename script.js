@@ -87,3 +87,18 @@ function clearCompleted() {
     })
 }
 clearCompleted();
+
+function saveTask() {
+    const buttonSaveTask = document.querySelector('#salvar-tarefas');
+    const listItem = document.getElementsByTagName('li');
+
+    buttonSaveTask.addEventListener('click', function(){
+        for (let index = 0; index < listItem.length; index += 1){
+            localStorage.setItem('task' + [index], listItem[0]);
+        }
+        alert('Tarefas salvas')
+    })
+}
+
+saveTask();
+
