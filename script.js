@@ -30,4 +30,11 @@ function addTarefa() {
             itens[i].classList.toggle('completed');
         }
     }
+    const limpar = document.querySelector('#apaga-tudo');
+    limpar.addEventListener('click', apagaTudo); 
+    function apagaTudo() {
+        const lista = document.querySelector('#lista-tarefas'); 
+        lista.innerHTML = '';
+        }
 }
+
