@@ -27,18 +27,19 @@ function checarTarefaSelecionada() {
 }
 
 function marcarTarefaCumprida() {
-  console.log("passando aqui");
+  console.log("comeco da rotina");
   let listaTarefas = document.getElementsByClassName("tarefas");
   for (let indice = 0; indice < listaTarefas.length; indice += 1) {
     listaTarefas[indice].addEventListener('dblclick', function (event) {
-      if (event.target.className !== 'completed') {
-        event.target.classList.add('completed');
+      if (event.target.className === 'tarefas completed') {
+        console.log("ja esta marcada");
+        event.target.classList.remove('completed');
       } else {
-        event.target.classList.remove('elected');
+        console.log("vou remover");
+        event.target.classList.add('completed');
       }
     });
   }
-
 }
 /* window.onload = function () { */
 checarBotao();
