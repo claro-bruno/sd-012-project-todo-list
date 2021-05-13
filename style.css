@@ -1,0 +1,27 @@
+* {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+ol {
+    background-color: white;
+    border-radius: 115px;
+    list-style: none;
+}
+
+ol li {
+    padding: 5px;
+    margin: 10px;
+    width: 200px;
+    
+}
+
+.selector {
+    background-color: gray;
+    border-radius: 115px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
