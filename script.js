@@ -169,3 +169,14 @@ function moveDown() {
     })
 }
 moveDown();
+
+function clearSelected() {
+    
+    const clearSelectedButton = document.querySelector('#remover-selecionado');
+
+    clearSelectedButton.addEventListener('click', function() {
+        const selected = document.querySelector('.selected');
+        selected.parentNode.removeChild(selected);
+    })
+}
+clearSelected();
