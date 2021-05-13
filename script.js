@@ -76,6 +76,7 @@ function clearList() {
 }
 clearList();
 
+/* Function clearCompleted deles all <li> item marked as completed through the class 'completed */
 function clearCompleted() {
     const completed = document.getElementsByClassName('completed');
     const buttonClearComleted = document.querySelector('#remover-finalizados');
@@ -88,17 +89,33 @@ function clearCompleted() {
 }
 clearCompleted();
 
+/* Function saveTask saves the text from <li> on localStorage */
 function saveTask() {
     const buttonSaveTask = document.querySelector('#salvar-tarefas');
-    const listItem = document.getElementsByTagName('li');
+    const list = document.getElementsByTagName('li');
 
-    buttonSaveTask.addEventListener('click', function(){
-        for (let index = 0; index < listItem.length; index += 1){
-            localStorage.setItem('task' + [index], listItem[0]);
+    buttonSaveTask.addEventListener('click', function() {
+        for (let index = 0; index < list.length; index += 1) {
+            localStorage.setItem('task' + [index], list[index].innerHTML);
         }
-        alert('Tarefas salvas')
+            alert('Tarefas salvas');      
     })
 }
-
 saveTask();
+
+function recoverTask() {
+    let list = document.querySelector('#lista-tarefas');
+    
+    if (localStorage.length > 0) {
+        for (let index = 0; index < localStorage.length; index += 1) {
+            let listItem = document.createElement('li')
+            listItem.innerHTML = localStorage.getItem('task' + [index]);;
+            listItem.className = 'list-Item';
+            listItem.addEventListener('dblclick', completeTask);
+            listItem.addEventListener('click', changeColor);
+            list.appendChild(listItem);
+        }        
+    }
+}
+recoverTask();
 
