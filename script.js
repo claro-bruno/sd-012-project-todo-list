@@ -8,6 +8,7 @@ function funcBornTodo() {
     countList.appendChild(newItem);
     let caughtItem = countList.lastChild
     caughtItem.classList.add("classTodo");
+    caughtItem.addEventListener("click", changeColor);
     caughtItem.innerHTML = contentNewTodo.value;
     contentNewTodo.value = "";
   };
@@ -15,12 +16,7 @@ function funcBornTodo() {
 
 bornTodo.addEventListener("click", funcBornTodo);
 
-// function changeColor(){
-//   for (let indice0 = 0; indice0 < countList.length; indice0 += 1) {
-//     let selectItem = countList.children[indice0];
-//     event.target.selectItem ==
-//       selectItem.style.color = rgb(128, 128, 128);
-//   }
-// };
-// let membersTodo = document.getElementsByClassName()
-// countList.addEventListener("click", changeColor);
+function changeColor(event) {
+  console.log("hello");
+  event.target.style.backgroundColor = "rgb(128, 128, 128)";
+};
