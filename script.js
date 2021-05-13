@@ -27,6 +27,11 @@ window.onload = function () {
   btnApagaTd.innerHTML = "Apaga tudo";
   document.body.appendChild(btnApagaTd);
 
+  let btnRemoveCompletados = document.createElement("button");
+  btnRemoveCompletados.id = "remover-finalizados";
+  btnRemoveCompletados.innerHTML = "Remover tarefa finalizada";
+  document.body.appendChild(btnRemoveCompletados);
+
   document.body.addEventListener("click", function (event) {
     let tarefa = document.querySelector("#texto-tarefa").value;
     if ((event.target.id === "criar-tarefa") && (tarefa != "")) {
@@ -63,4 +68,13 @@ window.onload = function () {
     }
   })
 
+  document.body.addEventListener("click", function (event) {
+    if (event.target.id === "remover-finalizados") {
+      let lista = document.querySelector("ol");
+      let completados = document.querySelectorAll(".completed");
+      for (key = 0; completados.length >= key; key++) {
+        lista.removeChild(completados[key]);
+      }
+    }
+  })
 };
