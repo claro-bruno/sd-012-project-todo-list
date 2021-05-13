@@ -1,6 +1,6 @@
 /* eslint-disable prefer-arrow-callback */
 const listPlace = document.querySelector('#list-place');
-const orderedList = document.querySelector('#lista-tarefas');
+let orderedList = document.querySelector('#lista-tarefas');
 
 function makeList() {
   const li = document.createElement('li');
@@ -54,7 +54,12 @@ function upList() {
   const itemSelected = document.querySelector('.selected');
   const previousSibling = itemSelected.previousElementSibling;
   const movedItem = itemSelected;
-  orderedList.insertBefore(movedItem, previousSibling);
+  const firstChild = orderedList.firstElementChild;
+  if(movedItem === firstChild) {
+    orderedList = document.getElementById('lista-tarefas');
+  } else {
+    orderedList.insertBefore(movedItem, previousSibling);
+  }  
 }
 
 function downList() {
