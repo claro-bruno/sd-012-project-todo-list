@@ -54,7 +54,7 @@ function upList() {
   const itemSelected = document.querySelector('.selected');
   const previousSibling = itemSelected.previousElementSibling;  
   const firstChild = orderedList.firstElementChild;
-  if(itemSelected === firstChild) {
+  if (itemSelected === firstChild) {
     orderedList = document.getElementById('lista-tarefas');
   } else {
     orderedList.insertBefore(itemSelected, previousSibling);
@@ -63,9 +63,16 @@ function upList() {
 
 function downList() {
   const itemSelected = document.querySelector('.selected');
-  const nextSibling = itemSelected.nextElementSibling;  
-  nextSibling.insertAdjacentElement('afterend', itemSelected);
+  const nextSibling = itemSelected.nextElementSibling;
+  const lastChild = orderedList.lastElementChild;
+  if (itemSelected === lastChild) {
+    orderedList = document.getElementById('lista-tarefas');
+  } else {
+    nextSibling.insertAdjacentElement('afterend', itemSelected);
+  }; 
 }
+
+
 
 window.onload = function () {
   const savedList = localStorage.getItem('userList');
