@@ -2,17 +2,17 @@
 const criarTarefa = document.querySelector('#criar-tarefa');
 criarTarefa.addEventListener('click', addTarefa);
 function addTarefa(){
-    const textoTarefa = document.querySelector('#texto-tarefa').value;
-    if (textoTarefa !== '') {
-        const addLi = document.createElement('li');
-        addLi.innerHTML = textoTarefa;
-        addLi.classList.add('listIten');
-        addLi.addEventListener('click', selected);
-        addLi.addEventListener('dblclick', concluded);
-        document.querySelector('#lista-tarefas').appendChild(addLi);
-        document.querySelector('#texto-tarefa').value = '';
-    } else {
-        alert('Adicione uma tarefa')
+  const textoTarefa = document.querySelector('#texto-tarefa').value;
+  if (textoTarefa !== '') {
+    const addLi = document.createElement('li');
+    addLi.innerHTML = textoTarefa;
+    addLi.classList.add('listIten');
+    addLi.addEventListener('click', selected);
+    addLi.addEventListener('dblclick', concluded);
+    document.querySelector('#lista-tarefas').appendChild(addLi);
+    document.querySelector('#texto-tarefa').value = '';
+  } else {
+      alert('Adicione uma tarefa')
     };
 };
 
@@ -53,8 +53,8 @@ removeFinalizados.addEventListener('click', removeConcluded);
 function removeConcluded(event){
   if(event.target.classList){
     const taskConcluded = document.querySelectorAll('.completed');
-    for(key in taskConcluded){
-      taskConcluded[key].remove();
+    for(let cont = 0; cont < taskConcluded.length; cont += 1){
+      taskConcluded[cont].remove();
     };
   };
 };
