@@ -38,3 +38,18 @@ function selectItem() {
   });
 }
 selectItem();
+
+olList.addEventListener('dblclick', (event) => {
+  event.target.classList.toggle('completed');
+  console.log(event.target);
+});
+
+
+
+
+/*
+1 - Criar uma nova classe no CSS. OK
+2 - Capturar a nossa lista ol. OK 
+3 - Um escutador de evento para dois click no item.OK
+4 - Adicionar essa nova ao elemento clicado. usar o toggle na nossa classe. mostrar/ocultar.
+*/
