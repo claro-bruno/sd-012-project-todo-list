@@ -42,5 +42,11 @@ function apertaBotao(){
 
 botao.addEventListener("click", apertaBotao);
 
+function apagarLista(){
+    let listaPai = document.getElementById("lista-tarefas");
+    while(listaPai.firstChild){
+        listaPai.removeChild(listaPai.firstChild);
+    }
+}
 
-
+botaoApaga.addEventListener("click",apagarLista);
