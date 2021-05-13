@@ -6,3 +6,6 @@ function addTask(){
     newTask.addEventListener('dblclick', completedTask);
     document.querySelector('#lista-tarefas').appendChild(newTask);
 }
+
+let madeTask = document.querySelector('#criar-tarefa');
+madeTask.addEventListener('clicl', 'addTask');
