@@ -4,7 +4,7 @@ function checarBotao() {
   botaoClicado.addEventListener('click', function () {
     let novaTarefa = document.createElement('li');
     /* event.preventDefault(); */
-    novaTarefa.className='tarefas';
+    novaTarefa.className='tarefas'
     document.querySelector('#lista-tarefas').appendChild(novaTarefa);
     let retornoLista = document.getElementById('texto-tarefa');
     novaTarefa.innerHTML = retornoLista.value;
@@ -27,20 +27,17 @@ function checarTarefaSelecionada() {
 }
 
 function marcarTarefaCumprida() {
-  console.log("comeco da rotina");
-  let listaTarefas = document.getElementsByClassName("tarefas");
-  for (let indice = 0; indice < listaTarefas.length; indice += 1) {
-    listaTarefas[indice].addEventListener('dblclick', function (event) {
-      if (event.target.className === 'tarefas completed') {
-        console.log("ja esta marcada");
+  let listaTarefas = document.querySelector('#lista-tarefas');
+     listaTarefas.addEventListener('dblclick', function (event) {
+      if (event.target.classList.contains('completed')) {
         event.target.classList.remove('completed');
       } else {
-        console.log("vou remover");
         event.target.classList.add('completed');
       }
     });
   }
-}
+
+ 
 /* window.onload = function () { */
 checarBotao();
 
