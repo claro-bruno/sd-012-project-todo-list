@@ -21,15 +21,16 @@ function removeText() {
 resetButton.addEventListener('click', removeText);
 
 // buscar todos itens li na variavel
-let listIten = document.getElementsByTagName('li');
 // funcao junto funcao para clicar e mudar a cor no item da lista
-function clickListColor(clickColor) {
-  for (let indexcolor = 0; indexcolor < listIten.length; indexcolor += 1) {
-    clickColor.target.style.backgroundColor = 'rgb(128,128,128)';
+function clickListColor(event) {
+  let listIten = document.getElementsByTagName('li');
+  for ( indexcolor = 0; indexcolor < listIten.length; indexcolor += 1) {
+      listIten[indexcolor].classList.remove('selected');
+    }
+    event.target.classList.add('selected')
   }
-}
 
-todolist.addEventListener('click', clickListColor)
+todolist.addEventListener('click', clickListColor);
 // buttonAdd.addEventListener('click',removeText)
 // function addToDoList() {
 //   let list = document.createElement('li');
