@@ -1,4 +1,4 @@
-function completedTask(event){
+function completedTask(event) {
     if (event.target.className.includes('completed')){
         event.target.classList.remove('completed');
     } else {
@@ -18,7 +18,7 @@ function addTask() {
     const newTask = document.createElement('li');
     newTask.innerHTML = document.querySelector('#texto-tarefa').value;
     document.querySelector('#texto-tarefa').value = '';
-    newTask.addEventListener('click', changeColor);
+    newTask.addEventListener('click', modifyColor);
     newTask.addEventListener('dblclick', completedTask);
     document.querySelector('#lista-tarefas').appendChild(newTask);
   }
