@@ -17,6 +17,12 @@ function funcBornTodo() {
 bornTodo.addEventListener("click", funcBornTodo);
 
 function changeColor(event) {
-  console.log("hello");
+  membersTodo = document.getElementsByClassName('classTodo');
+  for (let indice0 = 0; indice0 < membersTodo.length; indice0 += 1) {
+    membersTodo[indice0].style.backgroundColor = "";
+  }
   event.target.style.backgroundColor = "rgb(128, 128, 128)";
+
 };
+
+
