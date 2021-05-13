@@ -78,5 +78,10 @@ window.onload = function () {
   }
 };
 
+function deleteSelected() {
+  const itemSelected = document.querySelector('.selected');
+  itemSelected.outerHTML = '';
+}
+
 addBackgroundColor();
 completed();
