@@ -25,3 +25,7 @@ ol li {
 .completed {
     text-decoration: line-through;
 }
+
+button {
+    margin: 10px 5px;
+}

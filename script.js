@@ -15,7 +15,7 @@ function createTask() {
     });
 };
 
-createTask()
+createTask();
 
 function clickItemList(){
     listTask.addEventListener('click', (event) => {
@@ -27,7 +27,7 @@ function clickItemList(){
         event.target.classList.add('selector');
     });
 };
-clickItemList()
+clickItemList();
 
 function completeTask(){
 listTask.addEventListener('dblclick', (event) =>{
@@ -39,4 +39,12 @@ listTask.addEventListener('dblclick', (event) =>{
     }
 });
 };
-completeTask()
+completeTask();
+
+function cleanAll(){
+    const cleanAll = document.getElementById('apaga-tudo');
+    cleanAll.addEventListener('click', () => {
+        listTask.innerText = '';
+    });
+}
+cleanAll();
