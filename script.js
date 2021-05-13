@@ -89,33 +89,36 @@ function clearCompleted() {
 }
 clearCompleted();
 
-/* Function saveTask saves the text from <li> on localStorage */
+/* Function saveTask saves the innerHTML from <ol> on localStorage */
 function saveTask() {
     const buttonSaveTask = document.querySelector('#salvar-tarefas');
-    const list = document.getElementsByTagName('li');
-
+    const list = document.getElementById('lista-tarefas');
+    
     buttonSaveTask.addEventListener('click', function() {
-        for (let index = 0; index < list.length; index += 1) {
-            localStorage.setItem('task' + [index], list[index].innerHTML);
-        }
+        console.log(list.innerHTML);
+        localStorage.setItem('task', list.innerHTML);
+        
+
             alert('Tarefas salvas');      
     })
 }
 saveTask();
 
+/* Function recoverTask recovers the <ol> information saved on localStorage */
 function recoverTask() {
+    let listItem = localStorage.getItem('task');
     let list = document.querySelector('#lista-tarefas');
-    
+    console.log(list);
+
+
     if (localStorage.length > 0) {
-        for (let index = 0; index < localStorage.length; index += 1) {
-            let listItem = document.createElement('li')
-            listItem.innerHTML = localStorage.getItem('task' + [index]);;
-            listItem.className = 'list-Item';
-            listItem.addEventListener('dblclick', completeTask);
-            listItem.addEventListener('click', changeColor);
-            list.appendChild(listItem);
-        }        
+        list.innerHTML = listItem;
+        let listagem = document.querySelectorAll('li');
+
+        for (let index = 0; index < listagem.length; index += 1) {
+            listagem[index].addEventListener('dblclick', completeTask);
+            listagem[index].addEventListener('click', changeColor);
+        }
     }
 }
 recoverTask();
-
