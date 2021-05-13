@@ -12,8 +12,8 @@ function addTarefa(){
     document.querySelector('#lista-tarefas').appendChild(addLi);
     document.querySelector('#texto-tarefa').value = '';
   } else {
-      alert('Adicione uma tarefa')
-    };
+    alert('Adicione uma tarefa')
+  };
 };
 
 //SELECIONA ITEM DA LISTA
@@ -22,31 +22,24 @@ function selected(event) {
   if (selectedChange){
     selectedChange.classList.remove('selected');
   };
-    event.target.classList.add('selected');    
+  event.target.classList.add('selected');    
 };
 
 //ITEM 9 RISCAR TAREFA COM DOUBLE CLICK
 function concluded (event){
   if(event.target.classList !== '.completed'){
     event.target.classList.toggle('completed')
-    //     event.target.classList.add('completed');
-    //     console.log('add');
-    // } else {
-    //     event.target.classList.remove('completed');
-    //     console.log('remove')
-        
   };
     
 };
-        
-//REMOVE ITEM SELECIONADO
-const removeSelecionado = document.querySelector('#remover-selecionado');
-removeSelecionado.addEventListener('click', removeTarefa);
-function removeTarefa() {
-  const tarefa = document.querySelector('.selected');
-  tarefa.remove()
-};
 
+//APAGA TUDO
+const deleteAll = document.querySelector('#apaga-tudo');
+deleteAll.addEventListener('click', limpaTarefa);
+function limpaTarefa (){
+  const itensList = document.querySelector('#lista-tarefas');
+  itensList.innerText = '';
+};
 //ITEM 11 REMOVE TAREFA CONCLUÍDA
 const removeFinalizados = document.querySelector('#remover-finalizados');
 removeFinalizados.addEventListener('click', removeConcluded);
@@ -58,11 +51,24 @@ function removeConcluded(event){
     };
   };
 };
-//APAGA TUDO
-const deleteAll = document.querySelector('#apaga-tudo');
-deleteAll.addEventListener('click', limpaTarefa);
-function limpaTarefa (){
-  const itensList = document.querySelector('#lista-tarefas');
-  itensList.innerText = '';
+//ITEM 12 SALVA TAREFAS - INCOMPLETO
+const salvaTarefas = document.querySelector('#salvar-tarefas');
+salvaTarefas.addEventListener('click', saveTask);
+function saveTask(){
+console.log('ok');
 };
-
+// ITEM 13 MOVER ITEM - INCOMPLETO
+const moverCima = document.querySelector('#mover-cima');
+moverCima.addEventListener('click', moveTask);
+const moverBaixo = document.querySelector('#mover-baixo');
+moverBaixo.addEventListener('click', moveTask);
+function moveTask(){
+console.log('ok');
+};       
+//REMOVE ITEM SELECIONADO
+const removeSelecionado = document.querySelector('#remover-selecionado');
+removeSelecionado.addEventListener('click', removeTarefa);
+function removeTarefa() {
+  const tarefa = document.querySelector('.selected');
+  tarefa.remove()
+};
