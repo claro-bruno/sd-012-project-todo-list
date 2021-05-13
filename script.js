@@ -52,24 +52,20 @@ function saveUserList() {
 
 function upList() {
   const itemSelected = document.querySelector('.selected');
-  const previousSibling = itemSelected.previousElementSibling;
-  const movedItem = itemSelected;
+  const previousSibling = itemSelected.previousElementSibling;  
   const firstChild = orderedList.firstElementChild;
-  if(movedItem === firstChild) {
+  if(itemSelected === firstChild) {
     orderedList = document.getElementById('lista-tarefas');
   } else {
-    orderedList.insertBefore(movedItem, previousSibling);
+    orderedList.insertBefore(itemSelected, previousSibling);
   }  
 }
 
 function downList() {
   const itemSelected = document.querySelector('.selected');
-  const nextSibling = itemSelected.nextElementSibling;
-  const movedItem = itemSelected;
-  nextSibling.insertAdjacentElement('afterend', movedItem); 
+  const nextSibling = itemSelected.nextElementSibling;  
+  nextSibling.insertAdjacentElement('afterend', itemSelected);
 }
-
-
 
 window.onload = function () {
   const savedList = localStorage.getItem('userList');
