@@ -33,16 +33,16 @@ function addTask() {
   task.className = 'tarefa';
   listTask.appendChild(task);
   task.innerText = input.value; // lembrar da diferença entre innerHTML e innerText para não confundir navamente.
-  input.value = ""; // limpa o imput assim que a entrada é adicionada a lista.
+  input.value = ''; // limpa o imput assim que a entrada é adicionada a lista.
 }
 
 // FUNÇÃO SELECIONA ITEM COM BACKGROUND NA COR CINZA;
 function graySelect(event) {
   const select = document.querySelector('.select');
-    if (select) {
-      select.classList.remove('select');
-    }
-      event.target.classList.add('select');
+  if (select) {
+  select.classList.remove('select');
+  }
+  event.target.classList.add('select');
   }
 
 // FUNÇÃO QUE MARCA O ITEM COM RISCADO, INDICANDO A CONCLUSÃO DA TAREFA;
