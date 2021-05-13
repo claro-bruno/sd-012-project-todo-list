@@ -1,6 +1,7 @@
 const olList = document.querySelector('#lista-tarefas');
 const btnTask = document.getElementById('criar-tarefa');
 const input = document.querySelector('#texto-tarefa');
+const cleanButton = document.querySelector('#apaga-tudo');
 
 function listTask() {
   btnTask.addEventListener('click', () => {
@@ -46,3 +47,12 @@ function listTack() {
   });
 }
 listTack();
+
+function clearList() {
+  cleanButton.addEventListener('click', (event) => {
+    while (olList.hasChildNodes()) {
+      olList.removeChild(olList.firstChild);
+    }
+  });
+}
+clearList();
