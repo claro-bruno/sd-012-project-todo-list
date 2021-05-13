@@ -17,5 +17,10 @@ btn.addEventListener('click', function () {
     olTarefa.appendChild(li);
   li.innerText = inputT.value;
     inputT.value = '';
+
+li.addEventListener('click', selecao)
 });
 
+function selecao (event) {
+event.target.style.backgroundColor = 'rgb(128,128,128)'
+}
