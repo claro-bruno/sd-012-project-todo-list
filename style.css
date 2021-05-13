@@ -1,0 +1,34 @@
+body {
+    margin: 0; 
+    background-color: #dc143c;
+}
+
+#box {
+    background-color: #deb887;
+    box-shadow: 10px 10px 10px #000;
+    text-align: center;
+    margin-top: 20%;
+    width: 60%;
+    margin-left: 20%;
+    padding: 20px;
+}
+
+#funcionamento {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: rgb(128,128,128);
+}
+
+header {
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#texto-tarefa {
+    border: 1px solid #000;
+}
+
+#criar-tarefa {
+    background-color: #dc143c;
+    color: #fff;
+}
