@@ -125,19 +125,21 @@ function moverParaBaixo(){
     let selAbaixo = document.querySelector('.selected');
     if(selAbaixo && selAbaixo.nextSibling){
     paiElement[0].insertBefore(selAbaixo, selAbaixo.nextSibling.nextSibling);
-}
+    }
 }
 botaoAbaixo.addEventListener('click', moverParaBaixo);
 
 //Requisito 14 Remover selecionado
 
-// const botaoApagarSelecionado = document.getElementsById('remover-selecionado');
-// function deleteSelected(){
-//     let itemSelecionado = document.querySelectorAll('.selected');
-//     for(let index = 0; index < itemSelecionado.length; index += 1)
-//         if(itemSelecionado[index].classList.contains('completed') === true){
-//             itemSelecionado[index].remove();
-//     }
+const botaoApagarSelecionado = document.getElementById('remover-selecionado');
+function deleteSelected(){
+    let itemSelecionado = document.querySelector('.selected');
+    //for(let index = 0; index < itemSelecionado.length; index += 1)
+        if(itemSelecionado.classList.contains('selected') === true){
+            itemSelecionado.remove();
+            
+    }
+
    
-// }
-// botaoApagarSelecionado.addEventListener('click', deleteSelected);
+}
+botaoApagarSelecionado.addEventListener('click', deleteSelected);
