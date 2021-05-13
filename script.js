@@ -16,13 +16,12 @@ function funcBornTodo() {
 
 bornTodo.addEventListener("click", funcBornTodo);
 
-function changecolor() {
-  for (let indice = 0; indice < countList.length; indice += 1) {
-    let selectItem = countList.children[indice];
-    if event.target.selectItem == true) {
-      selectItem.style.color = rgb(128, 128, 128);
-    }
-  }
-};
+// function changeColor() {
+//   for (let indice0 = 0; indice0 < countList.length; indice0 += 1) {
+//     let selectItem = countList.children[indice0];
+//     event.target.selectItem ==
+//       selectItem.style.color = rgb(128, 128, 128);
+//   }
+// };
 
-countList.addEventListener("click", changecolor);
+// countList.addEventListener("click", changeColor);
