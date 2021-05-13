@@ -9,8 +9,8 @@ function createTask() {
     let addTask = document.createElement('li');
     addTask.innerText = textTask.value;
     addTask.addEventListener('click', createTask);
-    textTask.value = '';
     listTask.appendChild(addTask);
+    textTask.value = '';
         }
     });
 };
@@ -48,3 +48,16 @@ function cleanAll(){
     });
 }
 cleanAll();
+
+function removeSelect(){
+    const cleanSelect = document.getElementById('remover-finalizados');
+    cleanSelect.addEventListener('click', () => {
+        const cleanTask = document.querySelectorAll('#lista-tarefas li');
+        for (index = 0; index < cleanTask.length; index +=1){
+            if (cleanTask[index].className.includes('completed')) {
+                listTask.removeChild(cleanTask[index]);
+            }
+        }
+    });
+}
+removeSelect();
