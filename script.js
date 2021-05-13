@@ -8,4 +8,4 @@ function addTask(){
 }
 
 let madeTask = document.querySelector('#criar-tarefa');
-madeTask.addEventListener('clicl', 'addTask');
+madeTask.addEventListener('click', 'addTask');
