@@ -24,5 +24,18 @@ document.getElementById("lista-tarefas").addEventListener("click", (event) =>{
   taskSelected.style.backgroundColor = "rgb(128, 128, 128)"
 })  
 
+document.getElementById("lista-tarefas").addEventListener("dblclick", (event) =>{
+  let taskDefined = event.target;
+
+  if(taskDefined.classList.contains("completed")){
+    taskDefined.style.textDecoration = "none"
+    taskDefined.classList.remove("completed")
+  }
+  else {
+    taskDefined.classList.add("completed");
+    taskDefined.style.textDecoration = "line-through solid rgb(0, 0, 0)";
+  }
+})
+
 
 
