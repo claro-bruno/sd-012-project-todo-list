@@ -17,10 +17,15 @@ window.onload = function () {
   lista.id = "lista-tarefas";
   document.body.appendChild(lista);
 
-  let botao = document.createElement("button")
+  let botao = document.createElement("button");
   botao.id = "criar-tarefa";
   botao.innerHTML = "Criar tarefa";
   document.body.appendChild(botao);
+
+  let btnApagaTd = document.createElement("button");
+  btnApagaTd.id = "apaga-tudo";
+  btnApagaTd.innerHTML = "Apaga tudo";
+  document.body.appendChild(btnApagaTd);
 
   document.body.addEventListener("click", function (event) {
     let tarefa = document.querySelector("#texto-tarefa").value;
@@ -48,6 +53,15 @@ window.onload = function () {
       event.target.classList.add("completed");
     } else if (event.target.className === "item selected completed") {
       event.target.classList.remove("completed");
+    }
+  })
+
+  document.body.addEventListener("click", function (event) {
+    if (event.target.id === "apaga-tudo") {
+      let lista = document.querySelector("ol");
+      while (lista.firstElementChild) {
+        lista.removeChild(lista.firstElementChild);
+      }
     }
   })
 
