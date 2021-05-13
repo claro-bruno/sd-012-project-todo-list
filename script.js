@@ -28,20 +28,6 @@ function addBackgroundColor() {
   });
 }
 
-
-/*function addBackgroundColor() {
-  listPlace.addEventListener('click', function (event) {
-    const selected = event.target;
-    selected.style.backgroundColor = 'rgb(128, 128, 128)';
-    listPlace.addEventListener('click', function (event) {
-      const selected2 = event.target;
-      selected2.style.backgroundColor = 'rgb(128, 128, 128)';
-      selected.style.backgroundColor = 'white';
-    });
-  });
-}
-*/
-
 function completed() {
   listPlace.addEventListener('dblclick', function (event) {
     const itemCompleted = event.target;
@@ -78,33 +64,7 @@ function downList() {
   nextSibling.insertAdjacentElement('afterend', movedItem); 
 }
 
-/*
-// Get the list you want to work with
-var list = document.getElementById("my-list");
 
-// Select all the li elements within that list
-var lis = list.getElementsByTagName("li");
-
-// Create a global variable for to store the element you wish to move
-var newItem;
-
-// For loop to cycle through all the li elements
-for(i=0; i < lis.length; i++) {
-  // If the li text is matches what you are looking for
-  if (lis[i].innerText == "z - list item") {
-    // store the element in newItem variable
-    newItem = lis[i];
-    // temporarily remove the element
-    list.removeChild(lis[i]);
-  }
-}
-// Re-add the element back on to the list
-list.appendChild(newItem);
-
-function downList() {
-
-}
-*/
 
 window.onload = function () {
   const savedList = localStorage.getItem('userList');
