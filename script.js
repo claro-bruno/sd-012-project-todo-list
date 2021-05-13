@@ -1,6 +1,6 @@
-window.onload = function() {
+window.onload = function () {
   returnsTask();
-}
+};
 
 function insertTask(value) {
   const orderList = document.createElement('li');
@@ -16,7 +16,7 @@ function insertTask(value) {
 function receiveInput() {
   const contentInput = document.querySelector('#texto-tarefa').value;
   insertTask(contentInput);
-  document.querySelector('#texto-tarefa').value = '';  
+  document.querySelector('#texto-tarefa').value = '';
 }
 
 function setNoBackgroundColor(orderList) {
@@ -57,12 +57,12 @@ function clearTaskCompleted() {
 
 function saveTasks() {
   const tasks = document.querySelector('#lista-tarefas');
-  localStorage.setItem('tasks', tasks.innerHTML)
+  localStorage.setItem('tasks', tasks.innerHTML);
 }
 
 function returnsTask() {
   const tasks = document.querySelector('#lista-tarefas');
-  if (localStorage.getItem('tasks') != undefined) {
+  if (localStorage.getItem('tasks') !== undefined) {
     tasks.innerHTML = localStorage.getItem('tasks');
   }
 }
@@ -70,7 +70,7 @@ function returnsTask() {
 function moveUp() {
   const tasks = document.querySelector('#lista-tarefas');
   const taskUp = document.querySelector('.selected');
-  if (tasks.firstChild != taskUp && taskUp != null) {
+  if (tasks.firstChild !== taskUp && taskUp != null) {
     tasks.insertBefore(taskUp, taskUp.previousSibling);
   }
 }
@@ -78,7 +78,7 @@ function moveUp() {
 function moveDown() {
   const tasks = document.querySelector('#lista-tarefas');
   const taskDown = document.querySelector('.selected');
-  if (tasks.lastChild != taskDown && taskDown != null) {
+  if (tasks.lastChild !== taskDown && taskDown != null) {
     tasks.insertBefore(taskDown.nextSibling, taskDown);
   }
 }
