@@ -7,5 +7,13 @@ function addTask(){
     document.querySelector('#lista-tarefas').appendChild(newTask);
 }
 
-let madeTask = document.querySelector('#criar-tarefa');
+const madeTask = document.querySelector('#criar-tarefa');
 madeTask.addEventListener('click', 'addTask');
+
+function completedTask(event){
+    if(event.target.className.includes('completed')){
+        event.target.classList.remove('completed');
+    }else{
+        event.target.classList.add('completed');
+    }
+}
