@@ -4,6 +4,7 @@ const listItem = document.querySelector('#lista-tarefas');
 const button = document.querySelector('#criar-tarefa');
 const inputList = document.querySelector('#texto-tarefa');
 const getColorCinza = 'rgb(128,128,128)';
+const buttonApagar = document.getElementById('apaga-tudo');
 
 //Questao 1
 
@@ -38,3 +39,12 @@ listItem.addEventListener('click', changeCinza);
 function changeCinza(eventColor){
     eventColor.target.style.backgroundColor = getColorCinza
   }
+
+
+// questao 10
+
+function apagar () {
+  listItem.innerHTML = '';
+}
+
+buttonApagar.addEventListener('click', apagar);
