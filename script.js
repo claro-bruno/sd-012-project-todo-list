@@ -4,6 +4,7 @@ const olEl = document.getElementById('lista-tarefas');
 const deleteBtn = document.getElementById('apaga-tudo');
 const deleteCompleteBtn = document.getElementById('remover-finalizados');
 const saveTask = document.getElementById('salvar-tarefas');
+const btnSelected = document.getElementById('remover-selecionado');
 
 function addTask() {
   addTaskBtn.addEventListener('click', () => {
@@ -19,12 +20,13 @@ function addTask() {
       deleteBtn.addEventListener('click', deleteAll);
       deleteCompleteBtn.addEventListener('click', deleteComplete);
       saveTask.addEventListener('click', setTasks);
+      btnSelected.addEventListener('click', removeSelected);
 
       // Desafio 7
       for (let index = 0; index < tasks.length; index += 1) {
         tasks[index].addEventListener('click', () => {
-            tasks[index].classList.add('selected');
-        })
+          tasks[index].classList.add('selected');
+        });
       }
 
     } else {
@@ -65,6 +67,15 @@ function deleteComplete() {
     for (let index = 0; index < completed.length; index += 1) {
       olEl.removeChild(completed[index]);
     }
+}
+
+function removeSelected() {
+  const li = document.querySelectorAll('li');
+  for (let index = 0; index < li.length; index += 1) {
+    if (li[index].classList.contains('selected')) {
+      olEl.removeChild(li[index]);
+    }
+  }
 }
 
 function setTasks () {
