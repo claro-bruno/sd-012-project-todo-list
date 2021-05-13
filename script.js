@@ -16,9 +16,10 @@ function makeAList (){
 
 buttonAdd.addEventListener('click',makeAList)
 
-// function removeText () {
-// task.value = ''
-// }
+function removeText () {
+todolist.innerHTML=''
+}
+resetButton.addEventListener('click',removeText)
 // buttonAdd.addEventListener('click',removeText)
 // function addToDoList() {
 //   let list = document.createElement('li');
