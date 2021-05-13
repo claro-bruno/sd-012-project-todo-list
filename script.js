@@ -42,4 +42,13 @@ window.onload = function () {
       event.target.classList.add("selected");
     };
   })
+
+  document.body.addEventListener("dblclick", function (event) {
+    if (event.target.className === "item selected") {
+      event.target.classList.add("completed");
+    } else if (event.target.className === "item selected completed") {
+      event.target.classList.remove("completed");
+    }
+  })
+
 };
