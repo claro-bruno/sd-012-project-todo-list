@@ -67,11 +67,9 @@ botaoExcluiFinalizados.addEventListener('click', removerFinalizados);
 
 
 //Requisito 12 -Função salvar tarefa
-
+//Requisito 
 const botaoSalvar = document.getElementById('salvar-tarefas');
 function salvarTarefa(event){
-
-
 event.preventDefault();
 localStorage.setItem('tarefas-salvas', listaTarefas.innerHTML);//local storage deve salvar um objeto
 alert('A lista foi salva');    
