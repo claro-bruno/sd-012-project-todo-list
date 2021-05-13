@@ -13,12 +13,16 @@ function tarefa(){
       let adicionaLista = document.createTextNode(lista);
       criaLista.addEventListener('click', mudacor)
       function mudacor(){
-         criaLista.className = 'trocaCor' ;
-         console.log(this.classList.value)
+         criaLista.className = 'trocaCor';
+         trocaCorfundo();
+         function trocaCorfundo(){
+            let pTarefa = document.querySelectorAll('.trocaCor');
+            
+            console.log(pTarefa[0])
+         }
       }
       criaLista.appendChild(adicionaLista);
       listaTarefa.appendChild(criaLista);
-      console.log(criaLista)
    };
    
 };
@@ -28,7 +32,6 @@ function criaTarefa(){
    let minhaListaTarefa = meuInput.value;
    listas.push(minhaListaTarefa);
    meuInput.value = '';
-   console.log(listas)
    tarefa()
 }
 

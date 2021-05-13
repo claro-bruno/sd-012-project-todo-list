@@ -37,6 +37,9 @@ header {
 #criar-tarefa {
     background-color: aqua;
 }
+.outraCor{
+    background-color: red;
+}
 .trocaCor{
     background-color: rgb(128, 128, 128);
 }
