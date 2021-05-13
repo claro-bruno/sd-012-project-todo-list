@@ -56,16 +56,7 @@ function upList() {
     }
   }
 }
-/*
-function downList() {
-  let li = document.getElementsByTagName('li');
-  for (let index2 = 0; index2 <= li.length; index2 += 1) {
-    if (li[index2].classList.contains('selected') && li[index2].nextElementSibling !== null) {      
-      orderedList.insertBefore(li[index2], li[index2].nextElementSibling.nextElementSibling);    
-    }
-  }
-}
-*/
+
 function downList() {
   const itemSelected = document.querySelector('.selected');  
   if (itemSelected) {
@@ -76,16 +67,6 @@ function downList() {
     }
   }
 }
-
-
-/*function downList() {
-  const itemSelected = document.querySelector('.selected');
-  const nextSibling = itemSelected.nextElementSibling;
-  if (itemSelected !== null && nextSibling !== null && itemSelected !== orderedList.lastChild) {
-    nextSibling.insertAdjacentElement('afterend', itemSelected);
-  }
-}*/
-
 
 window.onload = function () {
   const savedList = localStorage.getItem('userList');
