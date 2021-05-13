@@ -39,7 +39,7 @@ window.onload = function () {
   });
 
   document.body.addEventListener("click", function (event) {
-    if (event.target.className === "item") {
+    if (event.target.classList.contains("item")) {
       let itens = document.querySelector(".selected");
       if (itens !== null) {
         itens.classList.remove("selected");
@@ -49,10 +49,8 @@ window.onload = function () {
   })
 
   document.body.addEventListener("dblclick", function (event) {
-    if (event.target.className === "item selected") {
-      event.target.classList.add("completed");
-    } else if (event.target.className === "item selected completed") {
-      event.target.classList.remove("completed");
+    if (event.target.classList.contains("item")) {
+      event.target.classList.toggle("completed");
     }
   })
 
