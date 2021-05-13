@@ -51,7 +51,7 @@ function saveUserList() {
 function upList() {
   const itemSelected = document.querySelector('.selected');
   const previousSibling = itemSelected.previousElementSibling;
-  if (itemSelected !== null && previousSibling !== null) {
+  if (itemSelected !== null) {
     orderedList.insertBefore(itemSelected, previousSibling);
   }
 }
@@ -59,7 +59,7 @@ function upList() {
 function downList() {
   const itemSelected = document.querySelector('.selected');
   const nextSibling = itemSelected.nextElementSibling;
-  if (itemSelected !== null && nextSibling !== null) {
+  if (itemSelected !== null) {
     nextSibling.insertAdjacentElement('afterend', itemSelected);
   }
 }
