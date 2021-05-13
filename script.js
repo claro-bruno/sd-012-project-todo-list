@@ -2,22 +2,21 @@ window.onload = function(){
 let button = document.getElementById("criar-tarefa");
 let assignmentList = document.querySelector("#lista-tarefas");
 let lista = document.getElementsByClassName("tarefa");
+let apagar = document.getElementById("apaga-tudo");
 
 function addList(){
-    button.addEventListener('click', addAssignment)
-};
-
-function addAssignment(){
+    button.addEventListener('click', function() {
     let input = document.querySelector("#texto-tarefa").value;
-    
+
     let assignment = document.createElement("li");
     assignment.innerText = input;
     assignment.classList.add("tarefa");
     assignmentList.appendChild(assignment);
-
-    document.querySelector("#texto-tarefa").value = "";    
-    
+   document.querySelector("#texto-tarefa").value = "";        
+});
 };
+
+
 
 function changeBackground(){
     assignmentList.addEventListener('click', function(event){
@@ -39,8 +38,7 @@ function changeBackground(){
                 event.target.classList.add('selected');
             };
         };
-    })
-  
+    });
 };
 
 function lineThrough(){
@@ -63,14 +61,25 @@ function lineThrough(){
                 event.target.classList.add('completed');
             };
         };
+    });
+};
+
+function apagaTudo(){
+    apagar.addEventListener('click', function(){
+        let father = document.getElementById('lista-tarefas');
+        
+        for(let index = lista.length -1; index >= 0; index -= 1){
+            father.removeChild(lista[index]);
+        };
     })
-  
+
 };
 
 
 addList();
 changeBackground();
 lineThrough();
+apagaTudo();
 
 };
 
