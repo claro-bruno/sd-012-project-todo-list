@@ -33,7 +33,6 @@ document.body.appendChild(listTask);
 let buttonTask = document.createElement("button");
 buttonTask.id = "criar-tarefa";
 document.body.appendChild(buttonTask);
-
 buttonTask.addEventListener("click", addTask);
 
 function addTask(){
