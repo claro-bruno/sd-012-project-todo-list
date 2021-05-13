@@ -37,5 +37,7 @@ document.getElementById("lista-tarefas").addEventListener("dblclick", (event) =>
   }
 })
 
-
-
+document.getElementById("apaga-tudo").addEventListener("click", (event) =>{
+  let taskDeleted = document.getElementById("lista-tarefas");
+  taskDeleted.innerHTML= "";
+})
