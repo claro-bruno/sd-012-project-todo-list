@@ -108,7 +108,6 @@ saveTask();
 function recoverTask() {
     let listItem = localStorage.getItem('task');
     let list = document.querySelector('#lista-tarefas');
-    console.log(list);
 
 
     if (localStorage.length > 0) {
@@ -122,3 +121,51 @@ function recoverTask() {
     }
 }
 recoverTask();
+
+/* Function moveUP moves up the <li> position based on the class selected*/
+function moveUp() {
+    const moveUpButton = document.querySelector('#mover-cima');
+    
+    moveUpButton.addEventListener('click', function() {
+        
+        const selected = document.querySelector('.selected');
+        if (selected === null) {
+            return
+        }
+        const prevSibling = selected.previousElementSibling;
+
+        if (selected === null) {
+            return
+        }
+
+        if (prevSibling === null) {
+            alert('Voce chegou ao topo da lista')
+        }
+        if (prevSibling) {
+            selected.parentNode.insertBefore(selected, prevSibling);
+        }
+    })
+}
+moveUp();
+
+/* Function moveUP moves down the <li> position based on the class selected*/
+function moveDown() {
+    const moveDownButton = document.querySelector('#mover-baixo');
+
+    moveDownButton.addEventListener('click', function() {
+        const selected = document.querySelector('.selected');
+        if (selected === null) {
+            return
+        }
+        const nexSibling = selected.nextElementSibling;
+
+        if (nexSibling === null) {
+            alert('Voce chegou ao fim da lista')
+        }
+        if (nexSibling !== null) {
+            selected.parentNode.insertBefore(nexSibling, selected);
+        }
+
+    })
+}
+moveDown();
