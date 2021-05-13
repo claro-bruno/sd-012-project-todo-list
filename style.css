@@ -37,8 +37,11 @@ header {
 #criar-tarefa {
     background-color: aqua;
 }
-.outraCor{
-    background-color: red;
+.completed{
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+.sCompleted{
+    
 }
 .trocaCor{
     background-color: rgb(128, 128, 128);

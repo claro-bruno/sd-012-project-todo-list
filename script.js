@@ -13,6 +13,7 @@ function criaTarefa(){
    meuInput.value = null;
    };
    tarefa()
+   
 };
 
 function registraTarefa(){
@@ -21,6 +22,7 @@ function registraTarefa(){
 //resolve requesito 6
 function tarefa(){
    listaTarefa.innerHTML = ''; //limpa os dados, e salva somente dados novos na minha let listas;
+   let lis = [];
    for (lista of listas) {
       let criaLista = document.createElement('li');
       let adicionaLista = document.createTextNode(lista);
@@ -29,8 +31,10 @@ function tarefa(){
       listaTarefa.appendChild(criaLista);
    };
    //resolve requesito 8, auxiliado pela Mentorias técnicas (Gisele Santin) e o colega Euclides Alves(Mostrando esse problema no seu próprio código, onde conseguir tirar como exemplo pro meu)
+   
    let li = document.querySelectorAll('.listas');
    for (index = 0; index < li.length; index +=1){
+      lis = li[index];
       li[index].addEventListener('click', mudarCor)
       function mudarCor(){
          for ( index2 = 0; index2 < li.length; index2 += 1){
@@ -38,5 +42,14 @@ function tarefa(){
          }
          event.target.style.background = 'rgb(128, 128, 128)';
       };
+
+      //requesito 9
+      lis.addEventListener('dblclick', function (){
+         event.target.classList.toggle('completed')
+      });
    };
+   
 };
+
+
+
