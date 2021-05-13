@@ -9,6 +9,7 @@ function funcBornTodo() {
     let caughtItem = countList.lastChild
     caughtItem.classList.add("classTodo");
     caughtItem.addEventListener("click", changeColor);
+    caughtItem.addEventListener("dblclick", itemCompleted);
     caughtItem.innerHTML = contentNewTodo.value;
     contentNewTodo.value = "";
   };
@@ -22,7 +23,15 @@ function changeColor(event) {
     membersTodo[indice0].style.backgroundColor = "";
   }
   event.target.style.backgroundColor = "rgb(128, 128, 128)";
-
 };
 
+function itemCompleted(event) {
+  if (event.target.classList.contains("completed") == false) {
+    event.target.classList.add('completed');
+    console.log(event.target);
 
+  } else {
+    event.target.classList.remove('completed');
+  }
+
+};
