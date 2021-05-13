@@ -5,7 +5,7 @@ const textInput = document.querySelector('#texto-tarefa');
 
 const buttonCreate = document.querySelector('.submit');
 
-const buttonRmvFinished = document.getElementById('remover-finalizados')
+const buttonRmvCompleted = document.getElementById('remover-finalizados')
 
 const buttonRemoveAll = document.getElementById('apaga-tudo')
 
@@ -16,6 +16,7 @@ buttonCreate.addEventListener('click', function (e) {
     const text = textInput.value;
     const createLi = document.createElement('li');
     createLi.className = 'task';
+    createLi.innerHTML = text;
     selecteIten.appendChild(createLi);
     document.getElementById('texto-tarefa').value = null;
   } else {
@@ -56,7 +57,7 @@ selecteIten.addEventListener('dblclick', function (event) {
   }
 });
 
-buttonRmvFinished.addEventListener('click', function () {
+buttonRmvCompleted.addEventListener('click', function () {
   let taskCompleted = document.querySelectorAll('.completed');
   for (let index = 0; index < taskCompleted.length; index += 1) {
     selecteIten.removeChild(taskCompleted[index]);
@@ -64,13 +65,5 @@ buttonRmvFinished.addEventListener('click', function () {
 });
 
 
-rmvButtonSelected.addEventListener('click', rmvSelected);
 
-function rmvSelected() {
-  let itenSelected = document.getElementsByClassName('task')
-  for(let index = 0; index < itenSelected.length; index += 1){
-    if(itenSelected[index].classList.contains('task-selected')){
-      itenSelected[index].remove();
-    }
-  }
-};
+
