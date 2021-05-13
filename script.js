@@ -43,15 +43,26 @@ function concluded (event){
 const removeSelecionado = document.querySelector('#remover-selecionado');
 removeSelecionado.addEventListener('click', removeTarefa);
 function removeTarefa() {
-    const tarefa = document.querySelector('.selected');
-    tarefa.remove()
+  const tarefa = document.querySelector('.selected');
+  tarefa.remove()
 };
 
+//ITEM 11 REMOVE TAREFA CONCLUÍDA
+const removeFinalizados = document.querySelector('#remover-finalizados');
+removeFinalizados.addEventListener('click', removeConcluded);
+function removeConcluded(event){
+  if(event.target.classList){
+    const taskConcluded = document.querySelectorAll('.completed');
+    for(key in taskConcluded){
+      taskConcluded[key].remove();
+    };
+  };
+};
 //APAGA TUDO
 const deleteAll = document.querySelector('#apaga-tudo');
 deleteAll.addEventListener('click', limpaTarefa);
 function limpaTarefa (){
-    const itensList = document.querySelector('#lista-tarefas');
-    itensList.innerText = '';
+  const itensList = document.querySelector('#lista-tarefas');
+  itensList.innerText = '';
 };
 
