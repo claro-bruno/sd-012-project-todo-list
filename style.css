@@ -1,7 +1,6 @@
 body {
   background: linear-gradient(45deg, rgb(69, 69, 240), rgb(206, 121, 206));
   background-repeat: no-repeat;
-  margin-left: 40%;
   min-height: 100vh;
   min-width: 100vw;
 }

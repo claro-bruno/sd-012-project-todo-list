@@ -1,4 +1,3 @@
-const toDoList = [''];
 
 const selecteIten = document.getElementById('lista-tarefas');
 
@@ -6,16 +5,17 @@ const textInput = document.querySelector('#texto-tarefa');
 
 const buttonCreate = document.querySelector('.submit');
 
-const buttonRmvSelected = document.getElementById('remover-finalizados')
+const buttonRmvFinished = document.getElementById('remover-finalizados')
 
 const buttonRemoveAll = document.getElementById('apaga-tudo')
+
+const rmvButtonSelected = document.getElementById('remover-selecionado');
 
 buttonCreate.addEventListener('click', function (e) {
   if (textInput.value !== ''){
     const text = textInput.value;
     const createLi = document.createElement('li');
     createLi.className = 'task';
-    createLi.innerHTML = text;
     selecteIten.appendChild(createLi);
     document.getElementById('texto-tarefa').value = null;
   } else {
@@ -56,9 +56,21 @@ selecteIten.addEventListener('dblclick', function (event) {
   }
 });
 
-buttonRmvSelected.addEventListener('click', function () {
+buttonRmvFinished.addEventListener('click', function () {
   let taskCompleted = document.querySelectorAll('.completed');
   for (let index = 0; index < taskCompleted.length; index += 1) {
     selecteIten.removeChild(taskCompleted[index]);
   }
 });
+
+
+rmvButtonSelected.addEventListener('click', rmvSelected);
+
+function rmvSelected() {
+  let itenSelected = document.getElementsByClassName('task')
+  for(let index = 0; index < itenSelected.length; index += 1){
+    if(itenSelected[index].classList.contains('task-selected')){
+      itenSelected[index].remove();
+    }
+  }
+};
