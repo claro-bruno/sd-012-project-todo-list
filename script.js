@@ -54,22 +54,22 @@ function upList() {
   const itemSelected = document.querySelector('.selected');
   const previousSibling = itemSelected.previousElementSibling;  
   const firstChild = orderedList.firstElementChild;
-  if (itemSelected === firstChild) {
+  if (itemSelected === null || itemSelected === firstChild) {
     orderedList = document.getElementById('lista-tarefas');
   } else {
     orderedList.insertBefore(itemSelected, previousSibling);
-  }  
+  } 
 }
 
 function downList() {
   const itemSelected = document.querySelector('.selected');
   const nextSibling = itemSelected.nextElementSibling;
   const lastChild = orderedList.lastElementChild;
-  if (itemSelected === lastChild) {
+  if (itemSelected === null || itemSelected === lastChild) {
     orderedList = document.getElementById('lista-tarefas');
   } else {
     nextSibling.insertAdjacentElement('afterend', itemSelected);
-  }; 
+  }
 }
 
 
