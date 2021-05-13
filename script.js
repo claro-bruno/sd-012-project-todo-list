@@ -5,10 +5,9 @@ function funcBornTodo() {
   let contentNewTodo = document.querySelector("#texto-tarefa");
   if (contentNewTodo.value == '') {} else {
     let newItem = document.createElement("li");
-    let newButton = document.createElement("button");
     countList.appendChild(newItem);
-    let caughtItem = document.getElementById("lista-tarefas").lastChild
-    newItem.appendChild(newButton);
+    let caughtItem = countList.lastChild
+    caughtItem.classList.add("classTodo");
     caughtItem.innerHTML = contentNewTodo.value;
     contentNewTodo.value = "";
   };
@@ -16,12 +15,12 @@ function funcBornTodo() {
 
 bornTodo.addEventListener("click", funcBornTodo);
 
-// function changeColor() {
+// function changeColor(){
 //   for (let indice0 = 0; indice0 < countList.length; indice0 += 1) {
 //     let selectItem = countList.children[indice0];
 //     event.target.selectItem ==
 //       selectItem.style.color = rgb(128, 128, 128);
 //   }
 // };
-
+// let membersTodo = document.getElementsByClassName()
 // countList.addEventListener("click", changeColor);
