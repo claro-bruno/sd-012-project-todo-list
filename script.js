@@ -10,7 +10,6 @@ function checarBotao() {
     novaTarefa.innerHTML = retornoLista.value;
     retornoLista.value = '';
     checarTarefaSelecionada();
-    marcarTarefaCumprida();
   })
 }
 
@@ -26,18 +25,30 @@ function checarTarefaSelecionada() {
   }
 }
 
-function marcarTarefaCumprida() {
+function marcarTarefaCumprida() { 
   let listaTarefas = document.querySelector('#lista-tarefas');
-     listaTarefas.addEventListener('dblclick', function (event) {
-      if (event.target.classList.contains('completed')) {
-        event.target.classList.remove('completed');
-      } else {
-        event.target.classList.add('completed');
-      }
-    });
-  }
+  listaTarefas.addEventListener('dblclick', function (event) {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {                         
+      event.target.classList.add('completed');
+    }
+  });
+} 
 
+function adicionaBotaoLimpar () {
+  /* let pai = document.body.createElement('button');
+
+  const primeiroFilhoDoFilho = document.getElementById('primeiroFilhoDoFilho')
+    const filhoPrimeiroFilhoDoFilho = document.createElement('div');
+    filhoPrimeiroFilhoDoFilho.id = 'filhoPrimeiroFilhoDoFilho';
+    primeiroFilhoDoFilho.appendChild(filhoPrimeiroFilhoDoFilho);
+
+ */
+}
  
 /* window.onload = function () { */
-checarBotao();
+  adicionaBotaoLimpar();
+  marcarTarefaCumprida(); 
+  checarBotao();
 
