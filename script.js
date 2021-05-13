@@ -1,3 +1,4 @@
+let butRemFina = document.querySelector('#remover-finalizados')
 let butAdd = document.querySelector('#criar-tarefa');
 let butRemo = document.querySelector('#apaga-tudo');
 let inpText = document.querySelector('#texto-tarefa');
@@ -29,8 +30,29 @@ const colorChange = () => {
 
 list.addEventListener('click', colorChange);
 
+const doubleClick = () => {
+  if (event.target.classList.contains('completed')){
+    event.target.classList.remove('completed')
+  }else{
+    event.target.classList.add('completed')
+  }
+}
+
+list.addEventListener('dblclick', doubleClick);
 
 
 
+
+
+
+
+
+// const finaliz = () => {
+//   if (event.target.classList.contains('completed')){
+//     list.innerHTML = '';
+//   }
+// }
+
+// butRemFina.addEventListener('click', finaliz);
 
 

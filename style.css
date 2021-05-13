@@ -1,4 +1,10 @@
 button{
     background-color: green;
-    background-color: #ffffff;
+}
+.completed{
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.teste{
+  background-color: rgb(128, 128, 128);
 }
