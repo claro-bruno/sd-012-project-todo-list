@@ -14,12 +14,21 @@ function cinza(event){
     
 }
 
+function riscada(event){
+    if(!event.target.classList.contains("completed")){
+        event.target.classList.add("completed");
+    } else{
+        event.target.classList.remove("completed");
+    }
+}
+
 function criarLi(){
     let tarefa = document.createElement("li");
     tarefa.classList.add("item-lista");
     tarefa.innerHTML = textoAdiciona.value;
     document.getElementById("lista-tarefas").appendChild(tarefa);
     tarefa.addEventListener("click", cinza);
+    tarefa.addEventListener("dblclick", riscada);
 };
 
 function limparInput(){
