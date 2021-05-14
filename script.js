@@ -1,10 +1,14 @@
 const containerTitle = document.querySelector('#title'); //Criando a partir do dom
 const containerSubTitle = document.querySelector('#funcionamento'); //Criando a partir do dom
 const listItem = document.querySelector('#lista-tarefas');
-const button = document.querySelector('#criar-tarefa');
+const clickButton = document.querySelector('#criar-tarefa');
 const inputList = document.querySelector('#texto-tarefa');
 const getColorCinza = 'rgb(128,128,128)';
 const buttonApagar = document.getElementById('apaga-tudo');
+const clear = document.querySelector('.selected'); //revisar
+const task = document.getElementsByTagName('li');
+//mudar
+
 
 //Questao 1
 
@@ -20,31 +24,66 @@ let addSubTitle = document.createElement('p');
 addSubTitle.innerHTML = getSubTitle;
 containerSubTitle.appendChild(addSubTitle)
 
+//questao 6 e 7
 
-//questao 5 && 6
-
-  button.addEventListener('click', addInput);
-
-  function addInput(){
-      let listConteiner = document.createElement('li');
-      listConteiner.innerText = inputList.value;
-      listConteiner.addEventListener('click', addInput);
-      inputList.value = '';
-      listItem.appendChild(listConteiner);
-    }
-  
-// questao 7
-    
-listItem.addEventListener('click', changeCinza); 
-function changeCinza(eventColor){
-    eventColor.target.style.backgroundColor = getColorCinza
+function getSelect(event) {
+  const clear = document.querySelector('.selected'); 
+  if (clear !== null) { 
+    clear.classList.remove('selected'); 
   }
-
-
-// questao 10
-
-function apagar () {
-  listItem.innerHTML = '';
+  event.target.style.backgroundColor = getColorCinza ; 
 }
 
-buttonApagar.addEventListener('click', apagar);
+// questao 9
+function clickDoble(event) {
+  if (event.target.classList.contains('completed')) { 
+    event.target.classList.remove('completed'); 
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+function eventGetLi() {
+  const ContainerLi = document.createElement('li');
+  ContainerLi.innerText = inputList.value;
+  ContainerLi.addEventListener('click', getSelect); 
+  ContainerLi.addEventListener('dblclick', clickDoble); 
+  listItem.appendChild(ContainerLi);
+  inputList.value = '';
+}
+
+function inputNewTask() {
+  clickButton.addEventListener('click', eventGetLi);
+}
+inputNewTask();
+
+// questao 10
+function apagar () {
+  listItem.innerHTML = '';
+  }
+  buttonApagar.addEventListener('click', apagar);
+
+// questao 11
+function clearList() {
+    const GetComplet= listItem.querySelectorAll('.completed');
+  for (let index = 0; index < GetComplet.length; index += 1) {
+    const element = GetComplet[index];
+    listItem.removeChild(element);
+  }
+}
+
+function buttonGetCompleted() {
+  const clickEraseCompleted = document.getElementById('remover-finalizados');
+
+  clickEraseCompleted.addEventListener('click', clearList);
+}
+buttonGetCompleted();
+
+
+
+
+
+
+
+
+
