@@ -13,11 +13,20 @@ function aperte() {
   novoItem.innerText = valorInput.value;
   if (valorInput.value !== '') {
     olist.appendChild(novoItem);
-    valorInput.value = '';
+    valorInput.value = ''; 
+  
   }
 }
   botao.addEventListener('click', aperte);
-/*
+  
+  let listaDoida = getElementsByClassName('item-list;')
+  listaDoida.sort();
+  for(let index = 0; index < ListaDoida.length;index +=1){
+    listaDoida[index]
+  }
+
+
+/* /
         let itemDaLista = document.querySelectorAll('#lista-tarefa');
             itemDaLista[index].addEventListener('click', function (event) {
                 for (let index = 0; index < itemDaLista.length; index += 1) {
@@ -25,4 +34,4 @@ function aperte() {
                     event.target.classList.add('cinza')
                     }
                 }
-            }) */
+            }) */ 
