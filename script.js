@@ -40,3 +40,13 @@ listaTarefas.addEventListener('click', function (event) {
     }
 })
 
+//Requisito 09
+listaTarefas.addEventListener('dblclick', function (event) {
+    if (event.target.className === 'item-lista completed') {
+        event.target.className = 'item-lista'
+    } else {
+        event.target.className = 'item-lista completed'
+    }
+})
+
+
