@@ -7,10 +7,10 @@ const li = document.querySelectorAll('ol');
 const lis = document.getElementsByTagName('li');
 let array = [];
 
-window.onload = () => {
-  const listaSalva = localStorage.getItem('tasks');
-  ol.innerHTML = listaSalva;
-};
+// window.onload = () => {
+//   const listaSalva = localStorage.getItem('tasks');
+//   ol.innerHTML = listaSalva;
+// };
 
 //ADICIONA TAREFA
 function adicionarTarefa() {
@@ -22,18 +22,23 @@ function adicionarTarefa() {
   lista.appendChild(criarLi);
 
   array.push(criarLi.textContent);
-  console.log(array);
+
   caixaTexto.value = '';
+
 }
 
 botao.addEventListener('click', adicionarTarefa);
 
-//SALVAR TASKS
-botaoSalva.addEventListener('click', function () {
+//Função salva
+function save () {
   for (let i = 0; i < array.length; i += 1) {
-    localStorage.setItem('tasks', JSON.stringify(array[i]));
+    localStorage.getItem
+    // localStorage.setItem('tasks', JSON.stringify(array));
   }
-});
+}
+
+//SALVAR TASKS
+botaoSalva.addEventListener('click', save());
 
 //TASK SELECIONADA
 for (let i = 0; i < li.length; i += 1) {
