@@ -1,22 +1,24 @@
 body {
-    background: aliceblue;
-  }
+    background: rgb(125, 174, 218);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 h1 {
   text-align: center;
 }
-  ol {
-    margin-left: auto;
-    margin-right: auto;
-  }
+ol {
+margin-left: auto;
+margin-right: auto;
+}
 
-  li {
-    cursor: pointer;
-    width: 100%;
-    user-select: none;
-  }
+li {
+cursor: pointer;
+width: 100%;
+user-select: none;
+}
 
 .selected {
-    background-color: rgb(128, 128, 128);
+    background-color: rgb(199, 199, 199);
     user-select: none;
 }
 
@@ -29,6 +31,47 @@ h1 {
   display: inline-block;
 }
 
+button {
+  border-radius: 20px;
+  padding: 7px 14px;
+  margin: 2px;
+  text-align: center;
+  border: 0;
+  color: aliceblue;
+  font-weight: bolder;
+}
+
+#criar-tarefa, #remover-finalizados {
+  margin-left: 20px;
+  background-color: rgb(0, 23, 155);
+}
+
+#remover-finalizados {
+  background-color: rgb(0, 23, 155);
+}
+
+#salvar-tarefas {
+  background-color: green;
+}
+
+#apaga-tudo {
+  background-color: #5e2129;
+}
+
+#mover-cima, #mover-baixo {
+  background-color: orange;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+#remover-selecionado {
+  background-color: #5e2129;
+}
+
+#apaga-storage {
+  background-color:#5e2129;
+}
+
 #funcionamento {
   font: lighter;
   font-style: italic;
@@ -37,7 +80,7 @@ h1 {
 #mainDiv {
   width: 80%;
   border-radius: 10px;
-  background-color: rgb(189, 227, 245);
+  background-color: rgb(255, 255, 255);
   padding-bottom: 10px;
   padding-top: 1px;
   padding-left: 100px;

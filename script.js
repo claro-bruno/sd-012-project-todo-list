@@ -180,3 +180,12 @@ function clearSelected() {
     })
 }
 clearSelected();
+
+function clearStorage() {
+    const clearStorageButton = document.querySelector('#apaga-storage');
+
+    clearStorageButton.addEventListener('click', function() {
+        localStorage.clear();
+    })
+}
+clearStorage();
