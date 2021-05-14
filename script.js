@@ -3,6 +3,9 @@ const inputTask = document.querySelector('#texto-tarefa');
 const ol = document.querySelector('#lista-tarefas');
 const btClear = document.querySelector('#apaga-tudo');
 const btClearDone = document.querySelector('#remover-finalizados');
+const btSaveList = document.querySelector('#salvar-tarefas');
+const btMoveUp = document.querySelector('#mover-cima');
+const btMoveDown = document.querySelector('#mover-baixo');
 
 function addTaskList() {
   btAdd.addEventListener('click', () => {
@@ -17,14 +20,9 @@ function addTaskList() {
 }
 addTaskList();
 
-// Função que aciona nova lista nova tarefa com o enter
 function enterNewTask() {
-  // capturar o input onde o texto será digitado
-  // Usar um escutador de eventos no input do tipo 'keypress' ou 'keyup'
   inputTask.addEventListener('keypress', (event) => {
-    // verificar se a tecla precionada foi a tecla 'Enter'
     if (event.key === 'Enter') {
-
       btAdd.click();
     }
   });
@@ -71,34 +69,59 @@ function clearTaskList() {
 }
 clearTaskList();
 
-// Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista
-btClearDone.addEventListener('click', () => {
-  const completedList = document.querySelectorAll('.completed');
+function rmItemSelected() {
+  btClearDone.addEventListener('click', () => {
+    const completedList = document.querySelectorAll('.completed');
 
-  for (let index = 0; index < completedList.length; index += 1) {
-    completedList[index].parentNode.removeChild(completedList[index]);
-    console.log('olá');
+    for (let index = 0; index < completedList.length; index += 1) {
+      completedList[index].parentNode.removeChild(completedList[index]);
+    }
+  });
+}
+rmItemSelected();
+
+function saveList() {
+  btSaveList.addEventListener('click', () => {
+    localStorage.setItem('tarefas-salvas', ol.innerHTML);
+  });
+}
+saveList();
+
+// Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
+//  Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo - ok
+// Capturar o ítem selecionado na lista (clase? event target?)
+// Como mover um ítem de lugar em uma lista? (nextSibling? )
+
+// Capturar botão de mover pra cima - ok
+// Adicionar um escutador de eventos
+btMoveUp.addEventListener('click', () => {
+  // se o elemento selecionado for igual ao firtChild da ol não ative o botão
+  const itemSelected = document.querySelector('.selected');
+  if (itemSelected !== ol.firstChild) {
+    // Capturar o elemento selecionado -ok
+    // Capturar o proximo irmão anterior
+    const irmaoPrevious = document.querySelector('.selected').previousSibling;
+    // move para antes do irmão anterior
+    irmaoPrevious.insertAdjacentElement('beforebegin', itemSelected);
+  } else {
+    alert(`${itemSelected.innerHTML} já está na primeira posição`);
   }
 });
 
-// Local storage - Salva por mais tempo (mesmo que feche a págian)
-// Section Storage - Fica salvo enquando a página está aberta
-
-// capturar o botão
-const btSaveList = document.querySelector('#salvar-tarefas');
-
-// criar uma function que armazena a lista no local storage
-function saveList(event) {
-  // Como armazenar um dado no local storage?
-  // Adicionar na lista o conteúdo salvo no local storage quando a página for recarregada.
-  localStorage.setItem('tarefas-salvas', ol.innerHTML);
-  // Adicionar um evento de click
-
-}
-btSaveList.addEventListener('click', saveList);
+btMoveDown.addEventListener('click', () => {
+  // Capturar o elemento selecionado -ok
+  const itemSelected = document.querySelector('.selected');
+  if (itemSelected !== ol.lastChild) {
+    // Capturar o proximo irmão
+    const irmaoSelect = document.querySelector('.selected').nextSibling;
+    // move para o proximo
+    irmaoSelect.insertAdjacentElement('afterend', itemSelected);
+  } else {
+    alert(`${itemSelected.innerHTML} já está na última posição`);
+  }
+});
 
 window.onload = () => {
-  let teste = localStorage.getItem('tarefas-salvas');
-  ol.innerHTML = teste
-  console.log(teste);
+  const teste = localStorage.getItem('tarefas-salvas');
+  ol.innerHTML = teste;
 };
