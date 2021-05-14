@@ -11,7 +11,11 @@ const buttonRemoveAll = document.getElementById('apaga-tudo')
 
 const rmvButtonSelected = document.getElementById('remover-selecionado');
 
-buttonCreate.addEventListener('click', function (e) {
+const moveUp = document.getElementById('mover-cima');
+
+const moveDown = document.getElementById('mover-baixo');
+
+buttonCreate.addEventListener('click', function () {
   if (textInput.value !== ''){
     const text = textInput.value;
     const createLi = document.createElement('li');
@@ -64,6 +68,38 @@ buttonRmvCompleted.addEventListener('click', function () {
   }
 });
 
+moveUp.addEventListener('click', mvUp)
 
+function mvUp() {
+  let tasks = document.getElementsByClassName('task');
+  for (let index = 0; index < tasks.length; index++) {
+    console.log(tasks[index].className);
+    if (tasks[index].className !== 'task') {
+      if (index === 0) {
+        alert('Ação inválida');
+      } else {
+        let taskValue = tasks[index].innerHTML
+        let taskClass = tasks[index].className
+        let taskPrevious = tasks[index - 1].innerHTML;
+        let taskPreviousClass = tasks[index - 1].className;
+      
+        tasks[index] = taskPrevious;
+        tasks[index].className = taskPreviousClass;
 
+        tasks[index - 1] = taskValue;
+        tasks[index - 1].className = taskClass;
+      }
+    }
+  };
+};
 
+rmvButtonSelected.addEventListener('click', mvDown);
+
+function mvDown() {
+  let rmSelected = document.getElementsByClassName('task');
+  for(let index = 0; index < rmSelected.length; index += 1){
+    if(rmSelected[index].className !== 'task'){
+      selecteIten.removeChild(rmSelected[index]);
+    }
+  };
+};
