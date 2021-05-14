@@ -1,7 +1,6 @@
 let section = document.querySelector('#tarefas');
 
 let btn = document.getElementById('criar-tarefa');
-console.log(btn);
 
 function lista() {
   let list = document.createElement('ol');
@@ -18,8 +17,11 @@ btn.addEventListener('click', function () {
     olTarefa.appendChild(li);
   li.innerText = inputT.value;
     inputT.value = '';
-li.addEventListener('click', cor)
+li.addEventListener('click', cor);
+li.addEventListener('dblclick', dbClick);
+
 });
+
 
 function cor (event) {
     let selectClass = document.querySelectorAll('.li');
@@ -30,3 +32,10 @@ function cor (event) {
 event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
+function dbClick (event) {
+   
+        if (event.target.classList.contains('completed') === true) {
+            event.target.classList.remove('completed');
+            } else {event.target.classList.add('completed');
+    }
+}
