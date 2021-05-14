@@ -5,46 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tarefas</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel='stylesheet' href="./style.css">
 </head>
 
 <body background="paisagem_fria_montanhosa.jpg" class="">
-    <h2><header>Minha Lista de Tarefas</header></h2>
+    <div class="topo"><header class="textheader">Minha Lista de Tarefas</header></div><br>
+     <div class="subtitle"><p id="funcionamento">Clique duas vezes em um item <br>para marcá-lo como completo</p>
+    </div>
+        <br>
+    <div class="flex-container">
+        <ol id="lista-tarefas"></ol>
+    </div>
 
-    <h3><p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p></h3>
-
-    <ol id="lista-tarefas"></ol>
-
-    <fieldset>
-    <div>
-    <input id="texto-tarefa">
-    </div>
-    <div>
-    <br>
-    <button id="criar-tarefa">Adicionar</button>
+    <fieldset class="flex-container">
+    <div class="input-group input-group-sm mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-sm">Nova Tarefa</span>
+    <input id="texto-tarefa" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
     </div>
     <br>
-    <div>
-    <button id="apaga-tudo">Apagar tudo</button>
+    <div class="">
+    <button class="btn btn-primary" id="criar-tarefa">Adicionar</button>
     </div>
     <br>
-    <div>
-    <button type="button" id="remover-finalizados">Remover finalizados</button>
+    <div class="">
+    <button class="btn btn-danger" id="apaga-tudo">Apagar tudo</button>
     </div>
     <br>
-    <div><button id="salvar-tarefas">Salvar tarefa</button>
+    <div class="">
+    <button class="btn btn-warning" type="button" id="remover-finalizados">Remover finalizados</button>
     </div>
     <br>
-    <div>
-        <button id="mover-cima">Mover para cima</button>
+    <div class="">
+    <button class="btn btn-success" id="salvar-tarefas">Salvar tarefa</button>
     </div>
     <br>
-    <div>
-        <button id="mover-baixo">Mover para baixo</button>
+    <div class="">
+        <button class="btn btn-secondary" id="mover-cima">Mover para cima</button>
     </div>
     <br>
-    <div>
-        <button id="remover-selecionado">Apagar selecionado</button>
+    <div class="">
+        <button class="btn btn-dark" id="mover-baixo">Mover para baixo</button>
+    </div>
+    <br>
+    <div class="">
+        <button class="btn btn-danger" id="remover-selecionado">Apagar selecionado</button>
     </div>
     </fieldset>
     
