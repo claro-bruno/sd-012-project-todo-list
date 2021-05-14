@@ -49,6 +49,17 @@ function moverCima() {
     }
   }
 }
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'remover-selecionado') {
+    const completed = document.querySelectorAll('.selected');
+    for (let i = 0; i < completed.length; i += 1) {
+      completed[i].remove();
+    }
+  }
+}, false);
+
+
 aCima.addEventListener('click', moverConteudoCima);
 
 function moverConteudoCima() {
