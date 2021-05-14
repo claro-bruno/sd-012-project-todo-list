@@ -4,6 +4,7 @@ let meuInput = document.querySelector('#texto-tarefa');
 let meuButao = document.querySelector('#criar-tarefa');
 let listaTarefa = document.querySelector('#lista-tarefas');
 let listas = [];
+let reset = document.querySelector('#apaga-tudo');
 
 meuButao.addEventListener('click', criaTarefa);
 function criaTarefa(){
@@ -13,7 +14,6 @@ function criaTarefa(){
    meuInput.value = null;
    };
    tarefa()
-   
 };
 
 function registraTarefa(){
@@ -49,7 +49,10 @@ function tarefa(){
       });
    };
    
+   console.log(listas)
 };
-
-
-
+//requesito 10, fonte do conhecimento e uso da funcionalidade: https://developer.mozilla.org/pt-BR/docs/Web/API/Location/reload
+reset.addEventListener('click', apagarTudo)
+   function apagarTudo(){
+      return document.location.reload(true)
+   }
