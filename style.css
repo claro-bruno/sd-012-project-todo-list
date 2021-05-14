@@ -16,4 +16,14 @@ body {
     text-decoration: line-through solid rgb(0, 0, 0);
   }
 
-  
+  #apaga-tudo {
+      background-color: red;
+      border-radius: 10px;
+      color: whitesmoke;
+  }
+
+  #remover-finalizados {
+      background-color: teal;
+      border-radius: 10px;
+      color: whitesmoke;
+  }

@@ -29,7 +29,7 @@ function changeColor (event){
 
 changeColor();
 
-
+//Risca tarefa completada
 function listComplete(event){
 
 
