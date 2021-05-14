@@ -20,8 +20,8 @@ function addBackgroundColor() {
     selected.classList.add('selected');
     orderedList.addEventListener('click', function (event) {
       const selected2 = event.target;
-      selected2.classList.add('selected');
       selected.classList.remove('selected');
+      selected2.classList.add('selected');
     });
   });
 }
@@ -60,7 +60,6 @@ function upList() {
 function downList() {
   const itemSelected = document.querySelector('.selected');  
   if (itemSelected) {
-    console.log(itemSelected);
     const nextSibling = itemSelected.nextElementSibling;
     if(nextSibling){
       nextSibling.insertAdjacentElement('afterend', itemSelected);
