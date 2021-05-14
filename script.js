@@ -15,6 +15,7 @@ const moveUp = document.getElementById('mover-cima');
 
 const moveDown = document.getElementById('mover-baixo');
 
+
 buttonCreate.addEventListener('click', function () {
   if (textInput.value !== ''){
     const text = textInput.value;
@@ -73,7 +74,6 @@ moveUp.addEventListener('click', mvUp)
 function mvUp() {
   let tasks = document.getElementsByClassName('task');
   for (let index = 0; index < tasks.length; index++) {
-    console.log(tasks[index].className);
     if (tasks[index].className !== 'task') {
       if (index === 0) {
         alert('Ação inválida');
@@ -83,19 +83,43 @@ function mvUp() {
         let taskPrevious = tasks[index - 1].innerHTML;
         let taskPreviousClass = tasks[index - 1].className;
       
-        tasks[index] = taskPrevious;
+        tasks[index].innerHTML = taskPrevious;
         tasks[index].className = taskPreviousClass;
 
-        tasks[index - 1] = taskValue;
+        tasks[index - 1].innerHTML = taskValue;
         tasks[index - 1].className = taskClass;
+      }
+    }
+  }
+};
+
+moveDown.addEventListener('click', mvDown);
+
+function mvDown() {
+  let tasks = document.querySelectorAll('.task');
+  for (let index = tasks.length - 1; index >= 0; index-= 1) {
+    if (tasks[index].className !== 'task') {
+      if (index === tasks.length - 1) {
+        alert('Ação inválida');
+      } else {
+        let taskValue = tasks[index].innerHTML
+        let taskClass = tasks[index].className
+        let taskNext = tasks[index + 1].innerHTML;
+        let taskNextClass = tasks[index + 1].className;
+        
+        tasks[index + 1].innerHTML = taskValue;
+        tasks[index + 1].className = taskClass;
+        
+        tasks[index].innerHTML = taskNext;
+        tasks[index].className = taskNextClass;
       }
     }
   };
 };
 
-rmvButtonSelected.addEventListener('click', mvDown);
+rmvButtonSelected.addEventListener('click', removeSelected);
 
-function mvDown() {
+function removeSelected() {
   let rmSelected = document.getElementsByClassName('task');
   for(let index = 0; index < rmSelected.length; index += 1){
     if(rmSelected[index].className !== 'task'){
