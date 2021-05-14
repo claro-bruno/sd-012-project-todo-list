@@ -7,7 +7,7 @@ const getColorCinza = 'rgb(128,128,128)';
 const buttonApagar = document.getElementById('apaga-tudo');
 const clear = document.querySelector('.selected'); //revisar
 const task = document.getElementsByTagName('li');
-//mudar
+
 
 
 //Questao 1
@@ -24,7 +24,7 @@ let addSubTitle = document.createElement('p');
 addSubTitle.innerHTML = getSubTitle;
 containerSubTitle.appendChild(addSubTitle)
 
-//questao 6 e 7
+//quest 6 e 7
 
 function getSelect(event) {
   const clear = document.querySelector('.selected'); 
@@ -34,7 +34,7 @@ function getSelect(event) {
   event.target.style.backgroundColor = getColorCinza ; 
 }
 
-// questao 9
+// quest 9
 function clickDoble(event) {
   if (event.target.classList.contains('completed')) { 
     event.target.classList.remove('completed'); 
@@ -57,13 +57,13 @@ function inputNewTask() {
 }
 inputNewTask();
 
-// questao 10
+// quest 10
 function apagar () {
   listItem.innerHTML = '';
   }
   buttonApagar.addEventListener('click', apagar);
 
-// questao 11
+// quest 11
 function clearList() {
     const GetComplet= listItem.querySelectorAll('.completed');
   for (let index = 0; index < GetComplet.length; index += 1) {
