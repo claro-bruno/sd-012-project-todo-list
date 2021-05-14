@@ -13,17 +13,17 @@ function aperte() {
   novoItem.innerText = valorInput.value;
   if (valorInput.value !== '') {
     olist.appendChild(novoItem);
-    valorInput.value = ''; 
-  
+    valorInput.value = '';
+
   }
 }
-  botao.addEventListener('click', aperte);
-  
-  let listaDoida = document.querySelectorAll('#item-list;')
-  listaDoida.sort();
-  for(let index = 0; index < ListaDoida.length;index +=1){
-    listaDoida[index]
-  }
+botao.addEventListener('click', aperte);
+
+let listaDoida = document.querySelectorAll('.item-list;')
+listaDoida.sort();
+for (let index = 0; index < ListaDoida.length; index += 1) {
+  listaDoida[index]
+}
 
 
 /* /
@@ -34,4 +34,4 @@ function aperte() {
                     event.target.classList.add('cinza')
                     }
                 }
-            }) */ 
+            }) */
