@@ -30,16 +30,21 @@ function corCinza() {
 
 function risco() {
   document.addEventListener("dblclick", function(isRiscado) {
-    if (isRiscado.target.className === "item") {
-      if (isRiscado.target.className === "item") {
-        isRiscado.target.className = "item completed";
+    
+    if (isRiscado.target.classList.contains('item')) {
+      console.log(isRiscado.target.classList);
+      if (isRiscado.target.classList.contains('completed')) {
+        isRiscado.target.classList.remove('completed');
+        return;
+      } else {
+        isRiscado.target.classList.add('completed');
         return;
       }
     }
-    if (isRiscado.target.className === "item completed") {
-        isRiscado.target.className = "item";
-        return;
-    }
+    // if (isRiscado.target.className === "item completed") {
+    //     isRiscado.target.className = "item";
+    //     return;
+    // }
   });
 }
 
