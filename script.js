@@ -19,7 +19,7 @@ function aperte() {
 }
   botao.addEventListener('click', aperte);
   
-  let listaDoida = getElementsByClassName('item-list;')
+  let listaDoida = document.querySelectorAll('#item-list;')
   listaDoida.sort();
   for(let index = 0; index < ListaDoida.length;index +=1){
     listaDoida[index]
