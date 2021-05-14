@@ -149,3 +149,13 @@ removerButton.addEventListener('click', () => {
   }
 });
 
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'salvar-tarefas') {
+    localStorage.setItem('lista-tarefas', ornedlist.innerHTML);
+  }
+});
+
+function loadList() {
+  ornedlist.innerHTML = localStorage.getItem('lista-tarefas');
+};
+loadList();
