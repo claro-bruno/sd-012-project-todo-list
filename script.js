@@ -14,24 +14,28 @@ function aperte() {
   if (valorInput.value !== '') {
     olist.appendChild(novoItem);
     valorInput.value = '';
-
+  
   }
 }
+
+/*   }
+    let listaDoida = document.getElementsByClassName('item-list')
+      listaDoida.sort(a - b);
+      for (let index = 0; index < ListaDoida.length; index += 1) {
+        listaDoida[index]
+      }
+
+} */
+
 botao.addEventListener('click', aperte);
 
-let listaDoida = document.querySelectorAll('.item-list;')
-listaDoida.sort();
-for (let index = 0; index < ListaDoida.length; index += 1) {
-  listaDoida[index]
+/* function corcinza() {
+let itemDaLista = document.querySelectorAll('#lista-tarefa');
+for (let index = 0; index < itemDaLista.length; index += 1) {
+itemDaLista[index].addEventListener('click', function (event) {
+event.target.style.backgroundColor = 'rgb(128,128,128)';
+
+})
 }
-
-
-/* /
-        let itemDaLista = document.querySelectorAll('#lista-tarefa');
-            itemDaLista[index].addEventListener('click', function (event) {
-                for (let index = 0; index < itemDaLista.length; index += 1) {
-                    if (event.target.ClassName !== 'cinza'){
-                    event.target.classList.add('cinza')
-                    }
-                }
-            }) */
+}
+itemDaLista.addEventListener('click', corcinza); */
