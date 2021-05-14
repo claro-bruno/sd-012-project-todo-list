@@ -36,40 +36,16 @@ button {
   padding: 7px 14px;
   margin: 2px;
   text-align: center;
-  border: 0;
-  color: aliceblue;
   font-weight: bolder;
 }
 
 #criar-tarefa, #remover-finalizados {
   margin-left: 20px;
-  background-color: rgb(0, 23, 155);
-}
-
-#remover-finalizados {
-  background-color: rgb(0, 23, 155);
-}
-
-#salvar-tarefas {
-  background-color: green;
-}
-
-#apaga-tudo {
-  background-color: #5e2129;
 }
 
 #mover-cima, #mover-baixo {
-  background-color: orange;
   font-weight: bolder;
   font-size: larger;
-}
-
-#remover-selecionado {
-  background-color: #5e2129;
-}
-
-#apaga-storage {
-  background-color:#5e2129;
 }
 
 #funcionamento {
