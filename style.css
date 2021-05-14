@@ -1,0 +1,19 @@
+body {
+    background-color: khaki
+}
+
+#criar-tarefa {
+    border-radius: 10px;
+    background-color: green;
+    color: whitesmoke;
+}
+
+#selected{
+    background-color:rgb(128, 128, 128);
+    
+}
+.completed{
+    text-decoration: line-through solid rgb(0, 0, 0);
+  }
+
+  
