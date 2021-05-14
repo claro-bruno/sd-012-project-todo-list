@@ -17,23 +17,22 @@
    });
  }
 addLista();
- function alteraCorDeFundo(event){
 
+ function alteraCorDeFundo(event){
  let itemLista = document.querySelectorAll('.item-lista')
      for (let i =0;i<itemLista.length ; i+= 1){
        if(itemLista[i].id == 'selected')
-       itemLista[i].id = ''
+        itemLista[i].id = ''
        else 
-       event.target.id= 'selected'
+        event.target.id= 'selected'
  }
  }
 
 function completado(event){
-
   if(event.target.className.includes('completed'))
     event.target.className = 'item-lista'
   else
-  event.target.className += ' completed'
+    event.target.className += ' completed'
 }
 
 
@@ -47,11 +46,11 @@ function botaoApagar(){
 botaoApagar()
 
 function apagar(){
-let itemlista = document.querySelectorAll('.item-lista')
-let pai = document.querySelector('#lista-tarefas')
-for(let i = 0;i < itemlista.length; i += 1){
-  pai.removeChild(itemlista[i])
-}
+  let itemlista = document.querySelectorAll('.item-lista')
+  let pai = document.querySelector('#lista-tarefas')
+    for(let i = 0;i < itemlista.length; i += 1){
+      pai.removeChild(itemlista[i])
+    }
 }
 
 
@@ -67,7 +66,7 @@ botaoFinalizados()
 function finalizar(){
   let completados = document.querySelectorAll('.completed')
   let pai = document.querySelector('#lista-tarefas')
-  for(let i = 0;i < completados.length; i += 1){
-    pai.removeChild(completados[i])
-  }
+    for(let i = 0;i < completados.length; i += 1){
+      pai.removeChild(completados[i])
+    }
 }
