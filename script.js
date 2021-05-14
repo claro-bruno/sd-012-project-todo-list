@@ -38,3 +38,12 @@ function doubleClick (event){
   }
 
 }
+
+let botaoApaga = document.getElementById('apaga-tudo');
+console.log(botaoApaga)
+function apagaTudo(){
+let paiLista = document.getElementById('lista-tarefas');
+paiLista.innerHTML = '';
+  
+}
+botaoApaga.addEventListener('click', apagaTudo)
