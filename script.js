@@ -15,6 +15,7 @@ const moveUp = document.getElementById('mover-cima');
 
 const moveDown = document.getElementById('mover-baixo');
 
+const save = document.getElementById('salvar-tarefas');
 
 buttonCreate.addEventListener('click', function () {
   if (textInput.value !== ''){
@@ -127,3 +128,24 @@ function removeSelected() {
     }
   };
 };
+
+save.addEventListener('click', saveTask);
+
+function saveTask () {
+  let list = document.getElementById('lista-tarefas')
+  let database = JSON.parse(localStorage.getItem('taskSaved'));
+
+  if (database !== null) {
+    localStorage.setItem('taskSaved', '[]');
+    database = [];
+  }
+
+  let taskRegistre = {
+    task: list.innerText
+  };
+
+  database.push(taskRegistre);
+  localStorage.setItem('texto-tarefa', JSON.stringify(database));
+  alert('Lista salva com sucesso!');
+  list.innerText = '';
+}
