@@ -22,9 +22,21 @@ criarTarefa.innerText = 'Criar';
 
 criarTarefa.addEventListener('click', function () {
     let listItem = document.createElement('li');
-    listaTarefas.appendChild(listItem);
     listItem.innerText = textoTarefa.value;
     textoTarefa.value = '';
-    console.log(listaTarefas.innerText);
+    listaTarefas.appendChild(listItem);
+    listItem.setAttribute('class', 'item-lista');
+
+})
+
+//Requisito 07
+listaTarefas.addEventListener('click', function (event) {
+    let itemLista = document.getElementsByClassName('item-lista');
+    for (let index = 0; index < itemLista.length; index += 1) {
+        itemLista[index].style.backgroundColor = 'rgb(255, 255, 255)';
+    }
+    if (event.target.className === 'item-lista') {
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    }
 })
 
