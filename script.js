@@ -93,3 +93,45 @@ function getSavedTasks() {
     };
 };
 getSavedTasks();
+
+// btn remover selecionado
+function btnRemoveSelected() {
+    const removeSelected = document.getElementById("remover-selecionado");
+    removeSelected.addEventListener("click", function() {
+        const li = document.querySelector(".selected");
+        if (li !== null) {
+            taskList.removeChild(li);
+        }
+    });
+};
+btnRemoveSelected();
+
+// mover pra cima
+function moveUp() {
+    const btnMoveUp = document.getElementById("mover-cima");
+    btnMoveUp.addEventListener("click", function() {
+        const selected = document.querySelector(".selected");
+        if (selected !== null) {
+            if (selected !== taskList.firstElementChild) {
+                const previousSelected = document.querySelector(".selected").previousSibling;
+                taskList.insertBefore(selected, previousSelected);
+            };
+        };
+    });
+};
+moveUp();
+
+// mover pra baixo
+function moveDown() {
+    const btnMovedown = document.getElementById("mover-baixo");
+    btnMovedown.addEventListener("click", function() {
+        const selected = document.querySelector(".selected");
+        if (selected !== null) {
+            const previousSelected = document.querySelector(".selected").nextSibling;
+            if (previousSelected !== null ) {
+                taskList.insertBefore(selected, previousSelected.nextSibling);
+            };
+        };
+    });
+};
+moveDown();
