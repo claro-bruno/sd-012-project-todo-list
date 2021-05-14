@@ -17,8 +17,6 @@ function addlist() {
   ornedlist.appendChild(cria)
 
   cria.addEventListener('click', seleciona);
-  ornedlist.addEventListener('dblclick', completaItem, );
-
 };
 
 function seleciona(event) {
@@ -103,14 +101,7 @@ function apagaTudo() {
   }
 }
 apagarGeralX.addEventListener('click', apagaTudo)
-
-function saveList() {
-  let arrayOfTaskObjs = JSON.parse(localStorage.getItem('arrayOfTaskObjs'));
-  for (let index = 0; index < arrayOfTaskObjs.length; index += 1) {
-    buildTask(arrayOfTaskObjs[index]);
-  }
-};
-salvaLis.addEventListener('click', saveList);
+// ate oqui o cyprees não me trola 
 
 function riscadoStyle() {
   const tarefaRiscada = document.querySelectorAll('.tarefa');
