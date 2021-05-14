@@ -59,10 +59,10 @@ h1{
     border-radius: 15px;
     background-color: brown;
     color: white;
-};
+}
 
-.tarefacompleta{
-    font-style: inherit;
+.completed  {
+    text-decoration: line-through solid rgb(0,0,0);
 }
 
 .selected {
