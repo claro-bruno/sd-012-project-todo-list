@@ -1,5 +1,4 @@
 const btAdd = document.querySelector('#criar-tarefa');
-const listItems = document.querySelector('#lista-tarefas');
 const inputTask = document.querySelector('#texto-tarefa');
 const ol = document.querySelector('#lista-tarefas');
 const btClear = document.querySelector('#apaga-tudo');
@@ -11,12 +10,26 @@ function addTaskList() {
       const newItem = document.createElement('li');
       newItem.innerHTML = inputTask.value;
       newItem.classList.add('tasks');
-      listItems.appendChild(newItem);
+      ol.appendChild(newItem);
       inputTask.value = '';
     }
   });
 }
 addTaskList();
+
+// Função que aciona nova lista nova tarefa com o enter
+function enterNewTask() {
+  // capturar o input onde o texto será digitado
+  // Usar um escutador de eventos no input do tipo 'keypress' ou 'keyup'
+  inputTask.addEventListener('keypress', (event) => {
+    // verificar se a tecla precionada foi a tecla 'Enter'
+    if (event.key === 'Enter') {
+
+      btAdd.click();
+    }
+  });
+}
+enterNewTask();
 
 function paintTask() {
   const itemSelected = document.querySelectorAll('.tasks');
@@ -66,4 +79,26 @@ btClearDone.addEventListener('click', () => {
     completedList[index].parentNode.removeChild(completedList[index]);
     console.log('olá');
   }
-})
+});
+
+// Local storage - Salva por mais tempo (mesmo que feche a págian)
+// Section Storage - Fica salvo enquando a página está aberta
+
+// capturar o botão
+const btSaveList = document.querySelector('#salvar-tarefas');
+
+// criar uma function que armazena a lista no local storage
+function saveList(event) {
+  // Como armazenar um dado no local storage?
+  // Adicionar na lista o conteúdo salvo no local storage quando a página for recarregada.
+  localStorage.setItem('tarefas-salvas', ol.innerHTML);
+  // Adicionar um evento de click
+
+}
+btSaveList.addEventListener('click', saveList);
+
+window.onload = () => {
+  let teste = localStorage.getItem('tarefas-salvas');
+  ol.innerHTML = teste
+  console.log(teste);
+};
