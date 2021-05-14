@@ -97,27 +97,35 @@ saveList();
 btMoveUp.addEventListener('click', () => {
   // se o elemento selecionado for igual ao firtChild da ol não ative o botão
   const itemSelected = document.querySelector('.selected');
-  if (itemSelected !== ol.firstChild) {
-    // Capturar o elemento selecionado -ok
-    // Capturar o proximo irmão anterior
-    const irmaoPrevious = document.querySelector('.selected').previousSibling;
-    // move para antes do irmão anterior
-    irmaoPrevious.insertAdjacentElement('beforebegin', itemSelected);
+  if (itemSelected !== null) {
+    if (itemSelected !== ol.firstChild) {
+      // Capturar o elemento selecionado -ok
+      // Capturar o proximo irmão anterior
+      const irmaoPrevious = document.querySelector('.selected').previousSibling;
+      // move para antes do irmão anterior
+      irmaoPrevious.insertAdjacentElement('beforebegin', itemSelected);
+    } else {
+      alert(`${itemSelected.innerHTML} já está na primeira posição 😉️`);
+    }
   } else {
-    alert(`${itemSelected.innerHTML} já está na primeira posição`);
+    return alert('Ops! Você esqueceu de selecionar um ítem, selecione e tente novamente 😉️');
   }
 });
 
 btMoveDown.addEventListener('click', () => {
   // Capturar o elemento selecionado -ok
   const itemSelected = document.querySelector('.selected');
-  if (itemSelected !== ol.lastChild) {
-    // Capturar o proximo irmão
-    const irmaoSelect = document.querySelector('.selected').nextSibling;
-    // move para o proximo
-    irmaoSelect.insertAdjacentElement('afterend', itemSelected);
+  if (itemSelected !== null) {
+    if (itemSelected !== ol.lastChild) {
+      // Capturar o proximo irmão
+      const irmaoSelect = document.querySelector('.selected').nextSibling;
+      // move para o proximo
+      irmaoSelect.insertAdjacentElement('afterend', itemSelected);
+    } else {
+      alert(`${itemSelected.innerHTML} já está na última posição 😉️`);
+    }
   } else {
-    alert(`${itemSelected.innerHTML} já está na última posição`);
+    return alert('Ops! Você esqueceu de selecionar um ítem, selecione e tente novamente 😉️');
   }
 });
 
