@@ -76,18 +76,20 @@ function saveTasks() {
         for (let index = 0; index < li.length; index += 1) {
             liArray.push(li[index].innerHTML);
         };
-        localStorage.setItem("list", liArray.join(","));
+        localStorage.setItem("list2", liArray.join(","));
     });
 };
 saveTasks();
 
 function getSavedTasks() {    
-    let savedItens = localStorage.getItem("list");
-    let savedItensArray = savedItens.split(",");
-    for (let index = 0; index < savedItensArray.length; index += 1) {
-        let newListItem = document.createElement("li");
-        taskList.appendChild(newListItem);
-        newListItem.innerHTML = savedItensArray[index];
+    let savedItens = localStorage.getItem("list2");
+    if (savedItens !== null) {
+        let savedItensArray = savedItens.split(",");
+        for (let index = 0; index < savedItensArray.length; index += 1) {
+            let newListItem = document.createElement("li");
+            taskList.appendChild(newListItem);
+            newListItem.innerHTML = savedItensArray[index];
+        };
     };
 };
 getSavedTasks();
