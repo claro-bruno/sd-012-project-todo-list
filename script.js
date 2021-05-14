@@ -25,7 +25,7 @@ function riscada(event){
 function criarLi(){
     let tarefa = document.createElement("li");
     tarefa.classList.add("item-lista");
-    tarefa.innerHTML = textoAdiciona.value;
+    tarefa.innerHTML = texto.value;
     document.getElementById("lista-tarefas").appendChild(tarefa);
     tarefa.addEventListener("click", cinza);
     tarefa.addEventListener("dblclick", riscada);
