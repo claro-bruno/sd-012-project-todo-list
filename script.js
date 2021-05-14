@@ -1,12 +1,11 @@
 const ol = document.getElementById('lista-tarefas');
 const div = document.querySelector('div');
-
 window.onload = function () {
   const addTarefa = document.getElementById('criar-tarefa');
   addTarefa.addEventListener('click', (event) => {
     const input = document.getElementById('texto-tarefa');
-    // console.log(input.value);
     const li = document.createElement('li');
+    // console.log(input.value);
     li.classList.add('itemList');
     li.className = 'tarefa';
     li.innerHTML = input.value;
@@ -36,17 +35,29 @@ riskList();
 
 //10
 // Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
+function clearList() {
+  const clearButton = document.querySelector('#apaga-tudo');
+  clearButton.addEventListener('click', (event) => {
+    while (ol.hasChildNodes()) {
+      ol.removeChild(ol.firstChild);
+    }
+  });
+}
+clearList();
 
-// Capturar o botão;
-const clearButton = document.querySelector('#apaga-tudo');
+// 11 - Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista
+// Será verificado que, ao clicar no botão, todos os elementos marcados como feitos são removidos da lista.
+//1- capturar o botão;
+const completedRemoveButton = document.querySelector('#remover-finalizados');
+//2- capturar os elementos marcados (classe completed);
 
-//Criar um escutador de eventos para o botão;
-clearButton.addEventListener('click', (event) => {
-
-  //Quando clicado, remover elementos filhos da ol;
-  //Capturar os elementos filhos da ol;
-  const olChildrens = document.querySelector('#lista-tarefas');
-  while (olChildrens.hasChildNodes()) {
-    olChildrens.removeChild(olChildrens.firstChild);
-  }
-});
+//3- criar um evento de click para o botão;
+completedRemoveButton.addEventListener('click', (event) => {
+  const completedElements = document.querySelectorAll('.completed');
+  // console.log('Olá') - TESTADO -- O BOTÃO ESTÁ FUNCIONANDO!
+  //4- remover os itens com classe completed.
+  for (let index = 0; index < completedElements.length; index += 1) {
+    ol.removeChild(completedElements[index]);
+    }
+  });
+  
