@@ -127,3 +127,21 @@ function finalizar(){
 })
  }
  moveCima()
+function insertAfter(newNode,existingNode  ){
+  return existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+}
+  function moveBaixo() {
+   let btn = document.querySelector("#mover-baixo")
+   btn.addEventListener('click',() => {
+     let item = document.querySelector('.selected')
+     let proximoItem = item.nextElementSibling
+     let pai = item.parentElement
+
+        if(proximoItem === null){
+          pai.insertBefore(item, pai.lastChild)
+        }else {
+          pai.insertBefore(item, item.nextElementSibling.nextElementSibling)
+        }        
+})
+ }
+ moveBaixo()
