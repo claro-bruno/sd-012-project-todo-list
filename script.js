@@ -117,31 +117,19 @@ function finalizar(){
    btn.addEventListener('click',() => {
         let pai = document.querySelector('#lista-tarefas')
         let item = document.querySelector('.selected')
-        let itemAnterior = item.previousElementSibling
-
-        if(itemAnterior === null){
-          pai.insertBefore(item, pai.firstChild)
-        }else {
-          pai.insertBefore(item, itemAnterior)
-        }        
+        if(item !== null && item.previousElementSibling !== null)
+          pai.insertBefore(item, item.previousElementSibling)              
 })
  }
  moveCima()
-function insertAfter(newNode,existingNode  ){
-  return existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
-}
-  function moveBaixo() {
+
+function moveBaixo() {
    let btn = document.querySelector("#mover-baixo")
    btn.addEventListener('click',() => {
      let item = document.querySelector('.selected')
-     let proximoItem = item.nextElementSibling
-     let pai = item.parentElement
-
-        if(proximoItem === null){
-          pai.insertBefore(item, pai.lastChild)
-        }else {
+     let pai = document.querySelector('#lista-tarefas')
+        if(item !== null && item.nextElementSibling !== null)
           pai.insertBefore(item, item.nextElementSibling.nextElementSibling)
-        }        
 })
  }
- moveBaixo()
+moveBaixo()
