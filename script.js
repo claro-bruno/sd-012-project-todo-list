@@ -133,3 +133,8 @@ function moveBaixo() {
 })
  }
 moveBaixo()
+
+document.querySelector('#remover-selecionado').addEventListener('click', () => {
+  let selecionado = document.querySelector('.selected')
+document.querySelector('#lista-tarefas').removeChild(selecionado);
+})
