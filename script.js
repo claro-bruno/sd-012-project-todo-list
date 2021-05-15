@@ -25,13 +25,12 @@
 
 
  function alteraCorDeFundo(event){
- let itemLista = document.querySelectorAll('.item-lista');
-     for (let i =0;i<itemLista.length ; i+= 1){
-       if(itemLista[i].id == 'selected')
-        itemLista[i].id = '';
-       else 
-        event.target.id= 'selected';
- }
+   let selected = document.querySelector('.selected');
+    if (selected !== null) { 
+      selected.classList.remove('selected');
+     event.target.classList.add('selected');
+    } else { event.target.classList.add('selected');
+        } 
  }
 
 function completado(event){
@@ -112,3 +111,19 @@ function finalizar(){
    }
    
  }
+
+ function moveCima() {
+   let btn = document.querySelector("#mover-cima")
+   btn.addEventListener('click',() => {
+        let pai = document.querySelector('#lista-tarefas')
+        let item = document.querySelector('.selected')
+        let itemAnterior = item.previousElementSibling
+
+        if(itemAnterior === null){
+          pai.insertBefore(item, pai.firstChild)
+        }else {
+          pai.insertBefore(item, itemAnterior)
+        }        
+})
+ }
+ moveCima()
