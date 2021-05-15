@@ -87,47 +87,39 @@ function saveList() {
 }
 saveList();
 
-// Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
-//  Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo - ok
-// Capturar o ítem selecionado na lista (clase? event target?)
-// Como mover um ítem de lugar em uma lista? (nextSibling? )
-
-// Capturar botão de mover pra cima - ok
-// Adicionar um escutador de eventos
-btMoveUp.addEventListener('click', () => {
-  // se o elemento selecionado for igual ao firtChild da ol não ative o botão
-  const itemSelected = document.querySelector('.selected');
-  if (itemSelected !== null) {
-    if (itemSelected !== ol.firstChild) {
-      // Capturar o elemento selecionado -ok
-      // Capturar o proximo irmão anterior
-      const irmaoPrevious = document.querySelector('.selected').previousSibling;
-      // move para antes do irmão anterior
-      irmaoPrevious.insertAdjacentElement('beforebegin', itemSelected);
+function moveUp() {
+  btMoveUp.addEventListener('click', () => {
+    const itemSelected = document.querySelector('.selected');
+    if (itemSelected !== null) {
+      if (itemSelected !== ol.firstChild) {
+        const irmaoPrevious = document.querySelector('.selected').previousSibling;
+        irmaoPrevious.insertAdjacentElement('beforebegin', itemSelected);
+      } else {
+        alert(`${itemSelected.innerHTML} já está na primeira posição 😉️`);
+      }
     } else {
-      alert(`${itemSelected.innerHTML} já está na primeira posição 😉️`);
+      return alert('Ops! Você esqueceu de selecionar um ítem, selecione e tente novamente 😉️');
     }
-  } else {
-    return alert('Ops! Você esqueceu de selecionar um ítem, selecione e tente novamente 😉️');
-  }
-});
+  });
+}
+moveUp();
 
-btMoveDown.addEventListener('click', () => {
-  // Capturar o elemento selecionado -ok
-  const itemSelected = document.querySelector('.selected');
-  if (itemSelected !== null) {
-    if (itemSelected !== ol.lastChild) {
-      // Capturar o proximo irmão
-      const irmaoSelect = document.querySelector('.selected').nextSibling;
-      // move para o proximo
-      irmaoSelect.insertAdjacentElement('afterend', itemSelected);
+function moveDown() {
+  btMoveDown.addEventListener('click', () => {
+    const itemSelected = document.querySelector('.selected');
+    if (itemSelected !== null) {
+      if (itemSelected !== ol.lastChild) {
+        const irmaoSelect = document.querySelector('.selected').nextSibling;
+        irmaoSelect.insertAdjacentElement('afterend', itemSelected);
+      } else {
+        alert(`${itemSelected.innerHTML} já está na última posição 😉️`);
+      }
     } else {
-      alert(`${itemSelected.innerHTML} já está na última posição 😉️`);
+      return alert('Ops! Você esqueceu de selecionar um ítem, selecione e tente novamente 😉️');
     }
-  } else {
-    return alert('Ops! Você esqueceu de selecionar um ítem, selecione e tente novamente 😉️');
-  }
-});
+  });
+}
+moveDown();
 
 window.onload = () => {
   const teste = localStorage.getItem('tarefas-salvas');
