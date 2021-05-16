@@ -70,3 +70,28 @@ function removeCompletedTasks() {
 
 const removeCompletedButton = document.getElementById('remover-finalizados');
 removeCompletedButton.addEventListener('click', removeCompletedTasks);
+
+
+// const saveButton = document.getElementById('salvar-tarefas');
+// function saveTasks() {
+//   const allTasks = document.getElementsByClassName('task');
+//   for (let index = 0; index < allTasks.length; index += 1) {
+//     const taskText = allTasks[index].innerText;
+//     const taskCompleted = allTasks[index].classList.contains('completed');
+//     localStorage.setItem(`tasks${index}`, `${taskText}, ${taskCompleted}`);
+//   };
+// };
+
+// saveButton.addEventListener('click', saveTasks);
+
+const saveButton = document.getElementById('salvar-tarefas');
+function saveTasks() {
+  localStorage.setItem('tarefas-salvas', list.innerHTML);
+  alert('A lista foi salva');
+}
+saveButton.addEventListener('click', saveTasks);
+
+window.onload = () => {
+  let savedTasks = localStorage.getItem('tarefas-salvas');
+  list.innerHTML = savedTasks;
+};

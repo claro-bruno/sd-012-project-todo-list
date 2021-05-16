@@ -76,6 +76,10 @@ button {
   background-color:rgb(238, 144, 37);
 }
 
+#salvar-tarefas {
+  background-color:rgb(94, 147, 245)
+}
+
 .selected {
   background-color: rgb(128,128,128);
 }
