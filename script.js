@@ -121,6 +121,22 @@ function moveDown() {
 }
 moveDown();
 
+// 1.: capturar botão com o id Remover selecionado.
+const btRmSelected = document.querySelector('#remover-selecionado');
+
+// 2.: colocar um escutador de eventos de click no botão.
+btRmSelected.addEventListener('click', () => {
+  // 3.: Capturar o item selecionado.
+  const itemSelected = document.querySelector('.selected');
+  // 3.1.: Criar uma condição: Se item selecionado existir remova ele, se não existir exiba uma alerta dizendo selecione um item.
+  if (itemSelected !== null) {
+    // 4.: acessar o elemento pai e remover o filho que capturamos no terceiro passo.
+    itemSelected.remove();
+  } else {
+    alert('Ops! Você esqueceu de selecionar um ítem, selecione e tente novamente 😉️');
+  }
+});
+
 window.onload = () => {
   const teste = localStorage.getItem('tarefas-salvas');
   ol.innerHTML = teste;
