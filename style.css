@@ -80,6 +80,14 @@ button {
   background-color:rgb(94, 147, 245)
 }
 
+#mover-cima {
+  background-color: rgb(94, 240, 245);
+}
+
+#mover-baixo {
+  background-color: rgb(94, 240, 245);
+}
+
 .selected {
   background-color: rgb(128,128,128);
 }

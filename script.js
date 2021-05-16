@@ -71,19 +71,6 @@ function removeCompletedTasks() {
 const removeCompletedButton = document.getElementById('remover-finalizados');
 removeCompletedButton.addEventListener('click', removeCompletedTasks);
 
-
-// const saveButton = document.getElementById('salvar-tarefas');
-// function saveTasks() {
-//   const allTasks = document.getElementsByClassName('task');
-//   for (let index = 0; index < allTasks.length; index += 1) {
-//     const taskText = allTasks[index].innerText;
-//     const taskCompleted = allTasks[index].classList.contains('completed');
-//     localStorage.setItem(`tasks${index}`, `${taskText}, ${taskCompleted}`);
-//   };
-// };
-
-// saveButton.addEventListener('click', saveTasks);
-
 const saveButton = document.getElementById('salvar-tarefas');
 function saveTasks() {
   localStorage.setItem('tarefas-salvas', list.innerHTML);
@@ -95,3 +82,29 @@ window.onload = () => {
   let savedTasks = localStorage.getItem('tarefas-salvas');
   list.innerHTML = savedTasks;
 };
+
+const moveUpButton = document.getElementById('mover-cima');
+function moveTaskUp() {
+  let li = document.getElementsByTagName('li');
+  for (index = 0; index < li.length; index += 1) {
+    if (li[index].classList.contains('selected') && li[index].previousSibling !== null) {
+      li[index].parentNode.insertBefore(li[index], li[index].previousElementSibling);
+    } else if (li[index].classList.contains('selected') && li[index].previousSibling === null) {
+      alert('Essa tarefa já está no topo da lista')
+    }
+  }
+}
+
+moveUpButton.addEventListener('click', moveTaskUp);
+
+const moveDownButton = document.getElementById('mover-baixo');
+function moveTaskDown() {
+  let parentElement = document.getElementsByTagName('ol');
+  let selected = document.querySelector('.selected');
+  if (selected && selected.nextSibling) {
+    parentElement[0].insertBefore(selected, selected.nextSibling.nextSibling);
+  } else if (selected.nextSibling === null) {
+    alert('Essa tarefa já esta no final da lista')
+  }
+}
+moveDownButton.addEventListener('click', moveTaskDown);
