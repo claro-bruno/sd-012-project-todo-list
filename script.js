@@ -103,7 +103,7 @@ function moveTaskDown() {
   let selected = document.querySelector('.selected');
   if (selected && selected.nextSibling) {
     parentElement[0].insertBefore(selected, selected.nextSibling.nextSibling);
-  } else if (selected.nextSibling === null) {
+  } else if (selected && selected.nextSibling === null) {
     alert('Essa tarefa já esta no final da lista')
   }
 }
