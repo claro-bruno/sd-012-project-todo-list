@@ -108,3 +108,11 @@ function moveTaskDown() {
   }
 }
 moveDownButton.addEventListener('click', moveTaskDown);
+
+const deleteSelectedButton = document.getElementById('remover-selecionado');
+function removeSelectedTask() {
+  let taskSelected = document.querySelector('.selected');
+  list.removeChild(taskSelected);
+};
+
+deleteSelectedButton.addEventListener('click', removeSelectedTask);

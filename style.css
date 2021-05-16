@@ -3,7 +3,7 @@ body {
 }
 
 #root {
-  width: 600px;
+  width: 800px;
   margin: 0 auto;
   padding: 16px;
   margin-top: 48px;
@@ -86,6 +86,10 @@ button {
 
 #mover-baixo {
   background-color: rgb(94, 240, 245);
+}
+
+#remover-selecionado {
+  background-color: rgb(221, 149, 16);
 }
 
 .selected {
