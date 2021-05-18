@@ -50,7 +50,6 @@ function selectItem() {
     }
     event.target.classList.add('selected');
     paintTask();
-
   });
 }
 selectItem();
