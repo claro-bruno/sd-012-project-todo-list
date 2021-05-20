@@ -10,7 +10,7 @@ function saveInput(){
     getItemList.value = '';
     createLi.addEventListener('click', function(event){
         let pegaElemento = document.querySelector('.selected');
-
+        
         if (pegaElemento === null) {
             event.target.classList.add('selected');
         } else {
@@ -18,19 +18,42 @@ function saveInput(){
             event.target.classList.add('selected');
         }
     })
-
-    // Capturar elemento com  a classe selected
-    // Check elemento existe (if)
-    // remove classe selected do item selecionado
-    // adiciona classe selected no item clicado 
-    
-    /*let getListItems = document.getElementsByClassName('list-item');
-    for (let getIndexList = 0; getIndexList < getListItems.length; getIndexList += 1) {
-        getListItems[getIndexList].addEventListener('click', function(){
-            getListItems[getIndexList].classList.add('selected');
-        })
-    }*/
-
-
+    createLi.addEventListener('dblclick', function (event){
+        
+        if (event.target.classList.contains('completed') === false){
+            event.target.classList.add('completed');
+        } else {
+            event.target.classList.remove('completed');
+        }
+    })
 
 }
+
+let botaoApagar = document.getElementById('apaga-tudo');
+
+botaoApagar.addEventListener('click', function(){
+    let pegaListItems = document.querySelectorAll('.list-item');
+    
+    for (let indexPegaList = 0; indexPegaList < pegaListItems.length; indexPegaList += 1) {
+        pegaListItems[indexPegaList].remove();
+
+    }
+
+})
+
+
+let botaoRemoverFinalizados = document.getElementById('remover-finalizados');
+
+botaoRemoverFinalizados.addEventListener('click', function(){
+    let pegaTodosLi = document.querySelectorAll('.list-item')
+    
+    for (let index = 0; index < pegaTodosLi.length; index += 1) {
+        let pegaCadaLi = pegaTodosLi[index];
+        
+        if (pegaCadaLi.classList.contains('completed')) {
+            pegaCadaLi.remove();
+        }
+    }
+})
+
+
