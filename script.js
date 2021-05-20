@@ -41,7 +41,6 @@ botaoApagar.addEventListener('click', function(){
 
 })
 
-
 let botaoRemoverFinalizados = document.getElementById('remover-finalizados');
 
 botaoRemoverFinalizados.addEventListener('click', function(){
@@ -56,4 +55,24 @@ botaoRemoverFinalizados.addEventListener('click', function(){
     }
 })
 
+function saveTarefa() {
+    let pegaTodosLi = document.querySelectorAll('.list-item');
+    for (let index = 0; index < pegaTodosLi.length; index += 1) {
+        let simplifica = pegaTodosLi[index];
+        localStorage.setItem("Tarefas" + index, simplifica);
+    }
+    
+    localStorage.setItem("Tarefas", pegaTodosLi.length)
+}
+
+
+window.onload = function () {
+    let pegaTarefas = localStorage.getItem("Tarefas");
+    for (let index = 0; index < pegaTarefas; index += 1) {
+       let tarefa = localStorage.getItem("Tarefas" + index);
+       let criateste = document.createElement('li');
+       criateste.innerHTML = tarefa;
+       getList.appendChild(criateste);
+    }
+}
 
