@@ -1,5 +1,5 @@
-const addButton = document.getElementById('criar-tarefa');
-const textoTarefa = document.getElementById('texto-tarefa');
+let addButton = document.getElementById('criar-tarefa');
+let textoTarefa = document.getElementById('texto-tarefa');
 let list = document.getElementById('lista-tarefas');
 
 

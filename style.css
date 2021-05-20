@@ -3,9 +3,26 @@ header {
     font-weight: 100px;
     color: black;
     }
+#tittle {
+  font-size: 25px;
+  border-color: black;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+   
+}
 #funcionamento {
   font-size: 15px;  
 }
 .selected {
   background-color: rgb(128,128,128);
+}
+
+#criar-tarefa {
+  border: solid 5 px black;
+  background-color: rgb(201, 182, 182);
+  margin-left: auto;
+  padding: 5px;
+}
+#texto-tarefa {
+  margin: auto;
+  border-radius: 3%
 }
