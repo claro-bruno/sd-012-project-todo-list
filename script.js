@@ -27,10 +27,10 @@ list.addEventListener('click', function(event) {           //funcao seleciona el
  });
 
 
- function tarefaCompletada () {
+ function tarefaCompletada () {            //funcao risca tarefa completada
   
-  list.addEventListener('dblclick', (eventComp) => {
-  eventComp.target.classList.toggle('completed');
+  list.addEventListener('dblclick', (eventComp) => {     // addEventListener,com duplo click
+  eventComp.target.classList.toggle('completed');      // target add classe 'completed'
  });
  }
  tarefaCompletada ();

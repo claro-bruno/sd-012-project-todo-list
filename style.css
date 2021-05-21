@@ -18,10 +18,9 @@ header {
 
 #criar-tarefa {
   border: solid 5 px black;
-  background-color: rgb(201, 182, 182);
+  font-family:monospace;
   margin-left: auto;
-  padding: 5px;
-}
+  }
 #texto-tarefa {
   margin: auto;
   border-radius: 3%
