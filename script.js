@@ -56,10 +56,10 @@ botaoRemoverFinalizados.addEventListener('click', function(){
 })
 
 function saveTarefa() {
-    let pegaTodosLi = document.querySelectorAll('.list-item');
+    let pegaTodosLi = document.getElementsByTagName('li');
     for (let index = 0; index < pegaTodosLi.length; index += 1) {
-        let simplifica = pegaTodosLi[index].innerHTML;
-        localStorage.setItem("Tarefas" + index, simplifica);
+        localStorage.setItem("Tarefa " + index, pegaTodosLi[index].innerHTML);
+        localStorage.setItem("Classes " + index, pegaTodosLi[index].className);
     }
     
     localStorage.setItem("Tarefas", pegaTodosLi.length)
@@ -69,10 +69,13 @@ function saveTarefa() {
 window.onload = function () {
     let pegaTarefas = localStorage.getItem("Tarefas");
     for (let index = 0; index < pegaTarefas; index += 1) {
-       let tarefa = localStorage.getItem("Tarefas" + index);
+       let tarefa = localStorage.getItem("Tarefa " + index);
+       let classes = localStorage.getItem("Classes " + index);
        let createList = document.createElement('li')
        createList.innerHTML = tarefa;
+       createList.className = classes;
        getList.appendChild(createList);
+       let getLiItems = document.getElementsByTagName('li')[index];
     }
 }
 
