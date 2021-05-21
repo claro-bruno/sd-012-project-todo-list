@@ -8,25 +8,29 @@ function saveInput(){
     createLi.className = 'list-item';
     getList.appendChild(createLi);
     getItemList.value = '';
-    createLi.addEventListener('click', function(event){
-        let pegaElemento = document.querySelector('.selected');
-        
-        if (pegaElemento === null) {
-            event.target.classList.add('selected');
-        } else {
-            pegaElemento.classList.remove('selected');
-            event.target.classList.add('selected');
-        }
-    })
-    createLi.addEventListener('dblclick', function (event){
-        
-        if (event.target.classList.contains('completed') === false){
-            event.target.classList.add('completed');
-        } else {
-            event.target.classList.remove('completed');
-        }
-    })
+    createLi.addEventListener('click', addSelected)
+    createLi.addEventListener('dblclick', addCompleted)
 
+}
+
+function addSelected (event){
+    let pegaElemento = document.querySelector('.selected');
+    
+    if (pegaElemento === null) {
+        event.target.classList.add('selected');
+    } else {
+        pegaElemento.classList.remove('selected');
+        event.target.classList.add('selected');
+    }
+}
+
+function addCompleted (event){
+        
+    if (event.target.classList.contains('completed') === false){
+        event.target.classList.add('completed');
+    } else {
+        event.target.classList.remove('completed');
+    }
 }
 
 let botaoApagar = document.getElementById('apaga-tudo');
@@ -74,8 +78,20 @@ window.onload = function () {
        let createList = document.createElement('li')
        createList.innerHTML = tarefa;
        createList.className = classes;
+       createList.addEventListener('click', addSelected)
+       createList.addEventListener('dblclick', addCompleted)
        getList.appendChild(createList);
        let getLiItems = document.getElementsByTagName('li')[index];
     }
 }
+
+let removeSelecionado = document.getElementById('remover-selecionado');
+
+removeSelecionado.addEventListener('click', () => {
+    let pegaElemento = document.querySelector('.selected');
+    
+    if (pegaElemento != undefined) {
+        pegaElemento.remove();
+    }
+})
 
