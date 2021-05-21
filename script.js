@@ -22,17 +22,18 @@ buttonAdd();                       // a funcao é invocada - "invocada mesmo"
 
 list.addEventListener('click', function(event) {           //funcao seleciona elemento 
   const target = event.target;                  // const target recebe event.target
-    target.classList.toggle('selected'); 
+  target.classList.toggle('selected'); 
           
  });
 
 
-//  function tarefaCompletada () {
-//   let completTarget = eventComp.target;
-//   list.addEventListener('dblclick', function(eventComp)
-//   eventComp.target.classList.toggle('completed');
-
-//  }
+ function tarefaCompletada () {
+  
+  list.addEventListener('dblclick', (eventComp) => {
+  eventComp.target.classList.toggle('completed');
+ });
+ }
+ tarefaCompletada ();
   
  
  

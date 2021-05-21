@@ -26,3 +26,7 @@ header {
   margin: auto;
   border-radius: 3%
 }
+
+.completed {
+  text-decoration: line-through;
+}
