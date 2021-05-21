@@ -18,18 +18,22 @@
         </header>
 
         <div class="input-task">
-          <input type="text" id="texto-tarefa" />
+          <input
+            type="text"
+            name="addTasks"
+            value=""
+            id="texto-tarefa"
+            placeholder="Tarefa"
+          />
           <button id="criar-tarefa">Adicionar</button>
-        </div>
-        <div>
           <ol id="lista-tarefas"></ol>
         </div>
-        <div>
+        <div class="buttonsBar">
           <button id="remover-selecionado">X</button>
           <button id="mover-cima">Mover para Cima</button>
           <button id="mover-baixo">Mover para Baixo</button>
-          <button id="remover-finalizados">Limpar Completos</button>
-          <button type="reset" id="apaga-tudo">Limpar Lista</button>
+          <button id="remover-finalizados">Limpar Tarefas Completas</button>
+          <button id="apaga-tudo">Limpar Lista</button>
           <button id="salvar-tarefas">Salvar Lista</button>
         </div>
       </section>

@@ -12,7 +12,7 @@ body {
   line-height: 1.3;
 }
 .section-row {
-  display: flexbox;
+  /* display: flexbox; */
   background-color: seashell;
   border: 1px solid rgb(214, 217, 220);
   border-radius: 3px;
@@ -22,4 +22,9 @@ body {
 }
 .input-task {
   display: flex;
+}
+
+.buttonsBar {
+  display: flex;
+  margin-top: 50px;
 }
