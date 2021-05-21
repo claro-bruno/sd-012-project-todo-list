@@ -1,12 +1,12 @@
 header {
-    font-size: 15px;
-    font-weight: 100px;
-    color: black;
-    }
+  font-size: 15px;
+  font-weight: 100px;
+  color: black;
+}
 #tittle {
   font-size: 25px;
   border-color: black;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family:Georgia, Times New Roman, Times, serif;
    
 }
 #funcionamento {
