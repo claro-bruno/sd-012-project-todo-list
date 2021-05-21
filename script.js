@@ -9,8 +9,9 @@ button.addEventListener('click', () => {         //inicia addEventlistener + cli
 const newTask = document.createElement('li');  // declara novaTarefa filho de li
   
 newTask.innerHTML = textoTarefa.value;  // insere o valor de textoTarefa em newTask
+newTask.classList.add('tarefa'); // acrescenta a classe 'tarefa' ao item da lista
 list.appendChild(newTask);     // cria lista como filho 
-textoTarefa.value  = " ";     // o input do textoTarefa é "zerado"
+textoTarefa.value  = '';     // o input do textoTarefa é "zerado"
      
 });
 }
