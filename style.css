@@ -18,14 +18,20 @@ header {
 
 #criar-tarefa {
   border: solid 5 px black;
-  font-family:monospace;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   margin-left: auto;
+  background-color: rgb(174, 211, 137);
   }
 #texto-tarefa {
   margin: auto;
   border-radius: 3%
 }
-
+#apaga-tudo {
+  border: solid 5 px black;
+  font-family:monospace;
+  margin-left: auto;
+  background-color: rgb(255, 220, 105);
+}
 .completed {
   text-decoration: line-through;
 }

@@ -34,6 +34,20 @@ list.addEventListener('click', function(event) {           //funcao seleciona el
  });
  }
  tarefaCompletada ();
-  
+
+ 
+ 
+const btnLimpa = document.getElementById('apaga-tudo')   // crio botao limpaTudo
+function limpaLista () {
+btnLimpa.addEventListener('click', () => {
+const listaCompleta = document.getElementById('lista-tarefas'); // atribuo a listaCompleta
+while ( listaCompleta.hasChildNodes()) {       // filhos de listaCompleta
+  listaCompleta.removeChild(listaCompleta.firstChild);    // remove filhos de listaCompleta
+    }
+  });
+}
+limpaLista();
+
+
  
  
