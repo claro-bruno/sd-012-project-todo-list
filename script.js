@@ -32,14 +32,14 @@ eventComp.target.classList.toggle('completed');      // target add classe 'compl
 });
 }
 tarefaCompletada ();
+ 
 
- 
- 
+
+
 const btnLimpa = document.getElementById('apaga-tudo')   // crio botao limpaTudo
 
-
 function limpaLista () {                   //crio funcao limpaLista
-btnLimpa.addEventListener('click', () => {
+btnLimpa.addEventListener('click', () => {      // add ao botao o eventlistener
 const listaCompleta = document.getElementById('lista-tarefas'); // atribuo a listaCompleta
 while ( listaCompleta.hasChildNodes()) {       // filhos de listaCompleta
   listaCompleta.removeChild(listaCompleta.firstChild);    // remove filhos de listaCompleta
@@ -48,9 +48,39 @@ while ( listaCompleta.hasChildNodes()) {       // filhos de listaCompleta
 }
 limpaLista();
 
+const btnrmvfinished = document.getElementById('remover-finalizados');
+  //botao recebe eventListener
+function removeSelecionados () {  
+btnrmvfinished.addEventListener('click',() => {                        //funcao remove selecionados
+const finished = document.querySelectorAll('.completed');  // crio variavel com itens que recebem 'completed'
+  for (let index = 0; index < finished.length; index += 1) {    // uso For p/ percorrer 'lista de li'
+    list.removeChild(finished[index]);                          //removo todos finished- filhos de list
+}
+}); 
+}
+removeSelecionados();
 
 
 
 
- 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
