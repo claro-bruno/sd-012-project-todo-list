@@ -8,7 +8,24 @@ function addItenList() {
   item.innerHTML = desc;
   item.className = 'itemSelecionado'
   lista.appendChild(item);
+  
   document.getElementById('texto-tarefa').value = '';
+}
+
+function updateVisit() {
+  if (typeof (Storage) != "undefined") {
+    if(localStorage.count !== undefined) {
+      let count = parseInt(localStorage.count);
+      count+=1;
+      localStorage.count = count;
+      document.getElementById("count").innerHTML = count;
+    } else {
+      localStorage.count = 1;
+      document.getElementById("count").innerHTML = 1;
+    }
+  } else {
+    document.write("Sem suporte para Web Storage");
+  }  
 }
 
 function testeAndPaintBg(ent) {
@@ -42,23 +59,50 @@ function clearEnded() {
   }
 }
 
+function salvarLista() {
+  const listaSalva = document.querySelector('ol').innerHTML
+  const storage = window.localStorage;
+  storage.setItem('listaSalva', listaSalva);
+}
+
+function buttonSaveMoveRemove() {
+  if (typeof (Storage) != "undefined") {
+    const bt1 = document.getElementById('salvar-tarefas');
+    bt1.addEventListener('click', salvarLista);
+    if (localStorage.getItem('listaSalva') !== 'undefined') {
+      const listaSalva = document.querySelector('ol')
+      const storage = window.localStorage;
+      listaSalva.innerHTML = storage.getItem('listaSalva');
+    }
+  } else {
+    document.write('Sem suporte para Web Storage');
+  }
+  const bt2 = document.getElementById('mover-cima');
+  bt2.addEventListener('click', moveUp);
+  const bt3 = document.getElementById('mover-baixo');
+  bt3.addEventListener('click', moveDown);
+}
+
 window.onload = function main() {
   let bt1 = document.querySelector('#criar-tarefa');
   bt1.addEventListener('click', addItenList);
-  document.addEventListener('click', function (event) {
-    let exporto = event.target;
-    if (exporto.className === 'itemSelecionado') {
-      testeAndPaintBg(exporto);
-    }
-  });
-  document.addEventListener('dblclick', function (event){
-    let work = event.target;
-    if (work.classList[0] === 'itemSelecionado') {
-      checkUnCheck(work);
-    } 
-  });
-  let bt2 = document.querySelector('#apaga-tudo')
-  bt2.addEventListener('click', clearList)
-  let bt3 = document.querySelector('#remover-finalizados')
-  bt3.addEventListener('click', clearEnded)
+  const bt2 = document.querySelector('#apaga-tudo');
+  bt2.addEventListener('click', clearList);
+  const bt3 = document.querySelector('#remover-finalizados');
+  bt3.addEventListener('click', clearEnded);
+  buttonSaveMoveRemove();
 }
+
+document.addEventListener('click', function (event) {
+  let exporto = event.target;
+  if (exporto.className === 'itemSelecionado') {
+    testeAndPaintBg(exporto);
+  }
+});
+
+document.addEventListener('dblclick', function (event){
+  let work = event.target;
+  if (work.classList[0] === 'itemSelecionado') {
+    checkUnCheck(work);
+  } 
+});
