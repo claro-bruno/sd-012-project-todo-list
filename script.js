@@ -12,22 +12,6 @@ function addItenList() {
   document.getElementById('texto-tarefa').value = '';
 }
 
-function updateVisit() {
-  if (typeof (Storage) != "undefined") {
-    if(localStorage.count !== undefined) {
-      let count = parseInt(localStorage.count);
-      count+=1;
-      localStorage.count = count;
-      document.getElementById("count").innerHTML = count;
-    } else {
-      localStorage.count = 1;
-      document.getElementById("count").innerHTML = 1;
-    }
-  } else {
-    document.write("Sem suporte para Web Storage");
-  }  
-}
-
 function testeAndPaintBg(ent) {
   let remov = document.getElementsByClassName('selected');
   if (remov.length !== 0) {
@@ -65,6 +49,14 @@ function salvarLista() {
   storage.setItem('listaSalva', listaSalva);
 }
 
+function moveUp() {
+  
+}
+
+function moveDown() {
+  
+}
+
 function buttonSaveMoveRemove() {
   if (typeof (Storage) != "undefined") {
     const bt1 = document.getElementById('salvar-tarefas');
@@ -81,6 +73,8 @@ function buttonSaveMoveRemove() {
   bt2.addEventListener('click', moveUp);
   const bt3 = document.getElementById('mover-baixo');
   bt3.addEventListener('click', moveDown);
+  //const bt4 = document.getElementById('remover-selecionado');
+  //bt4.addEventListener('click', removeSeleceted);
 }
 
 window.onload = function main() {
