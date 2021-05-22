@@ -1,16 +1,14 @@
 /* Function Title creates <h1> Title based on the string
 used as parameter */
 function title(string) {
-    let title = document.querySelector('h1');
-    title.innerHTML = string;
+    document.querySelector('h1').innerHTML = string;
 }
 title('Minha Lista de Tarefas');
 
 /* Function instructionText creates <p> text based on the string
 used as parameter */
 function instructionText(string) {
-    let instructions = document.getElementById('funcionamento');
-    instructions.innerHTML = string;
+    document.getElementById('funcionamento').innerHTML = string;
 }
 instructionText('Clique duas vezes em um item para marcá-lo como completo');
 
@@ -21,11 +19,11 @@ function newTasks() {
     let input = document.querySelector('#texto-tarefa');
     let list = document.querySelector('#lista-tarefas');
 
-    button.addEventListener('click', function(){
-        if (input.value === ""){
+    button.addEventListener('click', function() {
+        if (input.value === "") {
             alert('Preencha qual atividade deseja adicionar.');
         } else {
-            let listItem = document.createElement('li')
+            let listItem = document.createElement('li');
             listItem.innerHTML = input.value;
             listItem.className = 'list-Item';
             listItem.addEventListener('dblclick', completeTask);
@@ -58,7 +56,7 @@ function completeTask(event) {
     }
 }
 
-/* Function clearList deletes all <ul> child nodes cleaning the task list */
+/* Function clearList deletes all <ol> child nodes cleaning the task list */
 function clearList() {
     const buttonClear = document.querySelector('#apaga-tudo');
     const list = document.querySelector('#lista-tarefas');
@@ -79,9 +77,9 @@ clearList();
 /* Function clearCompleted deles all <li> item marked as completed through the class 'completed */
 function clearCompleted() {
     const completed = document.getElementsByClassName('completed');
-    const buttonClearComleted = document.querySelector('#remover-finalizados');
+    const buttonClearCompleted = document.querySelector('#remover-finalizados');
 
-    buttonClearComleted.addEventListener('click', function() {
+    buttonClearCompleted.addEventListener('click', function() {
         while (completed.length > 0) {
             completed[0].parentNode.removeChild(completed[0]);
         }
@@ -95,11 +93,8 @@ function saveTask() {
     const list = document.getElementById('lista-tarefas');
     
     buttonSaveTask.addEventListener('click', function() {
-        console.log(list.innerHTML);
         localStorage.setItem('task', list.innerHTML);
-        
-
-            alert('Tarefas salvas');      
+        alert('Tarefas salvas');
     })
 }
 saveTask();
@@ -133,10 +128,6 @@ function moveUp() {
             return
         }
         const prevSibling = selected.previousElementSibling;
-
-        if (selected === null) {
-            return
-        }
 
         if (prevSibling === null) {
             alert('Voce chegou ao topo da lista')
