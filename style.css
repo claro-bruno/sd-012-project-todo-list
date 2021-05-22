@@ -39,4 +39,11 @@ header {
   border: solid 5 px black;
   font-family:monospace;
   margin-left: auto;
+  background-color: rgb(247, 187, 242);
+}
+#remove-selected {
+  border: solid 5 px black;
+  font-family:monospace;
+  margin-left: auto;
+  background-color: cyan;
 }

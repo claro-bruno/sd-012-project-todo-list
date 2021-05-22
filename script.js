@@ -49,17 +49,35 @@ while ( listaCompleta.hasChildNodes()) {       // filhos de listaCompleta
 limpaLista();
 
 const btnrmvfinished = document.getElementById('remover-finalizados');
-  //botao recebe eventListener
-function removeSelecionados () {  
-btnrmvfinished.addEventListener('click',() => {                        //funcao remove selecionados
+  
+function removeFinalizados () {                           //funcao remove selecionados
+btnrmvfinished.addEventListener('click',() => {         //botao recebe eventListener               
 const finished = document.querySelectorAll('.completed');  // crio variavel com itens que recebem 'completed'
   for (let index = 0; index < finished.length; index += 1) {    // uso For p/ percorrer 'lista de li'
     list.removeChild(finished[index]);                          //removo todos finished- filhos de list
 }
 }); 
 }
-removeSelecionados();
+removeFinalizados();     
 
+
+
+
+
+
+
+
+
+const bntrmselected = document.getElementById('remove-selected');
+function removeSelecionados () {
+bntrmselected.addEventListener('click',() => {
+const selectos = document.querySelectorAll('.selected');
+for (let index = 0; index < selectos.length; index += 1) {    // uso For p/ percorrer 'lista de li'
+  list.removeChild(selectos[index]);                          //removo todos selected- filhos de list
+}
+}); 
+}
+removeSelecionados(); 
 
 
 
