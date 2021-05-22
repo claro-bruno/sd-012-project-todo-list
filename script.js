@@ -68,7 +68,7 @@ removeFinalizados();
 
 
 
-const bntrmselected = document.getElementById('remove-selected');
+const bntrmselected = document.getElementById('remove-selecionado');
 function removeSelecionados () {
 bntrmselected.addEventListener('click',() => {
 const selectos = document.querySelectorAll('.selected');
