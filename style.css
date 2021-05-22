@@ -35,3 +35,8 @@ header {
 .completed {
   text-decoration: line-through;
 }
+#remover-finalizados {
+  border: solid 5 px black;
+  font-family:monospace;
+  margin-left: auto;
+}

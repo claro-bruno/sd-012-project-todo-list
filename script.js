@@ -16,29 +16,29 @@ textoTarefa.value  = '';     // o input do textoTarefa é "zerado"
 });
 }
 buttonAdd();                       // a funcao é invocada - "invocada mesmo"
-                                  // destaco o apoio e contribuições da colega Alice Goncalves.
+ // destaco o apoio e contribuições da colega Alice Goncalves nas duvidas sobre functions e addEventListener
 
 
 
 list.addEventListener('click', function(event) {           //funcao seleciona elemento 
-  const target = event.target;                  // const target recebe event.target
-  target.classList.toggle('selected'); 
-          
- });
+const target = event.target;                               // const target recebe event.target
+target.classList.toggle('selected'); 
+});
 
 
- function tarefaCompletada () {            //funcao risca tarefa completada
-  
-  list.addEventListener('dblclick', (eventComp) => {     // addEventListener,com duplo click
-  eventComp.target.classList.toggle('completed');      // target add classe 'completed'
- });
- }
- tarefaCompletada ();
+function tarefaCompletada () {            //funcao risca tarefa completada
+list.addEventListener('dblclick', (eventComp) => {     // addEventListener,com duplo click
+eventComp.target.classList.toggle('completed');      // target add classe 'completed'
+});
+}
+tarefaCompletada ();
 
  
  
 const btnLimpa = document.getElementById('apaga-tudo')   // crio botao limpaTudo
-function limpaLista () {
+
+
+function limpaLista () {                   //crio funcao limpaLista
 btnLimpa.addEventListener('click', () => {
 const listaCompleta = document.getElementById('lista-tarefas'); // atribuo a listaCompleta
 while ( listaCompleta.hasChildNodes()) {       // filhos de listaCompleta
@@ -47,6 +47,9 @@ while ( listaCompleta.hasChildNodes()) {       // filhos de listaCompleta
   });
 }
 limpaLista();
+
+
+
 
 
  
