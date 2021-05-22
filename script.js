@@ -72,26 +72,3 @@ for (let index = 0; index < selectos.length; index += 1) {    // uso For p/ perc
 }
 removeSelecionados(); 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
