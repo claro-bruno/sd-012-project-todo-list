@@ -61,14 +61,7 @@ const finished = document.querySelectorAll('.completed');  // crio variavel com 
 removeFinalizados();     
 
 
-
-
-
-
-
-
-
-const bntrmselected = document.getElementById('remove-selecionado');
+const bntrmselected = document.getElementById('remover-selecionado');
 function removeSelecionados () {
 bntrmselected.addEventListener('click',() => {
 const selectos = document.querySelectorAll('.selected');
