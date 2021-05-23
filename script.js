@@ -21,10 +21,13 @@ buttonAdd();                       // a funcao é invocada - "é invocada mesmo"
 
 
 
-list.addEventListener('click', function(event) {           //funcao seleciona elemento 
-const target = event.target;                               // const target recebe event.target
-target.classList.toggle('selected'); 
-});
+ list.addEventListener('click', function(event) {           //funcao seleciona elemento 
+  const target = event.target;                               // const target recebe event.target
+  target.classList.toggle('selected'); 
+  });
+
+
+
 
 
 function tarefaCompletada () {            //funcao risca tarefa completada
@@ -79,17 +82,17 @@ localStorage.setItem("childs", list.innerHTML);
 }) 
 
 
-olTasks = list 
+
 
 
 const btnMoveUp = document.getElementById('mover-cima');
 btnMoveUp.addEventListener('click', moveUp);
 
 function moveUp() {
-  const selection = list.querySelector('.selected');
-  if (selection && selection.previousElementSibling) {
+  const selection = list.querySelector('.selected');    // crio variavel selection= captura itens com a classe 'selected'
+  if (selection && selection.previousElementSibling) {    // 
     const another = selection.previousElementSibling;
-    const parent = selection.parentNode;
+    const parent = selection.parentNode;           // atraves de parentNode, especifico o irmão anterior da lista 'li'
     parent.insertBefore(selection, another);
   }
 }
