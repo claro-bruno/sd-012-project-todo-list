@@ -18,27 +18,33 @@ textoTarefa.value  = '';     // o input do textoTarefa é "zerado"
 }
 buttonAdd();                       // a funcao é invocada - "é invocada mesmo"
  // destaco o apoio e contribuições da colega Alice Goncalves nas duvidas sobre functions e button.addEventListener
+ 
+
+
+ 
+ function selectedOne  (event) {
+  const onlySelected = event.target;
+  const childs = document.getElementsByClassName('tarefa');
+  for ( let index=0; index < childs.length; index += 1) {
+  childs[index].classList.remove('selected');
+  }
+  onlySelected.classList.add('selected');    
+  }
+  document.addEventListener('click', selectedOne)
 
 
 
- list.addEventListener('click', function(event) {           //funcao seleciona elemento 
-  const target = event.target;                               // const target recebe event.target
-  target.classList.toggle('selected'); 
-  });
 
 
 
 
-
-function tarefaCompletada () {            //funcao risca tarefa completada
+ function tarefaCompletada () {            //funcao risca tarefa completada
 list.addEventListener('dblclick', (eventComp) => {     // addEventListener,com duplo click
 eventComp.target.classList.toggle('completed');      // target add classe 'completed'
 });
 }
 tarefaCompletada ();
  
-
-
 
 const btnLimpa = document.getElementById('apaga-tudo')   // crio botao limpaTudo
 
@@ -54,7 +60,7 @@ limpaLista();
 
 const btnrmvfinished = document.getElementById('remover-finalizados');
   
-function removeFinalizados () {                           //funcao remove selecionados
+function removeFinalizados () {                           //funcao remove finalizados
 btnrmvfinished.addEventListener('click',() => {         //botao recebe eventListener               
 const finished = document.querySelectorAll('.completed');  // crio variavel com itens que recebem 'completed'
   for (let index = 0; index < finished.length; index += 1) {    // uso For p/ percorrer 'lista de li'
@@ -80,9 +86,6 @@ list.innerHTML = localStorage.getItem("childs")              //guardo list no LS
 tasksSaved.addEventListener('click', function () {            //
 localStorage.setItem("childs", list.innerHTML);
 }) 
-
-
-
 
 
 const btnMoveUp = document.getElementById('mover-cima');
