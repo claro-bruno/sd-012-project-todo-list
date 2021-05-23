@@ -47,3 +47,6 @@ header {
   margin-left: auto;
   background-color: cyan;
 }
+#salvar-tarefas {
+  background-color: rgb(241, 168, 168);
+}

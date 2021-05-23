@@ -4,6 +4,7 @@ const list = document.getElementById('lista-tarefas');
 
 
 
+
 function buttonAdd () {
 button.addEventListener('click', () => {         //inicia addEventlistener + click    
 const newTask = document.createElement('li');  // declara novaTarefa filho de li
@@ -15,8 +16,8 @@ textoTarefa.value  = '';     // o input do textoTarefa é "zerado"
      
 });
 }
-buttonAdd();                       // a funcao é invocada - "invocada mesmo"
- // destaco o apoio e contribuições da colega Alice Goncalves nas duvidas sobre functions e addEventListener
+buttonAdd();                       // a funcao é invocada - "é invocada mesmo"
+ // destaco o apoio e contribuições da colega Alice Goncalves nas duvidas sobre functions e button.addEventListener
 
 
 
@@ -40,9 +41,9 @@ const btnLimpa = document.getElementById('apaga-tudo')   // crio botao limpaTudo
 
 function limpaLista () {                   //crio funcao limpaLista
 btnLimpa.addEventListener('click', () => {      // add ao botao o eventlistener
-const listaCompleta = document.getElementById('lista-tarefas'); // atribuo a listaCompleta
-while ( listaCompleta.hasChildNodes()) {       // filhos de listaCompleta
-  listaCompleta.removeChild(listaCompleta.firstChild);    // remove filhos de listaCompleta
+const list = document.getElementById('lista-tarefas'); // atribuo a listaCompleta
+while ( list.hasChildNodes()) {       // filhos de listaCompleta
+  list.removeChild(list.firstChild);    // remove filhos de listaCompleta
     }
   });
 }
@@ -72,3 +73,11 @@ for (let index = 0; index < selectos.length; index += 1) {    // uso For p/ perc
 }
 removeSelecionados(); 
 
+
+
+
+let tasksSaved = document.getElementById('salvar-tarefas');  //crio botao salvar tareda-id salvar tarefa
+list.innerHTML = localStorage.getItem("childs")              //guardo list no LS / atribuo chave,childs
+tasksSaved.addEventListener('click', function () {            //
+localStorage.setItem("childs", list.innerHTML);
+}) 
