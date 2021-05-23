@@ -41,7 +41,7 @@ header {
   margin-left: auto;
   background-color: rgb(247, 187, 242);
 }
-#remove-selected {
+#remover-selecionado {
   border: solid 5 px black;
   font-family:monospace;
   margin-left: auto;
@@ -49,4 +49,11 @@ header {
 }
 #salvar-tarefas {
   background-color: rgb(241, 168, 168);
+}
+
+#mover-cima {
+  margin-left: 350px;
+}
+#mover-baixo {
+ margin-left: 50px;
 }

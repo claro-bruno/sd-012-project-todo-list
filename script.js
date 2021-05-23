@@ -61,7 +61,6 @@ const finished = document.querySelectorAll('.completed');  // crio variavel com 
 }
 removeFinalizados();     
 
-
 const bntrmselected = document.getElementById('remover-selecionado');
 function removeSelecionados () {
 bntrmselected.addEventListener('click',() => {
@@ -73,11 +72,39 @@ for (let index = 0; index < selectos.length; index += 1) {    // uso For p/ perc
 }
 removeSelecionados(); 
 
-
-
-
 let tasksSaved = document.getElementById('salvar-tarefas');  //crio botao salvar tareda-id salvar tarefa
 list.innerHTML = localStorage.getItem("childs")              //guardo list no LS / atribuo chave,childs
 tasksSaved.addEventListener('click', function () {            //
 localStorage.setItem("childs", list.innerHTML);
 }) 
+
+
+olTasks = list 
+
+
+const btnMoveUp = document.getElementById('mover-cima');
+btnMoveUp.addEventListener('click', moveUp);
+
+function moveUp() {
+  const selection = list.querySelector('.selected');
+  if (selection && selection.previousElementSibling) {
+    const another = selection.previousElementSibling;
+    const parent = selection.parentNode;
+    parent.insertBefore(selection, another);
+  }
+}
+
+const btnMoveDown = document.getElementById('mover-baixo');
+btnMoveDown.addEventListener('click', moveDown);
+
+function moveDown() {
+  const selection = list.querySelector('.selected');
+  if (selection && selection.nextElementSibling) {
+    const next = selection.nextElementSibling;
+    const parent = selection.parentNode;
+    parent.insertBefore(next, selection);
+  }
+}
+
+
+
