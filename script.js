@@ -14,9 +14,7 @@ function addTarefa(){
         tagLi.classList.add('tarefa'); 
         listaTarefas.appendChild(tagLi);
         text.value = '';
-    }   
-
-  
+    }     
 };
 
 // Baseado no link https://developer.mozilla.org/pt-BR/docs/Web/API/EventTarget/addEventListener
@@ -53,4 +51,14 @@ function apagaTudo(){
             tarefas.removeChild(tarefas.firstChild);
         };
     
+};
+
+function removerFinalizados(){
+    const tarefas = document.querySelectorAll('.tarefa');
+
+   for (let index = 0; index < tarefas.length; index += 1) {
+        if (tarefas[index].classList.contains('completed')) {
+            tarefas[index].remove();
+        }
+   }
 }
