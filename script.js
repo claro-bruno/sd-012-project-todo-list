@@ -62,3 +62,13 @@ function removerFinalizados(){
         }
    }
 }
+
+function removerSelecionado(){
+    const tarefas = document.querySelectorAll('.tarefa');
+
+   for (let index = 0; index < tarefas.length; index += 1) {
+        if (tarefas[index].classList.contains('bgGray')) {
+            tarefas[index].remove();
+        }
+   }
+}
