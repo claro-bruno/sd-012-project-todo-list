@@ -12,7 +12,29 @@ function addTarefa(){
     }    
 
    tagLi.innerHTML = text.value
-
+   tagLi.classList.add('tarefa'); 
    listaTarefas.appendChild(tagLi);
    text.value = '';
+}
+
+
+// Baseado no link https://developer.mozilla.org/pt-BR/docs/Web/API/EventTarget/addEventListener
+
+document.addEventListener('click', function (event) {
+    if (event.target.classList.contains('tarefa')) {
+        bgCinza(event);
+    };
+  });
+
+function bgCinza(event){  
+
+    const tarefa = document.querySelector('.bgGray');
+
+    if (tarefa === undefined) {
+        event.target.classList.add('bgGray');
+      } else {  
+        event.target.classList.add('bgGray');  
+        tarefa.classList.remove('bgGray');
+    }
+
 }
