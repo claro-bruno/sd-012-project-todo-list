@@ -37,10 +37,7 @@ function bgCinza(event){
         tarefas[index].classList.remove('bgGray');    
     }
 
-    if (tarefa.classList.contains('bgGray')) {
-        event.target.classList.add('bgGray');
-      } else {  
-        event.target.classList.add('bgGray');          
-    }
+    event.target.classList.add('bgGray');          
+
 
 }
