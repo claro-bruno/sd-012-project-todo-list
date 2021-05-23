@@ -17,8 +17,7 @@ function addTarefa(){
     }   
 
   
-}
-
+};
 
 // Baseado no link https://developer.mozilla.org/pt-BR/docs/Web/API/EventTarget/addEventListener
 document.addEventListener('click', function (event) {
@@ -42,13 +41,16 @@ function bgCinza(event){
 
 document.addEventListener('dblclick', function (event) {
     if (event.target.classList.contains('tarefa')) {
-        tarefaCompleta(event);
+        event.target.classList.toggle('completed');
     }
 });
-  
 
-function tarefaCompleta(event){
+function apagaTudo(){
     
-        event.target.classList.toggle('completed');
- 
+        const tarefas = document.getElementById('lista-tarefas');
+
+        while (tarefas.hasChildNodes()){
+            tarefas.removeChild(tarefas.firstChild);
+        };
+    
 }
