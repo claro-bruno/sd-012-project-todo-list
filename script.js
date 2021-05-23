@@ -8,9 +8,10 @@ const list = document.getElementById('lista-tarefas');
 function buttonAdd () {
 button.addEventListener('click', () => {         //inicia addEventlistener + click    
 const newTask = document.createElement('li');  // declara novaTarefa filho de li
-  
+newTask.addEventListener('click', selectedOne); 
 newTask.innerHTML = textoTarefa.value;  // insere o valor de textoTarefa em newTask
 newTask.classList.add('tarefa'); // acrescenta a classe 'tarefa' ao item da lista
+
 list.appendChild(newTask);     // cria lista como filho 
 textoTarefa.value  = '';     // o input do textoTarefa é "zerado"
      
@@ -20,25 +21,17 @@ buttonAdd();                       // a funcao é invocada - "é invocada mesmo"
  // destaco o apoio e contribuições da colega Alice Goncalves nas duvidas sobre functions e button.addEventListener
  
 
-
- 
- function selectedOne  (event) {
-  const onlySelected = event.target;
-  const childs = document.getElementsByClassName('tarefa');
+function selectedOne  (event) {
+const onlySelected = event.target;                                               // ressalto as contribuições do colega Gabriel Bueno.
   for ( let index=0; index < childs.length; index += 1) {
-  childs[index].classList.remove('selected');
+    childs[index].classList.remove('selected');
   }
   onlySelected.classList.add('selected');    
-  }
-  document.addEventListener('click', selectedOne)
+}
+ const childs = document.getElementsByClassName('tarefa');
+    
 
-
-
-
-
-
-
- function tarefaCompletada () {            //funcao risca tarefa completada
+function tarefaCompletada () {            //funcao risca tarefa completada
 list.addEventListener('dblclick', (eventComp) => {     // addEventListener,com duplo click
 eventComp.target.classList.toggle('completed');      // target add classe 'completed'
 });
