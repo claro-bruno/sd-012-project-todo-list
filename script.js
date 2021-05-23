@@ -9,12 +9,14 @@ function addTarefa(){
     if (text.value === '') {
         alert('Por favor, preencha o campo nome');
         text.focus();
-    }    
+    }else{
+        tagLi.innerHTML = text.value
+        tagLi.classList.add('tarefa'); 
+        listaTarefas.appendChild(tagLi);
+        text.value = '';
+    }   
 
-   tagLi.innerHTML = text.value
-   tagLi.classList.add('tarefa'); 
-   listaTarefas.appendChild(tagLi);
-   text.value = '';
+  
 }
 
 
@@ -28,13 +30,17 @@ document.addEventListener('click', function (event) {
 
 function bgCinza(event){  
 
-    const tarefa = document.querySelector('.bgGray');
+    const tarefas = document.querySelectorAll('.tarefa');
+    const tarefa = event.target;
 
-    if (tarefa === undefined) {
+    for (let index = 0; index < tarefas.length; index += 1) {
+        tarefas[index].classList.remove('bgGray');    
+    }
+
+    if (tarefa.classList.contains('bgGray')) {
         event.target.classList.add('bgGray');
       } else {  
-        event.target.classList.add('bgGray');  
-        tarefa.classList.remove('bgGray');
+        event.target.classList.add('bgGray');          
     }
 
 }
