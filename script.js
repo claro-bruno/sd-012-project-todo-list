@@ -1,3 +1,9 @@
+// Pagina de referencia https://developer.mozilla.org/pt-BR/docs/Web/API/GlobalEventHandlers/onload
+window.onload = function() {
+    if (localStorage.getItem('tarefas') != undefined) {
+        document.querySelector('#lista-tarefas').innerHTML = localStorage.getItem('tarefas');
+    }
+};
 
 function addTarefa(){
 
@@ -71,4 +77,10 @@ function removerSelecionado(){
             tarefas[index].remove();
         }
    }
+}
+
+function salvarTarefas(){
+
+// Pagina de referencia https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage    
+    localStorage.setItem('tarefas', document.querySelector('#lista-tarefas').innerHTML);          
 }
