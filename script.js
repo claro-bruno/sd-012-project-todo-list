@@ -7,7 +7,7 @@ function addTarefa(){
 
 // Item inspirado na página https://www.fabiobmed.com.br/site/verificar-se-um-campo-do-formulario-esta-vazio-via-javascript/
     if (text.value === '') {
-        alert('Por favor, preencha o campo nome');
+        alert('Por favor, preencha o campo de tarefa');
         text.focus();
     }else{
         tagLi.innerHTML = text.value
@@ -21,7 +21,6 @@ function addTarefa(){
 
 
 // Baseado no link https://developer.mozilla.org/pt-BR/docs/Web/API/EventTarget/addEventListener
-
 document.addEventListener('click', function (event) {
     if (event.target.classList.contains('tarefa')) {
         bgCinza(event);
@@ -37,7 +36,19 @@ function bgCinza(event){
         tarefas[index].classList.remove('bgGray');    
     }
 
-    event.target.classList.add('bgGray');          
+    event.target.classList.add('bgGray');   
 
+};
 
+document.addEventListener('dblclick', function (event) {
+    if (event.target.classList.contains('tarefa')) {
+        tarefaCompleta(event);
+    }
+});
+  
+
+function tarefaCompleta(event){
+    
+        event.target.classList.toggle('completed');
+ 
 }
