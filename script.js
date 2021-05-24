@@ -30,3 +30,15 @@ function taxar(event) {
   }
 }
 pintarTarefa.addEventListener('dblclick', taxar);
+
+function apagarTudo() {
+  let deletar = document.querySelectorAll('li');
+  if (deletar.length > 0){
+    for(indice = 0; indice < deletar.length; indice += 1){
+      deletar[indice].remove();
+    }
+  }
+}
+
+  const tarefasGeradas = document.querySelector('#apaga-tudo');
+  tarefasGeradas.addEventListener('click', apagarTudo);
