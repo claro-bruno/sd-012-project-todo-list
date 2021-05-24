@@ -37,3 +37,27 @@ function removeTudo(){
 			}
 	}
 }
+
+let removeFinalizado = document.getElementById('remover-finalizados');
+removeFinalizado.addEventListener('click', removeRiscado);
+function removeRiscado(){
+	let tarefasCompletas = document.querySelectorAll('.completed')
+	console.log (tarefasCompletas)
+	if (tarefasCompletas.length > 0){
+		for(index = 0; index < tarefasCompletas.length; index +=1){
+			tarefasCompletas[index].remove()
+			}
+	}
+}
+
+let removeSelecionado = document.getElementById('remover-selecionados');
+removeSelecionado.addEventListener('click', retiraSelecionado);
+function retiraSelecionado(){
+	let defineItem = document.querySelectorAll('li')
+	for(index = 0; index < defineItem.length; index +=1){
+		if (defineItem[index].style.backgroundColor === "rgb(128, 128, 128)"){
+		defineItem[index].remove();
+		}
+
+	}
+}
