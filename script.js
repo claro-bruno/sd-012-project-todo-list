@@ -4,7 +4,6 @@ const elementoBotao = document.querySelector('#criar-tarefa');
 
 elementoBotao.addEventListener('click', function(){
   const criaLi = document.createElement('li');
-  criaLista.className = 'completed';
   criaLi.innerText = elementoInput.value;
   elementoLista.appendChild(criaLi);
   elementoInput.value = '';
