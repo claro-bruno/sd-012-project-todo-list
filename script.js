@@ -50,7 +50,7 @@ function removeRiscado(){
 	}
 }
 
-let removeSelecionado = document.getElementById('remover-selecionados');
+let removeSelecionado = document.getElementById('remover-selecionado');
 removeSelecionado.addEventListener('click', retiraSelecionado);
 function retiraSelecionado(){
 	let defineItem = document.querySelectorAll('li')
@@ -67,8 +67,6 @@ let salvaTarefas = document.getElementById('salvar-tarefas');
 		let itens =  document.getElementById('lista-tarefas').innerHTML
 		localStorage.setItem("xablau", itens)
 }
-
-
 		let resultado = localStorage.getItem("xablau")
 		document.getElementById("lista-tarefas").innerHTML = resultado
 		
