@@ -21,3 +21,12 @@ function pintar(evento) {
   evento.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 pintarTarefa.addEventListener('click', pintar);
+
+function taxar(event) {
+  if (event.target.className === 'completed') {
+    event.target.className = '';
+  } else {
+    event.target.className = 'completed';
+  }
+}
+pintarTarefa.addEventListener('dblclick', taxar);
