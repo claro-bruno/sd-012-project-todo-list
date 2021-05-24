@@ -1,21 +1,31 @@
 const elementoLista = document.querySelector('#lista-tarefas');
 const elementoInput = document.querySelector('#texto-tarefa');
 const elementoBotao = document.querySelector('#criar-tarefa');
-const tarefas = [];
-function mostraTarefas (){
-  elementoLista.innerHTML = '';
-  for(tarefa of tarefas){
-    const elementoTarefa = document.createElement('li');
-    const textoTarefa = document.createTextNode(tarefa);
-    elementoTarefa.appendChild(textoTarefa);
-    elementoLista.appendChild(elementoTarefa)
-  }
-}
-mostraTarefas()
-function addTarefa(){
-  const textoTarefa = elementoInput.value;
-  tarefas.push(textoTarefa);
+elementoBotao.addEventListener('click', function(){
+  const criaLi = document.createElement('li');
+  criaLi.innerText = elementoInput.value;
+  elementoLista.appendChild(criaLi);
   elementoInput.value = '';
-  mostraTarefas();
-}
-elementoBotao.setAttribute('onclick', 'addTarefa()');
+  criaLi.addEventListener('click', function(){
+    criaLi.style.backgroundColor = 'rgb(128, 128, 128)';
+  })
+});
+
+
+
+
+
+
+// requisito 9
+function duploClick() {
+
+  let clique = document.getElementById("click-risca");
+  let riscarItem = document.getElementsByClassName("completed");
+    
+  clique.onclick = function(event) {
+  event.preventDefault();
+  style.getElementsByClassName('completed'); 
+ };
+ 
+;}
+

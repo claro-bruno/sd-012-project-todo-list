@@ -28,6 +28,11 @@ body {
     border-radius: 30px;
     padding: 5px;
 }
+/* Utilize a classe CSS "completed" para adicionar o efeito de letra tachada (riscada) às tarefas finalizadas. */
+.completed {
+    text-decoration: line-through;
+}
 
-
-
+#click-risca {
+    display: none;
+}
