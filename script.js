@@ -10,3 +10,14 @@ function criarTarefa() {
 }
 
 button.addEventListener('click', criarTarefa);
+
+const pintarTarefa = document.querySelector('#lista-tarefas');
+
+function pintar(evento) {
+  const tarefaSelecionada = document.querySelectorAll('li');
+  for (let index = 0; index < tarefaSelecionada.length; index += 1) {
+    tarefaSelecionada[index].style.backgroundColor = '';
+  }
+  evento.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+pintarTarefa.addEventListener('click', pintar);
