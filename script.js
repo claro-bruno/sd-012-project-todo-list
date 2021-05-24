@@ -4,6 +4,8 @@ let textoTarefa = document.getElementById('texto-tarefa');
 let apagarTudo = document.getElementById('apaga-tudo');
 let tirarFinalizados = document.getElementById('remover-finalizados')
 let tarefasSalvas = document.getElementById('salvar-tarefas')
+let removarItemSelecionado = document.getElementById('remover-selecionado')
+
 window.onload = () => {
     listaTarefas.innerHTML = localStorage.getItem('lista-tarefas')
 }
@@ -59,3 +61,11 @@ tarefasSalvas.addEventListener('click', () => {
 })
 }
 salvandoTarefas()
+
+function removerItemEscolhido (){
+    removarItemSelecionado.addEventListener('click', () => {
+        let completedRemover = document.querySelector('.addColor')
+        completedRemover.remove()
+    })
+}
+removerItemEscolhido()
