@@ -17,3 +17,14 @@ function mudaCor(event){
 	}
  event.target.style.backgroundColor="rgb(128, 128, 128)";
 }
+
+alteraCor.addEventListener("dblclick", riscaItem);
+function riscaItem(event){
+	// event.target.className="completed";
+	if(event.target.className === "completed"){
+		event.target.className = ""
+	} else{
+		event.target.className = "completed"
+	}
+
+}
