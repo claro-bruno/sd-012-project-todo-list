@@ -58,6 +58,18 @@ function retiraSelecionado(){
 		if (defineItem[index].style.backgroundColor === "rgb(128, 128, 128)"){
 		defineItem[index].remove();
 		}
-
 	}
 }
+
+let salvaTarefas = document.getElementById('salvar-tarefas');
+	salvaTarefas.addEventListener('click', salvaItens);
+	function salvaItens(){
+		let itens =  document.getElementById('lista-tarefas').innerHTML
+		localStorage.setItem("xablau", itens)
+}
+
+
+		let resultado = localStorage.getItem("xablau")
+		document.getElementById("lista-tarefas").innerHTML = resultado
+		
+
