@@ -8,7 +8,6 @@ function criarTarefa() {
   listaTarefas.appendChild(adicionaTarefa);
   document.querySelector('#texto-tarefa').value = '';
 }
-
 button.addEventListener('click', criarTarefa);
 
 const pintarTarefa = document.querySelector('#lista-tarefas');
@@ -39,6 +38,16 @@ function apagarTudo() {
     }
   }
 }
+const botaoApagar = document.querySelector('#apaga-tudo');
+botaoApagar.addEventListener('click', apagarTudo);
 
-  const tarefasGeradas = document.querySelector('#apaga-tudo');
-  tarefasGeradas.addEventListener('click', apagarTudo);
+
+function finalizados(){
+  const selecionaCompletas = document.querySelectorAll('.completed');
+  for (let indexx = 0; indexx < selecionaCompletas.length; indexx += 1){
+    selecionaCompletas[indexx].remove();
+  }
+}
+
+const botaoRemoveFinalizado = document.querySelector('#remover-finalizados');
+botaoRemoveFinalizado.addEventListener('click', finalizados);
