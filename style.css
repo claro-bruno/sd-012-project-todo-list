@@ -1,4 +1,3 @@
-
 /* header {
     background-color: white;
     margin-left: 40px;
@@ -20,14 +19,14 @@ p {
 
 body {
     background-color: teal; */
-}
+/* }
 
 #criar-tarefa {
     margin-top: 40px;
     background-color: orange; 
     border-radius: 30px;
     padding: 5px;
-}
+} */
 /* Utilize a classe CSS "completed" para adicionar o efeito de letra tachada (riscada) às tarefas finalizadas. */
 .completed {
     text-decoration: line-through;
