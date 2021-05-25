@@ -10,27 +10,21 @@ elementoBotao.addEventListener('click', function () {
 
   criaLi.addEventListener('click', function (event) {
     const listaItens = document.querySelectorAll('li');
-    for(let index = 0; index < listaItens.length; index += 1){
-      if(listaItens[index].style.backgroundColor === 'rgb(128, 128, 128)'){
+    for (let index = 0; index < listaItens.length; index += 1) {
+      if (listaItens[index].style.backgroundColor === 'rgb(128, 128, 128)') {
         listaItens[index].style.backgroundColor = '';
-        
+
       }
     }
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    
+
   })
 
   criaLi.addEventListener('dblclick', function (event) {
-    const listaItens = document.querySelectorAll('li');
-    for(let index = 0; index < listaItens.length; index += 1){
-      if(listaItens[index].className === 'completed'){
-        listaItens[index].className = '';
-        console.log('oi');
-      }
+    if (event.target.className === 'completed') {
+      event.target.className = '';
+    } else {
+      event.target.className = 'completed';
     }
-    event.target.className = 'completed';
-    console.log('Duplo Clique')
   })
 });
-
-
