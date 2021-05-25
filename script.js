@@ -31,23 +31,33 @@ function taxar(event) {
 pintarTarefa.addEventListener('dblclick', taxar);
 
 function apagarTudo() {
-  let deletar = document.querySelectorAll('li');
-  if (deletar.length > 0){
-    for(indice = 0; indice < deletar.length; indice += 1){
-      deletar[indice].remove();
+  const deletar = document.querySelectorAll('li');
+  if (deletar.length > 0) {
+    for (let index = 0; index < deletar.length; index += 1) {
+      deletar[index].remove();
     }
   }
 }
 const botaoApagar = document.querySelector('#apaga-tudo');
 botaoApagar.addEventListener('click', apagarTudo);
 
-
-function finalizados(){
+function finalizados() {
   const selecionaCompletas = document.querySelectorAll('.completed');
-  for (let indexx = 0; indexx < selecionaCompletas.length; indexx += 1){
-    selecionaCompletas[indexx].remove();
+  for (let index = 0; index < selecionaCompletas.length; index += 1) {
+    selecionaCompletas[index].remove();
   }
 }
 
 const botaoRemoveFinalizado = document.querySelector('#remover-finalizados');
 botaoRemoveFinalizado.addEventListener('click', finalizados);
+
+function salvaItens() {
+  const tarefas = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.setItem('tarefasSalvar', tarefas);
+}
+
+const botaoSalvar = document.querySelector('#salvar-tarefas');
+botaoSalvar.addEventListener('click', salvaItens);
+
+const resgatar = localStorage.getItem('tarefasSalvar');
+document.getElementById('lista-tarefas').innerHTML = resgatar;
