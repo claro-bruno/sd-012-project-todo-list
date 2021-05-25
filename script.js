@@ -47,10 +47,11 @@ botaoRemoveCompleted.addEventListener('click', function (event) {
 })
 
 botaoRemoverSelecionados.addEventListener('click', function (event) {
-  const listaItensCompleted = document.getElementsByClassName('completed')
-  for (let index = 0; index < listaItensCompleted.length; index += 1) {
-    listaItensCompleted[index].remove();
+  const listaItensSelected = document.querySelectorAll('li')
+  for (let index = 0; index < listaItensSelected.length; index += 1) {
+    if(listaItensSelected[index].style.backgroundColor === 'rgb(128, 128, 128)'){
+      listaItensSelected[index].remove()
+    }
 
-    console.log('se ferrou');
   }
 })
