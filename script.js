@@ -49,16 +49,18 @@ botaoRemoveFinalizados.addEventListener('click', function (event) {
 });
 
 botaoSalvarTarefas.addEventListener('click', function () { 
-    const salavaLista = document.querySelector('ol');
+    const salvaLista = document.querySelector('ol');
     localStorage.setItem('listaSalva', salvaLista.innerHTML);
-
 });
+elementoLista.innerHTML = localStorage.getItem('listaSalva');
+
 
 botaoRemoverSelecionados.addEventListener ('click', function (event) {
     const listaItensSelected = document.querySelectorAll('li') 
-    for (let index = 0; index <listaItensSelected.length; index += 1) {
-        if (listaItensSelected[index].style.backgroundColor === 'rgb (128, 128, 128)') {
+    for (let index = 0; index < listaItensSelected.length; index += 1) {
+        if (listaItensSelected[index].style.backgroundColor === 'rgb(128, 128, 128)') {
             listaItensSelected[index].remove()
+            console.log('oi')
         }
     }
 });
