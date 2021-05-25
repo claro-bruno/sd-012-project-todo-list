@@ -42,7 +42,7 @@ button.addEventListener('click', function () {
 });
 
 botaoRemoveFinalizados.addEventListener('click', function (event) {
-    const listaItensCompleted = document.getElementsByClassName('completed');
+    const listaItensCompleted = document.querySelectorAll('.completed');
     for (let index = 0; index < listaItensCompleted.length; index +=1) {
         listaItensCompleted[index].remove();
     }    
@@ -58,7 +58,7 @@ botaoRemoverSelecionados.addEventListener ('click', function (event) {
     const listaItensSelected = document.querySelectorAll('li') 
     for (let index = 0; index <listaItensSelected.length; index += 1) {
         if (listaItensSelected[index].style.backgroundColor === 'rgb (128, 128, 128)') {
-            listaItensSelected[index].remove ()
+            listaItensSelected[index].remove()
         }
     }
 });
