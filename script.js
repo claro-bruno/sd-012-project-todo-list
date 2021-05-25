@@ -2,7 +2,6 @@ const elementoLista = document.querySelector('#lista-tarefas');
 const elementoInput = document.querySelector('#texto-tarefa');
 const elementoBotao = document.querySelector('#criar-tarefa');
 const botaoRemoveFinalizados = document.querySelector('#remover-finalizados');
-const botaoRemoveCompleted = document.querySelector('li');
 const botaoRemoverSelecionados = document.querySelector('#remover-selecionado');
 const botaoSalvarTarefas = document.querySelector('#salvar-tarefas');
 
@@ -47,13 +46,6 @@ botaoRemoveFinalizados.addEventListener('click', function (event) {
     for (let index = 0; index < listaItensCompleted.length; index +=1) {
         listaItensCompleted[index].remove();
     }    
-});
-
-botaoRemoveCompleted.addEventListener('click', function (event) {
-const listaItensCompleted = document.querySelectorAll('.completed');
-for (let index = 0; index < listaUtensCompleted.length; index += 1) {
-    listaItensCompleted[index].remove();
-}
 });
 
 botaoSalvarTarefas.addEventListener('click', function () { 
