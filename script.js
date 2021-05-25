@@ -3,6 +3,7 @@ const elementoInput = document.querySelector('#texto-tarefa');
 const elementoBotao = document.querySelector('#criar-tarefa');
 const botaoApagaTudo = document.querySelector('#apaga-tudo');
 const botaoRemoveCompleted = document.querySelector('#remover-finalizados');
+const botaoRemoverSelecionados = document.querySelector('#remover-selecionado')
 
 elementoBotao.addEventListener('click', function () {
   const criaLi = document.createElement('li');
@@ -31,17 +32,25 @@ elementoBotao.addEventListener('click', function () {
   })
 });
 
-botaoApagaTudo.addEventListener('click', function(event){
+botaoApagaTudo.addEventListener('click', function (event) {
   const listaItens = document.querySelectorAll('li')
- for(let index = 0; index <listaItens.length; index += 1 ){
-  listaItens[index].remove();
- }
+  for (let index = 0; index < listaItens.length; index += 1) {
+    listaItens[index].remove();
+  }
 })
 
-botaoRemoveCompleted.addEventListener('click', function(event){
+botaoRemoveCompleted.addEventListener('click', function (event) {
   const listaItensCompleted = document.querySelectorAll('.completed')
- for(let index = 0; index <listaItensCompleted.length; index += 1 ){
-  listaItensCompleted[index].remove();
+  for (let index = 0; index < listaItensCompleted.length; index += 1) {
+    listaItensCompleted[index].remove();
+  }
+})
 
- }
+botaoRemoverSelecionados.addEventListener('click', function (event) {
+  const listaItensCompleted = document.getElementsByClassName('completed')
+  for (let index = 0; index < listaItensCompleted.length; index += 1) {
+    listaItensCompleted[index].remove();
+
+    console.log('se ferrou');
+  }
 })
