@@ -56,7 +56,7 @@ for (let index = 0; index < listaUtensCompleted.length; index += 1) {
 }
 });
 
-botaoSalvarTarefas.addEventListener ('click', function () { 
+botaoSalvarTarefas.addEventListener('click', function () { 
     const salavaLista = document.querySelector('ol');
     localStorage.setItem('listaSalva', salvaLista.innerHTML);
 
