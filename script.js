@@ -1,6 +1,7 @@
 const elementoLista = document.querySelector('#lista-tarefas');
 const elementoInput = document.querySelector('#texto-tarefa');
 const elementoBotao = document.querySelector('#criar-tarefa');
+const botaoApagaTudo = document.querySelector('#apaga-tudo');
 
 elementoBotao.addEventListener('click', function () {
   const criaLi = document.createElement('li');
@@ -28,3 +29,10 @@ elementoBotao.addEventListener('click', function () {
     }
   })
 });
+
+botaoApagaTudo.addEventListener('click', function(event){
+  const listaItens = document.querySelectorAll('li')
+ for(let index = 0; index <listaItens.length; index += 1 ){
+  listaItens[index].remove()
+ }
+})
