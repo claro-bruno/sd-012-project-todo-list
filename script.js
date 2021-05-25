@@ -3,7 +3,8 @@ const elementoInput = document.querySelector('#texto-tarefa');
 const elementoBotao = document.querySelector('#criar-tarefa');
 const botaoApagaTudo = document.querySelector('#apaga-tudo');
 const botaoRemoveCompleted = document.querySelector('#remover-finalizados');
-const botaoRemoverSelecionados = document.querySelector('#remover-selecionado')
+const botaoSalvaTarefas = document.querySelector('#salvar-tarefas');
+const botaoRemoverSelecionados = document.querySelector('#remover-selecionado');
 
 elementoBotao.addEventListener('click', function () {
   const criaLi = document.createElement('li');
@@ -45,6 +46,13 @@ botaoRemoveCompleted.addEventListener('click', function (event) {
     listaItensCompleted[index].remove();
   }
 })
+
+botaoSalvaTarefas.addEventListener('click', function(){
+  const salvaLista = document.querySelector('ol');
+  localStorage.setItem('listaSalva', salvaLista.innerHTML);
+})
+
+elementoLista.innerHTML = localStorage.getItem('listaSalva')
 
 botaoRemoverSelecionados.addEventListener('click', function (event) {
   const listaItensSelected = document.querySelectorAll('li')
