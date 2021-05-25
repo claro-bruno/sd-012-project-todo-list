@@ -61,3 +61,15 @@ botaoSalvar.addEventListener('click', salvaItens);
 
 const resgatar = localStorage.getItem('tarefasSalvar');
 document.getElementById('lista-tarefas').innerHTML = resgatar;
+
+function removerSelecionado() {
+  const selecionados = document.querySelectorAll('li');
+  for (let index = 0; index < selecionados.length; index += 1) {
+    if (selecionados[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      selecionados[index].remove();
+    }
+  }
+}
+
+const botaoDeletaSelecionado = document.querySelector('#remover-selecionado');
+botaoDeletaSelecionado.addEventListener('click', removerSelecionado);
