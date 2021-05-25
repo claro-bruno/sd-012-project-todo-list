@@ -33,6 +33,6 @@ elementoBotao.addEventListener('click', function () {
 botaoApagaTudo.addEventListener('click', function(event){
   const listaItens = document.querySelectorAll('li')
  for(let index = 0; index <listaItens.length; index += 1 ){
-  listaItens[index].remove()
+  listaItens[index].remove();
  }
 })
