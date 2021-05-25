@@ -18,14 +18,15 @@ elementoBotao.addEventListener('click', function() {
         event.target.style.backgroundColor = 'rgb(128, 128, 128)';
       };
     });
- });
 
- criaLi.addEventListener('dblclick', function(event) {
-    if (event.target.className === 'completed') {
-      event.target.className = '';
-    } else {
-        event.target.className = 'completed';
-    };
+
+    criaLi.addEventListener('dblclick', function(event) {
+        if (event.target.className === 'completed') {
+        event.target.className = '';
+        } else {
+            event.target.className = 'completed';
+        };
+    });
 });
 
 const button = document.getElementById('apaga-tudo');
@@ -36,4 +37,3 @@ button.addEventListener('click', function () {
   console.log(lista[index])
   };
 });
-
