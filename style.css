@@ -31,3 +31,11 @@ body {
 .completed {
     text-decoration: line-through;
 }
+
+/* 
+buttonRemoveSelecionados.addEventListener('click', function (event) {
+    const listaItensCompleted = document.getElementsByClassName('completed');
+    for (let index = 0; index < listaItensCompleted.length; index +=1) {
+        listaItensCompleted[index].remove();
+    }    
+}); */

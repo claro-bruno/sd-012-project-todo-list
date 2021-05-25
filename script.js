@@ -1,6 +1,9 @@
 const elementoLista = document.querySelector('#lista-tarefas');
 const elementoInput = document.querySelector('#texto-tarefa');
 const elementoBotao = document.querySelector('#criar-tarefa');
+const botaoRemoveFinalizados = document.querySelector('#remover-finalizados');
+const botaoRemoverSelecionados = document.querySelector('#remover-selecionado');
+const botaoSalvarTarefas = document.querySelector('salvar-tarefas');
 
 
 elementoBotao.addEventListener('click', function() {
@@ -36,4 +39,32 @@ button.addEventListener('click', function () {
     lista[index].remove();
   console.log(lista[index])
   };
+});
+
+botaoRemoveFinalizados.addEventListener('click', function (event) {
+    const listaItensCompleted = document.getElementsByClassName('completed');
+    for (let index = 0; index < listaItensCompleted.length; index +=1) {
+        listaItensCompleted[index].remove();
+    }    
+});
+
+
+// botaoSalvarTarefas.addEventListener ('click', function () { 
+//     document.getElementById('remover-finalizados').innerHTML = localStorage.getItem('');
+
+// });
+
+
+
+
+
+
+
+botaoRemoverSelecionados.addEventListener ('click', function (event) {
+    const listaItensSelected = document.querySelectorAll('li') 
+    for (let index = 0; index <listaItensSelected.length; index += 1) {
+        if (listaItensSelected[index].style.backgroundColor === 'rgb (128, 128, 128)') {
+            listaItensSelected[index].remove ()
+        }
+    }
 });
