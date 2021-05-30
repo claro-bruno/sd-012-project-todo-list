@@ -29,11 +29,18 @@ li {
     margin:auto;
     list-style-position: inside;
     line-height: 200%;
-    max-width: 80%;
+    width: 80%;
+}
+#allbuttons {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 80%;
+    justify-content:space-around;
 }
 
 input {
-    width: 50%;
+    width: 70%;
     height: 20px;
     border-style:solid;
     color: #19323c;

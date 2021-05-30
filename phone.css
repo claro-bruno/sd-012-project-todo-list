@@ -1,0 +1,102 @@
+body {
+    background-color: black;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #f2545b;
+    padding: 20px;    
+    color:#fff;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+
+#funcionamento {
+    display:none;
+}
+
+main {
+    background-color: #e1e6e1;
+    padding: 20px 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 70vh;        
+    overflow: auto;
+} 
+
+section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;       
+}
+
+#input {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+}
+
+input {
+    width: 70%;
+    border: #fff;
+    border-width: 0;
+    height: 30px;
+}
+
+#criar-tarefa {
+    width: 30%;
+    height: 30px;    
+}
+
+#remover-cima-baixo {
+    padding: 10px 0;
+    margin: auto;
+    width: 90%;
+    display: flex;
+    justify-content:space-between;
+}
+
+#remover-cima-baixo button {
+    width: 30%;
+}
+
+#botao-apagar-tudo {
+    width: 90%;
+    margin: auto;
+    padding: 10px 0;
+}
+
+#botao-apagar-tudo button {
+    width: 100%;
+}
+
+#botao-remover-finalizados {
+    width: 90%;
+    margin: auto;
+    padding: 10px 0;
+}
+
+#botao-remover-finalizados button {
+    width: 100%;
+}
+
+#salvar-lista {
+    width: 90%;
+    margin: auto;
+    padding: 10px 0;
+}
+
+#salvar-lista button {
+    width: 100%;
+}
