@@ -4,17 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Lista de Tarefas</title>
 </head>
-<body>
-    <header>Minha Lista de Tarefas</header>
+<div class="container container-fluid">
+  <header><h1>Minha Lista de Tarefas</h1></header>
+  <body>
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    <input type="text" id="texto-tarefa">
-    <button id="criar-tarefa">Add Tarefa</button>
-    <ol id="lista-tarefas"></ol>    
-    <button id="apaga-tudo">Limpar</button>
-    <button id="remover-finalizados">Remover finalizados</button>
-</body>
+    <!-- <form class="form-inline"> -->
+      <input type="text" id="texto-tarefa">
+      <button type="button" class="btn btn-success" id="criar-tarefa">Add Tarefa</button>
+    <!-- </form> -->
+    <div>
+      <ol id="lista-tarefas"></ol>
+    </div>
+    <div class="action-buttons">
+      <button type="reset" class="btn btn-danger" id="apaga-tudo">Limpar</button>
+      <button type="button" class="btn btn-warning" id="remover-finalizados">Remover finalizados</button>
+      <button type="button" class="btn btn-primary" id="mover-cima">Move up</button>
+      <button type="button" class="btn btn-primary" id="mover-baixo">Move down</button>
+    </div>
+  </body>
+</div>
 <script src="script.js"></script>
 </html>

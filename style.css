@@ -1,7 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    display: flex;
+    font-size: 25px !important;
+  }
+
+  #funcionamento {
+  color: rgb(226, 222, 222);
+  font-size: 12px;
+  }
+
+  input {
+    max-width: 55%;
+    margin-left: 5%;
+  }
+
+    button {
+    display: flex;
+    margin-left: 2% !important;
+  }
+
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    max-width: 60% !important;
+    margin-left: 20%;
+  }
+
+  #remover-finalizados {
+    margin-top: 5%;
+  }
+
+  #mover-cima {
+    margin-bottom: 5%;
+    margin-top: 5%;
+  }
+
+  #lista-tarefas {
+    margin-left: 15% !important;
+    max-width: 70% !important;
+    line-height: 150% !important;
+  }
+
+  #criar-tarefa {
+    max-width: ;
+  }
+}
+
+h1 {
+  display: flex;
+  margin-top: 5%;
+  justify-content: center;
+  font-size: 50px;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+}
+
+#funcionamento {
+  color: rgb(226, 222, 222);
+  text-align: center;
+}
+
+#lista-tarefas {
+  background-color: rgb(187, 189, 188);
+  border-radius: 10px;
+  margin-top: 25px;
+  max-width: 61%;
+  line-height: 200%;
+}
+
+body {
+  background-color: rgb(57, 86, 122);
+}
+
 .tarefaSelecionada {
   background-color: rgb(128, 128, 128);
 }
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+button {
+  display: flex;
+  margin-left: 25px;
+}
+
+img {
+  position: fixed;
+  left: 60%;
+  top: 27%;
+  width: 30%;
+}
+
+input {
+  border: solid blue;
+  border-radius: 5px;
 }

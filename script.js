@@ -14,15 +14,12 @@ window.onload = function () {
   });
 };
 
-document.addEventListener('click', (event) => {
+ol.addEventListener('click', (event) => {
   const item = event.target;
   const tarefaSelecionada = document.querySelector('.tarefaSelecionada');
-  if (item.className === 'tarefa') {
-    if (tarefaSelecionada !== null) {
-      tarefaSelecionada.classList.remove('tarefaSelecionada');
-      tarefaSelecionada.style.backgroundColor = '#245,245,211';
-    }
-    item.classList.add('tarefaSelecionada');
+  item.classList.toggle('tarefaSelecionada');
+  if (tarefaSelecionada !== null) {
+    tarefaSelecionada.classList.remove('tarefaSelecionada');
   }
 });
 
@@ -58,6 +55,46 @@ completedRemoveButton.addEventListener('click', (event) => {
   //4- remover os itens com classe completed.
   for (let index = 0; index < completedElements.length; index += 1) {
     ol.removeChild(completedElements[index]);
-    }
-  });
-  
+  }
+});
+
+
+//13
+// Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
+//  Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo - ok
+// Capturar o ítem selecionado na lista (clase? event target?)
+// Como mover um ítem de lugar em uma lista? (nextSibling? )
+// Capturar botão de mover pra cima - ok
+// Adicionar um escutador de eventos
+const btMoveUp = document.querySelector('#mover-cima');
+btMoveUp.addEventListener('click', (event) => {
+  // se o elemento selecionado for igual ao firtChild da ol não ative o botão
+  const itemSelected = document.querySelector('.tarefaSelecionada');
+  if (itemSelected === null) {
+    return alert('Não foi possível realizar esta ação. Por favor, selecione um item.');
+  } else if (itemSelected !== ol.firstChild) {
+    // Capturar o elemento selecionado -ok
+    // Capturar o proximo irmão anterior
+    const irmaoPrevious = document.querySelector('.tarefaSelecionada').previousSibling;
+    // move para antes do irmão anterior
+    irmaoPrevious.insertAdjacentElement('beforebegin', itemSelected);
+  } else {
+    alert(`${itemSelected.innerHTML} já está na primeira posição`);
+  }
+});
+const btMoveDown = document.querySelector('#mover-baixo');
+btMoveDown.addEventListener('click', (event) => {
+  // Capturar o elemento selecionado -ok
+  const itemSelected = document.querySelector('.tarefaSelecionada');
+  if (itemSelected === null) {
+    return alert('Não foi possível realizar esta ação. Por favor, selecione um item.');
+  } else if (itemSelected !== ol.lastChild) {
+    // Capturar o proximo irmão
+    const irmaoSelect = document.querySelector('.tarefaSelecionada').nextSibling;
+    // console.log(irmaoSelect);
+    // move para o proximo
+    irmaoSelect.insertAdjacentElement('afterend', itemSelected);
+  } else {
+    alert(`${itemSelected.innerHTML} já está na última posição`);
+  }
+});
