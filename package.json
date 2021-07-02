@@ -16,6 +16,8 @@
     "stylelint-config-standard": "20.0.0"
   },
   "dependencies": {
+    "bootstrap": "^5.0.2",
+    "bootstrap-icons": "^1.5.0",
     "eslint-config-trybe-fundamentals": "^1.1.0"
   },
   "scripts": {
