@@ -7,9 +7,8 @@ body {
 
 header {
   color: #D9D9D9;
-  text-shadow: 0px 0px 3px #A1A5A6;
+  text-shadow: 0px 0px 2px #A1A5A6;
 }
-
 
 .selected{
   background-color: rgb(128, 128, 128);
@@ -20,14 +19,28 @@ header {
 }
 
 button {
-  font-size: medium;
+  font-size: large;
   height: 30px;
   background-color: #F2B138;
   border: solid 1px #353D40;
   border-radius: 6px;
   color: #353D40;
-  font-weight: bold;
-  text-shadow: 0.6px 0.6px 3px white;
+  text-shadow: 0px 0px 1px white;
+}
+
+#apaga-tudo, #remover-finalizados{
+  background-color: #f23838;
+  color: #D9D9D9;
+}
+
+#remover-finalizados {
+  margin-right: 30px;
+}
+
+#salvar-tarefas {
+  background-color: #38f241;
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
 #mover-cima, #mover-baixo {
@@ -36,6 +49,7 @@ button {
 
 #controls-section{
   margin-top: 9px;
+  width: 900px;
 }
 
 .list {
